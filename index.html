@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><span class="green-highlighted-oval-3d">PiCCO</span>nline Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+    <div id="splash-screen">
+        <img src="images/start_screen.svg" alt="PiCCO Manual Splash Screen">
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <header class="main-header">
+            <h1 class="site-title"><a href="/" class="site-title"><span class="green-highlighted-oval-3d">PiCCO</span> - Online Manual</a></h1>
+            <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+        </header>
+
+        <div class="wrapper container">
+            <nav class="main-nav" id="main-nav">
+                <h2>Sections</h2>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+                </div>
+                <ul>
+                    <li><a href="pages/introduction.html">Introduction</a></li>
+                    <li><a href="pages/principles.html">Principles</a></li>
+                    <li><a href="pages/history.html">History</a></li>
+                    <li><a href="pages/equipment.html">Equipment</a></li>
+                    <li><a href="pages/calibration.html">Calibration</a></li>
+                    <li><a href="pages/indications.html">Indications</a></li>
+                    <li><a href="pages/contraindications.html">Contraindications</a></li>
+                    <li><a href="pages/limitations.html">Limitations</a></li>
+                    <li><a href="pages/pediatric.html">Pediatric considerations</a></li>
+                    <li><a href="pages/preload.html">Preload</a></li>
+                    <li><a href="pages/contractility.html">Contractility</a></li>
+                    <li><a href="pages/lungwater.html">Lung water</a></li>
+                    <li><a href="pages/afterload.html">Afterload</a></li>
+                    <li><a href="pages/dynamic.html">Dynamic parameters</a></li>
+                    <li><a href="pages/derived.html">Derived parameters</a></li>
+                    <li><a href="pages/algorithms.html">Algorithms</a></li>
+                    <li><a href="pages/cases.html">Clinical cases</a></li>
+                    <li><a href="pages/errors.html">Errors</a></li>
+                    <li><a href="pages/physiology.html">Physiology</a></li>
+                    <li><a href="pages/reference.html">Reference</a></li>
+                    <li><a href="pages/faq.html">FAQ</a></li>
+                    <li><a href="pages/visualizations.html">Visualizations</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                </ul>
+                
+                <!-- Collapsed menu indicator -->
+                <div class="collapsed-menu-indicator" title="Expand menu">
+                    <span>☰</span>
+                </div>
+            </nav>
+
+            <main class="main-content">
+                <h2>Welcome!</h2>
+                <p>This is an online manual for the <span class="green-highlighted-oval-3d">PiCCO</span> medical device. Use the menu on the left to navigate through the sections.</p>
+                <p>Here you will find information about operating principles, connections, parameter interpretation, and solutions to potential problems.</p>
+                <img src="images/PICCO_screen.svg" alt="PiCCO Screen" style="width: 100%;">
+
+            </main>
+        </div>
+
+        <footer class="main-footer">
+            <div class="container">
+                <p>&copy; 2025 <span class="green-highlighted-oval-3d">PiCCO</span> Online Manual</p>
+            </div>
+        </footer>
+        <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+            <span class="icon-sun">☀️</span>
+            <span class="icon-moon" style="display: none;">🌙</span>
+        </button>
+    </div>
+    <script src="js/search.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById('splash-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

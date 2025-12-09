@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Style Editor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 300px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h2 {
+            margin-bottom: 15px;
+            font-size: 16px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            margin-top: 20px;
+        }
+
+        .sidebar h2:first-child {
+            margin-top: 0;
+        }
+
+        .file-controls {
+            margin-bottom: 20px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-input-label {
+            display: block;
+            padding: 10px;
+            background: #3498db;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .file-input-label:hover {
+            background: #2980b9;
+        }
+
+        .style-btn {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .style-btn:hover {
+            transform: translateX(5px);
+        }
+
+        .style-btn.small-text {
+            font-size: 11px;
+            padding: 8px;
+        }
+
+        .btn-save {
+            background: #27ae60;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .editor-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .toolbar {
+            background: #34495e;
+            padding: 15px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .editor-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        /* СТИЛИ ДЛЯ ПРЕДПРОСМОТРА */
+        
+        /* 1. Highlighted Oval 3D */
+        .gold-highlighted-oval-3d {
+            background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: #333;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(247, 151, 30, 0.3);
+            display: inline-block;
+        }
+
+        .green-highlighted-oval-3d {
+            background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(86, 171, 47, 0.3);
+            display: inline-block;
+        }
+
+        .yellow-highlighted-oval-3d {
+            background: linear-gradient(135deg, #f9d423 0%, #f5b700 100%);
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: #333;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(249, 212, 35, 0.3);
+            display: inline-block;
+        }
+
+        .blue-highlighted-oval-3d {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
+            display: inline-block;
+        }
+
+        .red-highlighted-oval-3d {
+            background: linear-gradient(135deg, #f85032 0%, #e73827 100%);
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(248, 80, 50, 0.3);
+            display: inline-block;
+        }
+
+        .pink-highlighted-oval-3d {
+            background: linear-gradient(135deg, #ff6ec7 0%, #ff1f8f 100%);
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(255, 110, 199, 0.3);
+            display: inline-block;
+        }
+
+        .purple-highlighted-oval-3d {
+            background: linear-gradient(135deg, #9d50bb 0%, #6e48aa 100%);
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(157, 80, 187, 0.3);
+            display: inline-block;
+        }
+
+        .teal-highlighted-oval-3d {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(56, 239, 125, 0.3);
+            display: inline-block;
+        }
+
+        .orange-highlighted-oval-3d {
+            background: linear-gradient(135deg, #fa8c16 0%, #ff6b35 100%);
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(250, 140, 22, 0.3);
+            display: inline-block;
+        }
+
+        .silver-highlighted-oval-3d {
+            background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%);
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: #333;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(189, 195, 199, 0.3);
+            display: inline-block;
+        }
+
+        /* 2. Collapsible Section */
+        details {
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            padding: 5px;
+            background: #f8f9fa;
+            border-radius: 3px;
+        }
+
+        summary:hover {
+            background: #e9ecef;
+        }
+
+        details p {
+            margin-top: 10px;
+        }
+
+        /* 3. Info Boxes */
+        .info-box {
+            background: #ffeaa7;
+            border-left: 4px solid #fdcb6e;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+
+        .info-box-info {
+            background: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+
+        .info-box-info p {
+            color: #1565c0;
+        }
+
+        .info-box-success {
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .info-box-success p {
+            color: #2e7d32;
+        }
+
+        .info-box-warning {
+            background: #fff3cd;
+            border-left-color: #ff9800;
+        }
+
+        .info-box-warning p {
+            color: #e65100;
+        }
+
+        .info-box-danger {
+            background: #ffebee;
+            border-left-color: #f44336;
+        }
+
+        .info-box-danger p {
+            color: #c62828;
+        }
+
+        /* 4. Luminous Blocks */
+        .luminous-block {
+            display: inline-block;
+            padding: 4px 12px;
+            margin: 0 3px;
+            border-radius: 4px;
+            font-weight: 600;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .luminous-blue {
+            background: rgba(33, 150, 243, 0.2);
+            color: #2196f3;
+        }
+
+        .luminous-green {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+
+        .luminous-red {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+        }
+
+        .luminous-yellow {
+            background: rgba(255, 235, 59, 0.3);
+            color: #f57f17;
+        }
+
+        .luminous-purple {
+            background: rgba(156, 39, 176, 0.2);
+            color: #9c27b0;
+        }
+
+        /* 5. Cyber Glitch */
+        .cyber-glitch {
+            position: relative;
+            display: inline-block;
+            font-weight: bold;
+            color: #ff0000;
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        /* 6. Cyber Neon */
+        .cyber-neon {
+            display: inline-block;
+            padding: 5px 15px;
+            font-weight: bold;
+            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+            animation: neon-pulse 2s infinite;
+        }
+
+        @keyframes neon-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .cyber-neon-pink {
+            color: #ff1f8f;
+        }
+
+        .cyber-neon-blue {
+            color: #00d9ff;
+        }
+
+        .cyber-neon-green {
+            color: #39ff14;
+        }
+
+        .cyber-neon-yellow {
+            color: #ffff00;
+        }
+
+        .placeholder {
+            text-align: center;
+            color: #95a5a6;
+            padding: 100px 20px;
+            font-size: 18px;
+        }
+
+        ::selection {
+            background: #3498db;
+            color: white;
+        }
+
+        .status-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .help-text {
+            font-size: 11px;
+            margin-bottom: 12px;
+            color: #bdc3c7;
+            line-height: 1.4;
+        }
+
+        /* Стили для вставленных изображений */
+        .editor-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 15px 0;
+            display: block;
+        }
+
+        /* Стили для таблиц */
+        .editor-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .editor-content table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .editor-content table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            background: white;
+        }
+
+        .editor-content table tr:hover td {
+            background: #f8f9fa;
+        }
+
+        .editor-content table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .modal-content input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .modal-btn-ok {
+            background: #27ae60;
+            color: white;
+        }
+
+        .modal-btn-ok:hover {
+            background: #229954;
+        }
+
+        .modal-btn-cancel {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .modal-btn-cancel:hover {
+            background: #7f8c8d;
+        }
+
+        .hint-text {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>📝 HTML Style Editor</h2>
+        
+        <div class="file-controls">
+            <div class="file-input-wrapper">
+                <input type="file" id="fileInput" accept=".html,.htm">
+                <label for="fileInput" class="file-input-label">📁 Загрузить HTML</label>
+            </div>
+        </div>
+
+        <p class="help-text">💡 Редактор полностью интерактивен: печатайте текст, выделяйте мышкой и применяйте стили!</p>
+
+        <h2>🎨 1. Овальные выделения</h2>
+        <button class="style-btn" style="background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); color: #333;" onclick="applyInlineStyle('gold-highlighted-oval-3d')">🟡 Gold</button>
+        <button class="style-btn" style="background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%); color: white;" onclick="applyInlineStyle('green-highlighted-oval-3d')">🟢 Green</button>
+        <button class="style-btn" style="background: linear-gradient(135deg, #f9d423 0%, #f5b700 100%); color: #333;" onclick="applyInlineStyle('yellow-highlighted-oval-3d')">🟡 Yellow</button>
+        <button class="style-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;" onclick="applyInlineStyle('blue-highlighted-oval-3d')">🔵 Blue</button>
+        <button class="style-btn" style="background: linear-gradient(135deg, #f85032 0%, #e73827 100%); color: white;" onclick="applyInlineStyle('red-highlighted-oval-3d')">🔴 Red</button>
+        <button class="style-btn" style="background: linear-gradient(135deg, #ff6ec7 0%, #ff1f8f 100%); color: white;" onclick="applyInlineStyle('pink-highlighted-oval-3d')">💗 Pink</button>
+        <button class="style-btn" style="background: linear-gradient(135deg, #9d50bb 0%, #6e48aa 100%); color: white;" onclick="applyInlineStyle('purple-highlighted-oval-3d')">🟣 Purple</button>
+        <button class="style-btn" style="background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%); color: white;" onclick="applyInlineStyle('teal-highlighted-oval-3d')">🔷 Teal</button>
+        <button class="style-btn" style="background: linear-gradient(135deg, #fa8c16 0%, #ff6b35 100%); color: white;" onclick="applyInlineStyle('orange-highlighted-oval-3d')">🟠 Orange</button>
+        <button class="style-btn" style="background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%); color: #333;" onclick="applyInlineStyle('silver-highlighted-oval-3d')">⚪ Silver</button>
+
+        <h2>📂 2. Скрытый текст</h2>
+        <button class="style-btn" style="background: #7f8c8d; color: white;" onclick="applyCollapsible()">📋 Collapsible Section</button>
+
+        <h2>📦 3. Инфобоксы</h2>
+        <button class="style-btn" style="background: #ffeaa7; color: #2d3436;" onclick="applyInfoBox('')">📦 Default (Gold)</button>
+        <button class="style-btn" style="background: #e3f2fd; color: #1565c0;" onclick="applyInfoBox('info-box-info')">ℹ️ Info (Blue)</button>
+        <button class="style-btn" style="background: #e8f5e9; color: #2e7d32;" onclick="applyInfoBox('info-box-success')">✅ Success (Green)</button>
+        <button class="style-btn" style="background: #fff3cd; color: #e65100;" onclick="applyInfoBox('info-box-warning')">⚠️ Warning (Yellow)</button>
+        <button class="style-btn" style="background: #ffebee; color: #c62828;" onclick="applyInfoBox('info-box-danger')">🚨 Danger (Red)</button>
+
+        <h2>✨ 4. Luminous Blocks</h2>
+        <button class="style-btn small-text" style="background: rgba(33, 150, 243, 0.2); color: #2196f3;" onclick="applyLuminous('luminous-blue')">💎 Blue</button>
+        <button class="style-btn small-text" style="background: rgba(76, 175, 80, 0.2); color: #4caf50;" onclick="applyLuminous('luminous-green')">💚 Green</button>
+        <button class="style-btn small-text" style="background: rgba(244, 67, 54, 0.2); color: #f44336;" onclick="applyLuminous('luminous-red')">❤️ Red</button>
+        <button class="style-btn small-text" style="background: rgba(255, 235, 59, 0.3); color: #f57f17;" onclick="applyLuminous('luminous-yellow')">💛 Yellow</button>
+        <button class="style-btn small-text" style="background: rgba(156, 39, 176, 0.2); color: #9c27b0;" onclick="applyLuminous('luminous-purple')">💜 Purple</button>
+
+        <h2>🔥 5. Cyber Glitch</h2>
+        <button class="style-btn" style="background: #c0392b; color: white;" onclick="applyCyberGlitch()">⚡ Glitch Effect</button>
+
+        <h2>💫 6. Cyber Neon</h2>
+        <button class="style-btn small-text" style="background: #2c3e50; color: #ff1f8f;" onclick="applyCyberNeon('cyber-neon-pink')">💖 Pink</button>
+        <button class="style-btn small-text" style="background: #2c3e50; color: #00d9ff;" onclick="applyCyberNeon('cyber-neon-blue')">💠 Blue</button>
+        <button class="style-btn small-text" style="background: #2c3e50; color: #39ff14;" onclick="applyCyberNeon('cyber-neon-green')">💚 Green</button>
+        <button class="style-btn small-text" style="background: #2c3e50; color: #ffff00;" onclick="applyCyberNeon('cyber-neon-yellow')">⚡ Yellow</button>
+
+        <h2>🖼️ 7. Вставка изображения</h2>
+        <button class="style-btn" style="background: #9b59b6; color: white;" onclick="insertImage()">📷 Добавить картинку</button>
+
+        <h2>📊 8. Работа с таблицами</h2>
+        <button class="style-btn" style="background: #16a085; color: white;" onclick="convertToTable()">📊 Преобразовать в таблицу</button>
+        <p class="hint-text">Выделите текст со структурированными данными</p>
+
+        <h2>↩️ Управление</h2>
+        <button class="style-btn" style="background: #e74c3c; color: white;" onclick="undo()" id="undoBtn">↩️ Отменить (Ctrl+Z)</button>
+        <p class="hint-text" id="historyCount">История: 0 действий</p>
+
+        <button class="style-btn btn-save" onclick="saveFile()">💾 Сохранить HTML</button>
+    </div>
+
+    <div class="editor-area">
+        <div class="toolbar">
+            <div class="current-file" id="currentFile">Файл не загружен</div>
+            <div style="font-size: 12px; color: #bdc3c7;">✏️ Редактируемый режим</div>
+        </div>
+        <div class="editor-content" id="editorContent" contenteditable="true">
+            <div class="placeholder">
+                👆 Загрузите HTML-файл для начала работы<br>
+                или просто начните печатать здесь!
+            </div>
+        </div>
+    </div>
+
+    <div class="status-message" id="statusMessage"></div>
+
+    <!-- Модальное окно для вставки изображения -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <h3>🖼️ Вставка изображения</h3>
+            <input type="text" id="imageFileName" placeholder="Введите имя файла (например: photo.jpg)">
+            <p class="hint-text">💡 Изображение будет загружено из папки <strong>../images/</strong></p>
+            <input type="text" id="imageAlt" placeholder="Описание изображения (alt text)">
+            <p class="hint-text">Описание для доступности и SEO</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-ok" onclick="confirmImageInsert()">✅ Вставить</button>
+                <button class="modal-btn modal-btn-cancel" onclick="closeImageModal()">❌ Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для создания таблицы -->
+    <div class="modal" id="tableModal">
+        <div class="modal-content">
+            <h3>📊 Преобразование в таблицу</h3>
+            <p class="hint-text">Выбранный текст будет преобразован в таблицу</p>
+            
+            <label style="display: block; margin-top: 15px; color: #2c3e50; font-weight: 600;">Разделитель столбцов:</label>
+            <select id="columnDelimiter" style="width: 100%; padding: 10px; margin-top: 5px; border: 2px solid #bdc3c7; border-radius: 5px;">
+                <option value="\t">Tab (табуляция)</option>
+                <option value=",">Запятая (,)</option>
+                <option value=";">Точка с запятой (;)</option>
+                <option value="|">Вертикальная черта (|)</option>
+                <option value=" ">Пробел</option>
+            </select>
+            
+            <label style="display: block; margin-top: 15px; color: #2c3e50; font-weight: 600;">Разделитель строк:</label>
+            <select id="rowDelimiter" style="width: 100%; padding: 10px; margin-top: 5px; border: 2px solid #bdc3c7; border-radius: 5px;">
+                <option value="\n">Новая строка</option>
+                <option value=".">Точка (.)</option>
+                <option value=";">Точка с запятой (;)</option>
+            </select>
+            
+            <label style="display: block; margin-top: 15px;">
+                <input type="checkbox" id="hasHeader" checked style="margin-right: 8px;">
+                <span style="color: #2c3e50; font-weight: 600;">Первая строка - это заголовок</span>
+            </label>
+            
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-ok" onclick="confirmTableConvert()">✅ Создать таблицу</button>
+                <button class="modal-btn modal-btn-cancel" onclick="closeTableModal()">❌ Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentFileName = '';
+        let originalHtml = '';
+        let history = [];
+        let historyIndex = -1;
+        const MAX_HISTORY = 50;
+
+        // Сохранение состояния в историю
+        function saveState() {
+            const editor = document.getElementById('editorContent');
+            const currentState = editor.innerHTML;
+            
+            // Удаляем все состояния после текущего индекса (если мы откатились назад)
+            history = history.slice(0, historyIndex + 1);
+            
+            // Добавляем новое состояние
+            history.push(currentState);
+            
+            // Ограничиваем размер истории
+            if (history.length > MAX_HISTORY) {
+                history.shift();
+            } else {
+                historyIndex++;
+            }
+            
+            updateHistoryUI();
+        }
+
+        // Обновление UI истории
+        function updateHistoryUI() {
+            const undoBtn = document.getElementById('undoBtn');
+            const historyCount = document.getElementById('historyCount');
+            
+            if (historyIndex > 0) {
+                undoBtn.style.opacity = '1';
+                undoBtn.disabled = false;
+            } else {
+                undoBtn.style.opacity = '0.5';
+                undoBtn.disabled = true;
+            }
+            
+            historyCount.textContent = `История: ${history.length} действий`;
+        }
+
+        // Функция отмены
+        function undo() {
+            if (historyIndex > 0) {
+                historyIndex--;
+                const editor = document.getElementById('editorContent');
+                editor.innerHTML = history[historyIndex];
+                updateHistoryUI();
+                showStatus('↩️ Действие отменено');
+            }
+        }
+
+        // Отслеживание изменений в редакторе
+        let saveStateTimeout;
+        document.getElementById('editorContent').addEventListener('input', function() {
+            clearTimeout(saveStateTimeout);
+            saveStateTimeout = setTimeout(() => {
+                saveState();
+            }, 500); // Сохраняем через 500мс после последнего изменения
+        });
+
+        // Горячая клавиша Ctrl+Z / Cmd+Z
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey) {
+                e.preventDefault();
+                undo();
+            }
+        });
+
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            currentFileName = file.name;
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const content = e.target.result;
+                originalHtml = content;
+                
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(content, 'text/html');
+                const bodyContent = doc.body.innerHTML;
+                
+                document.getElementById('editorContent').innerHTML = bodyContent;
+                document.getElementById('currentFile').textContent = currentFileName;
+                showStatus('✅ Файл загружен успешно!');
+                
+                // Сохраняем начальное состояние в историю
+                history = [bodyContent];
+                historyIndex = 0;
+                updateHistoryUI();
+            };
+            
+            reader.readAsText(file);
+        });
+
+        // Для inline-стилей (span)
+        function applyInlineStyle(className) {
+            const selection = window.getSelection();
+            if (!selection.rangeCount || selection.toString().trim() === '') {
+                alert('⚠️ Сначала выделите текст!');
+                return;
+            }
+
+            const range = selection.getRangeAt(0);
+            const span = document.createElement('span');
+            span.className = className;
+            
+            range.surroundContents(span);
+            selection.removeAllRanges();
+            
+            saveState();
+            showStatus(`✨ Применен: ${className}`);
+        }
+
+        // Для luminous blocks
+        function applyLuminous(colorClass) {
+            const selection = window.getSelection();
+            if (!selection.rangeCount || selection.toString().trim() === '') {
+                alert('⚠️ Сначала выделите текст!');
+                return;
+            }
+
+            const range = selection.getRangeAt(0);
+            const span = document.createElement('span');
+            span.className = 'luminous-block ' + colorClass;
+            
+            range.surroundContents(span);
+            selection.removeAllRanges();
+            
+            saveState();
+            showStatus(`✨ Luminous: ${colorClass}`);
+        }
+
+        // Для cyber neon
+        function applyCyberNeon(colorClass) {
+            const selection = window.getSelection();
+            if (!selection.rangeCount || selection.toString().trim() === '') {
+                alert('⚠️ Сначала выделите текст!');
+                return;
+            }
+
+            const range = selection.getRangeAt(0);
+            const span = document.createElement('span');
+            span.className = 'cyber-neon ' + colorClass;
+            
+            range.surroundContents(span);
+            selection.removeAllRanges();
+            
+            saveState();
+            showStatus(`⚡ Cyber Neon: ${colorClass}`);
+        }
+
+        // Для cyber glitch
+        function applyCyberGlitch() {
+            const selection = window.getSelection();
+            if (!selection.rangeCount || selection.toString().trim() === '') {
+                alert('⚠️ Сначала выделите текст!');
+                return;
+            }
+
+            const range = selection.getRangeAt(0);
+            const text = selection.toString();
+            const span = document.createElement('span');
+            span.className = 'cyber-glitch';
+            span.setAttribute('data-text', text);
+            span.textContent = text;
+            
+            range.deleteContents();
+            range.insertNode(span);
+            selection.removeAllRanges();
+            
+            saveState();
+            showStatus('⚡ Glitch эффект применен!');
+        }
+
+        // Для collapsible section
+        function applyCollapsible() {
+            const selection = window.getSelection();
+            if (!selection.rangeCount || selection.toString().trim() === '') {
+                alert('⚠️ Сначала выделите текст!\n\nСовет: Первая строка станет заголовком (summary), остальное - содержимым.');
+                return;
+            }
+
+            const range = selection.getRangeAt(0);
+            const text = selection.toString();
+            const lines = text.split('\n');
+            
+            const summary = lines[0] || 'Заголовок';
+            const content = lines.slice(1).join('\n') || 'Содержимое';
+            
+            const details = document.createElement('details');
+            const summaryEl = document.createElement('summary');
+            const h3 = document.createElement('h3');
+            h3.textContent = summary;
+            summaryEl.appendChild(h3);
+            const p = document.createElement('p');
+            p.textContent = content;
+            
+            details.appendChild(summaryEl);
+            details.appendChild(p);
+            
+            range.deleteContents();
+            range.insertNode(details);
+            selection.removeAllRanges();
+            
+            saveState();
+            showStatus('📂 Collapsible section создан!');
+        }
+
+        // Для info box
+        function applyInfoBox(extraClass) {
+            const selection = window.getSelection();
+            if (!selection.rangeCount || selection.toString().trim() === '') {
+                alert('⚠️ Сначала выделите текст!');
+                return;
+            }
+
+            const range = selection.getRangeAt(0);
+            const text = selection.toString();
+            
+            const div = document.createElement('div');
+            div.className = extraClass ? 'info-box ' + extraClass : 'info-box';
+            const p = document.createElement('p');
+            p.textContent = text;
+            div.appendChild(p);
+            
+            range.deleteContents();
+            range.insertNode(div);
+            selection.removeAllRanges();
+            
+            saveState();
+            showStatus('📦 Info Box создан!');
+        }
+
+        function saveFile() {
+            if (!currentFileName) {
+                const confirmed = confirm('⚠️ Файл не был загружен. Сохранить как "edited.html"?');
+                if (!confirmed) return;
+                currentFileName = 'edited.html';
+            }
+
+            const content = document.getElementById('editorContent').innerHTML;
+            
+            // Оборачиваем все таблицы в div.table-wrapper
+            let modifiedContent = content.replace(/<table\b([^>]*)>/gi, '<div class="table-wrapper"><table class="scenario-table"$1>');
+            modifiedContent = modifiedContent.replace(/<\/table>/gi, '</table></div>');
+            
+            let fullHtml;
+            if (originalHtml) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(originalHtml, 'text/html');
+                doc.body.innerHTML = modifiedContent;
+                
+                // Убираем все встроенные стили из head, оставляем только ссылку на main.css
+                const existingStyles = doc.querySelectorAll('style');
+                existingStyles.forEach(style => style.remove());
+                
+                if (!doc.querySelector('link[href*="main.css"]')) {
+                    const link = doc.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = '../main.css';
+                    doc.head.appendChild(link);
+                }
+                
+                fullHtml = '<!DOCTYPE html>\n' + doc.documentElement.outerHTML;
+            } else {
+                fullHtml = `<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edited Page</title>
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+${modifiedContent}
+</body>
+</html>`;
+            }
+            
+            const blob = new Blob([fullHtml], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = currentFileName;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showStatus('💾 Файл сохранен: ' + currentFileName);
+        }
+
+        // Функции для вставки изображения
+        function insertImage() {
+            document.getElementById('imageModal').style.display = 'flex';
+            document.getElementById('imageFileName').focus();
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+            document.getElementById('imageFileName').value = '';
+            document.getElementById('imageAlt').value = '';
+        }
+
+        function confirmImageInsert() {
+            const fileName = document.getElementById('imageFileName').value.trim();
+            
+            if (!fileName) {
+                alert('⚠️ Введите имя файла!');
+                return;
+            }
+
+            const altText = document.getElementById('imageAlt').value.trim() || fileName;
+            const imagePath = '../images/' + fileName;
+            
+            const editor = document.getElementById('editorContent');
+            const selection = window.getSelection();
+            
+            const img = document.createElement('img');
+            img.src = imagePath;
+            img.alt = altText;
+            img.style.maxWidth = '100%';
+            img.style.height = 'auto';
+            
+            // Вставляем изображение
+            if (selection.rangeCount > 0) {
+                try {
+                    const range = selection.getRangeAt(0);
+                    range.deleteContents();
+                    
+                    // Создаем обертку для изображения
+                    const wrapper = document.createElement('div');
+                    wrapper.appendChild(img);
+                    wrapper.appendChild(document.createElement('br'));
+                    
+                    range.insertNode(wrapper);
+                    
+                    // Перемещаем курсор после изображения
+                    range.setStartAfter(wrapper);
+                    range.collapse(true);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                } catch (e) {
+                    // Если не удалось вставить через range, добавляем в конец
+                    editor.appendChild(img);
+                    editor.appendChild(document.createElement('br'));
+                }
+            } else {
+                editor.appendChild(img);
+                editor.appendChild(document.createElement('br'));
+            }
+            
+            closeImageModal();
+            saveState();
+            showStatus('🖼️ Изображение добавлено: ' + fileName);
+        }
+
+        // Обработка Enter в модальном окне
+        document.getElementById('imageFileName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                confirmImageInsert();
+            }
+        });
+
+        document.getElementById('imageAlt').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                confirmImageInsert();
+            }
+        });
+
+        // Функции для работы с таблицами
+        let selectedTextForTable = '';
+        let tableRange = null;
+
+        function convertToTable() {
+            const selection = window.getSelection();
+            if (!selection.rangeCount || selection.toString().trim() === '') {
+                alert('⚠️ Сначала выделите текст с данными!');
+                return;
+            }
+
+            selectedTextForTable = selection.toString();
+            tableRange = selection.getRangeAt(0);
+            
+            // Автоматически определяем разделитель
+            const text = selectedTextForTable;
+            if (text.includes('\t')) {
+                document.getElementById('columnDelimiter').value = '\t';
+            } else if (text.includes('|')) {
+                document.getElementById('columnDelimiter').value = '|';
+            } else if (text.includes(',')) {
+                document.getElementById('columnDelimiter').value = ',';
+            }
+            
+            document.getElementById('tableModal').style.display = 'flex';
+        }
+
+        function closeTableModal() {
+            document.getElementById('tableModal').style.display = 'none';
+            selectedTextForTable = '';
+            tableRange = null;
+        }
+
+        function confirmTableConvert() {
+            if (!selectedTextForTable || !tableRange) {
+                alert('⚠️ Ошибка: текст не выделен!');
+                return;
+            }
+
+            const columnDelim = document.getElementById('columnDelimiter').value.replace('\\t', '\t').replace('\\n', '\n');
+            const rowDelim = document.getElementById('rowDelimiter').value.replace('\\n', '\n');
+            const hasHeader = document.getElementById('hasHeader').checked;
+
+            // Разбиваем текст на строки и столбцы
+            const rows = selectedTextForTable.split(rowDelim).map(r => r.trim()).filter(r => r);
+            
+            if (rows.length === 0) {
+                alert('⚠️ Не удалось разобрать данные. Проверьте разделители.');
+                return;
+            }
+
+            // Создаем таблицу
+            const table = document.createElement('table');
+            
+            rows.forEach((rowText, rowIndex) => {
+                const cells = rowText.split(columnDelim).map(c => c.trim());
+                const row = document.createElement('tr');
+                
+                cells.forEach(cellText => {
+                    let cell;
+                    if (rowIndex === 0 && hasHeader) {
+                        cell = document.createElement('th');
+                    } else {
+                        cell = document.createElement('td');
+                    }
+                    cell.textContent = cellText;
+                    row.appendChild(cell);
+                });
+                
+                table.appendChild(row);
+            });
+
+            // Вставляем таблицу
+            tableRange.deleteContents();
+            tableRange.insertNode(table);
+            
+            window.getSelection().removeAllRanges();
+            closeTableModal();
+            saveState();
+            showStatus('📊 Таблица создана!');
+        }
+
+        function showStatus(message) {
+            const status = document.getElementById('statusMessage');
+            status.textContent = message;
+            status.style.display = 'block';
+            
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
