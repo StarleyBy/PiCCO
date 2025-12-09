@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>PiCCO Hemodynamic Visualizations and Diagrams</h2>
+            <p>This section presents key visual materials illustrating the physiological concepts, parameters, and algorithms used in PiCCO monitoring.</p>
+
+            <h3>Key Schemes and Diagrams</h3>
+            <p>Since this site is static, visual materials are presented as schematic descriptions that can be used to find corresponding illustrations or for better understanding of concepts.</p>
+
+            <h4>1. Frank-Starling Curve</h4>
+            <p><strong>Purpose:</strong> Illustration of the fundamental relationship between preload stretch of cardiac muscle and contractile force.</p>
+            <ul>
+                <li><strong>Components:</strong>
+                    <ul>
+                        <li><strong>X-Axis (Horizontal):</strong> <strong>Preload</strong> (End-diastolic volume or GEDVI)</li>
+                        <li><strong>Y-Axis (Vertical):</strong> <strong>Stroke Volume (SV)</strong> or <strong>Cardiac Index (CI)</strong></li>
+                        <li><strong>Ascending limb:</strong> Region where the heart is preload-dependent. Volume increase leads to significant SV increase.</li>
+                        <li><strong>Plateau:</strong> Region where the heart is preload-independent. Further volume increase does not lead to significant SV increase.</li>
+                    </ul>
+                </li>
+                <li><strong>Clinical significance:</strong> <strong>SVV</strong> and <strong>PPV</strong> help determine if the patient is on the ascending segment (fluid responsive) or plateau (non-responsive).</li>
+            </ul>
+
+            <h4>2. DO2/VO2 Curve (Oxygen Delivery/Consumption)</h4>
+            <p><strong>Purpose:</strong> Shows the balance between oxygen delivery (DO2) and consumption (VO2) in tissues.</p>
+            <ul>
+                <li><strong>Components:</strong>
+                    <ul>
+                        <li><strong>X-Axis (Horizontal):</strong> <strong>Oxygen delivery (DO2)</strong></li>
+                        <li><strong>Y-Axis (Vertical):</strong> <strong>Oxygen consumption (VO2)</strong></li>
+                        <li><strong>Supply-independent zone:</strong> Region where VO2 remains constant despite moderate changes in DO2. Tissues use only what they need.</li>
+                        <li><strong>Critical point:</strong> Point where DO2 is too low to sustain VO2 demand. Oxygen extraction reserve is exhausted.</li>
+                        <li><strong>Supply-dependent zone:</strong> Region where any further reduction in DO2 causes direct VO2 reduction, leading to anaerobic metabolism.</li>
+                    </ul>
+                </li>
+                <li><strong>Clinical significance:</strong> In shock, patients are supply-dependent, leading to lactate elevation.</li>
+            </ul>
+
+            <h4>3. PiCCO Shock Matrix (CI vs. SVRI)</h4>
+            <p><strong>Purpose:</strong> Simplified two-dimensional matrix for classifying shock types by primary hemodynamic parameters.</p>
+            <ul>
+                <li><strong>Components:</strong>
+                    <ul>
+                        <li><strong>Y-Axis (Vertical):</strong> <strong>Cardiac Index (CI)</strong></li>
+                        <li><strong>X-Axis (Horizontal):</strong> <strong>Systemic Vascular Resistance Index (SVRI)</strong></li>
+                        <li><strong>Upper-left quadrant:</strong> <strong>CI ↑</strong> and <strong>SVRI ↓</strong> → <strong>Distributive shock</strong> (e.g., sepsis)</li>
+                        <li><strong>Lower-left quadrant:</strong> <strong>CI ↓</strong> and <strong>SVRI ↓</strong> → <strong>Absolute hypovolemia</strong> or <strong>Anaphylactic/Neurogenic shock</strong></li>
+                        <li><strong>Lower-right quadrant:</strong> <strong>CI ↓</strong> and <strong>SVRI ↑</strong> → <strong>Cardiogenic shock</strong> or <strong>Delayed hypovolemic</strong></li>
+                        <li><strong>Upper-right quadrant:</strong> <strong>CI ↑</strong> and <strong>SVRI ↑</strong> → <strong>Compensatory/Over-resuscitation</strong></li>
+                    </ul>
+                </li>
+                <li><strong>Clinical significance:</strong> Helps quickly identify shock type and determine the primary therapeutic focus.</li>
+            </ul>
+
+            <h4>4. Pulmonary Edema Diagnostic Matrix (EVLWI vs. PVPI)</h4>
+            <p><strong>Purpose:</strong> Determining the cause of pulmonary edema by two key PiCCO parameters.</p>
+            <ul>
+                <li><strong>Components:</strong>
+                    <ul>
+                        <li><strong>Y-Axis (Vertical):</strong> <strong>Extravascular Lung Water Index (EVLWI)</strong></li>
+                        <li><strong>X-Axis (Horizontal):</strong> <strong>Pulmonary Vascular Permeability Index (PVPI)</strong></li>
+                        <li><strong>High EVLWI + Normal PVPI:</strong> <strong>Hydrostatic edema</strong> (e.g., cardiogenic) → <strong>Treatment: Diuretics/Fluid removal</strong></li>
+                        <li><strong>High EVLWI + High PVPI:</strong> <strong>Permeability edema</strong> (e.g., ARDS/Sepsis) → <strong>Treatment: Fluid restriction</strong></li>
+                        <li><strong>Normal EVLWI:</strong> <strong>No significant pulmonary edema</strong></li>
+                    </ul>
+                </li>
+                <li><strong>Clinical significance:</strong> Determines fluid management strategy in presence of pulmonary dysfunction.</li>
+            </ul>
+
+            <h4>5. PiCCO Monitoring Scheme (Catheter Placement)</h4>
+            <p><strong>Purpose:</strong> Shows proper anatomical placement and connection of PiCCO system components.</p>
+            <ul>
+                <li><strong>Elements:</strong>
+                    <ul>
+                        <li><strong>Central Venous Catheter (CVC):</strong> Tip in right atrium (RA) or superior vena cava (SVC) → for cold indicator injection</li>
+                        <li><strong>PiCCO Arterial Catheter:</strong> Specialized catheter with thermistor at tip placed in <strong>descending aorta</strong> (usually via femoral artery) → for temperature signal detection</li>
+                        <li><strong>Pressure transducer:</strong> Connected to arterial line → for arterial pressure measurement and pulse contour analysis</li>
+                        <li><strong>Injection temperature sensor:</strong> On CVC injection line → for injection temperature measurement</li>
+                    </ul>
+                </li>
+                <li><strong>Clinical significance:</strong> Proper placement is critical for measurement accuracy.</li>
+            </ul>
+
+            <h3>Algorithm Schematics</h3>
+            <p>Visualization of clinical algorithms used in PiCCO monitoring.</p>
+
+            <h4>1. Volume Responsiveness Assessment Algorithm (SVV/PPV)</h4>
+            <ol>
+                <li><strong>Start:</strong> Patient stability assessment (MAP < 65 mmHg or CI < 2.5 L/min/m²)</li>
+                <li><strong>SVV/PPV validity check:</strong>
+                    <ul>
+                        <li>Mechanical ventilation?</li>
+                        <li>Tidal volume VT ≥ 8 mL/kg?</li>
+                        <li>Regular rhythm?</li>
+                    </ul>
+                </li>
+                <li><strong>If valid:</strong> Check SVV/PPV
+                    <ul>
+                        <li><strong>If SVV > 13%:</strong> <strong>Fluid responsive</strong> → Give fluid challenge (250 mL)</li>
+                        <li><strong>If SVV ≤ 9%:</strong> <strong>Not responsive</strong> → No fluid, proceed to SVRI/CFI assessment</li>
+                    </ul>
+                </li>
+                <li><strong>If invalid:</strong> Use GEDVI as static guide</li>
+            </ol>
+
+            <h4>2. Shock Diagnosis Algorithm</h4>
+            <ol>
+                <li><strong>Goal:</strong> Maintain MAP ≥ 65 mmHg and CI ≥ 2.5 L/min/m²</li>
+                <li><strong>Determine primary failure point:</strong>
+                    <ul>
+                        <li><strong>If CI ≥ 2.5:</strong> Perfusion adequate → MAP management via SVRI (Step 3)</li>
+                        <li><strong>If CI < 2.5:</strong> Flow insufficiency → Pump management (Step 4)</li>
+                    </ul>
+                </li>
+                <li><strong>Resistance management (MAP/SVRI):</strong>
+                    <ul>
+                        <li><strong>If SVRI < 1700:</strong> <strong>Vasopressors</strong> (norepinephrine) to increase SVRI</li>
+                        <li><strong>If SVRI > 2500:</strong> <strong>Vasodilators</strong> if needed (decrease SVRI)</li>
+                    </ul>
+                </li>
+                <li><strong>Pump management (CI/CFI):</strong>
+                    <ul>
+                        <li><strong>If CFI ≥ 4.5 and SVRI > 2500:</strong> Problem - high afterload → Decrease SVRI (Step 3)</li>
+                        <li><strong>If CFI < 4.5:</strong> <strong>Inotropic support</strong> (dobutamine) to increase CFI</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>3. Pulmonary Edema Diagnosis Algorithm</h4>
+            <ol>
+                <li><strong>Initial check:</strong> EVLWI > 7.0 mL/kg? (edema present)</li>
+                <li><strong>Determine cause (EVLWI and PVPI):</strong>
+                    <ul>
+                        <li><strong>If PVPI > 1.7:</strong> <strong>Permeability edema</strong> (ARDS/Sepsis) → <strong>Fluid restriction</strong></li>
+                        <li><strong>If PVPI ≤ 1.7:</strong> <strong>Hydrostatic edema</strong> (volume/pressure) → <strong>Diuretics/Removal</strong></li>
+                    </ul>
+                </li>
+                <li><strong>Reassessment:</strong> Monitor EVLWI daily, aim for negative balance until EVLWI normalization.</li>
+            </ol>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

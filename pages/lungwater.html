@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Water - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;70&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>Extravascular Lung Water: EVLWI Index and Pulmonary Vascular Permeability Index (PVPI)</h2>
+            <p>The Extravascular Lung Water Index (EVLWI) is a unique parameter provided by the PiCCO system for objective, quantitative determination of pulmonary edema.</p>
+
+            <h3>Definition and Measurement of EVLWI</h3>
+            <p><strong>Extravascular Lung Water (EVLW)</strong> is the absolute mass of fluid that has accumulated in the lungs outside the vascular space (i.e., in the interstitium and alveoli). It represents the true measurement of <strong>pulmonary edema</strong> and is the target for de-resuscitation and fluid restriction in patients with lung injury.</p>
+
+            <p>The indexed form, <strong>Extravascular Lung Water Index (EVLWI)</strong>, is EVLW divided by the patient's <strong>predicted body weight (PBW)</strong> or <strong>ideal body weight (IBW)</strong>, expressed in ml/kg. This indexing is necessary to prevent distortion in obese or edematous patients.</p>
+
+            <h4>Measurement by Transpulmonary Thermodilution (TPTD)</h4>
+            <p>EVLW is measured intermittently during <strong>transpulmonary thermodilution (TPTD)</strong> calibration.</p>
+            <ol>
+                <li><strong>Thermal Indicator:</strong> As the cold indicator passes through the lungs, some of the thermal energy exchanges with the extravascular lung water</li>
+                <li><strong>Downslope Time (DST):</strong> The system analyzes the specific characteristics of the thermal curve's downslope, including the <strong>Lung Thermal Volume (PTV)</strong>. Slow heat exchange with water outside the vessels extends the time required for the thermal signal to decay</li>
+                <li><strong>Calculation:</strong> EVLW is calculated based on the difference between the total thermal volume (PTV) and the total blood volume in the lungs (ITBV - GEDV)</li>
+            </ol>
+            <p>EVLW = PTV - (ITBV - GEDV)</p>
+
+            <h3>Clinical Significance: Superior Assessment of Edema</h3>
+            <p>EVLWI is a powerful tool because it is an objective, quantitative, and global measurement of pulmonary edema.</p>
+            <ul>
+                <li><strong>Superiority over Chest X-ray and PCWP:</strong>
+                    <ul>
+                        <li><strong>Chest X-ray:</strong> Subjective, slow to change, and requires large fluid accumulation (>30%) for visual detection</li>
+                        <li><strong>PCWP (Pulmonary Capillary Wedge Pressure):</strong> Measures only hydrostatic pressure. EVLW can be high even with normal PCWP (e.g., in ARDS or capillary leak)</li>
+                    </ul>
+                </li>
+                <li><strong>Guidance for Fluid Restriction in ARDS:</strong> In patients with <strong>ARDS (Acute Respiratory Distress Syndrome)</strong>, the goal is often to maintain the lowest possible EVLWI compatible with adequate systemic flow</li>
+                <li><strong>Safety Check for Fluid Therapy:</strong> EVLWI serves as a critical <strong>safety parameter</strong> for fluid protocols, warning the physician when aggressive fluid resuscitation primarily contributes to pulmonary congestion rather than systemic flow</li>
+            </ul>
+
+            <h3>Normal Range and Interpretation</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>EVLWI Range (ml/kg PBW)</th>
+                        <th>Clinical Interpretation</th>
+                        <th>Clinical Consequence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Normal</strong></td>
+                        <td><strong>3.0 - 7.0</strong></td>
+                        <td>Optimal fluid balance in the lungs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mild Edema</strong></td>
+                        <td><strong>7.0 - 10.0</strong></td>
+                        <td>Early/subclinical edema; requires careful fluid management</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Moderate Edema</strong></td>
+                        <td><strong>10.0 - 15.0</strong></td>
+                        <td>Significant pulmonary edema; strong indication for fluid restriction or removal (diuretics/RRT)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Severe Edema</strong></td>
+                        <td><strong>>15.0</strong></td>
+                        <td>Life-threatening pulmonary edema; associated with high mortality and severe PaO2/FiO2 impairment</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Pulmonary Vascular Permeability Index (PVPI)</h3>
+            <p>PVPI is a sophisticated derived parameter used to assist in differentiating the cause of pulmonary edema: whether it is primarily <strong>hydrostatic</strong> (pressure-driven) or <strong>capillary leak</strong> (permeability).</p>
+
+            <h4>Definition and Calculation</h4>
+            <p>PVPI is the ratio of indexed extravascular lung water (EVLWI) to indexed intrathoracic blood volume (ITBVI):</p>
+            <p>PVPI = EVLWI / ITBVI</p>
+            <ul>
+                <li><strong>Rationale:</strong> This ratio compares the volume of fluid <em>outside</em> the vessels (EVLWI) with the volume of blood <em>inside</em> the central vessels (ITBVI). If PVPI is high, it suggests that fluid is leaving the vessels disproportionately to the volume of blood inside, indicating a <strong>permeability problem</strong>. If PVPI is normal, the edema is likely due to hydrostatic forces (high pressure)</li>
+            </ul>
+
+            <h4>Normal Range and Cautious Interpretation</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>PVPI Range</th>
+                        <th>Clinical Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Optimal</strong></td>
+                        <td><strong>1.0 - 1.7</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>High</strong></td>
+                        <td><strong>>1.7</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Causes of High PVPI</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Condition</th>
+                        <th>EVLWI</th>
+                        <th>ITBVI</th>
+                        <th>Expected PVPI</th>
+                        <th>Primary Mechanism</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cardiogenic Edema</strong></td>
+                        <td>Often High</td>
+                        <td>High</td>
+                        <td><strong>Normal (&le; 1.7)</strong></td>
+                        <td>Increased hydrostatic pressure due to heart failure (High ITBVI)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ARDS / Capillary Leak</strong></td>
+                        <td>Often High</td>
+                        <td>Normal or Low</td>
+                        <td><strong>High (>1.7)</strong></td>
+                        <td>Capillary permeability damage allows protein-rich fluid to leak out (High EVLWI relative to ITBVI)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Understanding these parameters allows physicians to accurately identify the cause of pulmonary edema and apply appropriate therapy - fluid restriction for permeability or diuretics for hydrostatic edema.</p>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

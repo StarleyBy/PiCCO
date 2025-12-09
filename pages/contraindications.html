@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contraindications - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>Contraindications for PiCCO Monitoring</h2>
+            <p>PiCCO method application is limited by conditions that violate the fundamental assumptions of <strong>transpulmonary thermodilution (TPTD)</strong> or <strong>pulse contour analysis (PCA)</strong>.</p>
+
+            <h3>Absolute Contraindications</h3>
+            <p>These conditions fundamentally make TPTD measurement invalid, making the derived cardiac output (CO), volume (GEDV), and lung water (EVLW) values unreliable, regardless of calibration:</p>
+            <ul>
+                <li><strong>Significant intracardiac shunts (left-to-right or right-to-left):</strong> Shunts drastically alter the path and mixing of the cold indicator.
+                    <ul>
+                        <li><em>Effect:</em> The calculated CO_TPTD will be unreliable, and the thermodilution curve will be severely distorted, invalidating volume measurements</li>
+                    </ul>
+                </li>
+                <li><strong>Severe aortic and/or mitral regurgitation:</strong> Severe valvular insufficiency causes significant backflow of blood, leading to recirculation of the thermal indicator in the ventricles and proximal large vessels.
+                    <ul>
+                        <li><em>Effect:</em> The TPTD curve will have prolonged downslope and recirculation artifacts, leading to <strong>falsely high GEDV and ITBV values</strong></li>
+                    </ul>
+                </li>
+                <li><strong>Use of assist devices: CPB (cardiopulmonary bypass), ECMO / VAD (ventricular assist device):</strong> These systems create large extracorporeal shunts and circuits that completely bypass the cardiopulmonary circulation and violate the closed-loop assumptions for TPTD.
+                    <ul>
+                        <li><em>Effect:</em> PiCCO is <strong>invalid</strong> when the entire circulation does not pass through the indicator</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Relative Contraindications</h3>
+            <p>These conditions increase technical risk or limit the utility of specific parameters:</p>
+            <ul>
+                <li><strong>Vascular injury or disease at insertion site:</strong> Severe peripheral arterial occlusive disease, local infection, or recent vascular surgery (e.g., iliac or femoral surgery) contraindicate safe insertion of the arterial catheter</li>
+                <li><strong>Severe arrhythmias (e.g., atrial fibrillation, frequent PVCs):</strong> PCA relies on a relatively consistent beat-to-beat output.
+                    <ul>
+                        <li><em>Effect:</em> Although PCCO can still be monitored as an average, the dynamic indices (SVV and PPV) become <strong>unreliable and should not be used</strong> for fluid management</li>
+                    </ul>
+                </li>
+                <li><strong>Aortic counterpulsation (IABP):</strong> The mechanical action of the IABP balloon severely distorts the arterial pressure waveform.
+                    <ul>
+                        <li><em>Effect:</em> <strong>PCA becomes completely invalid.</strong> TPTD can still be performed for intermittent calibration, but continuous PCCO cannot be trusted</li>
+                    </ul>
+                </li>
+                <li><strong>Open chest cavity (open-heart surgery):</strong> Violates the intrathoracic volume assumptions.
+                    <ul>
+                        <li><em>Effect:</em> GEDV and EVLWI readings are highly questionable and often unreliable</li>
+                    </ul>
+                </li>
+            </ul>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

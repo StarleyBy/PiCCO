@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afterload - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title"><span class="green-highlighted-oval-3d">PiCCO</span> - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>Afterload Assessment: Systemic Vascular Resistance Index (<span class="blue-highlighted-oval-3d">SVRI</span>)</h2>
+            
+            <div class="info-box info-box-info">
+                <p>The Systemic Vascular Resistance Index (<span class="blue-highlighted-oval-3d">SVRI</span>) is the primary hemodynamic parameter used to quantitatively assess afterload - the cumulative resistance the heart (particularly the left ventricle) must overcome to eject blood into the systemic circulation.</p>
+            </div>
+
+            <h3>Definition and Calculation</h3>
+            
+            <h4><details open><summary>Definition</summary>
+                <p><strong>Systemic Vascular Resistance (<span class="blue-highlighted-oval-3d">SVR</span>)</strong> is the calculated resistance of all peripheral blood vessels in the body.</p>
+                <p><strong><span class="blue-highlighted-oval-3d">SVRI</span></strong> is the indexed form, normalizing this resistance to the patient's <strong>body surface area (<span class="silver-highlighted-oval-3d">BSA</span>)</strong>, expressed in <span class="cyber-neon cyber-neon-blue">dyn·s·cm⁻⁵·m²</span>.</p>
+            </details></h4>
+            
+            <details open><summary>Calculation</summary>
+                <p><span class="blue-highlighted-oval-3d">SVRI</span> is calculated using an analogy of <span class="luminous-block luminous-yellow">Ohm's law</span> for circulation. It represents the pressure gradient across the entire systemic circulation divided by flow (<span class="red-highlighted-oval-3d">CI</span>):</p>
+                
+                <div class="info-box info-box-success">
+                    <p><span class="blue-highlighted-oval-3d">SVRI</span> = ((<span class="pink-highlighted-oval-3d">MAP</span> - <span class="teal-highlighted-oval-3d">CVP</span>) / <span class="red-highlighted-oval-3d">CI</span>) × <span class="orange-highlighted-oval-3d">Conversion Constant</span></p>
+                </div>
+                
+                <ul>
+                    <li><strong><span class="pink-highlighted-oval-3d">MAP</span> (Mean Arterial Pressure):</strong> Pressure driving flow</li>
+                    <li><strong><span class="teal-highlighted-oval-3d">CVP</span> (Central Venous Pressure):</strong> Pressure returning flow (approximately right atrial pressure)</li>
+                    <li><strong><span class="red-highlighted-oval-3d">CI</span> (Cardiac Index):</strong> Flow through the circuit</li>
+                </ul>
+                
+                <p>Since <span class="pink-highlighted-oval-3d">MAP</span> and <span class="red-highlighted-oval-3d">CI</span> are continuously measured by the <span class="green-highlighted-oval-3d">PiCCO</span> system, <span class="blue-highlighted-oval-3d">SVRI</span> is a continuously available and important parameter.</p>
+            </details>
+
+            <h3>Clinical Significance: Vasopressor Therapy Guidance</h3>
+            <p><span class="blue-highlighted-oval-3d">SVRI</span> is important for differentiating shock states and guiding the use of vasopressors (to increase <span class="blue-highlighted-oval-3d">SVRI</span>) and vasodilators (to decrease <span class="blue-highlighted-oval-3d">SVRI</span>).</p>
+
+            <h4>Shock State Differentiation</h4>
+            <div class="table-wrapper">
+                <table class="scenario-table">
+                <thead>
+                    <tr>
+                        <th><span class="blue-highlighted-oval-3d">SVRI</span> Profile</th>
+                        <th><span class="red-highlighted-oval-3d">CI</span> Profile</th>
+                        <th>Type of Shock</th>
+                        <th>Fluid Strategy</th>
+                        <th>Vasopressor Strategy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="luminous-block luminous-red">Low</span></td>
+                        <td>
+                            <span class="luminous-block luminous-yellow">High</span>
+                            <div class="info-box info-box-success"><p>Normal</p></div>
+                            <span class="luminous-block luminous-red">Low</span>
+                        </td>
+                        <td>Distributive Shock (sepsis): Pathological vasodilation</td>
+                        <td>Fluid first (guided by <span class="blue-highlighted-oval-3d">SVV</span>/<span class="green-highlighted-oval-3d">GEDVI</span>)</td>
+                        <td>Vasopressors (norepinephrine) to increase <span class="blue-highlighted-oval-3d">SVRI</span> and <span class="red-highlighted-oval-3d">MAP</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="luminous-block luminous-yellow">High</span></td>
+                        <td><span class="luminous-block luminous-red">Low</span></td>
+                        <td>Cardiogenic / Hypovolemic Shock: Compensatory vasoconstriction</td>
+                        <td>Treat the cause (fluid for hypovolemia, inotropes for pump failure)</td>
+                        <td>Vasodilators (nitroglycerin) may be cautiously used to reduce afterload if <span class="red-highlighted-oval-3d">CI</span> is severely low</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>Normal Range and Interpretation</h3>
+            <div class="table-wrapper">
+                <table class="scenario-table">
+                <thead>
+                    <tr>
+                        <th><span class="blue-highlighted-oval-3d">SVRI</span> Range (dyn·s·cm⁻⁵·m²)</th>
+                        <th>Clinical Interpretation</th>
+                        <th>Pathophysiology</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong><span class="luminous-block luminous-yellow">High (&gt;2500)</span></strong></td>
+                        <td><strong>High Afterload:</strong> Severe vasoconstriction</td>
+                        <td>Compensated shock, severe hypovolemia, excessive vasopressor dose, or hypertensive crisis</td>
+                    </tr>
+                    <tr>
+                        <td><strong><span class="luminous-block luminous-green">Optimal (1700 - 2500)</span></strong></td>
+                        <td><strong>Normal Vascular Tone</strong></td>
+                        <td>Hemodynamic stability</td>
+                    </tr>
+                    <tr>
+                        <td><strong><span class="luminous-block luminous-red">Low (&lt;1700)</span></strong></td>
+                        <td><strong>Low Afterload:</strong> Pathological vasodilation</td>
+                        <td><strong>Distributive Shock</strong> (septic shock, anaphylaxis, neurogenic shock)</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <div class="info-box">
+                <p><span class="blue-highlighted-oval-3d">SVRI</span> is the direct parameter used for titrating vasopressors (to increase <span class="blue-highlighted-oval-3d">SVRI</span>) or vasodilators (to decrease <span class="blue-highlighted-oval-3d">SVRI</span>).</p>
+            </div>
+        </main>
+    </div>
+
+       
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

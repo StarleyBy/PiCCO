@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derived Parameters - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>Derived Parameters: Oxygen Delivery Index (DO2I), Oxygen Consumption (VO2) and Oxygen Extraction Ratio (O2ER)</h2>
+            <p>The PiCCO system provides not only basic hemodynamic parameters but also the ability to calculate important derived parameters reflecting oxygen transport and utilization in the body.</p>
+
+            <h3>Oxygen Delivery Index (DO2I)</h3>
+            <p><strong>Oxygen Delivery (DO2)</strong> is the total amount of oxygen transported from the lungs to the systemic capillaries every minute. It is the primary metric of the cardiovascular system's ability to meet the body's metabolic needs.</p>
+
+            <h4>Definition and Calculation</h4>
+            <p>DO2 is a function of two main components: <strong>flow (cardiac output)</strong> and <strong>oxygen content</strong> in arterial blood.</p>
+            <p>DO2 = CO × CaO2 × 10</p>
+            <p>Where:</p>
+            <ul>
+                <li><strong>CO (Cardiac Output):</strong> Flow component (in L/min). Provided by the PiCCO system (PCCO)</li>
+                <li><strong>CaO2 (Arterial Oxygen Content):</strong> Amount of oxygen carried in arterial blood (in ml O2/dl)</li>
+                <li><strong>10:</strong> Conversion factor for adjusting units</li>
+            </ul>
+
+            <h4>CaO2 Calculation</h4>
+            <p>Arterial oxygen content is calculated using the following formula:</p>
+            <p>CaO2 = (1.34 × Hgb × SaO2) + (0.003 × PaO2)</p>
+            <p>The PiCCO system cannot measure the entire DO2I equation on its own; it must be <strong>manually calculated</strong> by combining the measured CO (from PiCCO) with laboratory values for <strong>hemoglobin (Hgb), arterial oxygen saturation (SaO2), and PaO2</strong> (from arterial blood gases).</p>
+
+            <h4>Clinical Significance: Goal of Hemodynamic Therapy</h4>
+            <p>The primary clinical goal in managing critically ill patients is to ensure that <strong>oxygen delivery (DO2)</strong> exceeds <strong>oxygen consumption (VO2)</strong>.</p>
+            <ul>
+                <li><strong>Shock Diagnosis:</strong> In almost all forms of shock, the system struggles to maintain DO2. Low DO2I is a direct indicator of inadequate systemic supply</li>
+                <li><strong>Goal-Directed Therapy (GDT):</strong> Many GDT protocols target DO2I above a critical threshold (e.g., 600 ml/min/m²) to eliminate tissue hypoxia, especially in early sepsis</li>
+            </ul>
+
+            <h4>Normal Range Interpretation</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>DO2I Range (ml/min/m²)</th>
+                        <th>Clinical Interpretation</th>
+                        <th>Clinical Consequence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>High</strong> (>700)</td>
+                        <td>Hyperdynamic state, often unnecessary excess supply</td>
+                        <td>Usually seen in early sepsis or severe liver disease</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Optimal/Normal</strong></td>
+                        <td><strong>450 - 600</strong></td>
+                        <td>Adequate systemic oxygen supply</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Critically Low</strong> (<450)</td>
+                        <td><strong>Hypoxia/Ischemia Risk:</strong> Supply dependency</td>
+                        <td>Indication for immediate intervention to increase CI and/or Hgb</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Oxygen Consumption (VO2)</h3>
+            <p><strong>Oxygen Consumption (VO2)</strong> is the total volume of oxygen used by the body's tissues per minute. It is the primary metric of <strong>metabolic need</strong> and serves as an important indicator of tissue perfusion adequacy when compared to oxygen delivery.</p>
+
+            <h4>Definition and Calculation (Fick Principle)</h4>
+            <p>VO2 is calculated using the reverse <strong>Fick Principle</strong>, which states that the body's total oxygen consumption equals the amount of oxygen delivered minus the amount of oxygen returned.</p>
+            <p>VO2 = CO × (CaO2 - CvO2) × 10</p>
+            <p>Where:</p>
+            <ul>
+                <li><strong>CO (Cardiac Output):</strong> Flow component (in L/min). Provided by the PiCCO system (PCCO)</li>
+                <li><strong>CaO2 (Arterial Oxygen Content):</strong> Oxygen delivered to tissues</li>
+                <li><strong>CvO2 (Mixed Venous Oxygen Content):</strong> Oxygen returned from tissues (to the pulmonary artery)</li>
+                <li><strong>10:</strong> Conversion factor</li>
+            </ul>
+
+            <p>The indexed form, <strong>Oxygen Consumption Index (VO2I)</strong>, is VO2 divided by <strong>body surface area (BSA)</strong>, expressed in ml/min/m².</p>
+
+            <h4>Clinical Significance: Supply and Demand Relationship</h4>
+            <p>VO2 is important for understanding the balance between oxygen supply (DO2) and metabolic needs.</p>
+            <ul>
+                <li><strong>Normal State:</strong> In healthy patients, VO2 is <strong>independent of DO2</strong> (supply independence). Tissues consume only what they need, and the rest is returned (high venous saturation)</li>
+                <li><strong>Pathological State (Shock):</strong> When DO2 falls below a critical threshold (critical DO2), tissues cannot extract enough oxygen, and VO2 begins to fall. This is known as <strong>oxygen supply dependency</strong> and is a sign of severe, life-threatening shock</li>
+                <li><strong>Hypermetabolism:</strong> High VO2 (above the normal range) indicates a <strong>hypermetabolic state</strong> (e.g., severe sepsis, extensive burns, fever) requiring an exceptionally high DO2 goal for resuscitation</li>
+            </ul>
+
+            <h3>Oxygen Extraction Ratio (O2ER)</h3>
+            <p><strong>Oxygen Extraction Ratio (O2ER)</strong> is the fraction of oxygen delivered to the tissues (DO2) that is actually consumed by the tissues (VO2). It is the most direct indicator of the balance between oxygen supply and metabolic needs and reflects the efficiency of tissue oxygen utilization.</p>
+
+            <h4>Definition and Calculation</h4>
+            <p>O2ER is defined as the ratio of oxygen consumption (VO2) to oxygen delivery (DO2):</p>
+            <p>O2ER = VO2 / DO2 × 100%</p>
+
+            <h4>Clinical Significance: Supply/Demand Balance</h4>
+            <p>O2ER reveals the patient's compensatory state in response to shock and hypoxia.</p>
+            <ul>
+                <li><strong>Compensatory Mechanism:</strong> When DO2 begins to fall (e.g., due to low CI), tissues compensate by <strong>increasing oxygen extraction</strong>. This ability to increase O2ER is the body's primary protection against tissue hypoxia</li>
+                <li><strong>Alarm Signal:</strong> If O2ER is high (e.g., >50%), it means tissues are "maximally extracting" oxygen; any further decrease in DO2 will directly cause a decrease in VO2 (supply dependency) and the onset of anaerobic metabolism and lactate</li>
+            </ul>
+
+            <h4>Normal Range Interpretation</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>O2ER Range (%)</th>
+                        <th>Clinical Interpretation</th>
+                        <th>Clinical Consequence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Low</strong> (<20%)</td>
+                        <td><strong>Impaired extraction or high supply.</strong> Often seen in <strong>distributive shock (sepsis)</strong>, where tissue shunting impairs extraction despite high DO2</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Optimal/Normal</strong></td>
+                        <td><strong>22% - 30%</strong></td>
+                        <td>Healthy balance between supply and consumption</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compensatory/High</strong></td>
+                        <td><strong>>30%</strong></td>
+                        <td><strong>Alarm Signal.</strong> Tissues are maximally extracting oxygen; <strong>DO2 is critically low</strong> relative to demand. Immediate intervention (fluid/inotrope/transfusion) required</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>These derived parameters provide a comprehensive understanding of oxygen transport and utilization in the body and allow physicians to make more informed decisions when managing critically ill patients.</p>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

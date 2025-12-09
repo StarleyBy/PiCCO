@@ -1,0 +1,435 @@
+/* --------------------------------------------------
+   ROOT VARIABLES
+-------------------------------------------------- */
+:root {
+    --bg: #f7f7f9;
+    --bg-alt: #ffffff;
+    --text: #1c1c1e;
+    --text-muted: #6e6e73;
+    --accent: #007aff;
+    --accent-light: #d6e8ff;
+    --border: #d0d0d2;
+
+    --radius: 14px;
+    --shadow: 0 4px 16px rgba(0,0,0,0.08);
+
+    --sidebar-width: 260px;
+}
+
+/* Dark Theme */
+body.dark {
+    --bg: #1b1c1e;
+    --bg-alt: #2c2d30;
+    --text: #f0f0f3;
+    --text-muted: #b0b0b3;
+    --accent: #0a84ff;
+    --accent-light: #1a2a3a;
+    --border: #3a3a3c;
+}
+
+/* --------------------------------------------------
+   GLOBAL
+-------------------------------------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    display: flex;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid var(--border);
+    margin: 40px 0;
+}
+
+/* --------------------------------------------------
+   SIDEBAR
+-------------------------------------------------- */
+.sidebar {
+    width: var(--sidebar-width);
+    background: var(--bg-alt);
+    border-right: 1px solid var(--border);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 0;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.sidebar a:hover {
+    color: var(--accent);
+}
+
+/* Collapse button */
+.sidebar-toggle {
+    position: absolute;
+    right: -16px;
+    top: 20px;
+    background: var(--accent);
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+/* collapsed */
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar.collapsed h2,
+.sidebar.collapsed a {
+    display: none;
+}
+
+/* --------------------------------------------------
+   MAIN CONTENT
+-------------------------------------------------- */
+.main {
+    flex: 1;
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+h3 {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+/* --------------------------------------------------
+   INFO BOXES
+-------------------------------------------------- */
+.info-box {
+    background: var(--accent-light);
+    padding: 16px 20px;
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    margin: 20px 0;
+}
+
+.term {
+    font-weight: 600;
+    color: var(--accent);
+    cursor: pointer;
+    border-bottom: 1px dotted var(--accent);
+}
+
+.term:hover {
+    color: var(--text);
+}
+
+/* --------------------------------------------------
+   COLLAPSIBLE DETAILS
+-------------------------------------------------- */
+/* Базовый стиль блока текста */
+article {
+    font-family: system-ui, sans-serif;
+    line-height: 1.55;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Общий стиль для <details> */
+details {
+    border-left: 2px solid #c8d0d8;
+    margin: 6px 0;
+    padding-left: 12px;
+    position: relative;
+}
+
+/* Цвет линии для вложенных уровней */
+details details {
+    border-color: #b8c8d8;
+}
+details details details {
+    border-color: #a6b8c8;
+}
+details details details details {
+    border-color: #98a8b8;
+}
+/* Можно продолжать, но браузер сам применит последние стили */
+
+/* Стиль кнопки-строки summary */
+summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 6px 0 6px 18px;
+    position: relative;
+    font-weight: 500;
+}
+
+/* Убираем стандартный маркер браузера */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Кастомная стрелка (закрытая) */
+summary::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    font-size: 0.85em;
+    transition: transform 0.25s ease;
+    color: #4a5a66;
+}
+
+/* Кастомная стрелка (открытая) */
+details[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+/* Вложенные summary с большим отступом слева */
+details details > summary {
+    margin-left: 12px;
+}
+details details details > summary {
+    margin-left: 24px;
+}
+details details details details > summary {
+    margin-left: 36px;
+}
+
+/* Содержимое скрывающихся блоков */
+details > *:not(summary) {
+    margin-left: 4px;
+    padding: 4px 0;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Анимация */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-3px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Дополнительный визуальный стиль */
+details summary:hover {
+    color: #0d6efd;
+}
+
+/* --------------------------------------------------
+   THEME SWITCH BUTTON
+-------------------------------------------------- */
+.theme-toggle {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    font-size: 15px;
+}
+
+/* --------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .main {
+        padding: 20px;
+    }
+}
+
+/* ----------------------------------------------
+    МОИ СТИЛИ
+------------------------------------------------*/
+
+.first-letter {
+    /* Стиль для первой буквы "П" */
+    font-size: 32px; /* Увеличиваем размер шрифта */
+    color: rgb(8, 8, 148);    /* Изменяем цвет */
+    font-weight: bold;
+  }
+  
+  .rest-of-word {
+    /* Стиль для остальных букв "ривет" */
+    font-size: 24px; /* Размер шрифта по умолчанию (можно убрать, если он задан в <p>) */
+    color: rgb(197, 103, 197);      /* Изменяем цвет */
+    /* Обратите внимание, что они останутся на той же строке */
+  }
+
+  .green-highlighted-oval-3d {
+    /* 1. БАЗОВАЯ СТИЛИЗАЦИЯ */
+    font-weight: bold; /* Делаем текст жирным */
+    color: #FFFFFF; /* Цвет текста - белый (для контраста с зеленым фоном) */
+    background-color: #6AA84F; /* Основной зеленый цвет фона */
+    
+    /* 2. ОВАЛЬНАЯ ФОРМА И ОТСТУПЫ */
+    padding: 1px 3px; /* Внутренние отступы (сверху/снизу и слева/справа) */
+    border-radius: 50px; /* Сильный радиус для создания овальной формы */
+    
+    /* 3. ОБЪЕМНЫЙ (3D) ЭФФЕКТ */
+    box-shadow: 
+      /* Тень, создающая ощущение глубины (темный низ) */
+      0 4px 6px rgba(0, 0, 0, 0.4), 
+      /* Тень, имитирующая свет сверху (светлый верх) */
+      inset 0 1px 0 rgba(255, 255, 255, 0.5); 
+      
+    /* 4. ОБЯЗАТЕЛЬНОЕ СВОЙСТВО */
+    /* Необходимо, чтобы к строчному элементу span применились padding и box-shadow */
+    display: inline-block; 
+  }
+
+  .blue-highlighted-oval-3d {
+    /* 1. БАЗОВАЯ СТИЛИЗАЦИЯ */
+    font-weight: bold; /* Делаем текст жирным */
+    color: #FFFFFF; /* Цвет текста - белый (для контраста с зеленым фоном) */
+    background-color: #a39bee; /* Основной зеленый цвет фона */
+    
+    /* 2. ОВАЛЬНАЯ ФОРМА И ОТСТУПЫ */
+    padding: 1px 3px; /* Внутренние отступы (сверху/снизу и слева/справа) */
+    border-radius: 50px; /* Сильный радиус для создания овальной формы */
+    
+    /* 3. ОБЪЕМНЫЙ (3D) ЭФФЕКТ */
+    box-shadow: 
+      /* Тень, создающая ощущение глубины (темный низ) */
+      0 4px 6px rgba(0, 0, 0, 0.4), 
+      /* Тень, имитирующая свет сверху (светлый верх) */
+      inset 0 1px 0 rgba(255, 255, 255, 0.5); 
+      
+    /* 4. ОБЯЗАТЕЛЬНОЕ СВОЙСТВО */
+    /* Необходимо, чтобы к строчному элементу span применились padding и box-shadow */
+    display: inline-block; 
+  }
+
+  .yellow-highlighted-oval-3d {
+    /* 1. БАЗОВАЯ СТИЛИЗАЦИЯ */
+    font-weight: bold; /* Делаем текст жирным */
+    color: #000000; /* Цвет текста - белый (для контраста с зеленым фоном) */
+    background-color: #fff347; /* Основной зеленый цвет фона */
+    
+    /* 2. ОВАЛЬНАЯ ФОРМА И ОТСТУПЫ */
+    padding: 1px 3px; /* Внутренние отступы (сверху/снизу и слева/справа) */
+    border-radius: 50px; /* Сильный радиус для создания овальной формы */
+    
+    /* 3. ОБЪЕМНЫЙ (3D) ЭФФЕКТ */
+    box-shadow: 
+      /* Тень, создающая ощущение глубины (темный низ) */
+      0 4px 6px rgba(0, 0, 0, 0.4), 
+      /* Тень, имитирующая свет сверху (светлый верх) */
+      inset 0 1px 0 rgba(255, 255, 255, 0.5); 
+      
+    /* 4. ОБЯЗАТЕЛЬНОЕ СВОЙСТВО */
+    /* Необходимо, чтобы к строчному элементу span применились padding и box-shadow */
+    display: inline-block; 
+  }
+
+  .violet-highlighted-oval-3d {
+    /* 1. БАЗОВАЯ СТИЛИЗАЦИЯ */
+    font-weight: bold; /* Делаем текст жирным */
+    color: #ffffff; /* Цвет текста - белый (для контраста с зеленым фоном) */
+    background-color: #c509b5; /* Основной зеленый цвет фона */
+    
+    /* 2. ОВАЛЬНАЯ ФОРМА И ОТСТУПЫ */
+    padding: 1px 3px; /* Внутренние отступы (сверху/снизу и слева/справа) */
+    border-radius: 50px; /* Сильный радиус для создания овальной формы */
+    
+    /* 3. ОБЪЕМНЫЙ (3D) ЭФФЕКТ */
+    box-shadow: 
+      /* Тень, создающая ощущение глубины (темный низ) */
+      0 4px 6px rgba(0, 0, 0, 0.4), 
+      /* Тень, имитирующая свет сверху (светлый верх) */
+      inset 0 1px 0 rgba(255, 255, 255, 0.5); 
+      
+    /* 4. ОБЯЗАТЕЛЬНОЕ СВОЙСТВО */
+    /* Необходимо, чтобы к строчному элементу span применились padding и box-shadow */
+    display: inline-block; 
+  }
+
+  .grey-blue-highlighted-oval-3d {
+    /* 1. БАЗОВАЯ СТИЛИЗАЦИЯ */
+    font-weight: bold; /* Делаем текст жирным */
+    color: #ffffff; /* Цвет текста - белый (для контраста с зеленым фоном) */
+    background-color: #0f9ba5; /* Основной зеленый цвет фона */
+    
+    /* 2. ОВАЛЬНАЯ ФОРМА И ОТСТУПЫ */
+    padding: 1px 3px; /* Внутренние отступы (сверху/снизу и слева/справа) */
+    border-radius: 50px; /* Сильный радиус для создания овальной формы */
+    
+    /* 3. ОБЪЕМНЫЙ (3D) ЭФФЕКТ */
+    box-shadow: 
+      /* Тень, создающая ощущение глубины (темный низ) */
+      0 4px 6px rgba(0, 0, 0, 0.4), 
+      /* Тень, имитирующая свет сверху (светлый верх) */
+      inset 0 1px 0 #a5b6cc00; 
+      
+    /* 4. ОБЯЗАТЕЛЬНОЕ СВОЙСТВО */
+    /* Необходимо, чтобы к строчному элементу span применились padding и box-shadow */
+    display: inline-block; 
+  }
+
+  .gold-highlighted-oval-3d {
+    /* 1. БАЗОВАЯ СТИЛИЗАЦИЯ */
+    font-weight: bold; /* Делаем текст жирным */
+    color: #000000; /* Цвет текста - белый (для контраста с зеленым фоном) */
+    background-color: #ffd700; /* Основной зеленый цвет фона */
+    
+    /* 2. ОВАЛЬНАЯ ФОРМА И ОТСТУПЫ */
+    padding: 1px 3px; /* Внутренние отступы (сверху/снизу и слева/справа) */
+    border-radius: 50px; /* Сильный радиус для создания овальной формы */
+    
+    /* 3. ОБЪЕМНЫЙ (3D) ЭФФЕКТ */
+    box-shadow: 
+      /* Тень, создающая ощущение глубины (темный низ) */
+      0 4px 6px rgba(0, 0, 0, 0.4), 
+      /* Тень, имитирующая свет сверху (светлый верх) */
+      inset 0 1px 0 #a5b6cc00; 
+      
+    /* 4. ОБЯЗАТЕЛЬНОЕ СВОЙСТВО */
+    /* Необходимо, чтобы к строчному элементу span применились padding и box-shadow */
+    display: inline-block; 
+  }

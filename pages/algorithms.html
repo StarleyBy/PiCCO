@@ -1,0 +1,325 @@
+сде<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>PiCCO Algorithms: Key Decision-Making Schemes</h2>
+            <p>PiCCO algorithms provide a structured approach to identifying the specific physiological defect limiting oxygen delivery (DO2) and guide targeted therapy (fluids, inotropes or vasopressors), while minimizing the risk of pulmonary edema (EVLWI).</p>
+
+            <h3>Hemodynamic Optimization Algorithm</h3>
+            <p>The goal of this algorithm is to maintain <strong>oxygen delivery (DO2)</strong> above metabolic needs, sequentially optimizing preload, afterload and contractility, with strict control of pulmonary edema risk (EVLWI).</p>
+
+            <h4>Step 1: Status Check and Goal Setting</h4>
+            <p>Before any intervention, confirm the patient's current status and required goals.</p>
+            <ul>
+                <li><strong>Flow and Power:</strong> Check <strong>Cardiac Index (CI)</strong> (Goal ≥ 2.5) and <strong>Cardiac Power Index (CPI)</strong> (Goal ≥ 0.5)</li>
+                <li><strong>Perfusion:</strong> Check <strong>MAP</strong> (Goal ≥ 65 mmHg) and clinical markers (lactate, diuresis)</li>
+                <li><strong>Safety Check:</strong> Check <strong>Extravascular Lung Water Index (EVLWI)</strong> (Goal ≤ 10 ml/kg). If EVLWI is critically high (>15), prioritize fluid restriction/removal</li>
+            </ul>
+
+            <h4>Step 2: Volume/Preload Optimization (Fluid Decision)</h4>
+            <p>Give priority to dynamic indices. Only give fluid if the patient has proven responsiveness and the lungs are in relative safety.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assessment</th>
+                        <th>PiCCO Guidance</th>
+                        <th>Therapeutic Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Responsiveness</strong></td>
+                        <td><strong>SVV/PPV > 10%, OR Δresp CO ≥ 5%</strong></td>
+                        <td><strong>Fluid Challenge</strong> (e.g., 250 ml colloid). Monitor for CI increase and EVLWI safety</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Endpoint</strong></td>
+                        <td><strong>SVV ≤ 10% AND CI is adequate</strong></td>
+                        <td><strong>Stop Fluid.</strong> Proceed to Step 3</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Volume Overload</strong></td>
+                        <td><strong>GEDVI > 800 ml/m² OR EVLWI > 10 ml/kg</strong></td>
+                        <td><strong>Fluid Restriction / Removal</strong> (diuretics/RRT). Reverse fluids where possible</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Step 3: Afterload/Resistance Optimization (Vasoactive Decision)</h4>
+            <p>Address pressure-flow issues using SVRI.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assessment</th>
+                        <th>PiCCO Guidance</th>
+                        <th>Therapeutic Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Vasodilation/Hypotension</strong></td>
+                        <td><strong>SVRI < 1700 AND MAP below goal</strong></td>
+                        <td><strong>Vasopressors</strong> (e.g., norepinephrine) to increase SVRI to <strong>1700-2500</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Excessive Resistance</strong></td>
+                        <td><strong>SVRI > 2500 AND CI is low</strong></td>
+                        <td><strong>Vasodilators</strong> (if MAP allows) to reduce resistance and improve flow</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Step 4: Contractility/Pump Function Optimization (Inotropic Decision)</h4>
+            <p>If CI is still inadequate after optimizing preload and afterload, the problem is the myocardium.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assessment</th>
+                        <th>PiCCO Guidance</th>
+                        <th>Therapeutic Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pump Failure</strong></td>
+                        <td><strong>CFI < 4.5 OR GEF < 25%</strong> (after GEDVI is optimal)</td>
+                        <td><strong>Inotropic Support</strong> (e.g., dobutamine) to increase CFI and CI</td>
+                    </tr>
+                    <tr>
+                        <td><strong>High Target CI</strong></td>
+                        <td>If high VO2 requires CI ≥ 4.0 (e.g., hyperdynamic sepsis)</td>
+                        <td>Use inotropes to achieve high CI target</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Step 5: Final Check and Endpoint (Oxygen Transport)</h4>
+            <p>Confirm that all interventions have reached the goal of maintaining hemodynamic stability.</p>
+            <ul>
+                <li><strong>Oxygen Delivery Check:</strong> Calculate <strong>DO2I</strong>. If low (<450), re-evaluate all components (CI, Hgb, SaO2)</li>
+                <li><strong>Oxygen Consumption Check:</strong> Calculate <strong>O2ER</strong>. If high (>30%), tissues are struggling; DO2I must be aggressively increased</li>
+            </ul>
+
+            <p>The optimization process is cyclical. After completing Step 4, return to Step 1 to reassess the patient's status and continue the cycle until achieving hemodynamic stability and maintenance.</p>
+
+            <h3>Shock Phenotyping Algorithm</h3>
+            <p>The goal is to differentiate between the main types of shock - <strong>hypovolemic, cardiogenic and distributive</strong> - by sequentially assessing flow, volume and resistance.</p>
+
+            <h4>Step 1: Initial Flow Assessment (Cardiac Index - CI)</h4>
+            <p>The algorithm starts with assessing systemic flow (DO2) adequacy.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>CI Range (L/min/m²)</th>
+                        <th>Interpretation</th>
+                        <th>Next Step</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Low (<3.0)</strong></td>
+                        <td><strong>Flow impaired.</strong> Could be hypovolemic or cardiogenic</td>
+                        <td>Proceed to <strong>Step 2</strong> for volume status assessment</td>
+                    </tr>
+                    <tr>
+                        <td><strong>High/Normal (≥3.0)</strong></td>
+                        <td><strong>Flow adequate or excessive.</strong> Suggests distributive shock (or obstructive/compensated)</td>
+                        <td>Proceed to <strong>Step 4</strong> for resistance assessment</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Step 2: If Flow is Low (CI < 3.0), Assess Preload Status</h4>
+            <p>We use dynamic and static parameters to determine if the low flow is caused by volume insufficiency.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Threshold</th>
+                        <th>Diagnosis/Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>SVV or PPV</strong></td>
+                        <td><strong>High (>10-13%)</strong></td>
+                        <td><strong>Responds to Fluid.</strong> Indicates volume dependency</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GEDVI</strong></td>
+                        <td><strong>Low (<680 ml/m²)</strong></td>
+                        <td><strong>Hypovolemic Shock (confirmed).</strong></td>
+                        <td><strong>Therapy:</strong> <strong>Fluid Therapy</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SVV or PPV</strong></td>
+                        <td><strong>Low (<10-13%)</strong></td>
+                        <td><strong>Does Not Respond to Fluid.</strong> Volume status is adequate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GEDVI</strong></td>
+                        <td><strong>Optimal/High (≥680 ml/m²)</strong></td>
+                        <td>Not hypovolemic. Proceed to <strong>Step 3</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Step 3: If Flow is Low and Preload is Optimal, Assess Contractility</h4>
+            <p>With adequate volume, low flow should be associated with pump failure.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Threshold</th>
+                        <th>Diagnosis/Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CFI or GEF</strong></td>
+                        <td><strong>Low (CFI < 4.5 or GEF < 25%)</strong></td>
+                        <td><strong>Cardiogenic Shock (confirmed).</strong> Internal pump failure</td>
+                        <td><strong>Therapy:</strong> <strong>Inotropic Support</strong> (e.g., dobutamine). Check EVLWI and add diuretics if needed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CFI or GEF</strong></td>
+                        <td><strong>Normal/High</strong></td>
+                        <td>Low flow may be associated with severe uncompensated high afterload</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Step 4: If Flow is High (CI ≥ 3.0), Assess Afterload/Resistance</h4>
+            <p>High or normal flow with shock symptoms (e.g., hypotension, lactate) indicates vasodilation and improper distribution.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Threshold</th>
+                        <th>Diagnosis/Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>SVRI</strong></td>
+                        <td><strong>Low (<1700 dyn·s·cm⁻⁵·m²)</strong></td>
+                        <td><strong>Distributive Shock (confirmed).</strong> Pathological vasodilation (e.g., sepsis)</td>
+                        <td><strong>Therapy:</strong> <strong>Vasopressors</strong> (e.g., norepinephrine) to increase SVRI and maintain MAP</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SVRI</strong></td>
+                        <td><strong>High (>2500)</strong></td>
+                        <td><strong>Obstructive/Compensated Shock.</strong> Flow is high, but resistance is also high, or the problem is in flow distribution</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Summary Table: Shock Profiles and Therapeutic Focus</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Shock Type</th>
+                        <th>CI (Flow)</th>
+                        <th>GEDVI (Preload)</th>
+                        <th>SVRI (Afterload)</th>
+                        <th>EVLWI (Safety)</th>
+                        <th>Primary Therapeutic Focus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hypovolemic</strong></td>
+                        <td>Low</td>
+                        <td><strong>Low</strong></td>
+                        <td>High</td>
+                        <td>Low</td>
+                        <td><strong>FLUID</strong> (volume replacement)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cardiogenic</strong></td>
+                        <td>Low</td>
+                        <td>Optimal/High</td>
+                        <td>High</td>
+                        <td><strong>High</strong></td>
+                        <td><strong>INOTROPES</strong> (pump support)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Distributive (sepsis)</strong></td>
+                        <td>High/Normal</td>
+                        <td>Low/Normal</td>
+                        <td><strong>Low</strong></td>
+                        <td>Often High</td>
+                        <td><strong>VASOPRESSORS</strong> (vascular tone)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

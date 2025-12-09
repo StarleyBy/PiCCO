@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errors - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>Errors in PiCCO Parameter Interpretation</h2>
+            <p>This section covers the most common errors and pitfalls in interpreting PiCCO parameters that can lead to clinical misjudgments and inappropriate therapy.</p>
+
+            <h3>Errors in Interpreting Global End-Diastolic Volume Index (GEDVI)</h3>
+            <p>The Global End-Diastolic Volume Index (GEDVI) measures the static volume of all four cardiac chambers at the end of diastole, indexed to body surface area (BSA). This is an important parameter for preload assessment, but it is susceptible to several clinical and technical errors.</p>
+
+            <h4>1. Limitations in Predicting Fluid Response</h4>
+            <p>The most common error is treating GEDVI as a dynamic parameter. GEDVI is a <strong>static measurement</strong> of volume; it indicates <em>where</em> the heart is on the Frank-Starling curve, but does not reliably predict whether cardiac output (CO) will increase with fluid infusion.</p>
+            <ul>
+                <li><strong>Static vs. Dynamic:</strong> GEDVI shows volume, not response to volume. A patient with optimal GEDVI (~750 mL/m²) <em>may still</em> respond to fluid if their contractility is low. Always use SVV, PPV or EEOT for response prediction.</li>
+                <li><strong>Uncertainty of Optimal Range:</strong> The "optimal" GEDVI range (680-800 mL/m²) is broad. A patient with GEDVI 685 mL/m² is clinically different from a patient with GEDVI 795 mL/m², especially in terms of pulmonary edema risk (EVLWI).</li>
+            </ul>
+
+            <h4>2. Physiological Nuances and Compliance</h4>
+            <p>GEDVI measures only volume. Its clinical significance heavily depends on <strong>ventricular compliance</strong> (the ability of the ventricle to stretch).</p>
+            <ul>
+                <li><strong>Compliance and Pressure:</strong> The assumption that normal GEDVI means normal end-diastolic pressure (EDP) is incorrect. Under conditions of <strong>reduced compliance</strong> (e.g., severe sepsis, chronic hypertension, LV hypertrophy) normal or even slightly low GEDVI may correspond to critically <strong>high EDP</strong>. Fluid infusion in these conditions will quickly push the patient onto the flat, dangerous part of the Frank-Starling curve and cause pulmonary edema.</li>
+                <li><strong>Right vs. Left Failure:</strong> GEDVI is the sum of all four chambers. In pure <strong>Right Ventricular (RV) failure</strong> (e.g., massive PE) GEDVI may look normal or even high-normal because the failing RV is dilated and contains excess volume, but the left ventricle may be severely under-filled (CI ↓). Treating high GEDVI with diuretics may further compromise inadequate LV filling.</li>
+            </ul>
+
+            <h4>3. Technical and Indexing Pitfalls</h4>
+            <p>GEDVI is indexed to BSA. BSA calculations are inaccurate in patients with extreme weights (morbid obesity or cachexia).</p>
+            <ul>
+                <li><strong>Indexing Errors:</strong> GEDVI may be <strong>falsely low</strong> in morbidly obese patients, potentially leading to excessive resuscitation, or <strong>falsely high</strong> in cachectic patients. Often safer to reference the absolute <strong>Global End-Diastolic Volume (GEDV)</strong> and track its changes, especially if BSA is questionable.</li>
+                <li><strong>Measurement Dependency:</strong> GEDVI depends on accurate <strong>thermodilution</strong>. Any error during cold saline injection (slow speed, incorrect temperature) will directly lead to an inaccurate GEDVI value. Always check the <strong>reliability</strong> of the measurement curve.</li>
+            </ul>
+
+            <h3>Errors in Interpreting Stroke Volume Variations (SVV) and Pulse Pressure Variations (PPV)</h3>
+            <p>SVV and PPV are the main dynamic indices for predicting fluid response, but they are reliable only when certain assumptions are met, particularly regarding mechanical ventilation.</p>
+
+            <h4>1. Ventilation Violations (Mechanical Ventilation Impact)</h4>
+            <p>These are the most common reasons why SVV/PPV readings are misleading in the ICU:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assumption Violated</th>
+                        <th>Error/Pitfall</th>
+                        <th>Interpretation Error</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Fixed Airway Pressure Swing</strong></td>
+                        <td><strong>Low Tidal Volume (V_T):</strong> Tidal volume is set too low (typically <8 mL/kg ideal body weight)</td>
+                        <td>The intrathoracic pressure change is insufficient to cause a measurable change in preload/stroke volume. <strong>Result: SVV is falsely low (non-responsive).</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Passive Ventilation</strong></td>
+                        <td><strong>Spontaneous Breathing Effort:</strong> Patient initiates or assists breathing (even minimally)</td>
+                        <td>Spontaneous breaths break the cyclic, controlled pressure change created by the ventilator. Pressure changes become inconsistent. <strong>Result: SVV is invalid.</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ventilation Frequency</strong></td>
+                        <td><strong>Low HR to RR Ratio:</strong> The ratio of heart rate (HR) to respiratory rate (RR) is too low (e.g., <4:1)</td>
+                        <td>Calculation requires multiple cardiac cycles per breath to accurately capture the variation. <strong>Result: SVV is less reliable.</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>High PEEP / Low Compliance</strong></td>
+                        <td><strong>Very High PEEP or Severe ARDS:</strong> Very high PEEP or very low lung compliance (stiff lungs)</td>
+                        <td>High PEEP significantly limits venous return (RV preload). Low lung compliance limits the magnitude of inspiratory pressure transmitted to the heart. <strong>Result: SVV is often inconclusive or falsely low.</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>2. Cardiovascular and Mechanical Violations</h4>
+            <p>These errors are related to the cardiovascular system or fixed anatomy, making SVV/PPV fundamentally invalid regardless of ventilation settings:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assumption Violated</th>
+                        <th>Error/Pitfall</th>
+                        <th>Rationale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Fixed Rhythm</strong></td>
+                        <td><strong>Significant Arrhythmias:</strong> Atrial fibrillation, frequent PVCs, or any irregular rhythm</td>
+                        <td>Parameters rely on a stable HR and RR to isolate the change in stroke volume from the change in rhythm. Arrhythmia introduces beat-to-beat variability that masks the ventilator effect. <strong>Result: SVV is invalid.</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intact Thoracic Compartment</strong></td>
+                        <td><strong>Open Chest Surgery or Tamponade:</strong> (e.g., post-cardiac surgery)</td>
+                        <td>The chest is not a closed pressure chamber, or external pressure (tamponade) overrides the ventilator's influence. The cyclic pressure does not transmit normally. <strong>Result: SVV is invalid.</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fixed Impedance</strong></td>
+                        <td><strong>Severe Right Ventricular (RV) Failure:</strong> RV failure (e.g., massive PE)</td>
+                        <td>The sick RV cannot handle the load imposed by ventilation, breaking the normal RV-LV coupling. <strong>Result: SVV is unreliable.</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>3. Key Rule</h4>
+            <p>If SVV or PPV <strong>is high (>10% or >13%)</strong> and all the above conditions are met, the patient is highly likely to be <strong>fluid responsive</strong> (CI will increase ≥10% after a fluid challenge). If any assumption is violated, SVV/PPV should be ignored, and static volumetric parameters (GEDVI) or specific challenges (EEOT) should be used.</p>
+
+            <h3>Errors Related to Arrhythmias</h3>
+            <p>Arrhythmias represent one of the most critical technical problems for accurate hemodynamic monitoring with PiCCO, as the monitor relies on <strong>regular, cyclic cardiac function</strong> for both dynamic and static calculations.</p>
+
+            <h4>1. Invalidity of Dynamic Parameters (SVV / PPV)</h4>
+            <p>This is the most significant error:</p>
+            <ul>
+                <li><strong>Problem:</strong> Calculation of <strong>Stroke Volume Variation (SVV)</strong> and <strong>Pulse Pressure Variation (PPV)</strong> is fundamentally based on isolating the change in stroke volume (SV) caused by mechanical ventilation from the inherent variability of the cardiac cycle</li>
+                <li><strong>Effect:</strong> Irregular rhythm (e.g., atrial fibrillation, frequent ventricular extrasystoles) introduces high beat-to-beat variability. This rhythmic variability <strong>masks</strong> or <strong>overwhelms</strong> the smaller changes caused by ventilation</li>
+                <li><strong>Result:</strong> SVV/PPV value becomes <strong>unreliable and invalid</strong>. A high SVV value may simply reflect irregular rhythm, not true fluid responsiveness. <strong>Do not use SVV/PPV in the presence of arrhythmias.</strong></li>
+            </ul>
+
+            <h4>2. Inaccurate Thermodilution and Cardiac Output (CO)</h4>
+            <ul>
+                <li><strong>Problem:</strong> The transpulmonary thermodilution method used to measure CO requires integration of the indicator concentration over time, averaged across multiple cardiac cycles</li>
+                <li><strong>Effect:</strong> During arrhythmias, SV and EF can vary significantly from beat to beat. This beat-to-beat variability makes it difficult for the monitor to capture a representative CO over the entire measurement period</li>
+                <li><strong>Result:</strong> Calculated CO is subject to <strong>high variability and inaccuracy</strong>. The PiCCO monitor often displays a <strong>low reliability index</strong> for thermodilution measurements during severe arrhythmias</li>
+            </ul>
+
+            <h4>3. Errors in Volumetric Parameters (GEDVI / ITBVI)</h4>
+            <ul>
+                <li><strong>Problem:</strong> Volumetric indices (GEDVI and ITBVI) are calculated using CO derived from thermodilution and the mean transit time (MTT) of the cold bolus</li>
+                <li><strong>Effect:</strong> Since CO is already inaccurate due to arrhythmia (see point 2), the derived volumetric parameters will also be erroneous</li>
+                <li><strong>Result:</strong> <strong>Inaccurate preload assessment.</strong> For example, in atrial fibrillation loss of atrial kick and reduced diastolic filling time may lead to an apparently artifically <strong>low GEDVI</strong>, creating a false impression of hypovolemia</li>
+            </ul>
+
+            <h3>Errors Related to Mechanical Ventilation</h3>
+            <p>Technical errors and pitfalls related to <strong>mechanical ventilation</strong> and <strong>positive end-expiratory pressure (PEEP)</strong> are common in PiCCO monitoring, as the ventilator profoundly influences intrathoracic and cardiac pressures.</p>
+
+            <h4>1. Impact on Dynamic Parameters (SVV / PPV)</h4>
+            <p>SVV and PPV are entirely dependent on the cyclic pressure changes created by the ventilator to induce a predictable preload variation.</p>
+            <ul>
+                <li><strong>Error: Masking Fluid Response with High PEEP:</strong>
+                    <ul>
+                        <li><strong>Physiology:</strong> High PEEP significantly increases mean intrathoracic pressure. This pressure acts on the large veins, reducing <strong>venous return</strong> and right ventricular (RV) preload</li>
+                        <li><strong>Effect on SVV/PPV:</strong> If PEEP is excessive, the RV operates on very low preload, far to the left on the Frank-Starling curve. The normal VT pressure inspiration may be insufficient to induce a high SVV</li>
+                        <li><strong>Result:</strong> SVV may appear falsely low or inconclusive, even if the patient is still preload dependent</li>
+                    </ul>
+                </li>
+                <li><strong>Error: Invalidity with Low Tidal Volume (VT):</strong>
+                    <ul>
+                        <li><strong>Physiology:</strong> A pressure change in inspiration (typically VT ≥ 8 mL/kg ideal body weight) is required to cause a measurable SVV/PPV</li>
+                        <li><strong>Result:</strong> Since <strong>lung protective ventilation</strong> often uses VT 4-6 mL/kg, SVV/PPV become <strong>invalid</strong> per ARDS protocols. Static and passive tests (e.g., GEDVI or end-expiratory occlusion test) are required.</li>
+                    </ul>
+                </li>
+                <li><strong>Error: Changes in Lung Compliance:</strong>
+                    <ul>
+                        <li><strong>Physiology:</strong> If the lungs become stiffer (compliance decreases, as in ARDS), the same inspiratory pressure from the ventilator results in less pleural pressure change transmitted to the heart</li>
+                        <li><strong>Result:</strong> SVV/PPV may be <strong>falsely low</strong> because the heart does not "feel" the full pressure change</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>2. Impact on Volumetric Parameters (GEDVI / ITBVI)</h4>
+            <p>High intrathoracic pressure affects how we interpret absolute volumetric indices, primarily due to the effect on transmural pressure.</p>
+            <ul>
+                <li><strong>Error: Ignoring Transmural Pressure:</strong>
+                    <ul>
+                        <li><strong>Physiology:</strong> The determining factor for ventricular performance is <strong>transmural pressure</strong> (intracavitary pressure minus the pressure around the heart, or pleural pressure). PiCCO measures volume (GEDV), but clinicians often intuitively link GEDV to pressure</li>
+                        <li><strong>Effect:</strong> High PEEP (≥ 10 cm H2O) significantly increases pleural pressure</li>
+                        <li><strong>Result:</strong> In a patient with high PEEP, the heart may be fully distended (GEDVI optimal or high), but <strong>transmural filling pressure</strong> is actually lower than the value suggests, leading to reduced cardiac performance. The GEDVI value itself does not require volume removal just because it is high; the high value may be inevitable due to high PEEP</li>
+                    </ul>
+                </li>
+                <li><strong>Error: Relying on GEDVI After PEEP Change:</strong>
+                    <ul>
+                        <li><strong>Physiology:</strong> Changing PEEP (e.g., from 5 to 15 cm H2O) radically and instantly changes venous return and ventricular compliance</li>
+                        <li><strong>Result:</strong> Any GEDVI measurement taken immediately after a PEEP change will be <strong>unreliable</strong>. Wait until hemodynamic stability is restored (typically 10-15 minutes) before performing recalibration and volume assessment</li>
+                    </ul>
+                </li>
+            </ul>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

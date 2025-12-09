@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issues and Solutions - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>Troubleshooting PiCCO Issues</h2>
+            <p>Various technical problems and data inaccuracies can occur during PiCCO monitoring. This section will help you quickly diagnose and fix the most common issues.</p>
+            <h3>Common Problems and Solutions</h3>
+            <div class="troubleshooting-item">
+                <h4>1. Unstable or Inaccurate Parameter Readings</h4>
+                <ul>
+                    <li><strong>Possible Cause:</strong> Incorrect catheter positioning, catheter kinking, or presence of thrombus.</li>
+                    <li><strong>Solution:</strong> Verify catheter position with X-ray, flush the catheter, or replace if necessary.</li>
+                </ul>
+                <ul>
+                    <li><strong>Possible Cause:</strong> Issues with pressure or temperature sensors.</li>
+                    <li><strong>Solution:</strong> Check sensor connections, calibrate sensors, or replace if necessary.</li>
+                </ul>
+                <ul>
+                    <li><strong>Possible Cause:</strong> Improper thermodilution technique during calibration.</li>
+                    <li><strong>Solution:</strong> Repeat calibration, strictly following the protocol (rapid injection of cold indicator, correct volume).</li>
+                </ul>
+            </div>
+            <div class="troubleshooting-item">
+                <h4>2. "No Thermodynamic Signal" Error</h4>
+                <ul>
+                    <li><strong>Possible Cause:</strong> Issues with the temperature sensor of the PiCCO catheter.</li>
+                    <li><strong>Solution:</strong> Check PiCCO catheter connections, verify proper functioning of the temperature sensor. The catheter may be damaged.</li>
+                </ul>
+                <ul>
+                    <li><strong>Possible Cause:</strong> Insufficient temperature difference between indicator and blood.</li>
+                    <li><strong>Solution:</strong> Use a colder indicator (chilled saline from refrigerator) or increase the volume of indicator.</li>
+                </ul>
+            </div>
+            <div class="troubleshooting-item">
+                <h4>3. High Extravascular Lung Water Index (EVLWI) Without Clinical Signs of Edema</h4>
+                <ul>
+                    <li><strong>Possible Cause:</strong> Incorrect indicator volume or temperature during calibration.</li>
+                    <li><strong>Solution:</strong> Recalibrate the system, carefully controlling indicator volume and temperature.</li>
+                </ul>
+                <ul>
+                    <li><strong>Possible Cause:</strong> Severe respiratory failure or significant pulmonary edema that is not always obvious on superficial examination.</li>
+                    <li><strong>Solution:</strong> Correlate readings with other clinical data and instrumental examinations (chest X-ray, lung ultrasound).</li>
+                </ul>
+            </div>
+            <p>For problems not described here, consult the PiCCO user manual or contact the manufacturer's technical support.</p>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../js/search.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

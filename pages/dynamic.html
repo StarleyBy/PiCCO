@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Parameters - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>Dynamic Parameters: Stroke Volume Variation (SVV) and Pulse Pressure Variation (PPV)</h2>
+            <p>Dynamic parameters are key indicators used to predict <strong>fluid responsiveness</strong> in patients undergoing mechanical ventilation. These include Stroke Volume Variation (SVV) and Pulse Pressure Variation (PPV).</p>
+
+            <h3>Stroke Volume Variation (SVV)</h3>
+            <p><strong>SVV</strong> is the primary dynamic index used to predict <strong>fluid responsiveness</strong> during controlled mechanical ventilation. It quantifies the change in stroke volume over the respiratory cycle caused by cyclic changes in intrathoracic pressure.</p>
+
+            <h4>Definition and Calculation</h4>
+            <p>SVV is calculated continuously by the PiCCO system using <strong>pulse contour analysis (PCA)</strong>. It measures the difference between the maximum and minimum indexed stroke volume (SVI) observed during one respiratory cycle, expressed as a percentage of the mean SVI:</p>
+            <p>SVV = (SVI_max - SVI_min) / SVI_mean × 100%</p>
+
+            <h4>Physiological Mechanism</h4>
+            <p>Mechanical ventilation causes pressure fluctuations that affect venous return and cardiac output:</p>
+            <ol>
+                <li><strong>Inspiration:</strong> Increased positive intrathoracic pressure temporarily <strong>decreases venous return</strong> to the right heart</li>
+                <li><strong>Effect:</strong> This leads to a subsequent <strong>decrease in left ventricular preload</strong> and, accordingly, to a measurable drop in stroke volume and SVI</li>
+                <li><strong>Response:</strong> If the heart is operating on the steep (preload-dependent) portion of the Frank-Starling curve, even small changes in preload cause large changes in SV, resulting in <strong>high SVV</strong></li>
+            </ol>
+
+            <h4>Clinical Significance: Fluid Decision</h4>
+            <p>The key clinical application of SVV is to determine if fluid therapy will lead to a clinically significant increase in cardiac output (CO/CI).</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>SVV Range (%)</th>
+                        <th>Interpretation (Fluid Responsiveness)</th>
+                        <th>Physiological State</th>
+                        <th>Therapeutic Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>High (>10-13%)</strong></td>
+                        <td><strong>Responds to Fluid:</strong> Preload dependent</td>
+                        <td><strong>Hypovolemia</strong> (absolute or relative). The heart will increase its output if fluid is given</td>
+                        <td><strong>Fluid therapy is indicated.</strong> Monitor for CI increase/≥10-15% in SV</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Low (<10-13%)</strong></td>
+                        <td><strong>Does Not Respond to Fluid:</strong> Preload independent</td>
+                        <td><strong>Optimal/Sufficient Preload</strong> (GEDVI is adequate). The heart is on the flat part of the Frank-Starling curve</td>
+                        <td><strong>DO NOT GIVE</strong> fluid. Focus on contractility (CFI) or afterload (SVRI)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Pulse Pressure Variation (PPV)</h3>
+            <p><strong>PPV</strong> is another key dynamic index used to predict fluid responsiveness in mechanically ventilated patients. It measures the maximum change in arterial pulse pressure over one respiratory cycle.</p>
+
+            <h4>Definition and Physiological Basis</h4>
+            <p>Pulse pressure (PP) is the difference between systolic and diastolic arterial pressure (PP = P_systolic - P_diastolic). PPV quantifies the relative difference between the maximum and minimum pulse pressure observed during mechanical ventilation:</p>
+            <p>PPV = (PP_max - PP_min) / PP_mean × 100%</p>
+
+            <h4>Clinical Significance: Fluid Response</h4>
+            <p>The interpretation of PPV is identical to SVV and serves to make the decision about fluid administration.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>PPV Range (%)</th>
+                        <th>Interpretation (Fluid Responsiveness)</th>
+                        <th>Therapeutic Decision</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>High (>10-13%)</strong></td>
+                        <td><strong>Responds to Fluid:</strong> Indicates hypovolemia</td>
+                        <td><strong>Fluid therapy is indicated</strong>, expect ≥10-15% increase in CI/SV</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Low (<10-13%)</strong></td>
+                        <td><strong>Does Not Respond to Fluid:</strong> Adequate volume status or volume independence</td>
+                        <td><strong>Avoid fluid</strong>; focus on contractility (CFI) or afterload (SVRI)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Mandatory Conditions for Reliability</h3>
+            <p>SVV and PPV are only accurate predictors when the following strict physiological and technical conditions are met. If any condition is violated, the SVV/PPV value must be ignored.</p>
+            <ol>
+                <li><strong>Fully Controlled Mechanical Ventilation:</strong> The patient must be fully sedated or paralyzed <strong>without spontaneous breathing efforts</strong>. Patient efforts break the cyclic pressure change</li>
+                <li><strong>Sinus Rhythm:</strong> Severe arrhythmias (e.g., atrial fibrillation) create beat-to-beat variability, making SVV/PPV unreliable</li>
+                <li><strong>Closed Chest/Abdomen:</strong> The system relies on fixed transmission of intrathoracic pressure. Conditions such as an open chest compromise this transmission</li>
+                <li><strong>Sufficient Tidal Volume (V_T ≥ 8 mL/kg):</strong> Tidal volume must be large enough (typically ≥ 8 mL/kg of predicted body weight) to create sufficient change in intrathoracic pressure. Low tidal volumes (e.g., in ARDS) may lead to <strong>falsely low SVV</strong></li>
+            </ol>
+
+            <p>If these conditions are not met, SVV and PPV should be ignored, and the clinician should revert to using <strong>static volumetric parameters (GEDVI, ITBVI)</strong> combined with <strong>passive leg raising</strong> to assess fluid responsiveness.</p>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

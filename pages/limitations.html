@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limitations - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>Theoretical Limitations of the PiCCO Method</h2>
+            <p>While PiCCO provides powerful insights, its measurements are based on mathematical models and assumptions that are not always fulfilled in critically ill patients. Understanding these limitations is critical to prevent misinterpretation and therapeutic errors.</p>
+
+            <h3>Transpulmonary Thermodilution (TPTD) Limitations</h3>
+            <p>TPTD is subject to limitations related to the indicator's behavior as it passes through the cardiopulmonary circuit:</p>
+            <ul>
+                <li><strong>Temperature Stability Dependency:</strong> Calculation of <strong>Extravascular Lung Water (EVLW)</strong> assumes that thermal exchange occurs exclusively between the blood (indicator) and the lung tissue/water. However, rapid changes in patient temperature (e.g., active warming or cooling) or the presence of significant effusions (pleural/pericardial) can affect the thermal profile.
+                    <ul>
+                        <li><em>Result:</em> EVLW may be artifactually altered due to extraneous heat sources/sinks</li>
+                    </ul>
+                </li>
+                <li><strong>Indicator Recirculation:</strong> Unlike pulmonary artery catheter (PAC) thermodilution, the TPTD curve is sampled further downstream. Conditions causing early systemic recirculation (e.g., severe peripheral vasodilation) can distort the tail of the curve, although the system's analysis algorithms attempt to account for this</li>
+                <li><strong>Large Blood Volume Requirement:</strong> TPTD requires a relatively large volume of cold indicator (10-20 mL) to create a measurable thermal signal after traversing the entire chest. This can sometimes be problematic in small pediatric patients</li>
+            </ul>
+
+            <h3>Pulse Contour Analysis (PCA) Limitations</h3>
+            <p>Continuous monitoring relies on the algorithmic assessment of stroke volume (SV) from the arterial pressure waveform.</p>
+            <ul>
+                <li><strong>Calibration Factor (K) Drift:</strong> PCA uses an empirically determined <strong>calibration factor (K)</strong> to link the measured pressure to the calculated flow (CO). This factor is assumed to be constant between TPTD measurements.
+                    <ul>
+                        <li><em>Reality:</em> The calibration factor K is directly dependent on <strong>arterial impedance</strong> (compliance and resistance). As the patient's vascular tone changes rapidly (e.g., during shock or titration of vasoactive drugs), the true value of K changes, but the system continues to use the old, fixed factor</li>
+                        <li><em>Consequence:</em> This leads to <strong>"drift"</strong> in the continuous PCCO and CI values, making them inaccurate until the system is recalibrated by a new TPTD measurement</li>
+                    </ul>
+                </li>
+                <li><strong>Waveform Quality Dependency:</strong> The calculation heavily depends on a clean, properly damped arterial pressure waveform. Any issues with the arterial line (occlusion, thrombosis, poor flushing) will immediately compromise PCA accuracy</li>
+            </ul>
+
+            <h3>Dynamic Parameters (SVV and PPV) Limitations</h3>
+            <p>The predictive power of <strong>Stroke Volume Variation (SVV)</strong> and <strong>Pulse Pressure Variation (PPV)</strong> is limited by physiological conditions that alter cardiopulmonary interaction.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Reason for Limitation</th>
+                        <th>Practical Consequence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Spontaneous Breathing</strong></td>
+                        <td>Spontaneous breaths disrupt the fixed pressure cycle required for reliable SVV/PPV calculation</td>
+                        <td><strong>SVV/PPV are invalid.</strong> They will likely be low regardless of fluid status</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cardiac Arrhythmias</strong></td>
+                        <td>Calculation requires a stable heart rate and consistent stroke-by-stroke output</td>
+                        <td><strong>SVV/PPV are invalid.</strong> Heart rate changes cause volume changes unrelated to preload</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Low Tidal Volume (V_T < 8 mL/kg)</strong></td>
+                        <td>The mechanical breath is too small to cause a significant change in intrathoracic pressure</td>
+                        <td>SVV/PPV may be falsely low, leading to missed fluid responsiveness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Low Lung Compliance (Severe ARDS)</strong></td>
+                        <td>A stiff chest/lung prevents full transmission of positive pressure to the heart</td>
+                        <td>SVV/PPV may be falsely low, leading to missed fluid responsiveness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Open Abdomen/Open Chest</strong></td>
+                        <td>Eliminates the contained intrathoracic pressure environment necessary for the cyclic pressure changes</td>
+                        <td>SVV/PPV are invalid</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>In conclusion, while PiCCO offers valuable volumetric data, its continuous flow measurements and dynamic indices must always be viewed through the lens of these theoretical limitations, requiring the clinician to validate the assumptions before trusting the data.</p>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

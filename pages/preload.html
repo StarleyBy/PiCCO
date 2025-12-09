@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preload - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>Preload Assessment: Global End-Diastolic Volume Index (GEDVI)</h2>
+            <p>The Global End-Diastolic Volume Index (GEDVI) is a key PiCCO parameter for assessing cardiac preload.</p>
+
+            <h3>Definition and Measurement</h3>
+            <p><strong>Global End-Diastolic Volume (GEDV)</strong> is the sum of the end-diastolic volumes of all four cardiac chambers (right atrium, right ventricle, left atrium, and left ventricle). It represents the <strong>total compliant blood volume</strong> in the heart immediately before systole.</p>
+            <p>The indexed form, <strong>Global End-Diastolic Volume Index (GEDVI)</strong>, is GEDV divided by the patient's body surface area (BSA), expressed in mL/m². This indexing allows comparison between patients of different sizes.</p>
+
+            <h4>Measurement via Transpulmonary Thermodilution (TPTD)</h4>
+            <p>GEDV is a key volume derived from the analysis of the TPTD curve:</p>
+            <ol>
+                <li><strong>Mean Transit Time (MT):</strong> This is the average time for the cold indicator to travel from the injection site (CVC) to the detection site (arterial thermistor)</li>
+                <li><strong>Calculation:</strong> GEDV is derived from cardiac output (CO) and mean transit time (MT), reflecting the volume contained in the flow path:
+                    <p>Volume ∝ CO × MT</p>
+                </li>
+            </ol>
+
+            <h4>Relationship to Intrathoracic Blood Volume (ITBV)</h4>
+            <p>GEDV is closely related to <strong>Intrathoracic Blood Volume (ITBV)</strong>, which represents the total blood volume in the heart and entire pulmonary circulation. GEDV typically comprises about 75% of ITBV:
+                <p>GEDV ≈ 0.8 × ITBV</p>
+            <p>ITBV is often preferred by some clinicians as it is considered the functional preload reservoir. Both GEDVI and ITBVI are typically interpreted similarly.</p>
+
+            <h3>Clinical Significance: Superior Preload Marker</h3>
+            <h4>A. Volume vs. Pressure Assessment</h4>
+            <p>GEDVI is considered a <strong>superior volumetric marker</strong> of preload compared to traditional filling pressures such as Central Venous Pressure (CVP) or Pulmonary Artery Occlusion Pressure (PCWP).</p>
+            <ul>
+                <li><strong>Pressure Limitations:</strong> CVP and PCWP are heavily dependent on factors unrelated to blood volume, such as:
+                    <ul>
+                        <li><strong>Ventricular Compliance:</strong> Stiff ventricular filling (e.g., in sepsis or severe heart failure) can generate high PCWP even with normal or low volume</li>
+                        <li><strong>Intrathoracic Pressure:</strong> Positive End-Expiratory Pressure (PEEP) or mechanical ventilation significantly elevates CVP and PCWP, causing misinterpretation</li>
+                    </ul>
+                </li>
+                <li><strong>GEDVI Advantage:</strong> GEDVI is a <strong>volumetric</strong> measurement, making it relatively <strong>independent of compliance and lung pressures</strong>. It provides a true estimate of the heart's "fill"</li>
+            </ul>
+
+            <h4>B. Fluid Therapy Guidance</h4>
+            <p>GEDVI provides the baseline context for interpreting dynamic parameters (SVV/PPV):</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>GEDVI Range (mL/m²)</th>
+                        <th>Clinical Interpretation</th>
+                        <th>Fluid Therapy Strategy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Low (<680)</strong></td>
+                        <td><strong>Hypovolemia:</strong> True volume deficit (relative or absolute)</td>
+                        <td><strong>Fluid therapy indicated:</strong> Aggressively pursue volume resuscitation to reach the optimal range</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Optimal (680 - 800)</strong></td>
+                        <td><strong>Normovolemia:</strong> Optimal preload; heart is adequately filled</td>
+                        <td><strong>Dynamic assessment required:</strong> Check SVV/PPV before additional fluid. Focus shifts to CI (flow) and SVRI (afterload)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>High (>800)</strong></td>
+                        <td><strong>Hyper-volemia/Fluid Overload:</strong> Significant volume reserve, potentially leading to congestion</td>
+                        <td><strong>Fluid restriction/removal:</strong> Focus on diuretics or fluid removal; avoid additional volume</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Normal indexed range for GEDVI:</strong> ≈ 680-800 mL/m²</p>
+
+            <p>In conclusion, GEDVI is the definitive volumetric measure of preload, allowing the clinician to objectively assess whether the problem is a true <strong>volume deficit</strong> or poor <strong>performance/afterload</strong>.</p>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

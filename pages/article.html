@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiCCO - Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="general.html">General Information</a></li>
+                <li><a href="setup.html">Connection and Calibration</a></li>
+                <li><a href="parameters.html">Measured Parameters</a></li>
+                <li><a href="troubleshooting.html">Issues and Solutions</a></li>
+                <li><a href="glossary.html">Terminology Dictionary</a></li>
+                <!-- Example of existing page -->
+                <li><a href="article.html">Example Article</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h1><span class="green-highlighted-oval-3d">PiCCO</span> <span class="yellow-highlighted-oval-3d">monitoring</span></h1>
+            <p class="subtitle">Principles, capabilities, <span class="teal-highlighted-oval-3d">strengths</span> and limitations</p>
+        
+            <hr>
+            <details open="">
+                <summary>1. Introduction</summary>
+            <p>
+                <span class="green-highlighted-oval-3d">PiCCO</span> (Pulse<span class="orange-highlighted-oval-3d"> index</span> <span class="cyber-glitch" data-text="Continuous">Continuous</span> <span class="gold-highlighted-oval-3d">Cardiac Output</span>)
+                is a hybrid hemodynamic monitoring system that integrates transpulmonary thermodilution
+                <span class="blue-highlighted-oval-3d"> (TPTD)</span> and arterial <span class="luminous-block luminous-blue">pulse contour analysis</span> to deliver a
+                <span class="yellow-highlighted-oval-3d"> (PCA)</span>  multidimensional assessment of cardiovascular function.</p>
+        
+            <p>    <span class="green-highlighted-oval-3d">PiCCO</span> fills the gap <span class="luminous-block luminous-green">between basic monitoring</span> <span class="violet-highlighted-oval-3d"> (CVP, <span class="cyber-glitch" data-text="MAP">MAP</span>, lactate)</span> and highly invasive tools
+                <span class="violet-highlighted-oval-3d">(Swan–Ganz PAC)</span>
+                by providing quantitative, volumetric, and dynamic parameters that guide
+                <span class="grey-blue-highlighted-oval-3d"> resuscitation and fluid/vasoactive therapy</span>.</p><p><br></p><p>А&nbsp; &nbsp;П</p><p>23&nbsp; &nbsp;34</p><p><br></p><p><br></p>
+        
+        <div class="info-box">
+            <span class="green-highlighted-oval-3d">PiCCO</span> is widely used in:
+            <p>🎯 septic shock</p>
+            <p>🎯 ARDS &amp; pulmonary edema</p>
+            <p>🎯 major surgery (especially cardio/abdominal/thoracic)</p>
+            <p>🎯 <span class="pink-highlighted-oval-3d">mixed</span> shock states</p>
+            <p>🎯 patients with capillary leak syndromes</p>
+            <p>🎯 burns</p>
+            <p>🎯 complex fluid management scenarios</p>   
+        </div>
+        </details>
+        
+        <details open="">
+            <summary>2. How <span class="green-highlighted-oval-3d">PiCCO</span> Works</summary>
+        <p><span class="green-highlighted-oval-3d">PiCCO</span> measures hemodynamics through two complementary technologies:</p>
+        <p>I. Transpulmonary thermodilution<span class="blue-highlighted-oval-3d"> (TPTD)</span></p>
+        <p><br></p><p>A bolus of <span class="cyber-neon cyber-neon-green">cold saline</span> is injected into a central venous catheter (CVC), and the temperature change is detected by a thermistor-tipped arterial catheter (usually femoral).&nbsp;</p> 
+        <p>This generates a temperature–time curve used for calculating:</p>
+        
+        <div class="info-box">
+        <p>🔷 Cardiac Output (CO)</p>
+        <p>🔷 Global End-Diastolic Volume (GEDV)</p>
+        <p>🔷 Extravascular Lung Water (EVLW)</p>
+        <p>🔷 Pulmonary Vascular Permeability Index (PVPI)</p>
+        <p>🔷 Intrathoracic Blood Volume (ITBV)</p>
+        <p>🔷 Cardiac Function Index (CFI)</p>
+        <p>🔷 Global Ejection Fraction (GEF)</p>   
+        </div>
+        <p>This is the <span class="gold-highlighted-oval-3d">gold standard</span> among semi-invasive methods for determining pulmonary water and cardiac volumes.</p>
+        <img src="../images/Picco normal values.jpg" alt="PiCCO normal values">
+        <details open="">
+            <summary>Transpulmonary thermodilution: advantages and limits</summary>
+        <p>1️⃣ For complex patients in the intensive care unit or in the operating room, many questions regarding their haemodynamic management cannot be answered with simple clinical examination.</p>
+        <p>In particular, arterial pressure allows only a rough estimation of cardiac output.</p>
+        <p>Transpulmonary thermodilution is a technique that provides a full haemodynamic assessment through cardiac output and other indices.</p> 
+        <p>It belongs to the category of <span class="gold-highlighted-oval-3d">“advanced”</span> devices that are indicated for the most critically ill and/or complex patients.</p>
+        <p>The<span class="blue-highlighted-oval-3d"> TPTD</span> technique emerged in the early 2000s. The <span class="green-highlighted-oval-3d">PiCCO</span> (Pulsion Medical Systems, Munich, Germany) and the <span class="green-highlighted-oval-3d">Volume View</span> (Edwards LifeSciences, Irvine, United States of America) devices measure cardiac output but also provide several other valuable pieces of haemodynamic information.</p>
+        <p>2️⃣ Transpulmonary dilution cardiac output measurement techniques differ from dilutional techniques which use the <span class="violet-highlighted-oval-3d">pulmonary artery catheter</span></p>
+        <p>Cold fluid is poured into the venous circulation</p>
+        <p>It mixes with <span class="cyber-neon cyber-neon-pink">blood</span> in the cardiac chambers before making its way into the arterial circulation.</p>
+        <p>A thermistor is dangling in the arterial circulation, and it measures the change in blood temperature.</p>
+        <p>The resulting temperature over time curve is used to make all sorts of comments.</p>
+        <p>This method has advantages over PA catheter thermodilution, as well as unique disadvantages.</p>
+            <div class="interactive-diagram-container">
+                <img src="../images/Thermodilution.jpg" alt="Thermodilution diagram" usemap="#thermodilution-map" class="interactive-diagram">
+                <map name="thermodilution-map">
+                  <area shape="rect" coords="10,10,100,50" href="#" alt="Central Vein" data-tooltip-text="Site for injection of cold indicator (saline).">
+                  <area shape="rect" coords="200,80,300,120" href="#" alt="Heart" data-tooltip-text="Mixing of indicator with blood in cardiac chambers.">
+                  <area shape="rect" coords="400,10,500,50" href="#" alt="Arterial Catheter" data-tooltip-text="Catheter with thermistor in femoral artery for temperature measurement.">
+                </map>
+                <div id="diagram-tooltip-thermodilution" class="tooltip" style="display: none;"></div>
+            </div>
+        <p>3️⃣So does it matter where We inject the <span class="blue-highlighted-oval-3d">cold fluid</span>?</p>
+        <p>One would think so. Lets say you inject the cold water into a peripheral cannula - who knows what tissues it exchanges heat with on the way to the heart; who knows what its temperature will be at the time it reaches the right atrium; and so on and so forth. It is after all the cardiac chambers we are interested in.</p>
+        <p>Thus, a <span class="gold-highlighted-oval-3d">internal jugular</span> central line is the vehicle of choice for your cold saline.</p>        
+        <p>However, a study has been done to investigate whether or not it matters whether you are using a femoral CVC or a jugular CVC. Surprisingly, those people found that IJ and femoral thermodilution measurements agree very well, provided one uses a <span class="violet-highlighted-oval-3d">correction factor</span>. One issue raised by the study was that the femoral CVC <span class="grey-blue-highlighted-oval-3d"> should not be in the same groin</span> as the <span class="green-highlighted-oval-3d">PiCCO</span> - because there will be "crosstalk" between the cold fluid in the catheter and the <span class="green-highlighted-oval-3d">PiCCO</span> thermistor in the neighbouring artery.</p>    
+                    <div class="interactive-diagram-container">
+                        <img src="../images/mean transit time and downslope time.jpg" alt="Mean Transit Time and Downslope Time" usemap="#mtt-dst-map" class="interactive-diagram">
+                        <map name="mtt-dst-map">
+                          <area shape="rect" coords="50,150,150,200" href="#" alt="Mean Transit Time (MTt)" data-tooltip-text="Среднее время транзита (MTt): время, за которое половина индикатора проходит через систему.">
+                          <area shape="rect" coords="200,250,300,300" href="#" alt="Downslope Time (DSt)" data-tooltip-text="Время нисходящего склона (DSt): время от пика кривой до точки, где концентрация падает до определенного уровня.">
+                        </map>
+                        <div id="diagram-tooltip-mtt-dst" class="tooltip" style="display: none;"></div>
+                    </div>         <p>From this curve, we can arrive at two important measurements: the <span class="violet-highlighted-oval-3d">Mean Transit Time (MTt)</span> and the <span class="violet-highlighted-oval-3d">Downslope Time (DSt)</span></p>
+                     <div class="interactive-diagram-container">
+                         <img src="../images/Picco thrmodilution curve.jpg" alt="PiCCO Thermodilution Curve" usemap="#picco-curve-map" class="interactive-diagram">
+                         <map name="picco-curve-map">
+                           <area shape="rect" coords="50,50,150,100" href="#" alt="Infusion Start" data-tooltip-text="Beginning of cold indicator injection (normal saline).">
+                           <area shape="rect" coords="200,10,300,60" href="#" alt="Peak Concentration" data-tooltip-text="Maximum indicator concentration.">
+                           <area shape="rect" coords="350,150,450,200" href="#" alt="Recirculation" data-tooltip-text="Beginning of indicator recirculation, which may distort the curve.">
+                         </map>
+                         <div id="diagram-tooltip-picco-curve" class="tooltip" style="display: none;"></div>
+                     </div>        <p>4️⃣ How does <span class="blue-highlighted-oval-3d"> TPTD</span> measure cardiac output?</p>
+        <p><span class="blue-highlighted-oval-3d"> TPTD</span> requires the injection of a bolus of cold saline in the superior vena cava territory. At the tip of a femoral arterial catheter (the tip stands in the iliac artery), a thermistor senses the decrease in blood temperature. As with standard pulmonary thermodilution, <span class="blue-highlighted-oval-3d"> TPTD</span> measures cardiac output by using the Stewart–Hamilton principle.</p>
+        <p>Compared to the <span class="violet-highlighted-oval-3d">pulmonary artery catheter</span>, the difference is that, with <span class="blue-highlighted-oval-3d"> TPTD</span>, cold saline is injected not in the right atrium but in a central vein and the blood temperature is measured not in the pulmonary artery but in a systemic artery.</p>
+        <details open="">
+            <summary>🗝️The Stewart–Hamilton principle</summary>
+        <p>The Stewart–Hamilton principle is a medical principle used to calculate cardiac output by measuring the concentration of an injected indicator (like a dye or cold saline) as it circulates through the body.</p>
+        <p>It's based on the idea that cardiac output equals the amount of indicator injected divided by its average concentration over time, with the latter being the area under the indicator dilution curve. The principle can be summarized with the formula:</p> 
+        <p> Q = I/(∫C(t)dt),</p>
+        <div style="color: rgb(201, 209, 217); background-color: rgb(13, 17, 23); font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;">&lt;<span style="color: #a5d6ff;">img</span> <span style="color: #79c0ff;">src</span>=<span style="color: #a5d6ff;">"../images/Picco normal values.jpg"</span> <span style="color: #79c0ff;">alt</span>=<span style="color: #a5d6ff;">"PiCCO normal values"</span>&gt;</div><p>   where Q is cardiac output, I is the amount of indicator and ∫C(t)dt is the area under the concentration-over-time curve.</p>
+        <p>How it works:</p>
+        <p><span class="gold-highlighted-oval-3d">Injection:</span> A known amount (I) of an indicator substance is injected into the bloodstream at an upstream point, such as the right atrium or a peripheral vein.</p>
+        <p><span class="gold-highlighted-oval-3d">Measurement:</span> A sensor downstream, typically in the pulmonary artery or a peripheral artery, measures the indicator's concentration (C(t)) in the blood over time. This generates a concentration-versus-time curve, also known as an indicator dilution curve.</p>
+        <p><span class="gold-highlighted-oval-3d">Calculation:</span>Calculation: The area under this curve is calculated by integrating the concentration over time (∫C(t)dt).</p>
+        <p><span class="gold-highlighted-oval-3d">Cardiac Output:</span> The cardiac output (Q) is then calculated by dividing the total amount of the indicator injected (I) by the calculated area under the curve.</p> 
+        <div class="info-box">
+        <p>Applications:</p>
+            <p>🟠 Thermodilution: A common application is thermodilution, where a cold saline solution is injected and the temperature change is measured instead of concentration.</p>
+            <p>🟠 Dye Dilution: Another application is dye dilution, where a dye like indocyanine green is used and its concentration is measured by a densitometer.</p>
+            <p>🟠 Hepatic blood flow: The principle can also be modified to measure blood flow to specific organs, such as the liver.</p>   
+            </div>
+        </details>
+            <p>5️⃣ Is <span class="blue-highlighted-oval-3d"> TPTD</span> accurate for measuring cardiac output?</p>
+            <p><span class="blue-highlighted-oval-3d"> TPTD</span> can be reasonably concluded that this measurement of cardiac output is accurate compared to the pulmonary artery catheter and the Fick method. Besides its accuracy, the ability of <span class="blue-highlighted-oval-3d"> TPTD</span> devices to reliably track changes in cardiac output is also important.</p>
+            <p>It is recommended to average the result of three bolus injections. In such a case, the smallest change in cardiac output that can be accurately detected by <span class="blue-highlighted-oval-3d"> TPTD</span> is 12% (this is the “least significant change” of the technique).</p>
+            <p>The reliability of the measurement requires a significant difference in blood temperature induced by <span class="blue-highlighted-oval-3d"> TPTD</span>. According to the manufacturers recommendations, <span class="violet-highlighted-oval-3d"> 15 ml of saline ~ 8 °C</span> must be injected. Therapeutic hypothermia does not affect the precision of the measurement of cardiac output by <span class="blue-highlighted-oval-3d"> TPTD</span>. </p>
+            <p>It seems that boluses at room temperature create a sufficient difference, although this may result in a slight but significant overestimation of cardiac output. Very importantly, great caution should be applied when performing thermodilution (volume of injection, absence of leaks in the circuit, regularity of the speed of injection, bolus temperature), since any error in the thermodilution curve may affect the estimation of cardiac output but also of all variables that are inferred from the curve analysis.</p>
+            <p>When the venous catheter is inserted not in the superior vena cava but in a femoral vein, contralateral to the arterial catheter, the measurement of cardiac output is unaffected, while it is not the case for thoracic volumes measured by the technique. </p>
+            <p>Of course, the arterial catheter must not be inserted in the femoral site on the same side as the venous catheter used for injection. Injecting the bolus in a port-a-catheter provides reliable measurements of cardiac output and its variations. </p>
+            <p>The technique <span class="violet-highlighted-oval-3d"> cannot be used in case of extracorporeal membrane oxygenation!</span>.</p>
+            <p>By contrast, continuous venovenous haemofiltration does not affect the reliability of cardiac output measurement by TPTD, even for high blood pump flows.
+            </p><p>The thermistor-tipped catheter is most often inserted in the <span class="gold-highlighted-oval-3d"> femoral artery</span>, but the <span class="gold-highlighted-oval-3d"> axillary, brachial and radial (long catheter) arteries</span> may also be used, although this requires that the elbow remains in the extended position.</p>
+            <p>6️⃣ What are the limitations of<span class="blue-highlighted-oval-3d"> TPTD</span> for measuring cardiac output?</p>
+            <p>One drawback of <span class="blue-highlighted-oval-3d"> TPTD</span> is that recirculation of the cold indicator is larger than with pulmonary thermodilution. </p>
+            <p>Haemodynamic variables provided by transpulmonary thermodilution and calibrated pulse contour analysis, with their meaning, utility and normal values (N). </p>
+            <p>Also, if cardiac output is very low, typically <span class="gold-highlighted-oval-3d"> below 2 L/min</span>, <span class="blue-highlighted-oval-3d"> TPTD</span> devices do not provide any measure because of uncertainty about the technique reliability.</p>
+            <p>The loss of injectate temperature is greater than with conventional thermodilution. In this regard, high volumes of lung water may theoretically amplify the loss of injectate temperature through the pulmonary circulation, even though this phenomenon is likely negligible. </p>
+            <p>Finally, the main drawback of <span class="blue-highlighted-oval-3d"> TPTD</span> for measuring cardiac output is that it performs only intermittent measurements. It cannot detect short term changes, as induced by mechanical ventilation, passive leg raising or end-expiratory occlusion tests, for instance. </p>
+        </details>
+        <details>
+            <summary>Calibration of pulse contour analysis</summary>
+            <p> Besides <span class="blue-highlighted-oval-3d"> TPTD</span>, the <span class="green-highlighted-oval-3d">PiCCO</span> and <span class="green-highlighted-oval-3d">VolumeView</span> devices estimate cardiac output by analysis of the arterial curve (“pulse contour”) sampled through the arterial catheter.</p>
+            <p>This allows real-time monitoring of cardiac output.</p>
+            <p>Pulse contour analysis is based on the relationship between stroke volume and the amplitude and shape of the aortic pressure curve. Devices analyse the geometry of the pressure waveform recorded in a peripheral artery, estimate the arterial curve at the aortic level, and estimate stroke volume from the geometrical properties of the pressure waveform through proprietary algorithms.
+            </p><p>The measure of cardiac output by pulse contour analysis is very precise, more so than with <span class="blue-highlighted-oval-3d"> TPTD</span>, but it may drift over time, especially when the <span class="violet-highlighted-oval-3d">arterial resistance changes</span>. Then, the <span class="green-highlighted-oval-3d">PiCCO</span> and <span class="green-highlighted-oval-3d">Volume View</span> devices calibrate pulse contour analysis by the value obtained by <span class="blue-highlighted-oval-3d"> TPTD</span> each time <span class="blue-highlighted-oval-3d"> TPTD</span> is performed. Compared to uncalibrated pulse contour analysis devices, calibrated ones have better accuracy, especially when arterial tone changes to a significant extent, for instance under vasopressors. Calibration of pulse contour analysis should be encouraged <span class="gold-highlighted-oval-3d">after a 1-h calibration-free period</span>. This does not mean that calibration must be performed every hour in patients with a <span class="blue-highlighted-oval-3d"> TPTD</span> device, but rather that, when cardiac output is mandatory for
+                interpreting the haemodynamic condition, calibration of pulse contour analysis must be performed if 1 h or more has elapsed since the last calibration.</p>
+            </details>
+               
+        <hr>
+        <p>II. Pulse Contour Analysis<span class="yellow-highlighted-oval-3d"> (PCA)</span></p>
+        <p>Analyzes the arterial pressure waveform to calculate:</p> 
+        
+        <div class="info-box">
+        <p>🔶 Stroke Volume (SV)</p>
+        <p>🔶 Continuous Cardiac Output (CO)</p>
+        <p>🔶 Dynamic preload indices (SVV, PPV)</p>
+        <p>🔶 Arterial elastance parameters</p>   
+        </div>
+        
+        <p>PCA is calibrated by thermodilution, making <span class="green-highlighted-oval-3d">PiCCO</span> more accurate than pure pulse contour methods (e.g., FloTrac/Vigileo).</p>
+        </details>
+        
+        <details>
+            <summary>3. Advantages of the <span class="green-highlighted-oval-3d">PiCCO</span> method </summary>
+            <div class="info-box">
+                <p>🔥 The method, for all its flaws, is old and well-validated</p>
+                <p>🔥 It is close to PA catheter measurement, and is not far from the other available devices in terms of accuracy</p>
+                <p>🔥 The cardiac output monitoring is continuous with the pulse contour analysis</p>
+                <p>🔥 The arterial and venous access required are both likely to already be indicated</p>
+                <p>🔥 There is no large sheath to insert into a vein, and there is no risk of pulmonary artery rupture</p>
+                <p>🔥 The transpulmonary dilution can generate interesting parameters such as extravascular lung water, GEDV, etc</p>
+                </div> 
+        </details>
+        
+        
+        <details>
+            <summary>4. Limitations of the <span class="green-highlighted-oval-3d">PiCCO</span> method </summary>
+            <div class="info-box">
+                <p>😧 A large arterial catheter is required, which has implications for vessel damage, ease of insertion, and for the care that needs to be taken when removing the catheter afterwards.</p>
+                <p>😧 A CVC is requiredy</p>
+                <p>😧 Arterial catheter cannot be inserted at the same site as the CVC</p>
+                <p>😧 The pulmonary pressure or wedge pressure cannot be measured</p>
+                <p>😧 Pulse contour analysis of cardiac output cannot be relied upon where the patient has a balloon pump or is in atrial fibrillation</p>
+                <p>😧 Pulse contour analysis tends to drif from calibration and needs to be recalibrated regularly as the patient's condition changes</p>
+                <p>😧 The thermodilution measurement may be confused by the presence of large bodies of fluid in the chest that act as thermal sinks, eg. pleural or pericardial effusions</p>    
+            </div> 
+        </details>
+
+        <h2></h2><table><tbody><tr><th>аа&nbsp; аа</th></tr><tr><td>44&nbsp; 66</td></tr></tbody></table><div></div><h2><br></h2><h2><br></h2><h2>4. References</h2>
+        <p>
+            <a href="https://derangedphysiology.com/main/cicm-primary-exam/cardiovascular-system/">Deranged Physiology</a>  
+            <br>
+            <a href="https://link.springer.com/article/10.1186/s13054-017-1739-5">Springer Critical Care Review</a>
+        </p>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../js/search.js"></script>
+    <script src="../js/main.js"></script>
+
+</body></html>

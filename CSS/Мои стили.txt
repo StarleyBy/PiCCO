@@ -1,0 +1,100 @@
+СТИЛИ:
+1. Группа highlighted-oval-3d:
+ .gold-highlighted-oval-3d
+ .green-highlighted-oval-3d
+ .yellow-highlighted-oval-3d
+ .blue-highlighted-oval-3d
+ .red-highlighted-oval-3d
+ .pink-highlighted-oval-3d
+ .purple-highlighted-oval-3d
+ .teal-highlighted-oval-3d
+ .orange-highlighted-oval-3d
+ .silver-highlighted-oval-3d
+Использование: ТЕКСТ + .blue-highlighted-oval-3d = <span class="blue-highlighted-oval-3d">ТЕКСТ</span>
+2. Скрытый текст collapsible section
+Пример использования:
+ЗАГОЛОВОК 1 + collapsible section + ТЕКСТ 1 =
+= <details>
+        <summary>ЗАГОЛОВОК 1</summary>
+        <p>ТЕКСТ 1</p>
+  </details> 
+Еще пример:
+ЗАГОЛОВОК 1 + collapsible section + ТЕКСТ 1, внутри которого ЗАГОЛОВОК 1.1 + collapsible section + ТЕКСТ 1.1 = 
+= <details>
+        <summary>ЗАГОЛОВОК 1</summary>
+        <p>ТЕКСТ 1</p>
+   <details>
+        <summary>ЗАГОЛОВОК 1.1</summary>
+        <p>ТЕКСТ 1.1</p>
+   </details> 
+  </details> 
+Еще пример:
+    <details>
+       <summary>Another Separate Section</summary>
+        <p>This is another collapsible section at the same level as the first one.</p>
+        <ul>
+            <li>You can have any content inside.</li>
+            <li>Like lists, paragraphs, or images.</li>
+        </ul>
+    </details> 
+3. Инфобоксы:
+info-box 
+info-box info-box-info
+info-box info-box-success
+info-box info-box-warning
+info-box info-box-danger
+Использование:
+<!-- Default Info Box (uses the theme's accent color, gold) -->
+     <div class="info-box">
+         <p>ТЕКСТ.</p>
+     </div>
+     
+     <!-- Info Box (Blue) -->
+     <div class="info-box info-box-info">
+         <p>This is an informational message. Use it to provide helpful information or guidance to the user.</p>
+     </div>
+    
+    <!-- Success Info Box (Green) -->
+    <div class="info-box info-box-success">
+        <p>This is a success message. Use it to confirm that an operation was completed successfully.</p>
+    </div>
+    
+    <!-- Warning Info Box (Yellow) -->
+    <div class="info-box info-box-warning">
+        <p>This is a warning message. Use it to alert the user to something that requires their attention.</p>
+    </div>
+    
+    <!-- Danger Info Box (Red) -->
+    <div class="info-box info-box-danger">
+        <p>This is a danger message. Use it to indicate a critical error or a destructive action.</p>
+   </div>
+4. Группа Luminous Blocks
+.luminous-blue
+.luminous-green
+.luminous-red
+.luminous-yellow
+.luminous-purple
+Пример:  
+   <p>
+     Explore different subjects like 
+         <span class="luminous-block luminous-blue">Science</span>, 
+         <span class="luminous-block luminous-green">Technology</span>, and 
+         <span class="luminous-block luminous-red">Art</span>.
+   </p>
+5. Cyberpunk Glitch
+Пример: 
+<p>
+   Sometimes systems become <span class="cyber-glitch" data-text="UNSTABLE">UNSTABLE</span>.
+</p>
+6. Cyberpunk Neon Glow
+.cyber-neon-pink
+.cyber-neon-blue
+.cyber-neon-green
+.cyber-neon-yellow
+<h3>
+      <span class="cyber-neon cyber-neon-pink">ПРЕДУПРЕЖДЕНИЕ</span>
+</h3>
+ <h3>
+      <span class="cyber-neon cyber-neon-blue">СИСТЕМА АКТИВНА</span>
+ </h3>
+

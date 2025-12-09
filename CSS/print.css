@@ -1,0 +1,72 @@
+/* Print styles */
+
+/* Hide unnecessary elements for print */
+.main-header .menu-toggle,
+.main-nav,
+.nav-overlay,
+.theme-switcher,
+.main-footer,
+.search-container {
+    display: none !important;
+}
+
+/* Adjust main content for print */
+.wrapper {
+    display: block !important;
+    padding: 0 !important;
+}
+
+.main-content {
+    margin-left: 0 !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+/* Ensure text is black for readability */
+body, h1, h2, h3, p, li, dt, dd, a {
+    color: #000 !important;
+    background-color: #fff !important;
+}
+
+/* Remove background colors and borders */
+div, section, article, header, footer, nav, aside {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Links */
+a {
+    text-decoration: underline !important;
+}
+a[href]:after {
+    content: " (" attr(href) ")" !important;
+    word-wrap: break-word;
+}
+
+/* Images */
+img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 1rem auto !important;
+    page-break-inside: avoid;
+}
+
+/* Interactive elements */
+.interactive-diagram-container,
+.calculator-container,
+.checklist-container {
+    border: 1px solid #ccc !important;
+    padding: 10px !important;
+    margin-bottom: 20px !important;
+    page-break-inside: avoid;
+}
+
+/* Avoid breaking content across pages awkwardly */
+h1, h2, h3, ul, ol, dl, p, table, pre, blockquote, details {
+    page-break-inside: avoid;
+}

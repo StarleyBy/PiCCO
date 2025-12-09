@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indications - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;70&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>PiCCO Indications for Monitoring</h2>
+            <p>Extended hemodynamic monitoring using PiCCO is indicated in critically ill patients where standard monitoring (CVP, MAP, lactate, diuresis) is insufficient or misleading, and where therapeutic decisions depend on accurate volume status, cardiac function, and quantitative assessment of lung fluid.</p>
+
+            <h3>Main Indications: When Standard Monitoring Falls Short</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clinical Syndrome</th>
+                        <th>Limitation of Standard Monitoring</th>
+                        <th>Benefit and Rationale for PiCCO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Refractory Shock (Undifferentiated)</strong></td>
+                        <td>Difficulty in determining the type of shock (hypovolemic vs. distributive vs. cardiogenic) or the cause of persistent arterial hypotension</td>
+                        <td><strong>Dynamic Assessment:</strong> Uses SVV/PPV to rapidly confirm fluid responsiveness. <strong>Volumetric Assessment:</strong> Uses GEDVI for accurate diagnosis of global hypovolemia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Severe Sepsis / Septic Shock</strong></td>
+                        <td>Pressures (CVP) are unreliable due to low vascular tone and poor compliance. Difficulty differentiating hypovolemia and excessive vasodilation</td>
+                        <td><strong>Fluid Management:</strong> Guides fluid therapy using SVV to maximize CI while avoiding excessive infusion that causes pulmonary edema (monitoring via EVLWI)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Acute Respiratory Distress Syndrome (ARDS)</strong></td>
+                        <td>Aggressive positive ventilation (PEEP) makes CVP and PCWP unreliable. Critical need to minimize fluid to facilitate lung recovery</td>
+                        <td><strong>Quantitative Lung Fluid Assessment:</strong> EVLWI provides objective measurement of pulmonary edema severity. <strong>Goal:</strong> Target CI values are achieved, but fluid is restricted to maintain EVLWI below the upper normal limit (<10 mL/kg)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cardiogenic Shock / Heart Failure</strong></td>
+                        <td>CVP and PCWP are highly sensitive to changes in ventricular compliance. Need to accurately assess global function</td>
+                        <td><strong>Contractility Assessment:</strong> CFI (Cardiac Function Index) provides objective assessment of global cardiac performance, guiding precise titration of inotropic support</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Severe Trauma / Extensive Burns</strong></td>
+                        <td>Massive volume shifts and capillary leak lead to unreliable pressure readings. Rapid and reliable volume status assessment is critical</td>
+                        <td><strong>Volume Status:</strong> ITBVI/GEDVI provides a more stable measurement of circulating blood volume than CVP or resuscitation formulas, guiding massive transfusion protocols</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Indications for Specific Parameter Monitoring</h3>
+            <p>PiCCO is often indicated when a clinician has a specific question that can only be answered by a volumetric or dynamic parameter:</p>
+            <ul>
+                <li><strong>When fluid responsiveness needs to be confirmed:</strong> Use PiCCO for SVV and PPV.
+                    <ul>
+                        <li><em>Scenario:</em> A patient with sepsis has low MAP despite norepinephrine. Next step - fluid or more vasopressor? (Answer provided by SVV)</li>
+                    </ul>
+                </li>
+                <li><strong>When pulmonary edema is suspected despite normal CVP/PCWP:</strong> Use PiCCO for EVLWI.
+                    <ul>
+                        <li><em>Scenario:</em> An ARDS patient is hypoxemic and has increasing PEEP requirements. Is this due to primary lung injury or fluid overload? (Answer provided by EVLWI)</li>
+                    </ul>
+                </li>
+                <li><strong>When inotropic efficacy needs to be assessed:</strong> Use PiCCO for CFI.
+                    <ul>
+                        <li><em>Scenario:</em> A patient post-cardiothoracic surgery with low cardiac output syndrome requires dobutamine optimization. (Answer provided by CFI and CI)</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>PiCCO in Goal-Directed Therapy (GDT)</h3>
+            <p>PiCCO is the ideal tool for implementing advanced goal-directed therapy (GDT) protocols that have demonstrated benefit in various surgical and medical populations. It allows the clinician to pursue specific, indexed hemodynamic goals rather than relying on general protocols:</p>
+            <ul>
+                <li><strong>Goal:</strong> Maintain CI above a threshold (e.g., 3.0 L/min/m²)</li>
+                <li><strong>Constraint:</strong> Maintain GEDVI within the optimal range (e.g., 680-800 mL/m²) to optimize preload</li>
+                <li><strong>Safety Check:</strong> Monitor EVLWI to ensure resuscitation efforts do not cause dangerous pulmonary fluid accumulation</li>
+            </ul>
+
+            <h3>Reference to Therapeutic Algorithms</h3>
+            <p>In clinical practice, PiCCO parameters are typically integrated into treatment algorithms that guide fluid, vasopressor, and inotropic therapy.</p>
+            <ul>
+                <li><strong>Fluid Management Algorithm:</strong> A typical algorithm starts by checking CI and MAP. If low, the next step is to check SVV. If SVV is high, fluid is given. If SVV is low, the focus shifts to vasopressors/inotropes</li>
+                <li><strong>De-escalation Algorithm:</strong> EVLWI is often used as the primary trigger for fluid removal (diuretics or RRT) after stabilization of the acute phase of shock</li>
+            </ul>
+
+            <p>Understanding these indications allows the clinician to choose the right monitoring tool for the right patient, optimizing outcomes in critical care.</p>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>
