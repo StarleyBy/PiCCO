@@ -188,6 +188,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof languageSupport !== 'undefined') {
         languageSupport.init();
     }
+    
+    // Ensure all details elements start as closed
+    document.querySelectorAll('details').forEach(detail => {
+        detail.removeAttribute('open');
+    });
 });
 });
 // Language support functionality

@@ -273,6 +273,12 @@ details {
     border-left: 2px solid #c8d0d8;
     margin: 10px 0;
     padding-left: 12px;
+    /* Ensure all details are closed by default */
+    display: block;
+}
+
+details[open] {
+    display: block;
 }
 
 /* Style for the summary/title line */
