@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Equipment - PiCCO Online Manual</title>
@@ -54,7 +56,6 @@
       <div class="info-box">
         <p>The <span class="green-highlighted-oval-3d">PiCCO</span> (Pulse Contour Cardiac Output) system relies on specialized hardware components interconnected to acquire both pressure and temperature data necessary for its dual functionality (<span class="blue-highlighted-oval-3d">TPTD</span> and <span class="gold-highlighted-oval-3d">PCA</span>). Understanding the equipment is crucial for proper setup, operation, and troubleshooting of the system.</p>
       </div>
-      <p></p>
 
       <details>
         <summary>
@@ -68,11 +69,12 @@
           </summary>
           <ul style="font-size: medium; font-weight: 400;">
             <li><strong><span class="luminous-block luminous-red">Arterial <span class="green-highlighted-oval-3d">PiCCO</span> Catheter</span> (<span class="cyber-neon cyber-neon-pink">Thermodilution Catheter</span>):</strong>
+              <img src="../images/PICCO catheter.JPG">
               <ul>
-                <li><strong><span class="luminous-block luminous-blue">Placement:</span></strong>&nbsp;Typically inserted into the&nbsp;<strong><span class="luminous-block luminous-green">Femoral Artery</span></strong>&nbsp;(due to its size and accessibility for the longer catheter necessary to traverse the entire cardiopulmonary circuit), though <span class="luminous-block luminous-green">Axillary</span> or <span class="luminous-block luminous-green">Brachial</span> placements are possible.</li>
+                <li><strong><span class="luminous-block luminous-blue">Placement:</span></strong>&nbsp;Typically inserted into the&nbsp;<strong><span class="marker-yellow">Femoral Artery</span></strong>&nbsp;(due to its size and accessibility for the longer catheter necessary to traverse the entire cardiopulmonary circuit), though <span class="marker-yellow">Axillary</span> or <span class="marker-yellow">Brachial</span> placements are possible.</li>
                 <li><strong><span class="luminous-block luminous-blue">Function:</span></strong>&nbsp;This catheter provides the arterial pressure waveform for continuous <span class="gold-highlighted-oval-3d">PCA</span> and houses the&nbsp;<strong><span class="cyber-neon cyber-neon-green">thermistor</span></strong>&nbsp;at its tip for detection of the temperature change during <span class="blue-highlighted-oval-3d">TPTD</span>. Typical length ranges from 16 cm to 20 cm.</li>
                 <li><strong><span class="luminous-block luminous-blue">Key Feature:</span></strong>&nbsp;The thermistor is a temperature-sensitive resistor that precisely measures the blood temperature drop after the cold injectate has circulated through the cardiopulmonary system. Its accurate placement in a large central artery is paramount.</li>
-                <li><strong><span class="luminous-block luminous-blue">Lumen:</span></strong>&nbsp;All <span class="green-highlighted-oval-3d">PiCCO</span> catheters include a standard lumen for continuous&nbsp;<strong><span class="luminous-block luminous-red">arterial pressure monitoring</span></strong>&nbsp;and blood sampling.</li>
+                <li><strong><span class="luminous-block luminous-blue">Lumen:</span></strong>&nbsp;All <span class="green-highlighted-oval-3d">PiCCO</span> catheters include a standard lumen for continuous&nbsp;<strong><span class="marker-red">arterial pressure monitoring</span></strong>&nbsp;and blood sampling.</li>
                 <li><strong><span class="luminous-block luminous-blue">Connection Port:</span></strong>&nbsp;A dedicated port connects the catheter to the <span class="green-highlighted-oval-3d">PiCCO</span> interface cable, transmitting the electrical signal from the thermistor to the monitor.</li>
               </ul>
             </li>
@@ -116,54 +118,56 @@
           </summary>
           <p style="margin-top: 0px; font-size: medium; font-weight: 400;">The screen is generally dominated by the primary, indexed parameters, grouped by function:</p>
           <div class="table-wrapper">
-            <div class="table-wrapper"><table class="scenario-table" style="width: 629px; font-size: medium; font-weight: 400;">
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Key Parameters (Indexed)</th>
-                  <th>Normal Range (mL or L/min/m2)</th>
-                  <th>Clinical Utility</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Flow/Delivery</strong></td>
-                  <td><strong><span class="red-highlighted-oval-3d">CI</span></strong>&nbsp;(Cardiac Index)</td>
-                  <td>3.0 - 5.0</td>
-                  <td><strong>Tissue Perfusion:</strong>&nbsp;Primary measure of cardiac effectiveness.</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td><span class="blue-highlighted-oval-3d">SVRI</span> (Systemic Vascular Resistance Index)</td>
-                  <td>1700 - 2400</td>
-                  <td><strong>Afterload:</strong>&nbsp;Crucial for managing vasodilatory shock (sepsis).</td>
-                </tr>
-                <tr>
-                  <td><strong>Preload/Volume</strong></td>
-                  <td><strong><span class="yellow-highlighted-oval-3d">GEDVI</span></strong>&nbsp;(Global End-Diastolic Volume Index)</td>
-                  <td>680 - 800</td>
-                  <td><strong>Volumetric Preload:</strong>&nbsp;Gold standard for assessing fluid deficit.</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td><span class="orange-highlighted-oval-3d">ITBVI</span> (Intrathoracic Blood Volume Index)</td>
-                  <td>850 - 1000</td>
-                  <td>Total blood volume in the chest (close correlate to <span class="yellow-highlighted-oval-3d">GEDVI)</span>.</td>
-                </tr>
-                <tr>
-                  <td><strong>Lung Water</strong></td>
-                  <td><strong><span class="green-highlighted-oval-3d">EVLWI</span></strong>&nbsp;(Extravascular Lung Water Index)</td>
-                  <td>3.0 - 7.0 (mL/kg)</td>
-                  <td><strong>Pulmonary Edema:</strong>&nbsp;Objective quantification of fluid overload in the lungs.</td>
-                </tr>
-                <tr>
-                  <td><strong>Contractility</strong></td>
-                  <td><span class="red-highlighted-oval-3d">CFI</span> (Cardiac Function Index)</td>
-                  <td>4.5 - 6.5 (min^-1)</td>
-                  <td><strong>Pump Performance:</strong>&nbsp;Derived from <span class="red-highlighted-oval-3d">CI</span> / <span class="yellow-highlighted-oval-3d">GEDVI</span>. Excellent measure for titrating inotropes.</td>
-                </tr>
-              </tbody>
-            </table></div>
+            <div class="table-wrapper">
+              <table class="scenario-table" style="width: 629px; font-size: medium; font-weight: 400;">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Key Parameters (Indexed)</th>
+                    <th>Normal Range (mL or L/min/m2)</th>
+                    <th>Clinical Utility</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Flow/Delivery</strong></td>
+                    <td><strong><span class="red-highlighted-oval-3d">CI</span></strong>&nbsp;(Cardiac Index)</td>
+                    <td>3.0 - 5.0</td>
+                    <td><strong>Tissue Perfusion:</strong>&nbsp;Primary measure of cardiac effectiveness.</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><span class="blue-highlighted-oval-3d">SVRI</span> (Systemic Vascular Resistance Index)</td>
+                    <td>1700 - 2400</td>
+                    <td><strong>Afterload:</strong>&nbsp;Crucial for managing vasodilatory shock (sepsis).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Preload/Volume</strong></td>
+                    <td><strong><span class="yellow-highlighted-oval-3d">GEDVI</span></strong>&nbsp;(Global End-Diastolic Volume Index)</td>
+                    <td>680 - 800</td>
+                    <td><strong>Volumetric Preload:</strong>&nbsp;Gold standard for assessing fluid deficit.</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><span class="orange-highlighted-oval-3d">ITBVI</span> (Intrathoracic Blood Volume Index)</td>
+                    <td>850 - 1000</td>
+                    <td>Total blood volume in the chest (close correlate to <span class="yellow-highlighted-oval-3d">GEDVI)</span>.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Lung Water</strong></td>
+                    <td><strong><span class="green-highlighted-oval-3d">EVLWI</span></strong>&nbsp;(Extravascular Lung Water Index)</td>
+                    <td>3.0 - 7.0 (mL/kg)</td>
+                    <td><strong>Pulmonary Edema:</strong>&nbsp;Objective quantification of fluid overload in the lungs.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Contractility</strong></td>
+                    <td><span class="red-highlighted-oval-3d">CFI</span> (Cardiac Function Index)</td>
+                    <td>4.5 - 6.5 (min^-1)</td>
+                    <td><strong>Pump Performance:</strong>&nbsp;Derived from <span class="red-highlighted-oval-3d">CI</span> / <span class="yellow-highlighted-oval-3d">GEDVI</span>. Excellent measure for titrating inotropes.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </details>
 
@@ -176,7 +180,11 @@
             <li><strong><span class="pink-highlighted-oval-3d">SVV</span> (Stroke Volume Variation) &amp; <span class="pink-highlighted-oval-3d">PPV</span> (Pulse Pressure Variation):</strong>
               <ul>
                 <li><strong>Clinical Cutoff:</strong>&nbsp;Values typically&nbsp;<strong>&gt;10% - 13%</strong>&nbsp;indicate the patient is a&nbsp;<em>fluid responder</em>&nbsp;(on the steep limb of the Frank-Starling curve).</li>
-                <li><strong></strong><div class="info-box info-box-warning"><p><span class="cyber-neon cyber-neon-pink"><span class="cyber-glitch" data-text="Constraint:">Constraint:</span></span>&nbsp;These parameters are&nbsp;only valid&nbsp;in patients who are <span class="luminous-block luminous-purple">mechanically ventilated</span>, <span class="luminous-block luminous-purple">in sinus rhythm</span>, and receiving <span class="luminous-block luminous-purple">no spontaneous breaths</span>. The interface often shows an indicator confirming the validity of these measurements.</p></div></li>
+                <li><strong></strong>
+                  <div class="info-box info-box-warning">
+                    <p><span class="cyber-neon cyber-neon-pink"><span class="cyber-glitch" data-text="Constraint:">Constraint:</span></span>&nbsp;These parameters are&nbsp;only valid&nbsp;in patients who are <span class="luminous-block luminous-purple">mechanically ventilated</span>, <span class="luminous-block luminous-purple">in sinus rhythm</span>, and receiving <span class="luminous-block luminous-purple">no spontaneous breaths</span>. The interface often shows an indicator confirming the validity of these measurements.</p>
+                  </div>
+                </li>
               </ul>
             </li>
           </ul>
@@ -229,30 +237,32 @@
         </summary>
         <p style="margin-top: 0px; font-size: medium; font-weight: 400;">The <span class="green-highlighted-oval-3d">PiCCO</span> system primarily uses specialized arterial catheters, distinct from standard arterial lines, which are manufactured with a thermistor at the tip to facilitate the Transpulmonary Thermodilution (<span class="blue-highlighted-oval-3d">TPTD</span>) measurement.</p>
         <div class="table-wrapper">
-          <div class="table-wrapper"><table class="scenario-table" style="width: 629px; font-size: medium; font-weight: 400;">
-            <thead>
-              <tr>
-                <th>Catheter Name</th>
-                <th>Length (e.g., 16 cm,20 cm)</th>
-                <th>Primary Insertion Site</th>
-                <th>Key Feature</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>PulsioCath (Standard)</strong></td>
-                <td>16 cm or 20 cm</td>
-                <td>Femoral Artery</td>
-                <td>Most common type. Designed for stability and reliability in <span class="blue-highlighted-oval-3d">TPTD</span> measurements.</td>
-              </tr>
-              <tr>
-                <td><strong>PulsioCath (Longer)</strong></td>
-                <td>25 cm or 30 cm</td>
-                <td>Axillary or Brachial Artery</td>
-                <td>Used when femoral access is contraindicated or compromised (e.g., vascular disease, open abdomen). Longer length ensures the thermistor is correctly positioned central to the arterial circulation.</td>
-              </tr>
-            </tbody>
-          </table></div>
+          <div class="table-wrapper">
+            <table class="scenario-table" style="width: 629px; font-size: medium; font-weight: 400;">
+              <thead>
+                <tr>
+                  <th>Catheter Name</th>
+                  <th>Length (e.g., 16 cm,20 cm)</th>
+                  <th>Primary Insertion Site</th>
+                  <th>Key Feature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>PulsioCath (Standard)</strong></td>
+                  <td>16 cm or 20 cm</td>
+                  <td>Femoral Artery</td>
+                  <td>Most common type. Designed for stability and reliability in <span class="blue-highlighted-oval-3d">TPTD</span> measurements.</td>
+                </tr>
+                <tr>
+                  <td><strong>PulsioCath (Longer)</strong></td>
+                  <td>25 cm or 30 cm</td>
+                  <td>Axillary or Brachial Artery</td>
+                  <td>Used when femoral access is contraindicated or compromised (e.g., vascular disease, open abdomen). Longer length ensures the thermistor is correctly positioned central to the arterial circulation.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <details>
@@ -272,31 +282,34 @@
           <h3>4. <span class="luminous-block luminous-green">Catheter Selection</span> and <span class="luminous-block luminous-red">Site Considerations</span></h3>
         </summary>
         <p style="margin-top: 0px; font-size: medium; font-weight: 400;">The choice of catheter and insertion site impacts data reliability and patient safety.</p>
+        <img src="../images/Catheter choice.JPG" alt="SV">
         <div class="table-wrapper">
-          <div class="table-wrapper"><table class="scenario-table" style="width: 629px; font-size: medium; font-weight: 400;">
-            <thead>
-              <tr>
-                <th>Site</th>
-                <th>Advantages</th>
-                <th>Disadvantages</th>
-                <th>Clinical Consideration</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Femoral Artery (Preferred)</strong></td>
-                <td>Easy access, most common site for large-bore arterial access, robust and reliable <span class="blue-highlighted-oval-3d">TPTD</span> curve generation.</td>
-                <td>Risk of local infection, limits patient mobilization, potential kinking at the groin.</td>
-                <td>Use the <span class="gold-highlighted-oval-3d">16</span> cm or <span class="gold-highlighted-oval-3d">20</span> cm catheter.&nbsp;<strong><span class="cyber-neon cyber-neon-yellow"><span class="cyber-glitch" data-text="Gold Standard">Gold Standard</span></span></strong>&nbsp;if not contraindicated.</td>
-              </tr>
-              <tr>
-                <td><strong>Axillary Artery</strong></td>
-                <td>Reduced risk of contamination/kinking compared to femoral site, allows for better patient mobilization.</td>
-                <td>Technically more challenging insertion, risk of neurological injury (brachial plexus).</td>
-                <td>Requires the use of a longer catheter (25 cm or more).</td>
-              </tr>
-            </tbody>
-          </table></div>
+          <div class="table-wrapper">
+            <table class="scenario-table" style="width: 629px; font-size: medium; font-weight: 400;">
+              <thead>
+                <tr>
+                  <th>Site</th>
+                  <th>Advantages</th>
+                  <th>Disadvantages</th>
+                  <th>Clinical Consideration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Femoral Artery (Preferred)</strong></td>
+                  <td>Easy access, most common site for large-bore arterial access, robust and reliable <span class="blue-highlighted-oval-3d">TPTD</span> curve generation.</td>
+                  <td>Risk of local infection, limits patient mobilization, potential kinking at the groin.</td>
+                  <td>Use the <span class="gold-highlighted-oval-3d">16</span> cm or <span class="gold-highlighted-oval-3d">20</span> cm catheter.&nbsp;<strong><span class="cyber-neon cyber-neon-yellow"><span class="cyber-glitch" data-text="Gold Standard">Gold Standard</span></span></strong>&nbsp;if not contraindicated.</td>
+                </tr>
+                <tr>
+                  <td><strong>Axillary Artery</strong></td>
+                  <td>Reduced risk of contamination/kinking compared to femoral site, allows for better patient mobilization.</td>
+                  <td>Technically more challenging insertion, risk of neurological injury (brachial plexus).</td>
+                  <td>Requires the use of a longer catheter (25 cm or more).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <p style="margin-top: 0px; font-size: medium; font-weight: 400;"><strong>Practical Note:</strong>&nbsp;While <span class="green-highlighted-oval-3d">PiCCO</span> requires an arterial line with a thermistor, the&nbsp;<strong>Central Venous Catheter (<span class="teal-highlighted-oval-3d">CVC</span>)</strong>&nbsp;used for injection is a standard <span class="teal-highlighted-oval-3d">CVC</span>. The only requirement is that it must be placed in a large central vein and allow for a rapid bolus injection.</p>
       </details>
@@ -324,6 +337,10 @@
             <h4>Phase 2: <span class="luminous-block luminous-red">Insertion</span> (<span class="cyber-neon cyber-neon-blue"><span class="cyber-glitch" data-text="Seldinger Technique">Seldinger Technique</span></span>)</h4>
           </summary>
           <ol style="font-size: medium; font-weight: 400;">
+            <img src="images/Seldinger1.svg">
+            <img src="images/Seldinger2.svg">
+            <img src="images/Seldinger3.svg">
+            <img src="images/Seldinger4.svg">
             <li><strong>Anesthesia:</strong>&nbsp;Infiltrate the insertion area with local anesthetic.</li>
             <li><strong>Artery Puncture:</strong>&nbsp;Puncture the chosen artery (e.g., femoral) with the guiding needle until pulsatile blood flow is obtained.</li>
             <li><strong>Guidewire Placement:</strong>&nbsp;Introduce the guidewire through the needle/cannula into the artery.</li>
@@ -438,78 +455,80 @@
       </details>
       <p>Consolidated <span class="green-highlighted-oval-3d">PiCCO</span> Patient Connection Checklist</p>
       <div class="table-wrapper">
-        <div class="table-wrapper"><table class="scenario-table">
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Step</th>
-              <th>Action &amp; Crucial Detail</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>I. Preparation</strong></td>
-              <td><strong>1. Data Entry</strong></td>
-              <td>Verify/Enter <strong>Height, Weight, and Ideal Body Weight (IBW)</strong> for accurate indexing (<span class="green-highlighted-oval-3d">EVLWI</span>).</td>
-              <td>☐</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><strong>2. Injectate Prep.</strong></td>
-              <td>Prepare cold saline (≤ 8°C). Place in the <strong>temperature sensor holder</strong>.</td>
-              <td>☐</td>
-            </tr>
-            <tr>
-              <td><strong>II. Arterial Line</strong></td>
-              <td><strong>3. Pressure Transducer</strong></td>
-              <td>Connect <span class="green-highlighted-oval-3d">PiCCO</span> lumen to the transducer. <strong>Zero</strong> at the phlebostatic axis.</td>
-              <td>☐</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><strong>4. Waveform Check</strong></td>
-              <td>Observe the arterial waveform. Confirm <strong>optimal damping</strong> via the Square Wave Test.</td>
-              <td>☐</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><strong>5. Thermistor Cable</strong></td>
-              <td>Connect the thermistor cable to the <span class="green-highlighted-oval-3d">PiCCO</span> catheter port.</td>
-              <td>☐</td>
-            </tr>
-            <tr>
-              <td><strong>III. Injection Line</strong></td>
-              <td><strong>6. <span class="teal-highlighted-oval-3d">CVC</span> Connection</strong></td>
-              <td>Connect the injectate line/sensor to the <strong><span class="teal-highlighted-oval-3d">CVC</span> rapid injection port</strong>.</td>
-              <td>☐</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><strong>7. Air Removal</strong></td>
-              <td>Fill the line/syringe completely with cold injectate and <strong>purge all air bubbles</strong>.</td>
-              <td>☐</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><strong>8. Temperature Cable</strong></td>
-              <td>Connect the injectate temperature cable to the monitor. Verify T_injectate display.</td>
-              <td>☐</td>
-            </tr>
-            <tr>
-              <td><strong>IV. Calibration</strong></td>
-              <td><strong>9. <span class="blue-highlighted-oval-3d">TPTD</span> Execution</strong></td>
-              <td>Perform <strong>3-5 rapid, consistent, consecutive bolus injections</strong> for calibration.</td>
-              <td>☐</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><strong>10. Validation</strong></td>
-              <td>Ensure the monitor accepts the curves and displays the stable initial <span class="red-highlighted-oval-3d">CI</span>, <span class="yellow-highlighted-oval-3d">GEDVI</span>, and <span class="green-highlighted-oval-3d">EVLWI</span> values.</td>
-              <td>☐</td>
-            </tr>
-          </tbody>
-        </table></div>
+        <div class="table-wrapper">
+          <table class="scenario-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Step</th>
+                <th>Action &amp; Crucial Detail</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>I. Preparation</strong></td>
+                <td><strong>1. Data Entry</strong></td>
+                <td>Verify/Enter <strong>Height, Weight, and Ideal Body Weight (IBW)</strong> for accurate indexing (<span class="green-highlighted-oval-3d">EVLWI</span>).</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong>2. Injectate Prep.</strong></td>
+                <td>Prepare cold saline (≤ 8°C). Place in the <strong>temperature sensor holder</strong>.</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td><strong>II. Arterial Line</strong></td>
+                <td><strong>3. Pressure Transducer</strong></td>
+                <td>Connect <span class="green-highlighted-oval-3d">PiCCO</span> lumen to the transducer. <strong>Zero</strong> at the phlebostatic axis.</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong>4. Waveform Check</strong></td>
+                <td>Observe the arterial waveform. Confirm <strong>optimal damping</strong> via the Square Wave Test.</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong>5. Thermistor Cable</strong></td>
+                <td>Connect the thermistor cable to the <span class="green-highlighted-oval-3d">PiCCO</span> catheter port.</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td><strong>III. Injection Line</strong></td>
+                <td><strong>6. <span class="teal-highlighted-oval-3d">CVC</span> Connection</strong></td>
+                <td>Connect the injectate line/sensor to the <strong><span class="teal-highlighted-oval-3d">CVC</span> rapid injection port</strong>.</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong>7. Air Removal</strong></td>
+                <td>Fill the line/syringe completely with cold injectate and <strong>purge all air bubbles</strong>.</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong>8. Temperature Cable</strong></td>
+                <td>Connect the injectate temperature cable to the monitor. Verify T_injectate display.</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td><strong>IV. Calibration</strong></td>
+                <td><strong>9. <span class="blue-highlighted-oval-3d">TPTD</span> Execution</strong></td>
+                <td>Perform <strong>3-5 rapid, consistent, consecutive bolus injections</strong> for calibration.</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong>10. Validation</strong></td>
+                <td>Ensure the monitor accepts the curves and displays the stable initial <span class="red-highlighted-oval-3d">CI</span>, <span class="yellow-highlighted-oval-3d">GEDVI</span>, and <span class="green-highlighted-oval-3d">EVLWI</span> values.</td>
+                <td>☐</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
     </main>
@@ -528,6 +547,6 @@
   <script src="../JS/search.js"></script>
   <script src="../JS/main.js"></script>
 
+</body>
 
-
-</body></html>
+</html>
