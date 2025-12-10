@@ -1218,6 +1218,29 @@ body[data-theme="dark"] .icon-moon {
   min-width: 600px; /* prevents columns from collapsing */
 }
 
+/* Table styling for dark theme */
+[data-theme="dark"] .table-wrapper table {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .table-wrapper table th,
+[data-theme="dark"] .table-wrapper table td {
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .table-wrapper table th {
+  background-color: #3a3a3a;
+}
+
+[data-theme="dark"] .table-wrapper table tr:nth-child(even) {
+  background-color: #353535;
+}
+
+[data-theme="dark"] .table-wrapper table tr:nth-child(odd) {
+  background-color: #2c2c2c;
+}
+
 /* -Классы для выделения текста маркером --- */
 
 .marker-green {
