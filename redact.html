@@ -468,6 +468,114 @@
             border-bottom: none;
         }
 
+        /* СТИЛИ ДЛЯ ПРЕДВАРИТЕЛЬНОГО ПРОСМОТРА МАРКЕРОВ И СПИСКОВ */
+        
+        /* Цветные маркеры */
+        .marker-green {
+            background-color: #27ae60; /* Изумрудный */
+            color: white;
+            padding: 0px 3px;
+            border-radius: 0px;
+        }
+
+        .marker-blue {
+            background-color: #3498db; /* Голубой */
+            color: white;
+            padding: 0px 3px;
+            border-radius: 0px;
+        }
+
+        .marker-red {
+            background-color: #e74c3c; /* Красный */
+            color: white;
+            padding: 0px 3px;
+            border-radius: 0px;
+        }
+
+        .marker-purple {
+            background-color: #8e44ad; /* Фиолетовый */
+            color: white;
+            padding: 0px 3px;
+            border-radius: 0px;
+        }
+
+        .marker-yellow {
+            background-color: #f1c40f; /* Желтый (с черным текстом для контраста) */
+            color: #333;
+            padding: 0px 3px;
+            border-radius: 0px;
+            font-weight: 500;
+        }
+
+        .marker-cyan {
+            background-color: #1abc9c; /* Бирюзовый */
+            color: white;
+            padding: 0px 3px;
+            border-radius: 0px;
+        }
+
+        .marker-pink {
+            background-color: #ff85a2; /* Розовый */
+            color: white;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+
+        /* Цветная маркировка списков */
+        .custom-list {
+            list-style: none; /* Убираем стандартные маркеры */
+            padding-left: 0;
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Отступ для маркера */
+            margin-bottom: 5px;
+        }
+
+        .list-circle-red li::before {
+            content: "\2022"; /* Код для кружочка */
+            color: #e74c3c; /* Красный */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .list-circle-blue li::before {
+            content: "\2022";
+            color: #3498db; /* Голубой */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .list-circle-green li::before {
+            content: "\2022";
+            color: #2ecc71; /* Зеленый */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .list-diamond-purple li::before {
+            content: "\25C6"; /* Код для ромба */
+            color: #9b59b6; /* Фиолетовый */
+            font-size: 0.8em; /* Ромб поменьше */
+            position: absolute;
+            left: 0;
+        }
+
+        .list-diamond-orange li::before {
+            content: "\25C6";
+            color: #f39c12; /* Оранжевый */
+            font-size: 0.8em;
+            position: absolute;
+            left: 0;
+        }
+
         /* Модальное окно */
         .modal {
             display: none;
@@ -603,10 +711,31 @@
         <button class="style-btn small-text" style="background: #2c3e50; color: #39ff14;" onclick="applyCyberNeon('cyber-neon-green')">💚 Green</button>
         <button class="style-btn small-text" style="background: #2c3e50; color: #ffff00;" onclick="applyCyberNeon('cyber-neon-yellow')">⚡ Yellow</button>
 
-        <h2>🖼️ 7. Вставка изображения</h2>
+        <h2>🖍️ 7. Цветные маркеры и списки</h2>
+        <div class="combined-palette">
+            <div class="marker-palette">
+                <button class="style-btn small-text" style="background: #27ae60; color: white;" onclick="applyInlineStyle('marker-green')">🟢 Green</button>
+                <button class="style-btn small-text" style="background: #3498db; color: white;" onclick="applyInlineStyle('marker-blue')">🔵 Blue</button>
+                <button class="style-btn small-text" style="background: #e74c3c; color: white;" onclick="applyInlineStyle('marker-red')">🔴 Red</button>
+                <button class="style-btn small-text" style="background: #8e44ad; color: white;" onclick="applyInlineStyle('marker-purple')">🟣 Purple</button>
+                <button class="style-btn small-text" style="background: #f1c40f; color: #333;" onclick="applyInlineStyle('marker-yellow')">🟡 Yellow</button>
+                <button class="style-btn small-text" style="background: #1abc9c; color: white;" onclick="applyInlineStyle('marker-cyan')">🔷 Cyan</button>
+                <button class="style-btn small-text" style="background: #ff85a2; color: white;" onclick="applyInlineStyle('marker-pink')">💗 Pink</button>
+            </div>
+
+            <div class="list-palette">
+                <button class="style-btn small-text" onclick="applyListStyle('custom-list list-circle-red')">🔴 Круги Red</button>
+                <button class="style-btn small-text" onclick="applyListStyle('custom-list list-circle-blue')">🔵 Круги Blue</button>
+                <button class="style-btn small-text" onclick="applyListStyle('custom-list list-circle-green')">🟢 Круги Green</button>
+                <button class="style-btn small-text" onclick="applyListStyle('custom-list list-diamond-purple')">🟣 Ромбы Purple</button>
+                <button class="style-btn small-text" onclick="applyListStyle('custom-list list-diamond-orange')">🟠 Ромбы Orange</button>
+            </div>
+        </div>
+
+        <h2>🖼️ 8. Вставка изображения</h2>
         <button class="style-btn" style="background: #9b59b6; color: white;" onclick="insertImage()">📷 Добавить картинку</button>
 
-        <h2>📊 8. Работа с таблицами</h2>
+        <h2>📊 9. Работа с таблицами</h2>
         <button class="style-btn" style="background: #16a085; color: white;" onclick="convertToTable()">📊 Преобразовать в таблицу</button>
         <p class="hint-text">Выделите текст со структурированными данными</p>
 
@@ -615,6 +744,26 @@
         <p class="hint-text" id="historyCount">История: 0 действий</p>
 
         <button class="style-btn btn-save" onclick="saveFile()">💾 Сохранить HTML</button>
+        
+        <style>
+            .combined-palette {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .marker-palette, .list-palette {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 5px;
+            }
+            
+            .marker-palette .style-btn, .list-palette .style-btn {
+                margin-bottom: 5px;
+                padding: 6px;
+                font-size: 10px;
+            }
+        </style>
     </div>
 
     <div class="editor-area">
@@ -625,7 +774,28 @@
         <div class="editor-content" id="editorContent" contenteditable="true">
             <div class="placeholder">
                 👆 Загрузите HTML-файл для начала работы<br>
-                или просто начните печатать здесь!
+                или просто начните печатать здесь!<br><br>
+                
+                <h2>Примеры стилей:</h2>
+                
+                <p>Здесь мы видим, как <span class="marker-green">важные детали</span>
+                могут быть выделены зеленым, а <span class="marker-red">критические замечания</span> — красным.
+                Используйте <span class="marker-purple">фиолетовый маркер</span> для ссылок на
+                <span class="marker-blue">внешние источники</span>,
+                и <span class="marker-yellow">желтый маркер</span> для простых примечаний.</p>
+                
+                <h3>Список с Красными Кружочками</h3>
+                <ul class="custom-list list-circle-red">
+                    <li>Красный маркер для обозначения ошибок.</li>
+                    <li>Второй пункт списка.</li>
+                </ul>
+
+                <h3>Список с Фиолетовыми Ромбами</h3>
+                <ul class="custom-list list-diamond-purple">
+                    <li>Фиолетовый ромб для важных категорий.</li>
+                    <li>Второй пункт с ромбом.</li>
+                    <li>Третий пункт.</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -893,6 +1063,35 @@
             
             saveState();
             showStatus('📂 Collapsible section создан!');
+        }
+
+        // Для цветных списков
+        function applyListStyle(className) {
+            const selection = window.getSelection();
+            if (!selection.rangeCount || selection.toString().trim() === '') {
+                alert('⚠️ Сначала выделите текст списка!');
+                return;
+            }
+
+            const range = selection.getRangeAt(0);
+            const text = selection.toString();
+            const lines = text.split('\n').filter(line => line.trim() !== '');
+            
+            const ul = document.createElement('ul');
+            ul.className = className;
+            
+            lines.forEach(line => {
+                const li = document.createElement('li');
+                li.textContent = line.trim();
+                ul.appendChild(li);
+            });
+            
+            range.deleteContents();
+            range.insertNode(ul);
+            selection.removeAllRanges();
+            
+            saveState();
+            showStatus(`📋 Применен стиль списка: ${className}`);
         }
 
         // Для info box
