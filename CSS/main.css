@@ -1216,21 +1216,46 @@ body[data-theme="dark"] .icon-moon {
   width: 100%;
   border-collapse: collapse;
   min-width: 600px; /* prevents columns from collapsing */
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.table-wrapper table th,
+.table-wrapper table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid var(--border-color);
+}
+
+.table-wrapper table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.table-wrapper table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.table-wrapper table tr:nth-child(odd) {
+  background-color: #ffffff;
 }
 
 /* Table styling for dark theme */
 [data-theme="dark"] .table-wrapper table {
   color: var(--text-color);
+  border: 1px solid var(--border-color);
 }
 
 [data-theme="dark"] .table-wrapper table th,
 [data-theme="dark"] .table-wrapper table td {
   color: var(--text-color);
-  border-color: var(--border-color);
+  border: 1px solid var(--border-color);
 }
 
 [data-theme="dark"] .table-wrapper table th {
   background-color: #3a3a3a;
+  color: var(--light-text-color);
 }
 
 [data-theme="dark"] .table-wrapper table tr:nth-child(even) {
