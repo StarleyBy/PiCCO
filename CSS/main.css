@@ -1382,7 +1382,7 @@ body[data-theme="dark"] .icon-moon {
 /* --- Цвета текста --- */
 
 .color-black {
-    color: #00000;
+    color: #000000;
 }
 
 .color-white {
@@ -1390,7 +1390,7 @@ body[data-theme="dark"] .icon-moon {
 }
 
 .color-red {
-    color: #ff000;
+    color: #ff0000;
 }
 
 .color-green {
@@ -1398,7 +1398,7 @@ body[data-theme="dark"] .icon-moon {
 }
 
 .color-blue {
-    color: #000ff;
+    color: #0000ff;
 }
 
 .color-yellow {
