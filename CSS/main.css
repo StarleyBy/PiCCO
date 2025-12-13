@@ -1255,7 +1255,7 @@ body[data-theme="dark"] .icon-moon {
 
 [data-theme="dark"] .table-wrapper table th {
   background-color: #3a3a3a;
-  color: var(--light-text-color);
+  color: var(--text-color);
 }
 
 [data-theme="dark"] .table-wrapper table tr:nth-child(even) {
