@@ -556,6 +556,54 @@
             color: #00ffff !important;
         }
 
+        .color-orange {
+            color: #ffa500 !important;
+        }
+
+        .color-purple {
+            color: #800080 !important;
+        }
+
+        .color-pink {
+            color: #ffc0cb !important;
+        }
+
+        .color-brown {
+            color: #a52a2a !important;
+        }
+
+        .color-gray {
+            color: #808080 !important;
+        }
+
+        .color-lightblue {
+            color: #add8e6 !important;
+        }
+
+        .color-lime {
+            color: #32cd32 !important;
+        }
+
+        .color-teal {
+            color: #008080 !important;
+        }
+
+        .color-navy {
+            color: #000080 !important;
+        }
+
+        .color-maroon {
+            color: #800000 !important;
+        }
+
+        .color-olive {
+            color: #808000 !important;
+        }
+
+        .color-silver {
+            color: #c0c0c0 !important;
+        }
+
         /* Цветная маркировка списков */
         .custom-list {
             list-style: none; /* Убираем стандартные маркеры */
@@ -777,6 +825,18 @@
             <button class="style-btn small-text" style="background: #ffff00; color: black;" onclick="applyTextColor('color-yellow')">🟡 Желтый</button>
             <button class="style-btn small-text" style="background: #ff00ff; color: white;" onclick="applyTextColor('color-magenta')">.Magenta</button>
             <button class="style-btn small-text" style="background: #00ffff; color: black;" onclick="applyTextColor('color-cyan')">🔷 Голубой</button>
+            <button class="style-btn small-text" style="background: #ffa500; color: white;" onclick="applyTextColor('color-orange')">🟠 Оранжевый</button>
+            <button class="style-btn small-text" style="background: #800080; color: white;" onclick="applyTextColor('color-purple')">🟣 Фиолетовый</button>
+            <button class="style-btn small-text" style="background: #ffc0cb; color: black;" onclick="applyTextColor('color-pink')">🌸 Розовый</button>
+            <button class="style-btn small-text" style="background: #a52a2a; color: white;" onclick="applyTextColor('color-brown')">🟤 Коричневый</button>
+            <button class="style-btn small-text" style="background: #808080; color: white;" onclick="applyTextColor('color-gray')">.Gray</button>
+            <button class="style-btn small-text" style="background: #add8e6; color: black;" onclick="applyTextColor('color-lightblue')">浅蓝色 Светло-синий</button>
+            <button class="style-btn small-text" style="background: #32cd32; color: black;" onclick="applyTextColor('color-lime')">🍋 Лайм</button>
+            <button class="style-btn small-text" style="background: #008080; color: white;" onclick="applyTextColor('color-teal')">🪵 Бирюзовый</button>
+            <button class="style-btn small-text" style="background: #000080; color: white;" onclick="applyTextColor('color-navy')">🔵 Темно-синий</button>
+            <button class="style-btn small-text" style="background: #800000; color: white;" onclick="applyTextColor('color-maroon')"> 🔴 Бордовый</button>
+            <button class="style-btn small-text" style="background: #808000; color: white;" onclick="applyTextColor('color-olive')"> 🟢 Оливковый</button>
+            <button class="style-btn small-text" style="background: #c0c0c0; color: black;" onclick="applyTextColor('color-silver')"> ⚪ Серебристый</button>
         </div>
 
         <h2>🔤 11. Изменение типа заголовка</h2>
@@ -1228,73 +1288,31 @@
 
             const range = selection.getRangeAt(0);
             
-            // Находим родительский элемент, который нужно изменить
-            let elementToChange = range.commonAncestorContainer;
+            // Создаем новый элемент с нужным тегом заголовка
+            const newElement = document.createElement(tagName);
             
-            // Если контейнер - это текстовый узел, берем его родительский элемент
-            if (elementToChange.nodeType === Node.TEXT_NODE) {
-                elementToChange = elementToChange.parentElement;
-            } else if (elementToChange.nodeType !== Node.ELEMENT_NODE) {
-                elementToChange = elementToChange.parentNode;
-            }
-            
-            // Ищем ближайший элемент заголовка или параграфа
-            while (elementToChange && elementToChange !== document.body) {
-                if (['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'P'].includes(elementToChange.tagName)) {
-                    break;
-                }
-                elementToChange = elementToChange.parentNode;
-            }
-            
-            if (elementToChange && elementToChange !== document.body) {
-                // Если выделение охватывает весь элемент заголовка/параграфа
-                if (range.startContainer === elementToChange ||
-                    (range.startContainer.nodeType === Node.TEXT_NODE && range.startContainer.parentElement === elementToChange) ||
-                    range.startContainer.contains(elementToChange)) {
-                    
-                    // Создаем новый элемент с нужным тегом
-                    const newElement = document.createElement(tagName);
-                    
-                    // Копируем содержимое из старого элемента
-                    newElement.innerHTML = elementToChange.innerHTML;
-                    
-                    // Копируем стили и классы
-                    newElement.className = elementToChange.className;
-                    newElement.style.cssText = elementToChange.style.cssText;
-                    
-                    // Заменяем старый элемент на новый
-                    elementToChange.parentNode.replaceChild(newElement, elementToChange);
-                    
-                    // Восстанавливаем выделение на новый элемент
-                    const newRange = document.createRange();
-                    newRange.selectNodeContents(newElement);
-                    selection.removeAllRanges();
-                    selection.addRange(newRange);
-                } else {
-                    // Если выделение частично охватывает элемент, оборачиваем выделение в новый тег
-                    const selectedFragment = range.extractContents();
-                    
-                    const newElement = document.createElement(tagName);
-                    newElement.appendChild(selectedFragment);
-                    
-                    range.insertNode(newElement);
-                    
-                    // Восстанавливаем выделение
-                    const newRange = document.createRange();
-                    newRange.selectNodeContents(newElement);
-                    selection.removeAllRanges();
-                    selection.addRange(newRange);
-                }
-            } else {
-                // Если не нашли подходящий элемент, оборачиваем выделенный текст в новый элемент
-                const selectedFragment = range.extractContents();
+            // Проверяем, есть ли выделение в середине текста или охватывает несколько элементов
+            try {
+                // Оборачиваем выделенную часть в новый тег
+                range.surroundContents(newElement);
                 
-                const newElement = document.createElement(tagName);
-                newElement.appendChild(selectedFragment);
+                // Восстанавливаем выделение на новый элемент
+                const newRange = document.createRange();
+                newRange.selectNodeContents(newElement);
+                selection.removeAllRanges();
+                selection.addRange(newRange);
+            } catch (e) {
+                // Если surroundContents не работает (например, если выделение частично охватывает узлы),
+                // используем extractContents и вставляем новый элемент
+                const contents = range.extractContents();
                 
+                // Добавляем содержимое в новый элемент
+                newElement.appendChild(contents);
+                
+                // Вставляем новый элемент в исходное место
                 range.insertNode(newElement);
                 
-                // Восстанавливаем выделение
+                // Восстанавливаем выделение на новый элемент
                 const newRange = document.createRange();
                 newRange.selectNodeContents(newElement);
                 selection.removeAllRanges();
