@@ -1379,4 +1379,37 @@ body[data-theme="dark"] .icon-moon {
   position: absolute;
   left: 0;
 }
+/* --- Цвета текста --- */
+
+.color-black {
+    color: #00000;
+}
+
+.color-white {
+    color: #ffffff;
+}
+
+.color-red {
+    color: #ff000;
+}
+
+.color-green {
+    color: #00ff00;
+}
+
+.color-blue {
+    color: #000ff;
+}
+
+.color-yellow {
+    color: #ffff00;
+}
+
+.color-magenta {
+    color: #ff00ff;
+}
+
+.color-cyan {
+    color: #00ffff;
+}
 
