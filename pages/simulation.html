@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiCCO - Simulation</title>
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../Quiz/simulation.css">
+    <link rel="icon" href="../images/im1.jpg" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html"><img src="../images/im1.jpg" alt="Logo"></a>
+        </div>
+        <h1>PiCCO Monitoring</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="cases.html">Cases</a>
+            <a href="faq.html">FAQ</a>
+            <a href="simulation.html" class="active">Simulation</a>
+        </nav>
+    </header>
+
+    <main class="quiz-container">
+        <div id="quiz-header">
+            <h2>Clinical Case</h2>
+            <p>Question <span id="question-counter">1</span> of <span id="question-total">3</span></p>
+        </div>
+
+        <div id="quiz-body">
+            <div class="question-section">
+                <p id="question-text">Loading question...</p>
+            </div>
+            
+            <div class="parameters-section" id="parameters-grid">
+                <!-- Patient parameters will be inserted here -->
+            </div>
+
+            <div class="options-section" id="options-container">
+                <!-- Answer options will be inserted here -->
+            </div>
+        </div>
+
+        <div id="feedback-section" class="hidden">
+            <h3 id="feedback-title"></h3>
+            <p id="feedback-text"></p>
+        </div>
+
+        <div id="quiz-footer">
+            <button id="next-question-btn" class="hidden">Next Question</button>
+        </div>
+
+        <div id="results-screen" class="hidden">
+            <h2>Results</h2>
+            <p>You answered <span id="score-final">0</span> out of <span id="total-final">0</span> questions correctly.</p>
+            <button id="restart-quiz-btn">Try Again</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PiCCO Learning Resource. All rights reserved.</p>
+    </footer>
+
+    <script src="../Quiz/simulation.js"></script>
+</body>
+</html>

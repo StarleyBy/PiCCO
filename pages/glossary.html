@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Словарь терминов - PiCCO Онлайн-методичка</title>
+    <title>Glossary - PiCCO Online Manual</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/print.css" media="print">
@@ -11,82 +11,99 @@
 <body>
     <div class="nav-overlay" id="nav-overlay"></div>
     <header class="main-header">
-        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Онлайн-методичка</a></h1>
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
         <button class="menu-toggle" id="menu-toggle">&#9776;</button>
     </header>
 
     <div class="wrapper container">
         <nav class="main-nav" id="main-nav">
-            <h2>Разделы</h2>
+            <h2>Sections</h2>
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Поиск по разделам..." aria-label="Поиск по разделам">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
             </div>
             <ul>
-                <li><a href="general.html">Общие сведения</a></li>
-                <li><a href="setup.html">Подключение и калибровка</a></li>
-                <li><a href="parameters.html">Измеряемые параметры</a></li>
-                <li><a href="troubleshooting.html">Проблемы и решения</a></li>
-                <li><a href="glossary.html">Словарь терминов</a></li>
-                <li><a href="article.html">Пример статьи</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
         </nav>
 
         <main class="main-content">
-            <h2>Словарь терминов PiCCO</h2>
-            <p>В этом разделе представлен глоссарий основных терминов и аббревиатур, используемых при работе с системой PiCCO. Это поможет быстро ориентироваться в специфической терминологии и лучше понимать гемодинамические параметры.</p>
+            <h2>PiCCO Glossary of Terms</h2>
+            <p>This section provides a glossary of key terms and abbreviations used with the PiCCO system. This will help you quickly navigate specific terminology and better understand hemodynamic parameters.</p>
             <dl>
                 <dt><strong>CO (Cardiac Output)</strong></dt>
-                <dd>Сердечный выброс - объем крови, выбрасываемый сердцем за одну минуту (л/мин).</dd>
+                <dd>The volume of blood pumped by the heart per minute (L/min).</dd>
 
                 <dt><strong>CI (Cardiac Index)</strong></dt>
-                <dd>Сердечный индекс - сердечный выброс, скорректированный на площадь поверхности тела (л/мин/м²).</dd>
+                <dd>Cardiac output, adjusted for body surface area (L/min/m²).</dd>
 
                 <dt><strong>GEDV (Global End-Diastolic Volume)</strong></dt>
-                <dd>Глобальный конечно-диастолический объем - общий объем крови во всех четырех камерах сердца в конце диастолы (мл).</dd>
+                <dd>The total volume of blood in all four heart chambers at the end of diastole (mL).</dd>
 
-                <dt><strong>GEDI (Global End-Diastolic Volume Index)</strong></dt>
-                <dd>Индекс глобального конечно-диастолического объема - GEDV, скорректированный на площадь поверхности тела (мл/м²).</dd>
+                <dt><strong>GEDVI (Global End-Diastolic Volume Index)</strong></dt>
+                <dd>GEDV, adjusted for body surface area (mL/m²).</dd>
 
                 <dt><strong>EVLW (Extravascular Lung Water)</strong></dt>
-                <dd>Внесосудистая вода легких - объем воды во внесосудистом пространстве легких (мл).</dd>
+                <dd>The volume of water in the extravascular space of the lungs (mL).</dd>
 
                 <dt><strong>EVLWI (Extravascular Lung Water Index)</strong></dt>
-                <dd>Индекс внесосудистой воды легких - EVLW, скорректированный на площадь поверхности тела (мл/кг).</dd>
+                <dd>EVLW, adjusted for body weight (mL/kg).</dd>
 
                 <dt><strong>SV (Stroke Volume)</strong></dt>
-                <dd>Ударный объем - объем крови, выбрасываемый сердцем за одно сокращение (мл).</dd>
+                <dd>The volume of blood ejected by the heart per beat (mL).</dd>
 
                 <dt><strong>SVI (Stroke Volume Index)</strong></dt>
-                <dd>Индекс ударного объема - SV, скорректированный на площадь поверхности тела (мл/м²).</dd>
+                <dd>SV, adjusted for body surface area (mL/m²).</dd>
 
                 <dt><strong>PVPI (Pulmonary Vascular Permeability Index)</strong></dt>
-                <dd>Индекс проницаемости легочных сосудов - отношение EVLW к объему крови в легких, показатель проницаемости капилляров.</dd>
+                <dd>The ratio of EVLW to pulmonary blood volume, an indicator of capillary permeability.</dd>
 
                 <dt><strong>CVP (Central Venous Pressure)</strong></dt>
-                <dd>Центральное венозное давление - давление в полых венах и правом предсердии (мм рт. ст.).</dd>
+                <dd>Pressure in the vena cava and right atrium (mmHg).</dd>
 
                 <dt><strong>MAP (Mean Arterial Pressure)</strong></dt>
-                <dd>Среднее артериальное давление - среднее давление в артериях в течение одного сердечного цикла (мм рт. ст.).</dd>
+                <dd>The average pressure in the arteries during one cardiac cycle (mmHg).</dd>
 
                 <dt><strong>SVV (Stroke Volume Variation)</strong></dt>
-                <dd>Вариация ударного объема - процентное изменение ударного объема в течение дыхательного цикла, динамический показатель преднагрузки.</dd>
+                <dd>The percentage change in stroke volume during the respiratory cycle, a dynamic preload indicator.</dd>
 
                 <dt><strong>PPV (Pulse Pressure Variation)</strong></dt>
-                <dd>Вариация пульсового давления - процентное изменение пульсового давления в течение дыхательного цикла, динамический показатель преднагрузки.</dd>
+                <dd>The percentage change in pulse pressure during the respiratory cycle, a dynamic preload indicator.</dd>
             </dl>
         </main>
     </div>
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 PiCCO Онлайн-методичка</p>
+            <p>&copy; 2025 PiCCO Online Manual</p>
         </div>
     </footer>
     <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
         <span class="icon-sun">☀️</span>
         <span class="icon-moon" style="display: none;">🌙</span>
     </button>
-    <script src="../js/search.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
 </body>
 </html>

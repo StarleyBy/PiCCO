@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "question": "A 65-year-old patient after extensive abdominal surgery. He is on mechanical ventilation and receiving a norepinephrine infusion. How do you assess his hemodynamic status?",
+    "parameters": {
+      "HR": "115 bpm",
+      "MAP": "62 mmHg",
+      "CVP": "14 mmHg",
+      "CI": "2.1 L/min/m²",
+      "GEDVI": "450 mL/m²",
+      "ITBI": "750 mL/m²",
+      "ELWI": "11 mL/kg",
+      "PPI": "3.5",
+      "SVV": "15%"
+    },
+    "options": [
+      "Hypovolemia",
+      "Cardiogenic shock",
+      "Vasoplegia (distributive shock)",
+      "Cardiac tamponade"
+    ],
+    "correctAnswerIndex": 0,
+    "rationale": "Despite the high CVP, low values of GEDVI and ITBI combined with a high SVV (>15%) indicate hypovolemia and a positive response to fluid challenge. The high CVP may be due to increased intra-abdominal pressure or right ventricular dysfunction."
+  },
+  {
+    "id": 2,
+    "question": "A 48-year-old woman with sepsis and ARDS. She is in a prone position. What is the main disorder you see?",
+    "parameters": {
+      "HR": "125 bpm",
+      "MAP": "70 mmHg",
+      "CVP": "18 mmHg",
+      "CI": "4.5 L/min/m²",
+      "GEDVI": "950 mL/m²",
+      "ITBI": "1300 mL/m²",
+      "ELWI": "18 mL/kg",
+      "PPI": "4.1",
+      "SVV": "8%"
+    },
+    "options": [
+      "Severe hypovolemia",
+      "Marked increase in extravascular lung water",
+      "Low cardiac output",
+      "Acute right ventricular failure"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "The ELWI value of 18 mL/kg is significantly above the norm (<10 mL/kg), indicating severe pulmonary edema (ARDS). The other parameters (high CI, normal SVV) do not support the other options."
+  },
+  {
+    "id": 3,
+    "question": "A 25-year-old young man after multiple traumas. Stable. What parameters would you expect to see as normal?",
+    "parameters": {
+      "HR": "75 bpm",
+      "MAP": "85 mmHg",
+      "CVP": "5 mmHg",
+      "CI": "3.8 L/min/m²",
+      "GEDVI": "800 mL/m²",
+      "ITBI": "1000 mL/m²",
+      "ELWI": "6 mL/kg",
+      "PPI": "2.1",
+      "SVV": "11%"
+    },
+    "options": [
+      "Increased cardiac output",
+      "Decreased preload",
+      "All parameters are within the normal range",
+      "Increased afterload"
+    ],
+    "correctAnswerIndex": 2,
+    "rationale": "All presented hemodynamic parameters (CI, GEDVI, ITBI, ELWI, SVV) are within the reference ranges for a healthy adult, which corresponds to a stable condition after trauma without current hemodynamic disturbances."
+  }
+]
