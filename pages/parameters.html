@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Измеряемые параметры - PiCCO Онлайн-методичка</title>
+    <title>Measured Parameters - PiCCO Online Manual</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/print.css" media="print">
@@ -11,56 +11,73 @@
 <body>
     <div class="nav-overlay" id="nav-overlay"></div>
     <header class="main-header">
-        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Онлайн-методичка</a></h1>
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
         <button class="menu-toggle" id="menu-toggle">&#9776;</button>
     </header>
 
     <div class="wrapper container">
         <nav class="main-nav" id="main-nav">
-            <h2>Разделы</h2>
+            <h2>Sections</h2>
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Поиск по разделам..." aria-label="Поиск по разделам">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
             </div>
             <ul>
-                <li><a href="general.html">Общие сведения</a></li>
-                <li><a href="setup.html">Подключение и калибровка</a></li>
-                <li><a href="parameters.html">Измеряемые параметры</a></li>
-                <li><a href="troubleshooting.html">Проблемы и решения</a></li>
-                <li><a href="glossary.html">Словарь терминов</a></li>
-                <li><a href="article.html">Пример статьи</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
         </nav>
 
         <main class="main-content">
-            <h2>Измеряемые параметры PiCCO</h2>
-            <p>Система PiCCO предоставляет широкий спектр гемодинамических параметров, которые помогают оценить состояние сердечно-сосудистой системы и водного баланса пациента. Понимание этих параметров критически важно для принятия клинических решений.</p>
-            <h3>Ключевые параметры и их интерпретация</h3>
+            <h2>PiCCO Measured Parameters</h2>
+            <p>The PiCCO system provides a wide range of hemodynamic parameters to assess the patient's cardiovascular status and fluid balance. Understanding these parameters is critical for clinical decision-making.</p>
+            <h3>Key Parameters and their Interpretation</h3>
             <ul>
-                <li><strong>Сердечный выброс (CO/CI):</strong> Объем крови, выбрасываемый сердцем за минуту. Индекс (CI) учитывает площадь поверхности тела. Нормальные значения: CO 4-8 л/мин, CI 2.5-4 л/мин/м².</li>
-                <li><strong>Объём крови в конце диастолы (GEDV/GEDI):</strong> Показатель преднагрузки левого и правого желудочков. Отражает общее количество крови в камерах сердца в конце диастолы. Норма: GEDI 680-800 мл/м².</li>
-                <li><strong>Внесосудистая вода легких (EVLW/EVLWI):</strong> Количество воды в интерстициальном пространстве легких. Важный показатель при оценке отека легких. Норма: EVLWI до 7 мл/кг.</li>
-                <li><strong>Индекс проницаемости легочных сосудов (PVPI):</strong> Отражает проницаемость капилляров легких. Используется в комбинации с EVLWI для дифференциации причин отека легких (кардиогенный или некардиогенный). Норма: PVPI 1.0-3.0.</li>
-                <li><strong>Ударный объем (SV/SVI):</strong> Объем крови, выбрасываемый сердцем за одно сокращение. Норма: SVI 35-60 мл/м².</li>
-                <li><strong>Вариабельность ударного объема (SVV) и пульсового давления (PPV):</strong> Динамические параметры, используемые для оценки реакции на инфузию жидкости. Норма: SVV/PPV менее 10-12%.</li>
+                <li><strong>Cardiac Output (CO/CI):</strong> The volume of blood pumped by the heart per minute. The index (CI) accounts for body surface area. Normal values: CO 4-8 L/min, CI 2.5-4 L/min/m².</li>
+                <li><strong>Global End-Diastolic Volume (GEDV/GEDI):</strong> An indicator of left and right ventricular preload. Reflects the total blood volume in the heart chambers at the end of diastole. Normal: GEDI 680-800 mL/m².</li>
+                <li><strong>Extravascular Lung Water (EVLW/EVLWI):</strong> The amount of water in the interstitial space of the lungs. An important indicator for assessing pulmonary edema. Normal: EVLWI up to 7 mL/kg.</li>
+                <li><strong>Pulmonary Vascular Permeability Index (PVPI):</strong> Reflects the permeability of lung capillaries. Used in combination with EVLWI to differentiate the causes of pulmonary edema (cardiogenic or non-cardiogenic). Normal: PVPI 1.0-3.0.</li>
+                <li><strong>Stroke Volume (SV/SVI):</strong> The volume of blood ejected by the heart per beat. Normal: SVI 35-60 mL/m².</li>
+                <li><strong>Stroke Volume Variation (SVV) and Pulse Pressure Variation (PPV):</strong> Dynamic parameters used to assess fluid responsiveness. Normal: SVV/PPV less than 10-12%.</li>
             </ul>
-            <h3>Важность комплексной оценки</h3>
-            <p>Необходимо оценивать все параметры в комплексе, учитывая клиническую картину пациента, сопутствующие заболевания и проводимую терапию. Изолированная оценка одного параметра может привести к неверным выводам.</p>
+            <h3>Importance of Comprehensive Assessment</h3>
+            <p>It is necessary to evaluate all parameters comprehensively, taking into account the patient's clinical picture, concomitant diseases, and ongoing therapy. Isolated assessment of a single parameter can lead to incorrect conclusions.</p>
 
-            <h3>Калькулятор Сердечного Индекса (CI)</h3>
+            <h3>Cardiac Index (CI) Calculator</h3>
             <div class="calculator-container">
                 <div class="calculator-input">
-                    <label for="height">Рост (см):</label>
+                    <label for="height">Height (cm):</label>
                     <input type="number" id="height" placeholder="170">
                 </div>
                 <div class="calculator-input">
-                    <label for="weight">Вес (кг):</label>
+                    <label for="weight">Weight (kg):</label>
                     <input type="number" id="weight" placeholder="70">
                 </div>
                 <div class="calculator-input">
-                    <label for="co">Сердечный выброс (л/мин):</label>
+                    <label for="co">Cardiac Output (L/min):</label>
                     <input type="number" id="co" placeholder="5">
                 </div>
-                <button id="calculate-ci" class="btn">Рассчитать</button>
+                <button id="calculate-ci" class="btn">Calculate</button>
                 <div id="ci-result" class="calculator-result"></div>
             </div>
         </main>
@@ -68,7 +85,7 @@
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 PiCCO Онлайн-методичка</p>
+            <p>&copy; 2025 PiCCO Online Manual</p>
         </div>
     </footer>
     <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
