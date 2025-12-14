@@ -248,560 +248,955 @@
   },
   {
     "id": 14,
-    "question": "A patient post-cardiac surgery is hypotensive despite adequate volume. You suspect myocardial stunning. What PiCCO parameters would support this?",
-    "parameters": {
-      "MAP": "58 mmHg",
-      "CI": "2.0 L/min/m²",
-      "GEDVI": "720 mL/m²",
-      "SVRI": "2500 dyn·s/cm⁻⁵·m²",
-      "CFI": "3.0 min⁻¹",
-      "SVV": "6%"
-    },
+    "question": "A septic patient has the following PiCCO parameters: CI = 2.8 L/min/m², EVLWI = 12 mL/kg, PVPI = 3.8, SVV = 18%. What is the most appropriate next step?",
+    "parameters": {},
     "options": [
-      "High SVV and Low GEDVI",
-      "Low CFI and Low CI with optimal GEDVI",
-      "High ELWI and High PVPI",
-      "Low SVRI and High CI"
+      "Administer aggressive fluid bolus",
+      "Start diuretic therapy",
+      "Initiate vasopressor support with cautious fluid administration",
+      "Perform urgent dialysis"
     ],
-    "correctAnswerIndex": 1,
-    "rationale": "Myocardial stunning post-cardiac surgery presents as impaired contractility. This is reflected by a low Cardiac Function Index (CFI) and low Cardiac Index (CI), despite optimal Global End-Diastolic Volume Index (GEDVI) and low Stroke Volume Variation (SVV) indicating adequate preload. The high SVRI is compensatory."
+    "correctAnswerIndex": 2,
+    "rationale": "The patient has elevated EVLWI (normal 3-7 mL/kg) and increased PVPI (normal 1-3), indicating pulmonary edema with increased permeability (ARDS pattern). Despite high SVV suggesting fluid responsiveness, aggressive fluids would worsen pulmonary edema. The low-normal CI with sepsis requires vasopressor support with cautious, monitored fluid administration."
   },
   {
     "id": 15,
-    "question": "In a patient with severe ARDS, you aim for conservative fluid management. Which PiCCO parameter guides your fluid removal strategy?",
-    "parameters": {
-      "CI": "3.5 L/min/m²",
-      "GEDVI": "820 mL/m²",
-      "ELWI": "14 mL/kg",
-      "PVPI": "2.8"
-    },
-    "options": [
-      "Cardiac Index (CI)",
-      "Systemic Vascular Resistance Index (SVRI)",
-      "Extravascular Lung Water Index (ELWI)",
-      "Cardiac Function Index (CFI)"
-    ],
-    "correctAnswerIndex": 2,
-    "rationale": "In ARDS, minimizing extravascular lung water is crucial for improving lung mechanics and oxygenation. A high ELWI (14 mL/kg) with high PVPI (2.8) confirms permeability edema. The fluid removal strategy should be primarily guided by the ELWI, aiming to reduce it while maintaining an adequate CI."
-  },
-  {
-    "id": 16,
-    "question": "A patient with severe septic shock is receiving high-dose norepinephrine. You are concerned about excessive vasoconstriction. What PiCCO parameter should you monitor closely?",
-    "parameters": {
-      "MAP": "85 mmHg",
-      "CI": "2.8 L/min/m²",
-      "GEDVI": "700 mL/m²",
-      "SVRI": "3200 dyn·s/cm⁻⁵·m²",
-      "Lactate": "3.8 mmol/L"
-    },
-    "options": [
-      "Global End-Diastolic Volume Index (GEDVI)",
-      "Extravascular Lung Water Index (ELWI)",
-      "Systemic Vascular Resistance Index (SVRI)",
-      "Cardiac Function Index (CFI)"
-    ],
-    "correctAnswerIndex": 2,
-    "rationale": "Excessive vasoconstriction is directly indicated by a very high Systemic Vascular Resistance Index (SVRI). While MAP is achieved, this high SVRI may compromise microcirculation, reflected by persistent high lactate. Adjusting norepinephrine should aim to optimize SVRI, typically within the 1700-2500 range, to improve perfusion without causing hypotension."
-  },
-  {
-    "id": 17,
-    "question": "Which of the following conditions makes Stroke Volume Variation (SVV) an unreliable indicator of fluid responsiveness?",
-    "parameters": {},
-    "options": [
-      "Patient is on controlled mechanical ventilation",
-      "Patient has a regular sinus rhythm",
-      "Patient is making spontaneous breathing efforts",
-      "Tidal volume (VT) > 8 ml/kg"
-    ],
-    "correctAnswerIndex": 2,
-    "rationale": "SVV and PPV are only reliable under strict conditions of controlled mechanical ventilation without spontaneous breathing efforts. Spontaneous efforts disrupt the cyclic intrathoracic pressure changes required for accurate SVV/PPV interpretation."
-  },
-  {
-    "id": 18,
-    "question": "A patient in refractory hemorrhagic shock has just received 3 units of packed red blood cells. What PiCCO parameters indicate successful initial volume resuscitation?",
-    "parameters": {
-      "CI": "2.2 L/min/m² (pre-transfusion)",
-      "GEDVI": "580 mL/m² (pre-transfusion)",
-      "SVV": "20% (pre-transfusion)"
-    },
-    "options": [
-      "CI increases to 3.5 L/min/m², GEDVI to 700 mL/m², SVV decreases to 8%",
-      "MAP increases to 70 mmHg, HR decreases to 90 bpm",
-      "Lactate decreases to 2.0 mmol/L, urine output increases",
-      "ELWI increases to 10 mL/kg, CVP increases to 12 mmHg"
-    ],
-    "correctAnswerIndex": 0,
-    "rationale": "Successful volume resuscitation should directly manifest as improved preload (increased GEDVI to optimal range) and improved cardiac function (increased CI), with a reduction in fluid responsiveness (decreased SVV). While other options reflect clinical improvement, only option A directly shows the desired changes in PiCCO volumetric and flow parameters."
-  },
-  {
-    "id": 19,
-    "question": "A patient with severe tricuspid regurgitation (TR) presents with hypotension. How would this affect PiCCO parameter interpretation, specifically GEDVI?",
-    "parameters": {
-      "MAP": "60 mmHg",
-      "CI": "2.3 L/min/m²",
-      "CVP": "20 mmHg"
-    },
-    "options": [
-      "GEDVI would be falsely low, leading to over-resuscitation.",
-      "GEDVI would be accurately measured and reflect true preload.",
-      "GEDVI might be falsely high due to right heart overload, not true preload.",
-      "GEDVI would be unaffected by valvular disease."
-    ],
-    "correctAnswerIndex": 2,
-    "rationale": "Severe tricuspid regurgitation leads to significant backflow into the right atrium, causing right heart volume overload. This can result in a falsely high GEDVI, as PiCCO measures total intrathoracic blood volume. This can mislead clinicians into believing the patient is well-filled or hypervolemic, when in fact the effective forward flow might be compromised, or the high volume is not effectively contributing to left heart preload."
-  },
-  {
-    "id": 20,
-    "question": "What is the primary utility of Pulmonary Vascular Permeability Index (PVPI) in managing a patient with lung injury?",
-    "parameters": {
-      "ELWI": "12 mL/kg"
-    },
-    "options": [
-      "To assess cardiac contractility.",
-      "To guide systemic vascular resistance.",
-      "To differentiate between hydrostatic and permeability pulmonary edema.",
-      "To predict fluid responsiveness."
-    ],
-    "correctAnswerIndex": 2,
-    "rationale": "PVPI, especially when elevated (e.g., >1.7), helps distinguish permeability edema (e.g., ARDS, where the capillary-alveolar barrier is damaged) from hydrostatic edema (due to fluid overload or heart failure). This distinction is critical for guiding fluid management—conservative in permeability edema vs. aggressive diuresis in hydrostatic edema."
-  },
-  {
-    "id": 21,
-    "question": "A patient undergoing continuous veno-venous hemofiltration (CVVH) for acute kidney injury develops hypotension. Which PiCCO parameter will likely be most affected and potentially unreliable during CVVH?",
-    "parameters": {},
-    "options": [
-      "Cardiac Index (CI)",
-      "Systemic Vascular Resistance Index (SVRI)",
-      "Extravascular Lung Water Index (ELWI)",
-      "Global End-Diastolic Volume Index (GEDVI)"
-    ],
-    "correctAnswerIndex": 3,
-    "rationale": "CVVH directly affects circulating blood volume, making volumetric measurements like GEDVI and ITBVI dynamic and difficult to interpret without accounting for fluid removal rates. While PiCCO can still function during CVVH, the rapid shifts in volume can make static volumetric parameters less reliable unless carefully interpreted in conjunction with the CVVH fluid balance."
-  },
-  {
-    "id": 22,
-    "question": "Which set of PiCCO parameters would indicate a patient is experiencing a pure vasoplegic (distributive) shock?",
-    "parameters": {
-      "MAP": "55 mmHg",
-      "HR": "110 bpm",
-      "Lactate": "6.0 mmol/L"
-    },
-    "options": [
-      "Low CI, Low GEDVI, High SVRI",
-      "High CI, Low SVRI, Optimal GEDVI",
-      "Low CI, High GEDVI, High SVRI",
-      "Normal CI, High SVRI, High ELWI"
-    ],
-    "correctAnswerIndex": 1,
-    "rationale": "Vasoplegic shock (e.g., septic shock) is characterized by pathological vasodilation (low SVRI) leading to hypotension. The body attempts to compensate with increased cardiac output (high CI), and preload (GEDVI) can be optimal or even slightly low depending on fluid resuscitation. The primary problem is the loss of vascular tone."
-  },
-  {
-    "id": 23,
-    "question": "You are managing a patient with acute heart failure. Which parameter combination best suggests a need for inotropic support?",
-    "parameters": {
-      "MAP": "65 mmHg",
-      "CI": "2.2 L/min/m²",
-      "GEDVI": "780 mL/m²",
-      "SVV": "8%",
-      "CFI": "3.1 min⁻¹"
-    },
-    "options": [
-      "High SVV and low GEDVI",
-      "Low CI and low CFI with optimal GEDVI",
-      "High SVRI and high ELWI",
-      "Low MAP and high HR"
-    ],
-    "correctAnswerIndex": 1,
-    "rationale": "Inotropic support is indicated when there is evidence of primary pump failure, meaning the heart cannot generate enough output despite adequate filling. This is indicated by a low Cardiac Index (CI) and a low Cardiac Function Index (CFI), even when Global End-Diastolic Volume Index (GEDVI) is in the optimal range and the patient is not fluid responsive (low SVV)."
-  },
-  {
-    "id": 24,
-    "question": "A patient with chronic severe hypertension is now in septic shock. Initial MAP is 60 mmHg. Which MAP target is generally considered safe and effective in this context?",
-    "parameters": {},
-    "options": [
-      "MAP > 55 mmHg",
-      "MAP > 60 mmHg",
-      "MAP > 65 mmHg",
-      "MAP > 75 mmHg"
-    ],
-    "correctAnswerIndex": 3,
-    "rationale": "In patients with a history of chronic hypertension, a higher MAP target (e.g., >75 mmHg) is often required to maintain adequate organ perfusion during septic shock, as their autoregulation curves are shifted to the right. A standard target of 65 mmHg might be insufficient for these patients."
-  },
-  {
-    "id": 25,
-    "question": "Which PiCCO parameter is most directly associated with the risk and severity of pulmonary gas exchange impairment?",
-    "parameters": {},
-    "options": [
-      "Cardiac Index (CI)",
-      "Global End-Diastolic Volume Index (GEDVI)",
-      "Extravascular Lung Water Index (ELWI)",
-      "Systemic Vascular Resistance Index (SVRI)"
-    ],
-    "correctAnswerIndex": 2,
-    "rationale": "Extravascular Lung Water Index (ELWI) is a direct, quantitative measure of pulmonary edema. Higher ELWI values indicate more fluid in the lungs, which directly impedes gas exchange and correlates with the severity of hypoxemia and respiratory dysfunction."
-  },
-  {
-    "id": 26,
-    "question": "During TPTD calibration, injecting the cold saline bolus too slowly will primarily lead to:",
-    "parameters": {},
-    "options": [
-      "Falsely low Cardiac Output (CO)",
-      "Falsely high Global End-Diastolic Volume Index (GEDVI)",
-      "Falsely high Systemic Vascular Resistance Index (SVRI)",
-      "Falsely low Extravascular Lung Water Index (ELWI)"
-    ],
-    "correctAnswerIndex": 1,
-    "rationale": "A slow injection smears the thermodilution curve, artificially prolonging the mean transit time (MTt) and exponential downslope time (DSt). Since GEDVI and ITBVI are calculated using these time constants, a slow injection will lead to a falsely high estimation of these volumetric parameters."
-  },
-  {
-    "id": 27,
-    "question": "A patient in hypovolemic shock is fluid responsive, but after 2 liters of fluid, SVV is still 15%. What is the most appropriate next step, assuming MAP and CI are still low?",
-    "parameters": {
-      "SVV": "15%",
-      "GEDVI": "650 mL/m²",
-      "ELWI": "6 mL/kg"
-    },
-    "options": [
-      "Stop fluid, start vasopressors",
-      "Continue fluid resuscitation",
-      "Start dobutamine",
-      "Recalibrate PiCCO"
-    ],
-    "correctAnswerIndex": 1,
-    "rationale": "A SVV of 15% indicates the patient is still highly fluid responsive. Despite 2 liters, the GEDVI is still in the lower range (650), suggesting a persistent volume deficit. The ELWI is normal, indicating no immediate risk of pulmonary edema. Therefore, continuing fluid resuscitation is the most appropriate action."
-  },
-  {
-    "id": 28,
-    "question": "What is the primary physiological determinant of afterload measured by PiCCO's SVRI?",
-    "parameters": {},
-    "options": [
-      "Ventricular filling pressures",
-      "Myocardial contractility",
-      "Systemic vascular resistance",
-      "Intrathoracic blood volume"
-    ],
-    "correctAnswerIndex": 2,
-    "rationale": "Systemic Vascular Resistance Index (SVRI) is a direct measure of systemic vascular resistance, which is the primary determinant of afterload. It reflects the total resistance the left ventricle must overcome to eject blood into the systemic circulation."
-  },
-  {
-    "id": 29,
-    "question": "In a patient with severe sepsis, a low Oxygen Extraction Ratio (OER) despite adequate oxygen delivery (DO2) suggests:",
-    "parameters": {
-      "DO2I": "650 mL/min/m²",
-      "VO2I": "100 mL/min/m²",
-      "OER": "15%"
-    },
-    "options": [
-      "High metabolic demand",
-      "Impaired oxygen utilization (tissue shunting)",
-      "Cardiogenic shock",
-      "Excessive oxygen supply"
-    ],
-    "correctAnswerIndex": 1,
-    "rationale": "In severe sepsis, despite high DO2 (hyperdynamic state), tissues can exhibit impaired oxygen utilization due to microcirculatory shunting or mitochondrial dysfunction. This manifests as a low OER (tissues aren't extracting enough oxygen) and often an elevated SvO2, even with signs of tissue hypoxia (e.g., lactate)."
-  },
-  {
-    "id": 30,
-    "question": "A patient has a Cardiac Function Index (CFI) of 4.0 min⁻¹ and a Global Ejection Fraction (GEF) of 20%. What do these values primarily indicate?",
+    "question": "Post-cardiac surgery patient: MAP = 55 mmHg, CI = 1.9 L/min/m², GEDI = 520 mL/m², SVV = 8%, ScvO2 = 58%. What is the primary problem?",
     "parameters": {},
     "options": [
       "Hypovolemia",
-      "Optimal cardiac contractility",
-      "Impaired global myocardial contractility",
-      "High afterload"
+      "Cardiac dysfunction",
+      "Vasodilation",
+      "Increased oxygen consumption"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "GEDI is low-normal (normal 640-800 mL/m²), but SVV <13% indicates the patient is not fluid responsive. Low CI with adequate preload and low ScvO2 (<70%) points to primary cardiac dysfunction (pump failure). The patient needs inotropic support rather than fluids or vasopressors alone."
+  },
+  {
+    "id": 16,
+    "question": "A mechanically ventilated patient has: CI = 3.2 L/min/m², SVV = 22%, PPV = 16%, GEDI = 580 mL/m². After 500 mL fluid bolus: CI = 3.3 L/min/m², SVV = 21%. What does this indicate?",
+    "parameters": {},
+    "options": [
+      "Patient is fluid responsive and needs more fluids",
+      "Patient is not fluid responsive despite high dynamic indices",
+      "Fluid bolus was too small to assess response",
+      "Cardiac dysfunction is present"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "Despite elevated SVV and PPV suggesting fluid responsiveness, the actual fluid challenge produced minimal CI change (<3%). This indicates the patient is on the flat portion of the Frank-Starling curve. High dynamic indices may be falsely elevated due to factors like low tidal volumes, arrhythmias, or right ventricular dysfunction. Further fluids are unlikely to benefit."
+  },
+  {
+    "id": 17,
+    "question": "ARDS patient on PEEP 14 cmH2O: EVLWI = 15 mL/kg, PVPI = 4.2, CI = 3.8 L/min/m², CVP = 16 mmHg. What explains the hemodynamic picture?",
+    "parameters": {},
+    "options": [
+      "Pure cardiogenic pulmonary edema",
+      "Permeability pulmonary edema (ARDS) with preserved cardiac output",
+      "Fluid overload with biventricular failure",
+      "Pulmonary embolism"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "Severely elevated PVPI (>3) with high EVLWI indicates increased capillary permeability typical of ARDS, not hydrostatic (cardiogenic) edema. The normal-high CI suggests preserved cardiac function. High CVP may reflect increased intrathoracic pressure from PEEP rather than heart failure. Treatment focuses on lung-protective ventilation and diuresis, not addressing cardiac dysfunction."
+  },
+  {
+    "id": 18,
+    "question": "You calibrate PiCCO and obtain: CI = 2.2 L/min/m², GEDVI = 450 mL/m², CFI = 2.8/min. What is the most likely diagnosis?",
+    "parameters": {},
+    "options": [
+      "Normal hemodynamics",
+      "Hypovolemia with compensatory tachycardia",
+      "Cardiac dysfunction with reduced contractility",
+      "Distributive shock"
     ],
     "correctAnswerIndex": 2,
-    "rationale": "CFI (<4.5) and GEF (<25%) are both direct indicators of global myocardial contractility. Values below the normal range strongly suggest impaired pump function, often seen in cardiogenic shock or severe myocardial dysfunction."
+    "rationale": "CFI (Cardiac Function Index, normal 4.5-6.5/min) reflects contractility independent of preload. Low CFI with low GEDVI (normal 640-800 mL/m²) and reduced CI indicates primary cardiac dysfunction with poor contractility. The patient needs inotropic support and potentially afterload reduction, though volume optimization may also help."
+  },
+  {
+    "id": 19,
+    "question": "Trauma patient: CI = 4.5 L/min/m², SVRI = 1200 dyn·s·cm⁻⁵·m², MAP = 65 mmHg, Lactate = 4.2 mmol/L. What is the hemodynamic state?",
+    "parameters": {},
+    "options": [
+      "Cardiogenic shock",
+      "Hypovolemic shock",
+      "Distributive shock with high cardiac output",
+      "Obstructive shock"
+    ],
+    "correctAnswerIndex": 2,
+    "rationale": "High CI with low SVRI (normal 1700-2400 dyn·s·cm⁻⁵·m²) indicates distributive (vasodilatory) shock, likely from systemic inflammatory response to trauma. Despite high cardiac output, elevated lactate suggests inadequate tissue perfusion due to maldistribution of blood flow. Treatment requires vasopressor support (norepinephrine) to restore vascular tone."
+  },
+  {
+    "id": 20,
+    "question": "A patient's trend shows: Hour 1 - EVLWI = 8 mL/kg, PVPI = 2.1; Hour 6 - EVLWI = 13 mL/kg, PVPI = 2.0. What does this suggest?",
+    "parameters": {},
+    "options": [
+      "Development of ARDS",
+      "Cardiogenic pulmonary edema",
+      "Improving pulmonary status",
+      "Fluid overload with hydrostatic edema"
+    ],
+    "correctAnswerIndex": 3,
+    "rationale": "Rising EVLWI with stable, normal PVPI (<3) indicates hydrostatic pulmonary edema from fluid overload or cardiac dysfunction, not increased permeability. If ARDS were developing, PVPI would increase. This pattern suggests the patient has received excessive fluids or developed cardiac dysfunction requiring diuresis or cardiac support."
+  },
+  {
+    "id": 21,
+    "question": "During PLR maneuver: Baseline CI = 2.6 L/min/m², SVV = 16%; PLR CI = 2.7 L/min/m², SVV = 15%. What should you conclude?",
+    "parameters": {},
+    "options": [
+      "Patient is fluid responsive, give 500 mL bolus",
+      "Patient is not fluid responsive, avoid fluids",
+      "Test is inconclusive, repeat with larger volume",
+      "Patient needs inotropic support"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "PLR-induced CI increase of <10% (only 3.8% in this case) indicates negative fluid responsiveness. The patient is on the flat portion of the Frank-Starling curve and will not benefit from additional fluids. Despite elevated SVV, fluid administration would risk volume overload without hemodynamic improvement."
+  },
+  {
+    "id": 22,
+    "question": "Post-liver transplant patient: CI = 5.2 L/min/m², GEDI = 720 mL/m², EVLWI = 6 mL/kg, SVR = 600 dyn·s·cm⁻⁵. What phenomenon is occurring?",
+    "parameters": {},
+    "options": [
+      "Cardiogenic shock",
+      "Hyperdynamic circulation",
+      "Hypovolemic shock",
+      "Cardiac tamponade"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "High CI with low SVR (normal 800-1200 dyn·s·cm⁻⁵) and adequate preload (normal GEDI) indicates hyperdynamic circulation. This is common post-liver transplant due to inflammatory mediators, reperfusion, and baseline cirrhotic physiology. EVLWI is normal, suggesting adequate fluid management. May require vasopressor support to maintain adequate MAP."
+  },
+  {
+    "id": 23,
+    "question": "A patient has CI = 3.0 L/min/m², dPmax = 850 mmHg/s (normal 1200-2000 mmHg/s), GEDI = 680 mL/m². What does dPmax indicate?",
+    "parameters": {},
+    "options": [
+      "Normal left ventricular contractility",
+      "Reduced left ventricular contractility",
+      "Hypercontractile state",
+      "Measurement artifact"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "dPmax (maximal rate of pressure increase) is a relatively preload-independent measure of left ventricular contractility. Low dPmax indicates reduced contractility despite adequate preload (normal GEDI). This suggests the patient may benefit from inotropic support (e.g., dobutamine) to improve cardiac performance."
+  },
+  {
+    "id": 24,
+    "question": "Septic shock on norepinephrine 0.3 mcg/kg/min: CI = 2.4 L/min/m², SVRI = 2800 dyn·s·cm⁻⁵·m², ScvO2 = 62%, Lactate = 3.8 mmol/L. What adjustment is needed?",
+    "parameters": {},
+    "options": [
+      "Increase norepinephrine dose",
+      "Add dobutamine for inotropic support",
+      "Administer fluid bolus",
+      "Decrease norepinephrine and add vasopressin"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "Despite high SVRI (excessive vasoconstriction), CI remains low with evidence of inadequate tissue perfusion (low ScvO2, elevated lactate). High SVRI from excessive norepinephrine may actually impair cardiac output. Adding inotropic support (dobutamine) can improve CI and oxygen delivery while potentially allowing reduction in vasopressor dose."
+  },
+  {
+    "id": 25,
+    "question": "You obtain: CI = 2.8 L/min/m², PPV = 8%, SVV = 10%, ITBVI = 950 mL/m² (normal 850-1000 mL/m²). The patient is on mechanical ventilation with VT = 6 mL/kg. Why are dynamic indices low?",
+    "parameters": {},
+    "options": [
+      "Patient is adequately volume resuscitated",
+      "Low tidal volume reduces reliability of dynamic indices",
+      "PiCCO system malfunction",
+      "Patient has cardiac tamponade"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "PPV and SVV require adequate tidal volumes (≥8 mL/kg) and regular heart rhythm to reliably predict fluid responsiveness. At VT = 6 mL/kg (lung-protective ventilation), respiratory variation is minimized, making dynamic indices unreliable. Normal-high ITBVI suggests adequate volume status, but PLR test would be more reliable for assessing fluid responsiveness in this scenario."
+  },
+  {
+    "id": 26,
+    "question": "Post-cardiac arrest patient: CI = 1.8 L/min/m², GEDVI = 580 mL/m², CFI = 3.2/min, Lactate = 9 mmol/L. After dobutamine: CI = 2.5 L/min/m², Lactate = 7.5 mmol/L. What occurred?",
+    "parameters": {},
+    "options": [
+      "Inadequate response, increase dobutamine dose",
+      "Successful improvement in cardiac output and perfusion",
+      "Development of distributive shock",
+      "Worsening cardiac function"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "Low CFI indicated poor contractility. Dobutamine improved CI by 39% with declining lactate, indicating improved tissue perfusion. This represents successful inotropic augmentation of a failing heart. Further optimization may include additional volume (low GEDVI) and continued monitoring of lactate clearance."
+  },
+  {
+    "id": 27,
+    "question": "EVLWI = 18 mL/kg, PVPI = 2.5, CI = 2.1 L/min/m², CVP = 18 mmHg, BNP = 1850 pg/mL. What is the most likely etiology of pulmonary edema?",
+    "parameters": {},
+    "options": [
+      "Pure ARDS",
+      "Cardiogenic pulmonary edema",
+      "Mixed cardiogenic and permeability edema",
+      "Fluid overload in normal heart"
+    ],
+    "correctAnswerIndex": 2,
+    "rationale": "Severely elevated EVLWI with borderline-high PVPI (2.5, approaching 3.0 threshold) combined with elevated CVP, low CI, and markedly elevated BNP suggests mixed pathology. The patient has cardiac dysfunction contributing to hydrostatic edema, but PVPI suggests some degree of increased permeability. Treatment requires careful diuresis, cardiac support, and lung-protective ventilation."
+  },
+  {
+    "id": 28,
+    "question": "A patient on ECMO has: CI = 1.2 L/min/m² (native heart), ECMO flow = 3.5 L/min, Total CI = 4.0 L/min/m², GEDVI = 550 mL/m². What does this indicate?",
+    "parameters": {},
+    "options": [
+      "Adequate native cardiac function",
+      "Severe native cardiac dysfunction with ECMO dependence",
+      "Hypovolemia limiting cardiac output",
+      "ECMO malfunction"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "Native heart CI of 1.2 L/min/m² indicates severe cardiac dysfunction with the majority of systemic perfusion provided by ECMO (3.5 L/min of 4.0 L/min total). Low GEDVI suggests relative hypovolemia, but given severe cardiac dysfunction, optimization should be cautious. This pattern indicates the patient remains ECMO-dependent with poor native cardiac recovery."
+  },
+  {
+    "id": 29,
+    "question": "Baseline: CI = 3.5 L/min/m², SVV = 11%. After starting atrial fibrillation: CI = 3.1 L/min/m², SVV = 25%. What explains the change in SVV?",
+    "parameters": {},
+    "options": [
+      "Patient has become hypovolemic",
+      "Atrial fibrillation causes irregular beat-to-beat variation making SVV unreliable",
+      "Acute reduction in cardiac output",
+      "Development of cardiac tamponade"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "SVV and PPV require regular cardiac rhythm to accurately predict fluid responsiveness. Atrial fibrillation causes irregular R-R intervals and variable stroke volumes independent of volume status, making dynamic indices unreliable. The elevated SVV reflects rhythm irregularity, not necessarily hypovolemia. Use PLR or static parameters (GEDVI, ITBVI) to assess volume status instead."
+  },
+  {
+    "id": 30,
+    "question": "Burns patient: CI = 5.8 L/min/m², GEDVI = 850 mL/m², EVLWI = 9 mL/kg, SVRI = 1100 dyn·s·cm⁻⁵·m². What phase of burn shock is this?",
+    "parameters": {},
+    "options": [
+      "Early burn shock (ebb phase)",
+      "Hyperdynamic flow phase",
+      "Cardiogenic shock phase",
+      "Hypovolemic phase"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "High CI with low-normal SVRI and adequate preload indicates the hyperdynamic (flow) phase of burn injury, typically occurring 24-48 hours post-burn. This phase features high metabolic rate, increased cardiac output, and inflammatory mediator release. Elevated EVLWI requires careful monitoring to avoid fluid overload while maintaining resuscitation goals."
   },
   {
     "id": 31,
-    "question": "What is the consequence of high PEEP (e.g., >10 cmH2O) on CVP and PCWP measurements?",
+    "question": "Right ventricular infarction suspected: CI = 2.0 L/min/m², CVP = 16 mmHg, GEDVI = 480 mL/m², SVV = 6%. What does this pattern suggest?",
     "parameters": {},
     "options": [
-      "They become more accurate indicators of preload.",
-      "They are significantly elevated and become unreliable as preload indicators.",
-      "They accurately reflect preload if corrected for PEEP.",
-      "They are decreased, indicating hypovolemia."
+      "Left ventricular failure",
+      "Biventricular failure",
+      "Right ventricular failure with reduced preload to left ventricle",
+      "Cardiac tamponade"
     ],
-    "correctAnswerIndex": 1,
-    "rationale": "High PEEP significantly increases intrathoracic pressure, which is transmitted to the right atrium and pulmonary vasculature. This artificially elevates CVP and PCWP, making them unreliable as measures of true cardiac preload or volume status. Volumetric parameters like GEDVI are less affected."
+    "correctAnswerIndex": 2,
+    "rationale": "High CVP with low GEDVI (left ventricular preload) and low CI indicates RV failure with impaired RV output. The failing RV cannot deliver adequate blood to the LV, resulting in low left-sided preload despite elevated right-sided pressures. Low SVV despite low GEDVI occurs because the LV is underfilled. Treatment requires cautious volume loading and maintenance of RV perfusion pressure."
   },
   {
     "id": 32,
-    "question": "You are monitoring a patient in vasodilatory shock with PiCCO. Which combination of parameters signifies effective vasopressor therapy?",
-    "parameters": {
-      "Pre-vasopressor SVRI": "1200 dyn·s/cm⁻⁵·m²",
-      "Pre-vasopressor MAP": "50 mmHg"
-    },
+    "question": "After 1000 mL crystalloid bolus: Pre-bolus CI = 2.6 L/min/m², EVLWI = 7 mL/kg; Post-bolus CI = 2.9 L/min/m², EVLWI = 10 mL/kg. What should you do?",
+    "parameters": {},
     "options": [
-      "MAP increases to 70 mmHg, SVRI increases to 2000 dyn·s/cm⁻⁵·m²",
-      "MAP increases to 70 mmHg, CI increases to 5.0 L/min/m²",
-      "SVRI decreases to 1000 dyn·s/cm⁻⁵·m², MAP remains low",
-      "ELWI decreases, GEDVI remains stable"
+      "Continue aggressive fluid resuscitation",
+      "Stop fluids and initiate diuresis",
+      "Continue fluids more cautiously with close EVLWI monitoring",
+      "Increase PEEP to reduce EVLWI"
     ],
-    "correctAnswerIndex": 0,
-    "rationale": "Effective vasopressor therapy aims to correct pathological vasodilation by increasing systemic vascular resistance. This is directly reflected by an increase in MAP (the desired clinical outcome) and an increase in SVRI towards the normal range, indicating restored vascular tone. Other options do not directly reflect effective vasopressor action on tone."
+    "correctAnswerIndex": 2,
+    "rationale": "The patient showed modest fluid responsiveness (11.5% CI increase) but significant EVLWI rise. While EVLWI of 10 mL/kg is elevated (normal 3-7), it's not yet severe. This indicates the patient is accumulating lung water with fluids. Further resuscitation should be more cautious, goal-directed, and with close EVLWI monitoring. Consider alternative strategies like vasopressors or inotropes if additional fluid worsens EVLWI without adequate hemodynamic benefit."
   },
   {
     "id": 33,
-    "question": "A patient with suspected cardiac tamponade is hypotensive. What would be the expected PiCCO profile?",
-    "parameters": {
-      "MAP": "60 mmHg"
-    },
+    "question": "Pancreatitis patient: CI = 4.2 L/min/m², GEDVI = 780 mL/m², EVLWI = 11 mL/kg, Lactate = 2.1 mmol/L, MAP = 62 mmHg on norepinephrine 0.15 mcg/kg/min. What is the priority?",
+    "parameters": {},
     "options": [
-      "High CI, Low GEDVI, Low SVRI",
-      "Low CI, High GEDVI, High SVRI, Low SVV",
-      "Low CI, Low GEDVI, High SVRI, High SVV",
-      "High CI, High GEDVI, Low SVRI"
+      "Increase fluid administration for low MAP",
+      "Add vasopressin for refractory hypotension",
+      "Initiate diuresis to reduce EVLWI",
+      "Optimize current management without aggressive intervention"
     ],
-    "correctAnswerIndex": 1,
-    "rationale": "Cardiac tamponade impairs ventricular filling due to external compression, leading to a low Cardiac Index (CI). The heart is unable to fill adequately, but the measured GEDVI might appear high due to the inability of the ventricles to empty completely. Systemic vasoconstriction (high SVRI) is compensatory. SVV would typically be low due to the constrained heart chambers preventing significant respiratory variation."
+    "correctAnswerIndex": 3,
+    "rationale": "The patient has adequate CI, normal lactate (good perfusion), and acceptable preload (GEDVI). EVLWI is elevated but not severe. MAP of 62 mmHg, while below 65 mmHg target, may be acceptable given adequate perfusion (normal lactate). Aggressive fluids risk worsening EVLWI, while aggressive diuresis might compromise perfusion. Continue current management with close monitoring and consider modest vasopressor titration if needed."
   },
   {
     "id": 34,
-    "question": "A patient has an arterial line waveform that appears 'overdamped' (sluggish, flattened). How will this affect continuous PiCCO measurements?",
-    "parameters": {},
+    "question": "A 62-year-old man with cardiogenic shock post-MI. Despite inotropic support, he remains hypotensive. What is the primary hemodynamic problem?",
+    "parameters": {
+      "HR": "110 bpm",
+      "MAP": "58 mmHg",
+      "CI": "1.6 L/min/m²",
+      "GEDVI": "720 mL/m²",
+      "SVRI": "2800 dyn·s/cm⁻⁵·m²",
+      "ELWI": "14 mL/kg",
+      "PVPI": "1.8",
+      "CFI": "2.5 min⁻¹",
+      "SVV": "7%"
+    },
     "options": [
-        "It will cause a falsely high Cardiac Index (CI).",
-        "It will cause a falsely low Stroke Volume Variation (SVV).",
-        "It will cause a falsely high Extravascular Lung Water Index (ELWI).",
-        "It will not affect the measurements."
+      "Hypovolemia requiring fluid resuscitation",
+      "Severe cardiac dysfunction with inadequate contractility",
+      "Distributive shock with vasodilation",
+      "Hypervolemia causing pulmonary edema"
     ],
     "correctAnswerIndex": 1,
-    "rationale": "An overdamped arterial line waveform underestimates the true pulse pressure. Since SVV is calculated from the variations in this pressure waveform, an overdamped signal will be flattened, leading to a falsely low SVV. This might mislead a clinician into thinking a patient is not fluid responsive when they actually are."
+    "rationale": "The critically low CFI (2.5, normal 4.5-6.5) indicates severe impairment of cardiac contractility. Combined with low CI despite adequate preload (normal GEDVI) and low SVV, this confirms pump failure. The high SVRI represents compensatory vasoconstriction. ELWI elevation with normal PVPI suggests hydrostatic (cardiogenic) edema. The patient needs mechanical circulatory support consideration (IABP, Impella, ECMO) rather than further inotropes or fluids."
   },
   {
     "id": 35,
-    "question": "If the injectate temperature sensor is disconnected or malfunctioning during a TPTD calibration, what is the most likely outcome?",
-    "parameters": {},
+    "question": "A 35-year-old trauma patient 6 hours post-laparotomy for liver laceration. He received 8 units PRBC and 6L crystalloid. What requires immediate attention?",
+    "parameters": {
+      "HR": "95 bpm",
+      "MAP": "75 mmHg",
+      "CI": "3.2 L/min/m²",
+      "GEDVI": "880 mL/m²",
+      "SVRI": "1650 dyn·s/cm⁻⁵·m²",
+      "ELWI": "16 mL/kg",
+      "PVPI": "2.9",
+      "CFI": "5.2 min⁻¹",
+      "SVV": "6%"
+    },
     "options": [
-        "The monitor will use a default temperature and provide an inaccurate CO.",
-        "The monitor will refuse to perform the calibration.",
-        "The monitor will only provide continuous Pulse Contour Analysis data.",
-        "The monitor will calculate a falsely low ELWI."
+      "Ongoing hemorrhage requiring return to OR",
+      "Development of ARDS from massive transfusion",
+      "Inadequate resuscitation with persistent hypovolemia",
+      "Abdominal compartment syndrome"
     ],
     "correctAnswerIndex": 1,
-    "rationale": "The injectate temperature (T_inj) is a critical variable in the Stewart-Hamilton equation. Modern PiCCO monitors have safety checks that prevent calibration if T_inj is unstable or not detected, as this would lead to a grossly inaccurate calculation of CO and all other volumetric parameters."
+    "rationale": "Severely elevated ELWI (16 mL/kg) with borderline-high PVPI (2.9, approaching permeability threshold of 3.0) indicates developing ARDS, likely from massive transfusion-related acute lung injury (TRALI) and systemic inflammatory response. Hemodynamics are otherwise stable with adequate CI, preload, and low SVV. Immediate priorities are lung-protective ventilation, avoiding further unnecessary fluids, and monitoring for progression to severe ARDS."
   },
   {
     "id": 36,
-    "question": "A patient with a high heart rate (atrial fibrillation with RVR at 140 bpm) is being monitored. Which PiCCO parameter remains most reliable?",
+    "question": "A 58-year-old woman with acute pancreatitis, day 3 of ICU admission. She has received aggressive fluid resuscitation. What is the most concerning finding?",
     "parameters": {
-        "HR": "140 bpm (AFib)",
-        "SVV": "19%"
+      "HR": "108 bpm",
+      "MAP": "68 mmHg",
+      "CI": "4.8 L/min/m²",
+      "GEDVI": "1050 mL/m²",
+      "SVRI": "950 dyn·s/cm⁻⁵·m²",
+      "ELWI": "20 mL/kg",
+      "PVPI": "3.8",
+      "CFI": "5.5 min⁻¹",
+      "SVV": "5%"
     },
     "options": [
-        "Stroke Volume Variation (SVV)",
-        "Pulse Pressure Variation (PPV)",
-        "Cardiac Index (CI) from TPTD calibration",
-        "Cardiac Index (CI) from continuous PCA"
+      "Distributive shock requiring vasopressor escalation",
+      "Severe fluid overload with critical pulmonary edema",
+      "Inadequate resuscitation with ongoing third-spacing",
+      "Cardiac dysfunction from pancreatitis"
     ],
-    "correctAnswerIndex": 2,
-    "rationale": "In atrial fibrillation, beat-to-beat variability makes dynamic parameters like SVV and PPV completely unreliable. Continuous PCA is also less accurate. The most reliable measurement is the intermittent Cardiac Index (CI) derived from an averaged series of transpulmonary thermodilution (TPTD) boluses, which provides a time-averaged assessment of flow."
+    "correctAnswerIndex": 1,
+    "rationale": "Critically elevated ELWI (20 mL/kg) with very high PVPI (3.8) indicates severe permeability pulmonary edema. The patient is significantly hypervolemic (GEDVI 1050, normal 640-800) with low SVV confirming no fluid responsiveness. Despite hyperdynamic circulation (high CI), the severe lung water accumulation is life-threatening. Immediate transition to conservative fluid strategy with diuresis is essential. The patient is at high risk for respiratory failure requiring mechanical ventilation or worsening if already ventilated."
   },
   {
     "id": 37,
-    "question": "A patient is in the de-resuscitation phase of septic shock. What is the primary goal and which PiCCO parameter is key?",
+    "question": "A 72-year-old man with urosepsis on norepinephrine 0.4 mcg/kg/min and vasopressin 0.04 units/min. What adjustment is most appropriate?",
     "parameters": {
-        "CI": "3.8 L/min/m²",
-        "GEDVI": "850 mL/m²",
-        "ELWI": "11 mL/kg"
+      "HR": "118 bpm",
+      "MAP": "64 mmHg",
+      "CI": "2.2 L/min/m²",
+      "GEDVI": "680 mL/m²",
+      "SVRI": "3200 dyn·s/cm⁻⁵·m²",
+      "ELWI": "8 mL/kg",
+      "PVPI": "2.2",
+      "CFI": "3.8 min⁻¹",
+      "SVV": "9%"
     },
     "options": [
-        "Goal: Increase CI; Key parameter: CFI",
-        "Goal: Achieve negative fluid balance; Key parameter: ELWI",
-        "Goal: Increase MAP; Key parameter: SVRI",
-        "Goal: Increase preload; Key parameter: GEDVI"
+      "Add fluid bolus for low cardiac output",
+      "Increase vasopressor doses for low MAP",
+      "Add dobutamine and reduce vasopressors",
+      "Continue current management"
     ],
-    "correctAnswerIndex": 1,
-    "rationale": "De-resuscitation aims to remove excess fluid accumulated during the initial resuscitation phase to improve organ function, especially the lungs. A high ELWI indicates ongoing pulmonary edema. Therefore, the goal is to achieve a negative fluid balance (e.g., with diuretics) guided by the reduction of ELWI."
+    "correctAnswerIndex": 2,
+    "rationale": "Despite maximum dual vasopressor therapy, SVRI is critically elevated (3200, normal 1700-2400), yet CI remains low with borderline-low CFI (3.8, normal 4.5-6.5). This represents excessive vasoconstriction that is actually impairing cardiac output and tissue perfusion. The patient needs inotropic support (dobutamine) to improve contractility and CI, which will likely allow reduction in vasopressor doses. Adequate preload (normal GEDVI) and low SVV indicate fluids won't help. Further vasopressor escalation would worsen the situation."
   },
   {
     "id": 38,
-    "question": "What does a very low Cardiac Function Index (CFI) of 2.0 min⁻¹ in the presence of a normal GEDVI indicate?",
+    "question": "A 45-year-old woman post-bilateral lung transplant, postoperative day 2. What complication is most likely developing?",
     "parameters": {
-        "CFI": "2.0 min⁻¹",
-        "GEDVI": "700 mL/m²"
+      "HR": "102 bpm",
+      "MAP": "72 mmHg",
+      "CI": "3.6 L/min/m²",
+      "GEDVI": "720 mL/m²",
+      "SVRI": "1550 dyn·s/cm⁻⁵·m²",
+      "ELWI": "22 mL/kg",
+      "PVPI": "4.5",
+      "CFI": "5.0 min⁻¹",
+      "SVV": "8%"
     },
     "options": [
-        "Severe hypovolemia requiring urgent fluid resuscitation.",
-        "Severe myocardial depression requiring inotropic support.",
-        "Severe vasodilation requiring vasopressor support.",
-        "A technical error in the PiCCO catheter."
+      "Hyperacute rejection",
+      "Primary graft dysfunction (PGD)",
+      "Cardiogenic pulmonary edema",
+      "Anastomotic bleeding"
     ],
     "correctAnswerIndex": 1,
-    "rationale": "CFI is an indicator of intrinsic myocardial contractility. A very low CFI in the context of a normal (or adequate) preload (GEDVI) points directly to severe pump failure or myocardial depression. The appropriate treatment is to start inotropic agents to improve contractility."
+    "rationale": "Extremely elevated ELWI (22 mL/kg) with very high PVPI (4.5) in the early post-transplant period is classic for primary graft dysfunction (PGD), a form of severe permeability edema from ischemia-reperfusion injury. Cardiac function is preserved (normal CI, CFI), ruling out cardiogenic edema. This is a life-threatening complication requiring lung-protective ventilation, conservative fluid management, and potentially ECMO support. PVPI >3 distinguishes this from hydrostatic edema."
   },
   {
     "id": 39,
-    "question": "A patient is hypotensive. SVV is 15%, but CVP is 18 mmHg. What is the most appropriate action?",
+    "question": "A 29-year-old man with acute myocarditis. His clinical status is deteriorating despite medical management. What indicates need for mechanical circulatory support?",
     "parameters": {
-        "SVV": "15%",
-        "CVP": "18 mmHg"
+      "HR": "135 bpm",
+      "MAP": "52 mmHg",
+      "CI": "1.4 L/min/m²",
+      "GEDVI": "620 mL/m²",
+      "SVRI": "2600 dyn·s/cm⁻⁵·m²",
+      "ELWI": "13 mL/kg",
+      "PVPI": "1.6",
+      "CFI": "2.1 min⁻¹",
+      "SVV": "7%"
     },
     "options": [
-        "Withhold fluids because CVP is high.",
-        "Administer a fluid bolus because SVV is high.",
-        "Start vasopressors immediately.",
-        "Assume the PiCCO is malfunctioning."
+      "Hypovolemia limiting cardiac output",
+      "Severe cardiogenic shock with profound contractile failure",
+      "Distributive shock component requiring vasodilation",
+      "Pulmonary edema as primary problem"
     ],
     "correctAnswerIndex": 1,
-    "rationale": "Dynamic parameters like SVV are superior to static filling pressures like CVP for predicting fluid responsiveness. A high SVV (15%) indicates the patient is on the steep part of the Frank-Starling curve and will likely respond to fluids. The high CVP is likely misleading due to factors like high PEEP, right ventricular dysfunction, or increased intra-abdominal pressure."
+    "rationale": "Critically low CFI (2.1) and CI (1.4) despite adequate preload indicate profound myocardial dysfunction. The patient is in severe cardiogenic shock with compensatory vasoconstriction (high SVRI) that is insufficient to maintain perfusion. Tachycardia and hypotension despite medical therapy, combined with these parameters, indicate need for urgent mechanical circulatory support (ECMO, Impella, or IABP). ELWI elevation with low PVPI confirms cardiogenic edema. This patient is at imminent risk of cardiac arrest."
   },
   {
     "id": 40,
-    "question": "Which of the following is NOT a prerequisite for the reliable use of SVV/PPV?",
-    "parameters": {},
+    "question": "A 67-year-old man with necrotizing fasciitis, post-debridement. Despite source control, he remains unstable. What is the primary issue?",
+    "parameters": {
+      "HR": "128 bpm",
+      "MAP": "62 mmHg",
+      "CI": "5.5 L/min/m²",
+      "GEDVI": "820 mL/m²",
+      "SVRI": "780 dyn·s/cm⁻⁵·m²",
+      "ELWI": "7 mL/kg",
+      "PVPI": "2.0",
+      "CFI": "6.2 min⁻¹",
+      "SVV": "7%"
+    },
     "options": [
-        "Controlled mechanical ventilation.",
-        "Normal sinus rhythm.",
-        "Tidal volume of at least 8 mL/kg.",
-        "A low Extravascular Lung Water Index (ELWI)."
+      "Inadequate source control requiring return to OR",
+      "Severe distributive shock with profound vasodilation",
+      "Hypovolemia from third-spacing",
+      "Cardiac dysfunction from septic cardiomyopathy"
     ],
-    "correctAnswerIndex": 3,
-    "rationale": "While a high ELWI may be present in a patient being monitored, it does not invalidate the SVV/PPV measurement itself. The reliability of SVV/PPV depends on the controlled, cyclic interaction between the ventilator and the heart, which requires mechanical ventilation, a stable rhythm, and an adequate tidal volume."
+    "correctAnswerIndex": 1,
+    "rationale": "Severely low SVRI (780, normal 1700-2400) with hyperdynamic circulation (CI 5.5) and hypotension indicates profound distributive shock from severe sepsis. Despite high cardiac output, the extreme vasodilation prevents adequate organ perfusion pressure. Preload is adequate (normal GEDVI, low SVV). This patient requires aggressive vasopressor therapy (norepinephrine as first-line, consider adding vasopressin). The normal ELWI/PVPI and adequate cardiac function (high CI, normal CFI) indicate the vasoplegia is the isolated problem."
   },
   {
     "id": 41,
-    "question": "A patient with an open abdomen after damage control surgery for trauma is hypotensive. Can you trust the SVV reading?",
+    "question": "A 55-year-old woman with decompensated cirrhosis and hepatorenal syndrome. What explains her hemodynamic state?",
     "parameters": {
-        "SVV": "18%"
+      "HR": "92 bpm",
+      "MAP": "68 mmHg",
+      "CI": "5.2 L/min/m²",
+      "GEDVI": "880 mL/m²",
+      "SVRI": "850 dyn·s/cm⁻⁵·m²",
+      "ELWI": "6 mL/kg",
+      "PVPI": "1.8",
+      "CFI": "6.8 min⁻¹",
+      "SVV": "6%"
     },
     "options": [
-        "Yes, a high SVV reliably indicates fluid responsiveness.",
-        "No, SVV is invalid in patients with an open abdomen.",
-        "Only if the patient is also in sinus rhythm.",
-        "Yes, but only if PEEP is less than 5 cmH2O."
+      "Hyperdynamic circulation with splanchnic vasodilation",
+      "Cardiogenic shock from cirrhotic cardiomyopathy",
+      "Hypovolemia from ascites formation",
+      "Normal hemodynamics for cirrhotic patient"
     ],
-    "correctAnswerIndex": 1,
-    "rationale": "An open abdomen (or open chest) disrupts the fixed intrathoracic compartment. The pressure changes from the ventilator are not transmitted to the heart and great vessels in a predictable way, making both SVV and PPV unreliable and invalid for assessing fluid responsiveness."
+    "correctAnswerIndex": 0,
+    "rationale": "Classic hyperdynamic circulatory state of advanced cirrhosis: high CI with low SVRI due to splanchnic and systemic vasodilation from portal hypertension and vasodilatory mediators. The high-normal CFI indicates preserved or even enhanced contractility. Despite high cardiac output, the profound vasodilation leads to relative hypotension and can contribute to hepatorenal syndrome through renal hypoperfusion. Treatment includes albumin, vasoconstrictors (terlipressin, norepinephrine), and consideration for TIPS or transplant evaluation."
   },
   {
     "id": 42,
-    "question": "A patient's PiCCO monitor shows a high Cardiac Index (5.5 L/min/m²) but a low Mean Arterial Pressure (55 mmHg). What is the primary hemodynamic problem?",
+    "question": "A 41-year-old man with COVID-19 pneumonia, day 8 of mechanical ventilation on PEEP 16 cmH2O. What is the main concern?",
     "parameters": {
-        "CI": "5.5 L/min/m²",
-        "MAP": "55 mmHg"
+      "HR": "98 bpm",
+      "MAP": "70 mmHg",
+      "CI": "3.4 L/min/m²",
+      "GEDVI": "650 mL/m²",
+      "SVRI": "1600 dyn·s/cm⁻⁵·m²",
+      "ELWI": "19 mL/kg",
+      "PVPI": "4.2",
+      "CFI": "4.9 min⁻¹",
+      "SVV": "11%"
     },
     "options": [
-        "Inadequate cardiac contractility.",
-        "Inadequate preload (hypovolemia).",
-        "Excessive afterload (vasoconstriction).",
-        "Inadequate afterload (pathological vasodilation)."
+      "Cardiogenic pulmonary edema from cardiac dysfunction",
+      "Severe COVID-19 ARDS with permeability edema",
+      "Fluid overload from excessive resuscitation",
+      "Pulmonary embolism with RV failure"
     ],
-    "correctAnswerIndex": 3,
-    "rationale": "The combination of high cardiac output (CI) and low blood pressure (MAP) is the classic sign of distributive shock, where the primary problem is pathological vasodilation (loss of vascular tone). This would be confirmed by a very low Systemic Vascular Resistance Index (SVRI)."
+    "correctAnswerIndex": 1,
+    "rationale": "Severely elevated ELWI (19 mL/kg) with very high PVPI (4.2) confirms severe permeability pulmonary edema consistent with COVID-19 ARDS. This is not cardiogenic (normal CFI, CI) or simple fluid overload (PVPI would be <3). The high PVPI definitively indicates increased capillary permeability. Management requires lung-protective ventilation, prone positioning, conservative fluid strategy, and possibly ECMO if gas exchange deteriorates further. The mortality risk is significant with such severe lung injury."
   },
   {
     "id": 43,
-    "question": "Which PiCCO parameter is most useful for titrating the dose of an inotrope like dobutamine?",
-    "parameters": {},
+    "question": "A 70-year-old woman post-CABG, postoperative day 1. She has oliguria despite adequate MAP. What is causing the low urine output?",
+    "parameters": {
+      "HR": "88 bpm",
+      "MAP": "76 mmHg",
+      "CI": "1.8 L/min/m²",
+      "GEDVI": "520 mL/m²",
+      "SVRI": "2400 dyn·s/cm⁻⁵·m²",
+      "ELWI": "9 mL/kg",
+      "PVPI": "1.9",
+      "CFI": "3.2 min⁻¹",
+      "SVV": "18%"
+    },
     "options": [
-        "Stroke Volume Variation (SVV)",
-        "Cardiac Function Index (CFI)",
-        "Extravascular Lung Water Index (ELWI)",
-        "Systemic Vascular Resistance Index (SVRI)"
+      "Adequate perfusion with normal postoperative response",
+      "Combined hypovolemia and cardiac dysfunction",
+      "Acute kidney injury from contrast nephropathy",
+      "Excessive vasodilation requiring pressors"
     ],
     "correctAnswerIndex": 1,
-    "rationale": "Dobutamine is an inotrope used to improve cardiac contractility. The Cardiac Function Index (CFI) is a direct measure of myocardial contractility. Therefore, titrating dobutamine to an optimal CFI value is the most logical and effective approach."
+    "rationale": "Low CI with both low GEDVI (indicating hypovolemia) and low CFI (indicating impaired contractility) represent a mixed problem. High SVV (18%) confirms fluid responsiveness from hypovolemia. However, CFI of 3.2 suggests underlying cardiac dysfunction won't be completely resolved with fluids alone. The patient needs cautious volume loading guided by PiCCO parameters, with readiness to add inotropic support if CI doesn't adequately improve. This mixed pathology is common post-cardiac surgery."
   },
   {
     "id": 44,
-    "question": "If a thermodilution calibration is performed with an injectate volume of 10 mL but the operator mistakenly enters 20 mL into the monitor, how will this affect the Cardiac Output (CO) measurement?",
-    "parameters": {},
+    "question": "A 38-year-old pregnant woman at 36 weeks gestation with severe preeclampsia and pulmonary edema post-cesarean section. What is the etiology?",
+    "parameters": {
+      "HR": "105 bpm",
+      "MAP": "95 mmHg",
+      "CI": "5.8 L/min/m²",
+      "GEDVI": "920 mL/m²",
+      "SVRI": "1200 dyn·s/cm⁻⁵·m²",
+      "ELWI": "15 mL/kg",
+      "PVPI": "3.2",
+      "CFI": "6.5 min⁻¹",
+      "SVV": "6%"
+    },
     "options": [
-      "CO will be falsely doubled.",
-      "CO will be falsely halved.",
-      "CO will be unaffected.",
-      "ELWI will be falsely doubled, but CO will be correct."
+      "Cardiogenic pulmonary edema from cardiac dysfunction",
+      "Mixed permeability and hydrostatic edema from preeclampsia",
+      "Amniotic fluid embolism",
+      "ARDS from aspiration"
     ],
-    "correctAnswerIndex": 0,
-    "rationale": "The Stewart-Hamilton equation for CO is: CO = (V_inj * Temp_diff) / Area_under_curve. If the entered injectate volume (V_inj) is double the actual volume, the calculated CO will be falsely doubled."
+    "correctAnswerIndex": 1,
+    "rationale": "Elevated ELWI with PVPI >3 indicates permeability edema component, but the hypervolemia (high GEDVI) and hyperdynamic state (high CI, high CFI) suggest fluid overload contributing as well. Preeclampsia causes endothelial dysfunction (increasing permeability) plus patients often receive aggressive fluids perioperatively. The mixed picture requires balanced management: diuresis to reduce hydrostatic component, blood pressure control, magnesium continuation, and monitoring for progression. Pure permeability edema would have lower GEDVI."
   },
   {
     "id": 45,
-    "question": "A patient on PiCCO monitoring has a sudden decrease in CI and an increase in GEDVI and ELWI. This profile is most consistent with:",
-    "parameters": {},
+    "question": "A 60-year-old man with acute PE, currently on heparin infusion. He is becoming progressively hypotensive. What confirms RV failure?",
+    "parameters": {
+      "HR": "118 bpm",
+      "MAP": "58 mmHg",
+      "CI": "1.9 L/min/m²",
+      "GEDVI": "480 mL/m²",
+      "SVRI": "2100 dyn·s/cm⁻⁵·m²",
+      "ELWI": "5 mL/kg",
+      "PVPI": "1.5",
+      "CVP": "18 mmHg"
+    },
     "options": [
-      "Acute hemorrhage",
-      "Acute myocardial infarction (Cardiogenic Shock)",
-      "Anaphylactic shock",
-      "Sepsis"
+      "Hypovolemic shock requiring aggressive fluids",
+      "Cardiogenic shock from LV dysfunction",
+      "RV failure with low LV preload despite high CVP",
+      "Distributive shock from inflammatory response"
     ],
-    "correctAnswerIndex": 1,
-    "rationale": "A sudden drop in cardiac output (CI) with a simultaneous rise in preload (GEDVI) and pulmonary edema (ELWI) is the classic presentation of acute pump failure, such as from a myocardial infarction. The heart fails to pump forward, causing blood to back up into the heart and lungs."
+    "correctAnswerIndex": 2,
+    "rationale": "Classic RV failure pattern: high CVP (18 mmHg) but low GEDVI (480, normal 640-800), indicating the failing RV cannot deliver adequate blood to the LV despite elevated right-sided pressures. Low CI confirms inadequate systemic perfusion. Normal ELWI/PVPI rules out pulmonary edema. This patient needs careful volume optimization (may benefit from cautious fluid challenge), maintenance of RV perfusion pressure (avoid hypotension), and consideration for thrombolysis given hemodynamic instability."
   },
   {
     "id": 46,
-    "question": "What is the main advantage of using GEDVI over CVP to assess preload?",
-    "parameters": {},
+    "question": "A 52-year-old man with alcoholic hepatitis, admitted with GI bleeding now controlled. He remains on vasopressors. What is the next step?",
+    "parameters": {
+      "HR": "78 bpm",
+      "MAP": "66 mmHg",
+      "CI": "2.5 L/min/m²",
+      "GEDVI": "980 mL/m²",
+      "SVRI": "1950 dyn·s/cm⁻⁵·m²",
+      "ELWI": "11 mL/kg",
+      "PVPI": "2.1",
+      "CFI": "4.2 min⁻¹",
+      "SVV": "5%"
+    },
     "options": [
-      "GEDVI is easier to measure.",
-      "GEDVI is a continuous measurement.",
-      "GEDVI is a volumetric parameter and is less affected by ventricular compliance and PEEP.",
-      "GEDVI directly measures left atrial pressure."
+      "Increase vasopressor dose for low MAP",
+      "Administer fluid bolus for borderline CI",
+      "Initiate diuresis for volume overload",
+      "Continue current management with gradual vasopressor wean"
     ],
     "correctAnswerIndex": 2,
-    "rationale": "CVP is a pressure measurement that is highly influenced by changes in ventricular compliance and intrathoracic pressure (e.g., from PEEP). GEDVI is a direct volumetric measurement of the heart's filling and is therefore a more reliable and accurate indicator of true preload."
+    "rationale": "The patient is significantly hypervolemic (GEDVI 980, normal 640-800) with elevated ELWI and low SVV indicating no fluid responsiveness. The borderline-low CI and need for vasopressors are likely related to the volume overload and venous congestion reducing cardiac efficiency. Diuresis to optimize volume status should improve hemodynamics and allow vasopressor weaning. The normal PVPI indicates hydrostatic rather than permeability edema, making diuresis safe and appropriate."
   },
   {
     "id": 47,
-    "question": "A patient with severe burns has a CI of 3.0 L/min/m² and an SVV of 14%. The ELWI is 12 mL/kg. What is the best therapeutic approach?",
+    "question": "A 44-year-old woman with acute fulminant myocarditis on VA-ECMO, day 5. What indicates potential for myocardial recovery?",
     "parameters": {
-      "CI": "3.0 L/min/m²",
-      "SVV": "14%",
-      "ELWI": "12 mL/kg"
+      "HR": "92 bpm",
+      "MAP": "72 mmHg",
+      "CI": "2.8 L/min/m² (native heart)",
+      "GEDVI": "680 mL/m²",
+      "ECMO flow": "2.5 L/min",
+      "ELWI": "8 mL/kg",
+      "PVPI": "1.7",
+      "CFI": "4.2 min⁻¹",
+      "SVV": "9%"
     },
     "options": [
-      "Aggressive fluid resuscitation due to high SVV.",
-      "Start vasopressors immediately to increase MAP.",
-      "Cautious fluid administration, balancing CI improvement against worsening ELWI.",
-      "Administer diuretics to decrease the high ELWI."
+      "No signs of recovery, continue full ECMO support",
+      "Improving native cardiac function suggesting potential for weaning",
+      "Worsening cardiac function requiring transplant listing",
+      "Adequate function to decannulate immediately"
     ],
-    "correctAnswerIndex": 2,
-    "rationale": "This is a complex scenario. The patient is fluid responsive (high SVV), but already has significant pulmonary edema (high ELWI), likely from capillary leak. The goal is to carefully administer fluid to improve CI while closely monitoring ELWI to prevent further lung injury. Aggressive resuscitation is contraindicated due to the high ELWI."
+    "correctAnswerIndex": 1,
+    "rationale": "Native heart CI of 2.8 L/min/m² with improving CFI (4.2, previously would have been lower) while on partial ECMO support (2.5 L/min) indicates myocardial recovery. Previously the native heart would have had minimal output. The improving contractility (CFI approaching normal range) suggests the myocardium is recovering from the inflammatory insult. ECMO flow can be cautiously reduced with monitoring. Complete recovery is possible in fulminant myocarditis if bridge therapy is successful."
   },
   {
     "id": 48,
-    "question": "Which parameter derived from the TPTD curve is most useful for quantifying the degree of pulmonary edema?",
-    "parameters": {},
+    "question": "A 66-year-old man with hospital-acquired pneumonia and septic shock, day 4 of ICU stay. Despite antibiotics, he's deteriorating. What is most concerning?",
+    "parameters": {
+      "HR": "132 bpm",
+      "MAP": "58 mmHg",
+      "CI": "6.2 L/min/m²",
+      "GEDVI": "750 mL/m²",
+      "SVRI": "650 dyn·s/cm⁻⁵·m²",
+      "ELWI": "17 mL/kg",
+      "PVPI": "3.9",
+      "CFI": "7.2 min⁻¹",
+      "Lactate": "5.8 mmol/L"
+    },
     "options": [
-      "Mean Transit Time (MTt)",
-      "Cardiac Output (CO)",
-      "Global End-Diastolic Volume (GEDV)",
-      "Extravascular Lung Water (EVLW)"
+      "Refractory distributive shock with profound vasodilation",
+      "Inadequate source control requiring intervention",
+      "Cardiogenic shock superimposed on septic shock",
+      "Relative hypovolemia from capillary leak"
     ],
-    "correctAnswerIndex": 3,
-    "rationale": "Extravascular Lung Water (EVLW), and its indexed form (ELWI), is the direct quantitative measurement of the amount of fluid in the lung interstitium and alveoli. It is the gold-standard bedside parameter for quantifying pulmonary edema."
+    "correctAnswerIndex": 0,
+    "rationale": "Critically low SVRI (650) with extreme hypotension despite very high cardiac output (CI 6.2) and hypercontractile state (CFI 7.2) indicates refractory distributive shock. The severely elevated lactate despite high CI confirms inadequate tissue perfusion from maldistribution. Severely elevated ELWI with high PVPI indicates concomitant ARDS. This patient has multiorgan dysfunction from severe sepsis. Treatment requires maximum vasopressor support, potentially adjunctive therapies (hydrocortisone, vitamin C), and discussion about prognosis. The high CFI rules out cardiogenic component."
   },
   {
     "id": 49,
-    "question": "What is the primary reason to recalibrate the PiCCO monitor after a significant change in a patient's vasopressor dose?",
-    "parameters": {},
+    "question": "A 57-year-old woman post-esophagectomy, postoperative day 2. She develops sudden hypotension and dyspnea. What complication occurred?",
+    "parameters": {
+      "HR": "125 bpm",
+      "MAP": "54 mmHg",
+      "CI": "1.6 L/min/m²",
+      "GEDVI": "420 mL/m²",
+      "SVRI": "2200 dyn·s/cm⁻⁵·m²",
+      "ELWI": "6 mL/kg",
+      "PVPI": "1.6",
+      "CFI": "4.6 min⁻¹",
+      "SVV": "24%"
+    },
     "options": [
-      "To update the patient's height and weight.",
-      "Because the thermodilution catheter may have moved.",
-      "Because changes in vascular tone alter the relationship between arterial pressure and flow.",
-      "To reset the ELWI measurement."
+      "Anastomotic leak with septic shock",
+      "Pulmonary embolism with RV failure",
+      "Acute hemorrhage with hypovolemic shock",
+      "Myocardial infarction with cardiogenic shock"
     ],
     "correctAnswerIndex": 2,
-    "rationale": "The continuous pulse contour analysis relies on a calibration factor that accounts for the patient's arterial compliance and resistance. Vasoactive drugs directly alter these properties. Recalibration with TPTD is necessary to update this factor and ensure the continuous cardiac output measurement remains accurate."
+    "rationale": "Severely low GEDVI (420) with very high SVV (24%) and low CI indicate profound hypovolemia. Normal CFI rules out primary cardiac dysfunction. Normal ELWI/PVPI rules out pulmonary edema. The acute onset in post-surgical patient with these parameters is classic for hemorrhagic shock. The patient needs urgent resuscitation with blood products, identification of bleeding source (likely intrathoracic or intra-abdominal), and likely return to OR for surgical control. High SVV confirms massive fluid responsiveness."
   },
   {
     "id": 50,
-    "question": "A patient has a low CI and a high SVRI. If GEDVI is also very low (<600 mL/m²), what is the most likely diagnosis?",
+    "question": "A 75-year-old man with cryptogenic organizing pneumonia on high-dose steroids. He's being considered for intubation. What suggests steroid-resistant disease?",
     "parameters": {
-      "CI": "Low",
-      "SVRI": "High",
-      "GEDVI": "Low"
+      "HR": "96 bpm",
+      "MAP": "74 mmHg",
+      "CI": "3.8 L/min/m²",
+      "GEDVI": "720 mL/m²",
+      "SVRI": "1480 dyn·s/cm⁻⁵·m²",
+      "ELWI": "21 mL/kg",
+      "PVPI": "4.1",
+      "CFI": "5.1 min⁻¹",
+      "SVV": "8%"
     },
     "options": [
-      "Cardiogenic Shock",
-      "Septic Shock",
-      "Hypovolemic Shock",
-      "Anaphylactic Shock"
+      "Cardiogenic component requiring diuresis",
+      "Severe permeability edema not responding to steroids",
+      "Fluid overload from steroid-induced sodium retention",
+      "Adequate response with improving parameters"
     ],
+    "correctAnswerIndex": 1,
+    "rationale": "Critically elevated ELWI (21 mL/kg) with very high PVPI (4.1) indicates severe permeability pulmonary edema despite steroid therapy. The persistent high PVPI suggests ongoing inflammatory lung injury not controlled by current treatment. Hemodynamics are otherwise stable (adequate CI, preload), ruling out cardiogenic contribution. This patient may need escalation to mechanical ventilation with lung-protective strategies, and consideration of alternative immunosuppression or clinical trial enrollment. Prognosis is concerning with such severe lung injury."
+  },
+  {
+    "id": 51,
+    "question": "A 33-year-old woman with systemic lupus erythematosus presenting with dyspnea and hypotension. What is the likely diagnosis?",
+    "parameters": {
+      "HR": "115 bpm",
+      "MAP": "64 mmHg",
+      "CI": "1.7 L/min/m²",
+      "GEDVI": "580 mL/m²",
+      "SVRI": "2600 dyn·s/cm⁻⁵·m²",
+      "ELWI": "12 mL/kg",
+      "PVPI": "1.7",
+      "CFI": "2.9 min⁻¹",
+      "SVV": "12%"
+    },
+    "options": [
+      "Lupus pneumonitis with ARDS",
+      "Lupus myocarditis with cardiogenic shock",
+      "Lupus nephritis with fluid overload",
+      "Pulmonary hemorrhage from vasculitis"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "Low CI with low CFI (2.9) indicates primary cardiac dysfunction, consistent with lupus myocarditis. The elevated ELWI with normal PVPI (<3) indicates hydrostatic (cardiogenic) pulmonary edema, not permeability edema from pneumonitis or ARDS. Low GEDVI with moderate SVV suggests the patient may benefit from cautious volume optimization, but the primary problem is cardiac. Treatment requires high-dose steroids for myocarditis, inotropic support, and potentially immunosuppression escalation. This is a cardiac emergency."
+  },
+  {
+    "id": 52,
+    "question": "A 49-year-old man with acute-on-chronic liver failure being evaluated for transplant. What finding would delay transplant listing?",
+    "parameters": {
+      "HR": "88 bpm",
+      "MAP": "70 mmHg",
+      "CI": "2.1 L/min/m²",
+      "GEDVI": "720 mL/m²",
+      "SVRI": "2400 dyn·s/cm⁻⁵·m²",
+      "ELWI": "14 mL/kg",
+      "PVPI": "1.8",
+      "CFI": "3.1 min⁻¹",
+      "SVV": "8%"
+    },
+    "options": [
+      "Hyperdynamic circulation of cirrhosis",
+      "Cirrhotic cardiomyopathy with poor cardiac reserve",
+      "Adequate cardiac function for transplant",
+      "Pulmonary hypertension from portopulmonary syndrome"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "Low CI with low CFI (3.1) indicates cirrhotic cardiomyopathy—impaired cardiac function that's often masked in cirrhosis but becomes critical during transplant surgery's hemodynamic stress. Unlike typical cirrhosis (which shows hyperdynamic circulation), this patient has reduced contractility. High SVRI (rather than expected low SVRI) suggests inability to maintain output despite afterload. Elevated ELWI with normal PVPI indicates some cardiac-mediated edema. This patient needs cardiac optimization and thorough evaluation before transplant. Cirrhotic cardiomyopathy significantly increases perioperative risk."
+  },
+  {
+    "id": 53,
+    "question": "A 68-year-old woman with aspiration pneumonia progressing to ARDS, day 6 of mechanical ventilation. She's on FiO2 0.8, PEEP 14. What guides fluid management?",
+    "parameters": {
+      "HR": "102 bpm",
+      "MAP": "68 mmHg",
+      "CI": "3.2 L/min/m²",
+      "GEDVI": "820 mL/m²",
+      "SVRI": "1580 dyn·s/cm⁻⁵·m²",
+      "ELWI": "16 mL/kg",
+      "PVPI": "3.6",
+      "CFI": "4.8 min⁻¹",
+      "SVV": "9%"
+    },
+    "options": [
+      "Liberal fluids to maintain CI >3.0 L/min/m²",
+      "Conservative strategy with diuresis despite adequate CI",
+      "Aggressive diuresis targeting GEDVI <600 mL/m²",
+      "Current fluid balance is optimal"
+    ],
+    "correctAnswerIndex": 1,
+    "rationale": "Severely elevated ELWI (16 mL/kg) with high PVPI (3.6) indicates severe ARDS with permeability edema. Despite adequate hemodynamics (acceptable CI, normal CFI), the FACTT trial demonstrated that conservative fluid management improves outcomes in ARDS by reducing lung water. Low SVV indicates no fluid responsiveness. Gentle diuresis to reduce ELWI while maintaining adequate perfusion (monitoring lactate, urine output) is appropriate. Goal is negative fluid balance without compromising organ perfusion. This may improve oxygenation and ventilator weaning."
+},
+{
+"id": 54,
+"question": "A 56-year-old man post-Whipple procedure, postoperative day 3. He has persistent tachycardia and borderline BP. What requires investigation?",
+"parameters": {
+"HR": "118 bpm",
+"MAP": "62 mmHg",
+"CI": "4.2 L/min/m²",
+"GEDVI": "620 mL/m²",
+"SVRI": "1100 dyn·s/cm⁻⁵·m²",
+"ELWI": "7 mL/kg",
+"PVPI": "2.0",
+"CFI": "5.8 min⁻¹",
+"SVV": "14%",
+"Lactate": "3.2 mmol/L"
+},
+"options": [
+"Normal postoperative response",
+"Occult intra-abdominal complication (leak, abscess, bleeding)",
+"Adequate resuscitation but needs more fluids",
+"Cardiac dysfunction from surgery"
+],
+"correctAnswerIndex": 1,
+"rationale": "The combination of tachycardia, low-normal MAP, moderately elevated lactate, and hyperdynamic circulation (high CI, low SVRI) with some fluid responsiveness (SVV 14%, low-normal GEDVI) suggests early sepsis or compensated hypovolemia. In POD 3 post-Whipple, this warrants investigation for anastomotic leak, intra-abdominal abscess, or occult bleeding. Normal CFI rules out cardiac dysfunction. While fluid resuscitation is needed, identifying and treating the underlying complication is critical. Requires CT imaging and possible intervention."
+},
+{
+"id": 55,
+"question": "A 42-year-old woman with acute fatty liver of pregnancy, post-delivery, developing hepatic encephalopathy. What is most urgent?",
+"parameters": {
+"HR": "94 bpm",
+"MAP": "72 mmHg",
+"CI": "5.6 L/min/m²",
+"GEDVI": "880 mL/m²",
+"SVRI": "950 dyn·s/cm⁻⁵·m²",
+"ELWI": "8 mL/kg",
+"PVPI": "2.1",
+"CFI": "6.8 min⁻¹",
+"SVV": "6%",
+"INR": "3.8",
+"Ammonia": "245 mcg/dL"
+},
+"options": [
+"Optimize volume status with diuresis",
+"Liver transplant evaluation for acute liver failure",
+"Increase vasopressor support for low SVRI",
+"Treat with lactulose and rifaximin only"
+],
+"correctAnswerIndex": 1,
+"rationale": "Acute fatty liver of pregnancy with coagulopathy (INR 3.8), encephalopathy (high ammonia), and hyperdynamic circulation with low SVRI indicates fulminant hepatic failure. Despite relatively preserved hemodynamics currently, this condition can rapidly deteriorate. The patient needs urgent hepatology consultation and transplant evaluation. Many patients recover with supportive care post-delivery, but some require emergent transplantation. The hemodynamic profile (hyperdynamic, low SVRI) is typical of acute liver failure. Coagulopathy, encephalopathy, and metabolic derangements signal severe disease requiring highest level of care."
+},
+{
+"id": 56,
+"question": "A 71-year-old man with severe aortic stenosis (valve area 0.6 cm²) presenting with decompensated heart failure. What hemodynamic strategy is critical?",
+"parameters": {
+"HR": "76 bpm",
+"MAP": "78 mmHg",
+"CI": "1.9 L/min/m²",
+"GEDVI": "820 mL/m²",
+"SVRI": "2800 dyn·s/cm⁻⁵·m²",
+"ELWI": "13 mL/kg",
+"PVPI": "1.9",
+"CFI": "3.4 min⁻¹",
+"SVV": "7%"
+},
+"options": [
+"Aggressive diuresis to reduce preload",
+"Vasodilator therapy to reduce afterload",
+"Cautious diuresis while maintaining adequate preload",
+"Inotropic support as primary therapy"
+],
+"correctAnswerIndex": 2,
+"rationale": "Severe aortic stenosis creates fixed afterload—the ventricle is already contracting against massive resistance (stenotic valve). The high GEDVI with elevated ELWI indicates volume overload, but aggressive diuresis is dangerous because these patients are preload-dependent to maintain cardiac output across the stenotic valve. Vasodilators can cause catastrophic hypotension. The strategy is cautious diuresis guided by PiCCO parameters to reduce ELWI while maintaining adequate GEDVI (probably 650-700 target). Definitive treatment is valve replacement (TAVR or surgical)."
+},
+{
+"id": 57,
+"question": "A 39-year-old man with hypertrophic cardiomyopathy presenting with acute decompensation. What distinguishes this from systolic heart failure?",
+"parameters": {
+"HR": "108 bpm",
+"MAP": "66 mmHg",
+"CI": "2.3 L/min/m²",
+"GEDVI": "520 mL/m²",
+"SVRI": "2000 dyn·s/cm⁻⁵·m²",
+"ELWI": "11 mL/kg",
+"PVPI": "1.8",
+"CFI": "5.8 min⁻¹",
+"SVV": "16%"
+},
+"options": [
+"Low CI with low CFI indicating systolic dysfunction",
+"Low CI with preserved CFI suggesting diastolic dysfunction",
+"Distributive shock pattern",
+"Typical dilated cardiomyopathy pattern"
+],
+"correctAnswerIndex": 1,
+"rationale": "The key finding is normal-high CFI (5.8) despite low CI—contractility is preserved or enhanced, but cardiac output is reduced. Combined with low GEDVI and high SVV, this indicates the stiff, hypertrophied ventricle cannot adequately fill (diastolic dysfunction). The patient is relatively hypovolemic because the non-compliant ventricle needs higher filling pressures. Treatment requires cautious volume loading (despite pulmonary edema risk) and avoidance of vasodilators/inotropes that worsen outflow obstruction. Beta-blockers and calcium channel blockers help by slowing heart rate and improving diastolic filling time."
+},
+{
+"id": 58,
+"question": "A 64-year-old woman with mitral regurgitation undergoing mitral valve repair. Intraoperatively post-bypass, what indicates successful repair?",
+"parameters": {
+"HR": "82 bpm",
+"MAP": "72 mmHg",
+"CI": "3.2 L/min/m²",
+"GEDVI": "680 mL/m²",
+"SVRI": "1650 dyn·s/cm⁻⁵·m²",
+"ELWI": "8 mL/kg",
+"PVPI": "1.8",
+"CFI": "4.6 min⁻¹",
+"SVV": "9%"
+},
+"options": [
+"Low cardiac output indicating surgical complication",
+"Adequate hemodynamics with reduced preload compared to pre-repair baseline",
+"Hyperdynamic circulation requiring intervention",
+"Signs of acute heart failure"
+],
+"correctAnswerIndex": 1,
+"rationale": "Pre-repair, severe MR causes volume overload with elevated preload (high GEDVI) and often hyperdynamic circulation as blood regurgitates into LA. Post-repair, eliminating the regurgitant pathway reduces preload requirements—the now-competent valve means all forward flow goes to systemic circulation. The 'normalized' hemodynamics (adequate CI, normal GEDVI lower than preoperative baseline, normal ELWI/CFI) indicate successful repair. If CI were lower or signs of failure present, would suggest residual MR or new pathology. These parameters are appropriate for successful repair."
+},
+{
+"id": 59,
+"question": "A 53-year-old man with chronic kidney disease and fluid overload. He's anuric awaiting dialysis. What approach is indicated?",
+"parameters": {
+"HR": "96 bpm",
+"MAP": "82 mmHg",
+"CI": "3.6 L/min/m²",
+"GEDVI": "1020 mL/m²",
+"SVRI": "1650 dyn·s/cm⁻⁵·m²",
+"ELWI": "16 mL/kg",
+"PVPI": "2.0",
+"CFI": "5.2 min⁻¹",
+"SVV": "4%"
+},
+"options": [
+"Continue conservative management awaiting dialysis",
+"Urgent dialysis initiation for volume overload",
+"Aggressive IV diuretics despite anuria",
+"Intubation for impending respiratory failure"
+],
+"correctAnswerIndex": 1,
+"rationale": "Severe hypervolemia (GEDVI 1020) with significantly elevated ELWI (16 mL/kg) in anuric patient indicates urgent need for renal replacement therapy. The patient cannot eliminate volume without kidney function or dialysis. Normal PVPI indicates hydrostatic edema—dialysis can effectively remove this volume. Very low SVV confirms extreme volume overload with no fluid responsiveness. While hemodynamics are currently adequate (reasonable CI, MAP), the severe pulmonary edema (ELWI 16) creates high risk for respiratory failure. Urgent dialysis prevents further deterioration and mechanical ventilation."
+},
+{
+"id": 60,
+"question": "A 47-year-old woman with hereditary angioedema presenting with laryngeal edema requiring intubation. Post-intubation hemodynamics show:",
+"parameters": {
+"HR": "118 bpm",
+"MAP": "58 mmHg",
+"CI": "4.8 L/min/m²",
+"GEDVI": "620 mL/m²",
+"SVRI": "880 dyn·s/cm⁻⁵·m²",
+"ELWI": "6 mL/kg",
+"PVPI": "1.7",
+"CFI": "6.2 min⁻¹",
+"SVV": "15%"
+},
+"options": [
+"Anaphylactic shock requiring epinephrine",
+"Bradykinin-mediated vasodilation with fluid responsiveness",
+"Cardiogenic shock from intubation stress",
+"Hemorrhagic shock from airway trauma"
+],
+"correctAnswerIndex": 1,
+"rationale": "Hereditary angioedema causes bradykinin-mediated vasodilation, not IgE-mediated anaphylaxis. The pattern shows distributive shock (high CI, very low SVRI, hypotension) with fluid responsiveness (SVV 15%, low-normal GEDVI). Treatment differs from anaphylaxis: needs C1-esterase inhibitor concentrate or bradykinin receptor antagonist (icatibant), not epinephrine. Volume resuscitation is appropriate given fluid responsiveness. Vasopressors may be needed if hypotension persists. Normal ELWI/CFI indicate preserved pulmonary and cardiac function. The low SVRI is from bradykinin, not histamine."
+},
+{
+"id": 61,
+"question": "A 58-year-old man with extensive burns (60% TBSA), 18 hours post-injury. He's received 12L crystalloid per Parkland formula. What indicates adequate resuscitation?",
+"parameters": {
+"HR": "112 bpm",
+"MAP": "68 mmHg",
+"CI": "4.5 L/min/m²",
+"GEDVI": "880 mL/m²",
+"SVRI": "1100 dyn·s/cm⁻⁵·m²",
+"ELWI": "13 mL/kg",
+"PVPI": "3.1",
+"CFI": "5.8 min⁻¹",
+"SVV": "8%",
+"Urine output": "0.8 mL/kg/hr"
+},
+"options": [
+"Under-resuscitated, increase fluid rate",
+"Adequately resuscitated, transition to maintenance fluids",
+"Over-resuscitated, reduce fluids despite adequate urine output",
+"Developing burn shock, needs vasopressors"
+],
+"correctAnswerIndex": 1,
+"rationale": "Multiple indicators confirm adequate resuscitation: adequate urine output (goal 0.5-1.0 mL/kg/hr), acceptable CI, low SVV (not fluid responsive), and adequate preload (GEDVI 880). The elevated ELWI with PVPI >3 indicates permeability edema from burn injury and aggressive resuscitation—further fluids would worsen this. Hyperdynamic circulation (high CI, low SVRI) is typical of burn hypermetabolism. The resuscitation goals are met; now transition to maintenance fluids while monitoring for compartment syndrome and continued adequate perfusion. Over-resuscitation increases complications without benefit."
+},
+{
+"id": 62,
+"question": "A 69-year-old man admitted with cocaine-induced chest pain. Troponin elevated at 2.5 ng/mL. What pattern indicates cocaine-related myocardial injury?",
+"parameters": {
+"HR": "102 bpm",
+"MAP": "96 mmHg",
+"CI": "2.4 L/min/m²",
+"GEDVI": "650 mL/m²",
+"SVRI": "2900 dyn·s/cm⁻⁵·m²",
+"ELWI": "9 mL/kg",
+"PVPI": "1.8",
+"CFI": "3.6 min⁻¹",
+"SVV": "9%"
+},
+"options": [
+"Typical MI pattern requiring catheterization",
+"Cocaine-induced severe vasoconstriction with supply-demand mismatch",
+"Normal hemodynamics excluding cardiac cause",
+"Distributive shock from cocaine toxicity"
+],
+"correctAnswerIndex": 1,
+"rationale": "Extremely elevated SVRI (2900) with hypertension indicates severe systemic vasoconstriction from cocaine's sympathomimetic effects. Borderline-low CI with reduced CFI (3.6) suggests myocardial injury from combination of coronary vasospasm (reducing supply) and increased afterload (increasing demand). This supply-demand mismatch causes troponin elevation. Treatment includes benzodiazepines for anxiety/vasoconstriction, nitroglycerin for coronary vasodilation, and avoiding beta-blockers (can worsen vasoconstriction). The patient needs monitoring for true MI, but the pattern suggests cocaine-mediated injury rather than plaque rupture."
+},
+{
+"id": 63,
+"question": "A 36-year-old woman post-partum day 3 with sudden dyspnea and hypoxemia. Echo shows RV dilation. What do PiCCO parameters confirm?",
+"parameters": {
+"HR": "128 bpm",
+"MAP": "62 mmHg",
+"CI": "2.1 L/min/m²",
+"GEDVI": "490 mL/m²",
+"SVRI": "2100 dyn·s/cm⁻⁵·m²",
+"ELWI": "6 mL/kg",
+"PVPI": "1.6",
+"CFI": "4.4 min⁻¹",
+"CVP": "16 mmHg"
+},
+"options": [
+"Amniotic fluid embolism",
+"Peripartum cardiomyopathy",
+"Pulmonary embolism with RV failure",
+"Severe preeclampsia with pulmonary edema"
+],
     "correctAnswerIndex": 2,
-    "rationale": "This profile indicates that the heart has insufficient volume to pump (low GEDVI), causing low cardiac output (low CI). The high SVRI is the body's appropriate compensatory response (vasoconstriction) to maintain blood pressure in the face of low volume. This is the classic signature of hypovolemic shock."
+    "rationale": "Classic PE with RV failure: high CVP (16 mmHg) but low GEDVI (490) indicates RV cannot deliver blood to LV despite elevated right-sided pressures. Low CI confirms inadequate systemic perfusion. Normal ELWI/PVPI rules out pulmonary edema/ARDS. Normal CFI suggests LV contractility is preserved—the problem is inadequate preload from RV failure. Post-partum is high-risk period for PE. Requires anticoagulation and consideration for thrombolysis given hemodynamic instability (massive PE). The low GEDVI despite high CVP is pathognomonic for RV failure reducing LV filling."
   }
 ]

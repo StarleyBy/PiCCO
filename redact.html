@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5;
+            background: #f5f5f5;
             display: flex;
             height: 100vh;
             overflow: hidden;
@@ -25,7 +25,7 @@
             color: white;
             padding: 20px;
             overflow-y: auto;
-            box-shadow: 2px 0 5px rgba(0,0,0.1);
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
         }
 
         .sidebar h2 {
@@ -403,7 +403,7 @@
             color: white;
             padding: 15px 25px;
             border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0,0,0.2);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
             display: none;
             animation: slideIn 0.3s ease;
         }
@@ -441,7 +441,7 @@
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             border-radius: 8px;
             overflow: hidden;
         }
@@ -519,6 +519,61 @@
             color: white;
             padding: 2px 5px;
             border-radius: 5px;
+        }
+
+        /* Цветная маркировка списков */
+        .custom-list {
+            list-style: none; /* Убираем стандартные маркеры */
+            padding-left: 0;
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Отступ для маркера */
+            margin-bottom: 5px;
+        }
+
+        .list-circle-red li::before {
+            content: "\2022"; /* Код для кружочка */
+            color: #e74c3c; /* Красный */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .list-circle-blue li::before {
+            content: "\2022";
+            color: #3498db; /* Голубой */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .list-circle-green li::before {
+            content: "\2022";
+            color: #2ecc71; /* Зеленый */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .list-diamond-purple li::before {
+            content: "\25C6"; /* Код для ромба */
+            color: #9b59b6; /* Фиолетовый */
+            font-size: 0.8em; /* Ромб поменьше */
+            position: absolute;
+            left: 0;
+        }
+
+        .list-diamond-orange li::before {
+            content: "\25C6";
+            color: #f39c12; /* Оранжевый */
+            font-size: 0.8em;
+            position: absolute;
+            left: 0;
         }
 
         /* Цвета текста */
@@ -602,61 +657,6 @@
 
         .color-silver {
             color: #c0c0c0 !important;
-        }
-
-        /* Цветная маркировка списков */
-        .custom-list {
-            list-style: none; /* Убираем стандартные маркеры */
-            padding-left: 0;
-        }
-
-        .custom-list li {
-            position: relative;
-            padding-left: 20px; /* Отступ для маркера */
-            margin-bottom: 5px;
-        }
-
-        .list-circle-red li::before {
-            content: "\2022"; /* Код для кружочка */
-            color: #e74c3c; /* Красный */
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        .list-circle-blue li::before {
-            content: "\2022";
-            color: #3498db; /* Голубой */
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        .list-circle-green li::before {
-            content: "\2022";
-            color: #2ecc71; /* Зеленый */
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        .list-diamond-purple li::before {
-            content: "\25C6"; /* Код для ромба */
-            color: #9b59b6; /* Фиолетовый */
-            font-size: 0.8em; /* Ромб поменьше */
-            position: absolute;
-            left: 0;
-        }
-
-        .list-diamond-orange li::before {
-            content: "\25C6";
-            color: #f39c12; /* Оранжевый */
-            font-size: 0.8em;
-            position: absolute;
-            left: 0;
         }
 
         /* Модальное окно */
@@ -781,7 +781,7 @@
         <h2>✨ 4. Luminous Blocks</h2>
         <button class="style-btn small-text" style="background: rgba(33, 150, 243, 0.2); color: #2196f3;" onclick="applyLuminous('luminous-blue')">💎 Blue</button>
         <button class="style-btn small-text" style="background: rgba(76, 175, 80, 0.2); color: #4caf50;" onclick="applyLuminous('luminous-green')">💚 Green</button>
-        <button class="style-btn small-text" style="background: rgba(24, 67, 54, 0.2); color: #f44336;" onclick="applyLuminous('luminous-red')">❤️ Red</button>
+        <button class="style-btn small-text" style="background: rgba(244, 67, 54, 0.2); color: #f44336;" onclick="applyLuminous('luminous-red')">❤️ Red</button>
         <button class="style-btn small-text" style="background: rgba(255, 235, 59, 0.3); color: #f57f17;" onclick="applyLuminous('luminous-yellow')">💛 Yellow</button>
         <button class="style-btn small-text" style="background: rgba(156, 39, 176, 0.2); color: #9c27b0;" onclick="applyLuminous('luminous-purple')">💜 Purple</button>
 
@@ -1287,37 +1287,20 @@
             }
 
             const range = selection.getRangeAt(0);
+            const selectedContent = range.extractContents();
             
-            // Создаем новый элемент с нужным тегом заголовка
-            const newElement = document.createElement(tagName);
+            // Создаем новый элемент заголовка
+            const headingElement = document.createElement(tagName);
+            headingElement.appendChild(selectedContent);
             
-            // Проверяем, есть ли выделение в середине текста или охватывает несколько элементов
-            try {
-                // Оборачиваем выделенную часть в новый тег
-                range.surroundContents(newElement);
-                
-                // Восстанавливаем выделение на новый элемент
-                const newRange = document.createRange();
-                newRange.selectNodeContents(newElement);
-                selection.removeAllRanges();
-                selection.addRange(newRange);
-            } catch (e) {
-                // Если surroundContents не работает (например, если выделение частично охватывает узлы),
-                // используем extractContents и вставляем новый элемент
-                const contents = range.extractContents();
-                
-                // Добавляем содержимое в новый элемент
-                newElement.appendChild(contents);
-                
-                // Вставляем новый элемент в исходное место
-                range.insertNode(newElement);
-                
-                // Восстанавливаем выделение на новый элемент
-                const newRange = document.createRange();
-                newRange.selectNodeContents(newElement);
-                selection.removeAllRanges();
-                selection.addRange(newRange);
-            }
+            // Вставляем элемент заголовка в исходное место
+            range.insertNode(headingElement);
+            
+            // Восстанавливаем выделение на новый элемент
+            selection.removeAllRanges();
+            const newRange = document.createRange();
+            newRange.selectNodeContents(headingElement);
+            selection.addRange(newRange);
             
             saveState();
             showStatus(`🏷️ Тип элемента изменен на: ${tagName}`);
@@ -1538,6 +1521,21 @@ ${modifiedContent}
             closeTableModal();
             saveState();
             showStatus('📊 Таблица создана!');
+        }
+
+        function showStatus(message) {
+            const status = document.getElementById('statusMessage');
+            status.textContent = message;
+            status.style.display = 'block';
+            
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</body>
+</html>
         }
 
         function showStatus(message) {
