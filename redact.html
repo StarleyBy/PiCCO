@@ -1161,26 +1161,25 @@
             }
 
             const range = selection.getRangeAt(0);
-            const summaryText = selection.toString(); // Выделенный текст будет использован как заголовок
+            const selectedContent = range.extractContents();
             
-            // Создаем структуру details/summary
-            const details = document.createElement('details');
+            // Создаем элемент summary с выделенным содержимым
             const summary = document.createElement('summary');
-            summary.textContent = summaryText;
+            summary.appendChild(selectedContent);
+            
+            // Создаем details элемент и добавляем summary в него
+            const details = document.createElement('details');
             details.appendChild(summary);
             
-            // Вставляем элемент details в документ
-            range.deleteContents(); // Удаляем выделенный текст
-            range.insertNode(details); // Вставляем тег details
+            // Вставляем details элемент в документ
+            range.insertNode(details);
             
-            // Помещаем курсор внутрь details, после summary, для добавления содержимого
-            const contentDiv = document.createElement('div');
-            contentDiv.innerHTML = '<br>'; // Пустая строка для курсора
-            details.appendChild(contentDiv);
-            
-            // Устанавливаем фокус на новый элемент
+            // Устанавливаем фокус внутрь details после summary для добавления содержимого
             const newRange = document.createRange();
-            newRange.setStart(contentDiv, 0);
+            const contentDiv = document.createElement('div');
+            contentDiv.innerHTML = '<br>';
+            details.appendChild(contentDiv);
+            newRange.selectNodeContents(contentDiv);
             newRange.collapse(true);
             selection.removeAllRanges();
             selection.addRange(newRange);
