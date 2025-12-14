@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principles - PiCCO Online Manual</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;family=Montserrat:wght@40;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/main.css">
     <link rel="stylesheet" href="../CSS/print.css" media="print">
 </head>
 <body>
     <div class="nav-overlay" id="nav-overlay"></div>
     <header class="main-header">
-        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
-        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+        <h1 class="site-title"><a href="../index.html" class="site-title"><span class="green-highlighted-oval-3d">PiCCO</span> - <span class="color-red">O</span>nline Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
     </header>
 
     <div class="wrapper container">
@@ -45,25 +44,20 @@
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="visualizations.html">Visualizations</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="simulation.html">Quiz</a></li>
             </ul>
         </nav>
 
         <main class="main-content">
-            <h2>Principles of PiCCO Technology</h2>
-            <p>The PiCCO (Pulse Contour Cardiac Output) system represents a paradigm shift in critical care monitoring, moving away from invasive catheters, unreliable pressures, and intermittent measurements toward less invasive access, accurate volumes, and continuous, functional assessment of the cardiopulmonary system. The system relies on the synergistic combination of two distinct physical principles:</p>
-            <ol>
-                <li><strong>Intermittent Transpulmonary Thermodilution (TPTD)</strong>: This is the calibration method, used intermittently (typically every 4-8 hours or after a major therapeutic intervention) to measure global volumes and calibrate the continuous monitoring system.</li>
-                <li><strong>Continuous Pulse Contour Analysis (PCA)</strong>: This is the beat-to-beat monitoring method, which provides continuous data once calibrated.</li>
-            </ol>
+            <h2>Principles of <span class="green-highlighted-oval-3d">PiCCO</span> Technology</h2>
+            <p>The <span class="green-highlighted-oval-3d">PiCCO</span> (Pulse Contour Cardiac Output) system represents a paradigm shift in critical care monitoring, moving away from invasive catheters, unreliable pressures, and intermittent measurements toward less invasive access, accurate volumes, and continuous, functional assessment of the cardiopulmonary system. The system relies on the synergistic <span class="color-green">combination of <span class="color-red">two</span> distinct physical principles</span>:&nbsp;</p><p></p><ul class="custom-list list-circle-green"><li><span class="marker-blue">Intermittent Transpulmonary Thermodilution</span> <span class="green-highlighted-oval-3d">TPTD</span>: This is the calibration method, used intermittently (typically every 4-8 hours or after a major therapeutic intervention) to measure global volumes and calibrate the continuous monitoring system.</li><li><span class="marker-yellow">Continuous Pulse Contour Analysis</span> <span class="gold-highlighted-oval-3d">PCA</span>: This is the beat-to-beat monitoring method, which provides continuous data once calibrated.</li></ul><p></p>
 
-            <h3>1. Transpulmonary Thermodilution (TPTD)</h3>
+            <h3>&nbsp; 1. Transpulmonary Thermodilution (TPTD)</h3>
             <p>The TPTD method is the cornerstone of PiCCO's volumetric and thermal measurements.</p>
             <h4>The Mechanism</h4>
-            <p>A known volume (V_inj) of cold saline (typically 15-20 mL at <8°C) is rapidly injected into the central venous circulation (via a standard Central Venous Catheter, CVC). The temperature change (ΔT) is then detected by a thermistor-tipped catheter placed distally in a large artery, usually the femoral or axillary artery.</p>
+            <p>A known volume (V_inj) of cold saline (typically 15-20 mL at &lt;8°C) is rapidly injected into the central venous circulation (via a standard Central Venous Catheter, CVC). The temperature change (ΔT) is then detected by a thermistor-tipped catheter placed distally in a large artery, usually the femoral or axillary artery.</p>
             <h4>Key Measurements from the Thermodilution Curve</h4>
             <p>The resulting curve is analyzed using a modified Stewart-Hamilton principle. Unlike the PAC, which measures thermal dilution across the right heart only, the PiCCO indicator passes through the entire cardiopulmonary circulation (right heart, pulmonary vessels, left heart) before reaching the arterial sensor. This allows the calculation of two critical time constants:</p>
-            <table class="parameter-table">
+            <div class="table-wrapper"><table class="scenario-table">
                 <thead>
                     <tr>
                         <th>Time Constant</th>
@@ -86,7 +80,7 @@
                         <td><strong>Pulmonary Edema:</strong> A quantitative, objective, and highly sensitive marker of pulmonary edema, providing a key measure for ARDS and fluid management.</td>
                     </tr>
                 </tbody>
-            </table>
+            </table></div>
             <p>The fundamental formula for calculating cardiac output is:</p>
             <p>CO_TPTD = (V_inj × (T_B - T_I)) / (∫ΔT_B(t)dt × K)</p>
             <p>Where CO_TPTD is Cardiac Output, V_inj is the injectate volume, T_B - T_I is the temperature difference between blood and injectate, and the integral represents the area under the curve.</p>
@@ -107,7 +101,7 @@
                 <li><strong>Stroke Volume Variation (SVV)</strong>: The maximum percentage variation in Stroke Volume over a respiratory cycle.</li>
                 <li><strong>Pulse Pressure Variation (PPV)</strong>: The maximum percentage variation in Pulse Pressure (Systolic - Diastolic) over a respiratory cycle.</li>
             </ul>
-            <p>A high SVV or PPV (e.g., >10-13%) in a patient on controlled mechanical ventilation suggests the patient is operating on the steep, ascending limb of the Frank-Starling curve and is likely to be a fluid responder (i.e., will significantly increase CO with a fluid bolus).</p>
+            <p>A high SVV or PPV (e.g., &gt;10-13%) in a patient on controlled mechanical ventilation suggests the patient is operating on the steep, ascending limb of the Frank-Starling curve and is likely to be a fluid responder (i.e., will significantly increase CO with a fluid bolus).</p>
 
             <h3>Key Volumetric Measurements: Time and Volume</h3>
             <p>The analysis of the TPTD curve is broken down into two components, yielding the key volumetric parameters:</p>
@@ -192,7 +186,7 @@
 
             <h4>Clinical Interpretation</h4>
             <ul>
-                <li>A high SVV or PPV (typically >10-13%) indicates that the heart is highly sensitive to the small volume shifts caused by the ventilator. This means the patient is <strong>preload-dependent</strong> and will likely respond to a fluid bolus with a significant increase in CO (i.e., they are a <strong>fluid responder</strong>).</li>
+                <li>A high SVV or PPV (typically &gt;10-13%) indicates that the heart is highly sensitive to the small volume shifts caused by the ventilator. This means the patient is <strong>preload-dependent</strong> and will likely respond to a fluid bolus with a significant increase in CO (i.e., they are a <strong>fluid responder</strong>).</li>
                 <li>A low SVV or PPV suggests the patient is on the flat part of the Frank-Starling curve and will likely <strong>not</strong> benefit from additional fluid.</li>
             </ul>
 
@@ -209,7 +203,7 @@
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 PiCCO Online Manual</p>
+            <p>© 2025 PiCCO Online Manual</p>
         </div>
     </footer>
     <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
@@ -218,5 +212,5 @@
     </button>
     <script src="../JS/search.js"></script>
     <script src="../JS/main.js"></script>
-</body>
-</html>
+
+</body></html>
