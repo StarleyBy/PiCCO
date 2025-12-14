@@ -34,11 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
     function startGame() {
         currentQuestionIndex = 0;
         score = 0;
         resultsScreen.classList.add('hidden');
         quizContainer.style.display = '';
+        
+        shuffleArray(questions); // Randomize question order
+
         questionTotal.textContent = questions.length;
         showQuestion(questions[currentQuestionIndex]);
     }
