@@ -632,6 +632,11 @@ class PiCCOGame {
                     // Apply damage (can be negative)
                     this.enemies[j].health -= damage; // Subtract because positive damage should reduce health
                     
+                    // Ensure health doesn't go above max
+                    if (this.enemies[j].health > this.enemies[j].maxHealth) {
+                        this.enemies[j].health = this.enemies[j].maxHealth;
+                    }
+                    
                     // Add 1 point for successful hit
                     this.score += 1;
                     this.updateScore();
