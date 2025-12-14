@@ -1156,31 +1156,34 @@
         function applyCollapsible() {
             const selection = window.getSelection();
             if (!selection.rangeCount || selection.toString().trim() === '') {
-                alert('⚠️ Сначала выделите текст!\n\nСовет: Первая строка станет заголовком (summary), остальное - содержимым.');
+                alert('⚠️ Сначала выделите текст для заголовка (summary)!');
                 return;
             }
 
             const range = selection.getRangeAt(0);
-            const text = selection.toString();
-            const lines = text.split('\n');
+            const summaryText = selection.toString(); // Выделенный текст будет использован как заголовок
             
-            const summary = lines[0] || 'Заголовок';
-            const content = lines.slice(1).join('\n') || 'Содержимое';
-            
+            // Создаем структуру details/summary
             const details = document.createElement('details');
-            const summaryEl = document.createElement('summary');
-            const h3 = document.createElement('h3');
-            h3.textContent = summary;
-            summaryEl.appendChild(h3);
-            const p = document.createElement('p');
-            p.textContent = content;
+            const summary = document.createElement('summary');
+            summary.textContent = summaryText;
+            details.appendChild(summary);
             
-            details.appendChild(summaryEl);
-            details.appendChild(p);
+            // Вставляем элемент details в документ
+            range.deleteContents(); // Удаляем выделенный текст
+            range.insertNode(details); // Вставляем тег details
             
-            range.deleteContents();
-            range.insertNode(details);
+            // Помещаем курсор внутрь details, после summary, для добавления содержимого
+            const contentDiv = document.createElement('div');
+            contentDiv.innerHTML = '<br>'; // Пустая строка для курсора
+            details.appendChild(contentDiv);
+            
+            // Устанавливаем фокус на новый элемент
+            const newRange = document.createRange();
+            newRange.setStart(contentDiv, 0);
+            newRange.collapse(true);
             selection.removeAllRanges();
+            selection.addRange(newRange);
             
             saveState();
             showStatus('📂 Collapsible section создан!');
