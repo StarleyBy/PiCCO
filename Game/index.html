@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PiCCO Arcade Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="score-display">Score: <span id="score">0</span></div>
+        <div id="player-info">Player: Standard Monitoring</div>
+        <canvas id="game-canvas" width="375" height="667"></canvas>
+        <div id="controls">
+            <div class="weapon-controls">
+                <button id="weapon-1-btn" class="weapon-btn" style="background-color: #ff9800;">1: Vasopressor</button>
+                <button id="weapon-2-btn" class="weapon-btn" style="background-color: #f44336;">2: Inotrope</button>
+                <button id="weapon-3-btn" class="weapon-btn" style="background-color: #4caf50;">3: Vasodilator</button>
+                <button id="weapon-4-btn" class="weapon-btn" style="background-color: #2196f3;">4: Fluid</button>
+                <button id="weapon-5-btn" class="weapon-btn" style="background-color: #b71c1c;">5: Blood</button>
+                <button id="weapon-6-btn" class="weapon-btn" style="background-color: #9c27b4;">6: Fusid</button>
+                <button id="weapon-7-btn" class="weapon-btn" style="background-color: #ffc107;">7: Nitro</button>
+                <button id="weapon-8-btn" class="weapon-btn" style="background-color: #03dac6;">8: O2</button>
+            </div>
+            <div class="action-controls">
+                <button id="inject-btn" style="display:none;">Inject</button>
+                <button id="calibrate-btn" style="display:none;">Calibrate</button>
+            </div>
+        </div>
+        <div id="instructions">
+            <p>Controls: Swipe left/right to move, tap "Shoot" to fire.</p>
+            <p>Upgrade your equipment by earning points!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

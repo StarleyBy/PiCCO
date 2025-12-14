@@ -48,16 +48,16 @@
         </nav>
 
         <main class="main-content">
-            <h2>Principles of <span class="green-highlighted-oval-3d">PiCCO</span> Technology</h2>
+            <h2><span class="color-red">P</span>rinciples of <span class="green-highlighted-oval-3d">PiCCO</span> Technology</h2>
             <p>The <span class="green-highlighted-oval-3d">PiCCO</span> (Pulse Contour Cardiac Output) system represents a paradigm shift in critical care monitoring, moving away from invasive catheters, unreliable pressures, and intermittent measurements toward less invasive access, accurate volumes, and continuous, functional assessment of the cardiopulmonary system. The system relies on the synergistic <span class="color-green">combination of <span class="color-red">two</span> distinct physical principles</span>:&nbsp;</p><p></p><ul class="custom-list list-circle-green"><li><span class="marker-blue">Intermittent Transpulmonary Thermodilution</span> <span class="green-highlighted-oval-3d">TPTD</span>: This is the calibration method, used intermittently (typically every 4-8 hours or after a major therapeutic intervention) to measure global volumes and calibrate the continuous monitoring system.</li><li><span class="marker-yellow">Continuous Pulse Contour Analysis</span> <span class="gold-highlighted-oval-3d">PCA</span>: This is the beat-to-beat monitoring method, which provides continuous data once calibrated.</li></ul><p></p>
 
-            <h3>&nbsp; 1. Transpulmonary Thermodilution (TPTD)</h3>
-            <p>The TPTD method is the cornerstone of PiCCO's volumetric and thermal measurements.</p>
+            <h3>&nbsp; 1. Transpulmonary Thermodilution <span class="blue-highlighted-oval-3d">TPTD</span></h3>
+            <p>The <span class="blue-highlighted-oval-3d">TPTD</span> method is the cornerstone of <span class="green-highlighted-oval-3d">PiCCO</span>'s volumetric and thermal measurements.</p>
             <h4>The Mechanism</h4>
-            <p>A known volume (V_inj) of cold saline (typically 15-20 mL at &lt;8°C) is rapidly injected into the central venous circulation (via a standard Central Venous Catheter, CVC). The temperature change (ΔT) is then detected by a thermistor-tipped catheter placed distally in a large artery, usually the femoral or axillary artery.</p>
+            <p>A known volume (V_inj) of cold saline (<span class="marker-cyan">typically 15-20 mL at &lt;8°C</span>) is rapidly injected into the central venous circulation (via a standard Central Venous Catheter, <span class="teal-highlighted-oval-3d">CVC</span>). The temperature change (<span class="marker-red">ΔT</span>) is then detected by a thermistor-tipped catheter placed distally in a large artery, usually the femoral or axillary artery.</p>
             <h4>Key Measurements from the Thermodilution Curve</h4>
-            <p>The resulting curve is analyzed using a modified Stewart-Hamilton principle. Unlike the PAC, which measures thermal dilution across the right heart only, the PiCCO indicator passes through the entire cardiopulmonary circulation (right heart, pulmonary vessels, left heart) before reaching the arterial sensor. This allows the calculation of two critical time constants:</p>
-            <div class="table-wrapper"><table class="scenario-table">
+            <p>The resulting curve is analyzed using a modified <span class="marker-blue">Stewart-Hamilton principle</span>. Unlike the <span class="orange-highlighted-oval-3d">PAC</span>, which measures thermal dilution across the right heart only, the <span class="green-highlighted-oval-3d">PiCCO</span> indicator passes through the entire cardiopulmonary circulation (right heart, pulmonary vessels, left heart) before reaching the arterial sensor. This allows the calculation of two critical time constants:</p>
+            <div class="table-wrapper"><div class="table-wrapper"><table class="scenario-table">
                 <thead>
                     <tr>
                         <th>Time Constant</th>
@@ -68,142 +68,142 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Mean Transit Time</strong> (t̄)</td>
-                        <td>Used to calculate <strong>Global End-Diastolic Volume (GEDV)</strong></td>
-                        <td><strong>Intrathoracic Blood Volume (ITBV)</strong> and <strong>Global End-Diastolic Volume (GEDV)</strong></td>
+                        <td><strong>Mean Transit Time</strong> <span class="purple-highlighted-oval-3d">MMt</span></td>
+                        <td>Used to calculate <strong>Global End-Diastolic Volume <span class="yellow-highlighted-oval-3d">GEDV</span></strong></td>
+                        <td><strong>Intrathoracic Blood Volume <span class="orange-highlighted-oval-3d">ITBV</span></strong>&nbsp;and <strong>Global End-Diastolic Volume <span class="yellow-highlighted-oval-3d">GEDV</span></strong></td>
                         <td><strong>Volumetric Preload:</strong> The most accurate and reproducible measure of cardiac preload, representing the sum of all four cardiac chambers' diastolic volumes.</td>
                     </tr>
                     <tr>
-                        <td><strong>Exponential Decay Time</strong> (t_E)</td>
-                        <td>Used to calculate <strong>Thermal Volume (TV)</strong></td>
-                        <td><strong>Extravascular Lung Water (EVLW)</strong></td>
+                        <td><strong>Exponential Downslope Time</strong> <span class="yellow-highlighted-oval-3d">DSt</span></td>
+                        <td>Used to calculate <strong>Pulmonary Thermal Volume <span class="orange-highlighted-oval-3d">PTV</span></strong></td>
+                        <td><strong>Extravascular Lung Water <span class="green-highlighted-oval-3d">EVLW</span></strong></td>
                         <td><strong>Pulmonary Edema:</strong> A quantitative, objective, and highly sensitive marker of pulmonary edema, providing a key measure for ARDS and fluid management.</td>
                     </tr>
                 </tbody>
-            </table></div>
+            </table></div></div>
             <p>The fundamental formula for calculating cardiac output is:</p>
             <p>CO_TPTD = (V_inj × (T_B - T_I)) / (∫ΔT_B(t)dt × K)</p>
-            <p>Where CO_TPTD is Cardiac Output, V_inj is the injectate volume, T_B - T_I is the temperature difference between blood and injectate, and the integral represents the area under the curve.</p>
+            <p>Where:&nbsp;</p><p></p><ul class="custom-list list-diamond-orange"><li>measured CO is Cardiac Output,</li><li>V_inj is the injectate volume,</li><li>ΔT&nbsp;is the temperature difference between blood and injectate, and the integral represents the area under the curve.</li></ul><p></p>
 
-            <h3>2. Continuous Pulse Contour Analysis (PCA)</h3>
-            <p>Once the PiCCO system has derived the CO from TPTD, it uses this value to calibrate the pulse contour component.</p>
+            <h3>2. Continuous Pulse Contour Analysis <span class="gold-highlighted-oval-3d">PCA</span></h3>
+            <p>Once the <span class="green-highlighted-oval-3d">PiCCO</span> system has derived the <span class="red-highlighted-oval-3d">CO</span> from <span class="blue-highlighted-oval-3d">TPTD</span>, it uses this value to calibrate the pulse contour component.</p>
             <h4>The Mechanism</h4>
-            <p>PCA provides continuous, beat-to-beat monitoring based on the shape and amplitude of the arterial pressure waveform. The system continuously calculates Stroke Volume (SV) using a proprietary algorithm based on the classic relationship between pressure and flow.</p>
+            <p><span class="gold-highlighted-oval-3d">PCA</span> provides continuous, beat-to-beat monitoring based on the shape and amplitude of the arterial pressure waveform. The system continuously calculates Stroke Volume <span class="purple-highlighted-oval-3d">SV</span> using a proprietary algorithm based on the classic relationship between pressure and flow.</p>
             <p>SV ∝ ∫P(t)dt</p>
             <p>(The area under the systolic portion of the arterial pressure curve relates to the stroke volume, modulated by arterial compliance.)</p>
-            <p>The algorithm converts the continuously monitored arterial pressure waveform into a continuous estimate of Pulse Contour Cardiac Output (PCCO):</p>
-            <p>PCCO = SV × Heart Rate (HR)</p>
-            <p>This continuous reading allows for the immediate visualization of changes in CO, which is crucial during rapid therapeutic adjustments (e.g., titrating vasopressors or administering a small fluid bolus).</p>
+            <p>The algorithm converts the continuously monitored arterial pressure waveform into a continuous estimate of Pulse Contour Cardiac Output <span class="green-highlighted-oval-3d">PCCO</span>:</p>
+            <p><span class="green-highlighted-oval-3d">PCCO</span> = <span class="purple-highlighted-oval-3d">SV</span> × <span class="red-highlighted-oval-3d">HR</span></p>
+            <p>This continuous reading allows for the immediate visualization of changes in <span class="red-highlighted-oval-3d">CO</span>, which is crucial during rapid therapeutic adjustments (e.g., titrating vasopressors or administering a small fluid bolus).</p>
 
             <h4>Dynamic Preload/Fluid Responsiveness Parameters</h4>
-            <p>A major strength of PCA lies in its ability to derive dynamic parameters that predict fluid responsiveness in mechanically ventilated patients:</p>
+            <p>A major strength of <span class="gold-highlighted-oval-3d">PCA</span> lies in its ability to derive dynamic parameters that predict fluid responsiveness in mechanically ventilated patients:</p>
             <ul>
-                <li><strong>Stroke Volume Variation (SVV)</strong>: The maximum percentage variation in Stroke Volume over a respiratory cycle.</li>
-                <li><strong>Pulse Pressure Variation (PPV)</strong>: The maximum percentage variation in Pulse Pressure (Systolic - Diastolic) over a respiratory cycle.</li>
+                <li><strong>Stroke Volume Variation <span class="pink-highlighted-oval-3d">SVV</span></strong>: The maximum percentage variation in Stroke Volume over a respiratory cycle.</li>
+                <li><strong>Pulse Pressure Variation <span class="pink-highlighted-oval-3d">PPV</span></strong>: The maximum percentage variation in Pulse Pressure (Systolic - Diastolic) over a respiratory cycle.</li>
             </ul>
-            <p>A high SVV or PPV (e.g., &gt;10-13%) in a patient on controlled mechanical ventilation suggests the patient is operating on the steep, ascending limb of the Frank-Starling curve and is likely to be a fluid responder (i.e., will significantly increase CO with a fluid bolus).</p>
+            <p>A high <span class="pink-highlighted-oval-3d">SVV</span> or <span class="pink-highlighted-oval-3d">PPV</span> (e.g., &gt;10-13%) in a patient <span class="marker-green">on controlled mechanical ventilation</span> suggests the patient is operating on the steep, ascending limb of the <span class="color-blue">Frank-Starling curve</span> and is likely to be a fluid responder (i.e., will significantly increase <span class="red-highlighted-oval-3d">CO</span> with a fluid bolus).</p><p><br></p>
 
             <h3>Key Volumetric Measurements: Time and Volume</h3>
-            <p>The analysis of the TPTD curve is broken down into two components, yielding the key volumetric parameters:</p>
-            <h4>A. Global End-Diastolic Volume (GEDV) and Intrathoracic Blood Volume (ITBV)</h4>
-            <p>These parameters, the gold standard for volumetric preload assessment, are derived from the transit time of the cold indicator.</p>
-            <h5>The Principle: Mean Transit Time (t̄)</h5>
-            <p>The GEDV is calculated using the relationship between the measured CO and the Mean Transit Time (t̄) of the indicator:</p>
-            <p>t̄ = ∫t·ΔT(t)dt / ∫ΔT(t)dt</p>
-            <p>The volume of distribution is then calculated by the flow rate (CO) multiplied by the mean transit time:</p>
-            <p>Volume = CO × t̄</p>
-            <p>PiCCO uses the Downslope Time (t_DS) and the Maximum Slope Time (t_MS) derived from the curve to calculate:</p>
+            <p>The analysis of the <span class="blue-highlighted-oval-3d">TPTD</span> curve is broken down into two components, yielding the key volumetric parameters:</p>
+            <h4>A. Global End-Diastolic Volume <span class="yellow-highlighted-oval-3d">GEDV</span> and Intrathoracic Blood Volume <span class="orange-highlighted-oval-3d">ITBV</span></h4>
+            <p>These parameters, the <span class="marker-yellow">gold standard</span> for volumetric <span class="color-orange">preload</span> assessment, are derived from the transit time of the cold indicator.</p>
+            <h5>The Principle: <span class="marker-purple">Mean Transit Time</span> <span class="purple-highlighted-oval-3d">MTt</span></h5>
+            <p>The <span class="yellow-highlighted-oval-3d">GEDV</span> is calculated using the relationship between the measured <span class="red-highlighted-oval-3d">CO</span> and the <span class="purple-highlighted-oval-3d">MTt</span> of the indicator:</p>
+            <p><span class="purple-highlighted-oval-3d">MTt</span> = ∫t·<span class="marker-red">ΔT</span>(t)dt / ∫<span class="marker-red">ΔT</span>(t)dt</p>
+            <p>The volume of distribution is then calculated by the flow rate <span class="red-highlighted-oval-3d">CO</span> multiplied by the mean transit time:</p>
+            <p>Volume = <span class="red-highlighted-oval-3d">CO</span> × <span class="purple-highlighted-oval-3d">MTt</span></p>
+            <p><span class="green-highlighted-oval-3d">PiCCO</span> uses the Downslope Time <span class="yellow-highlighted-oval-3d">DSt</span> and the Maximum Slope Time <span class="yellow-highlighted-oval-3d">MSt</span> derived from the curve to calculate:</p>
             <ul>
-                <li><strong>Intrathoracic Blood Volume (ITBV)</strong>: This represents the total blood volume within the chest (all four cardiac chambers plus pulmonary vasculature).</li>
-                <li><strong>Global End-Diastolic Volume (GEDV)</strong>: This volume is considered the best volumetric representation of cardiac preload, essentially the sum of the end-diastolic volumes of all four heart chambers.</li>
+                <li><strong>Intrathoracic Blood Volume <span class="orange-highlighted-oval-3d">ITBV</span></strong>: This represents the total blood volume within the chest (all four cardiac chambers plus pulmonary vasculature).</li>
+                <li><strong>Global End-Diastolic Volume <span class="yellow-highlighted-oval-3d">GEDV</span></strong>: This volume is considered the best volumetric representation of cardiac preload, essentially the sum of the end-diastolic volumes of all four heart chambers.</li>
             </ul>
-            <p>GEDV ≈ 1.25 × ITBV</p>
-            <p>Both GEDV and ITBV are highly accurate, less affected by lung mechanics (PEEP, compliance) than PAC pressures (PCWP), and serve as the foundation for volumetric goal-directed therapy.</p>
+            <p><span class="yellow-highlighted-oval-3d">GEDV</span> ≈ <span class="silver-highlighted-oval-3d">1.25</span> × <span class="orange-highlighted-oval-3d">ITBV</span></p>
+            <p>Both <span class="yellow-highlighted-oval-3d">GEDV</span> and <span class="orange-highlighted-oval-3d">ITBV</span> are highly accurate, less affected by lung mechanics (PEEP, compliance) than <span class="orange-highlighted-oval-3d">PAC</span> pressures <span class="silver-highlighted-oval-3d">PCWP</span>, and serve as the foundation for volumetric goal-directed therapy.</p>
 
-            <h4>B. Extravascular Lung Water (EVLW)</h4>
-            <p>EVLW is perhaps the most unique and clinically critical measurement derived from TPTD, as it is a direct, quantitative measure of pulmonary edema.</p>
-            <h5>The Principle: Thermal Volume (TV) and Indicator Dilution</h5>
+            <h4>B. Extravascular Lung Water <span class="green-highlighted-oval-3d">EVLW</span></h4>
+            <p><span class="green-highlighted-oval-3d">EVLW</span> is perhaps the most unique and clinically critical measurement derived from <span class="blue-highlighted-oval-3d">TPTD</span>, as it is a direct, quantitative measure of pulmonary edema.</p>
+            <h5>The Principle: Pulmonary Thermal Volume <span class="orange-highlighted-oval-3d">PTV</span> and Indicator Dilution</h5>
             <p>The thermal indicator injected into the vein passes through two compartments in the lungs:</p>
             <ol>
                 <li>The <strong>vascular compartment</strong> (blood vessels).</li>
                 <li>The <strong>non-vascular, thermodynamic exchange compartment</strong> (lung tissue and extravascular water).</li>
             </ol>
-            <p>The PiCCO system calculates two distinct volumes from the curve:</p>
+            <p>The <span class="green-highlighted-oval-3d">PiCCO</span> system calculates two distinct volumes from the curve:</p>
             <ol>
-                <li><strong>Intrathoracic Thermal Volume (ITTV)</strong>: The volume calculated from the total area under the TPTD curve. This represents the sum of blood volume and extravascular water.</li>
-                <li><strong>Intrathoracic Blood Volume (ITBV)</strong>: The volume calculated from the t̄ (as described above), representing only the blood volume.</li>
+                <li><strong>Intrathoracic Thermal Volume <span class="silver-highlighted-oval-3d">ITTV</span></strong>: The volume calculated from the total area under the TPTD curve. This represents the sum of blood volume and extravascular water.</li>
+                <li><strong>Intrathoracic Blood Volume <span class="silver-highlighted-oval-3d">ITBV</span></strong>: The volume calculated from the t̄ (as described above), representing only the blood volume.</li>
             </ol>
-            <p>The difference between the total thermal volume and the blood volume within the chest is the EVLW:</p>
-            <p>EVLW = ITTV - ITBV</p>
-            <p>An indexed EVLW (EVLWI) value typically exceeding 10-12 mL/kg is associated with significantly increased morbidity and mortality in ARDS, sepsis, and cardiogenic shock. This allows for precise, objective guidance for diuretics, fluid removal, or ultrafiltration, distinguishing true hemodynamic instability from pure fluid overload.</p>
+            <p>The difference between the total thermal volume and the blood volume within the chest is the <span class="green-highlighted-oval-3d">EVLW</span>:</p>
+            <p><span class="green-highlighted-oval-3d">EVLW</span> = <span class="silver-highlighted-oval-3d">ITTV</span> - <span class="silver-highlighted-oval-3d">ITBV</span></p>
+            <p>An indexed <span class="green-highlighted-oval-3d">EVLW</span> (<span class="green-highlighted-oval-3d">EVLWI</span>) value typically exceeding 10-12 mL/kg is associated with significantly increased morbidity and mortality in ARDS, sepsis, and cardiogenic shock. This allows for precise, objective guidance for diuretics, fluid removal, or ultrafiltration, distinguishing true hemodynamic instability from pure fluid overload.</p><p><br></p>
 
-            <h3>The Core Theory: Estimating Flow from Pressure</h3>
-            <p>The fundamental challenge of continuous monitoring is to estimate the <strong>volume</strong> of blood ejected by the left ventricle (Stroke Volume, SV) from a simple, readily available <strong>pressure</strong> measurement—the arterial pressure waveform.</p>
-            <p>PCA is based on a modification of the <strong>Windkessel Model</strong>, which describes the circulatory system using electrical analogies, treating the aorta and large arteries as a pressure chamber (capacitance) and the arterioles as resistance.</p>
+            <h3>The Core Theory: <span class="cyber-neon cyber-neon-green">Estimating Flow from Pressure</span></h3>
+            <p>The fundamental challenge of continuous monitoring is to estimate the <strong>volume</strong> of blood ejected by the left ventricle (Stroke Volume, <span class="purple-highlighted-oval-3d">SV</span>) from a simple, readily available <strong>pressure</strong> measurement—the arterial pressure waveform.</p>
+            <p><span class="gold-highlighted-oval-3d">PCA</span> is based on a modification of the <strong><span class="marker-green">Windkessel Model</span></strong>, which describes the circulatory system using electrical analogies, treating the aorta and large arteries as a pressure chamber (capacitance) and the arterioles as resistance.</p>
             <h4>1. The Relationship: Pressure, Flow, and Impedance</h4>
             <p>The principle states that the shape and amplitude of the arterial pressure waveform are determined by the interaction between the heart's ejection (flow) and the mechanical properties of the arterial system (impedance/resistance and compliance).</p>
-            <p>In simple terms, the Stroke Volume (SV) is proportional to the <strong>area under the systolic portion</strong> of the arterial pressure curve:</p>
-            <p>SV ∝ ∫_Systole P(t)dt / Arterial Impedance</p>
+            <p>In simple terms, the Stroke Volume (<span class="purple-highlighted-oval-3d">SV</span>) is proportional to the <strong>area under the systolic portion</strong> of the arterial pressure curve:</p>
+            <p><span class="purple-highlighted-oval-3d">SV</span> ∝ ∫Systole P(t)dt / Arterial Impedance</p>
             <ul>
                 <li><strong>Numerator (∫P(t)dt)</strong>: The area under the systolic curve is readily measured by the sensor.</li>
                 <li><strong>Denominator (Arterial Impedance)</strong>: This is the hard part. It represents the stiffness and resistance of the arteries and changes constantly with vascular tone (vasoconstriction/vasodilation) and patient condition.</li>
             </ul>
 
-            <h4>2. The PiCCO Algorithm and Calibration</h4>
-            <p>To overcome the challenge of variable arterial impedance, PiCCO employs a modified proprietary algorithm (often cited as a version of the Wesseling's cZ algorithm or similar model) that includes a patient-specific <strong>calibration factor (K)</strong>.</p>
-            <h5>Step 1: The TPTD Calibration (The "Gold Standard" Reset)</h5>
-            <p>The intermittent TPTD measurement yields a highly accurate, reference value for <strong>Cardiac Output (CO_TPTD)</strong>. This TPTD measurement is used to determine the unique calibration factor (K) for the patient at that time.</p>
-            <p>K = CO_TPTD / Calculated CO_PC (based on current waveform properties)</p>
-            <p>The factor K accounts for the unique compliance and tone of the patient's arteries at the time of calibration.</p>
+            <h4>2. The <span class="green-highlighted-oval-3d">PiCCO</span> Algorithm and Calibration</h4>
+            <p>To overcome the challenge of variable arterial impedance, <span class="green-highlighted-oval-3d">PiCCO</span> employs a modified proprietary algorithm (often cited as a version of the <span class="marker-cyan">Wesseling's cZ algorithm</span> or similar model) that includes a patient-specific <strong>calibration factor <span class="red-highlighted-oval-3d">K</span></strong>.</p>
+            <h5>Step 1: The <span class="blue-highlighted-oval-3d">TPTD</span> Calibration (The "Gold Standard" Reset)</h5>
+            <p>The intermittent <span class="blue-highlighted-oval-3d">TPTD</span> measurement yields a highly accurate, reference value for <strong>Cardiac Output (measured <span class="red-highlighted-oval-3d">CO</span>)</strong>. This <span class="blue-highlighted-oval-3d">TPTD</span> measurement is used to determine the unique calibration factor <span class="red-highlighted-oval-3d">K</span> for the patient at that time.</p>
+            <p><span class="red-highlighted-oval-3d">K</span> = <span class="color-blue">measured</span> <span class="red-highlighted-oval-3d">CO</span>&nbsp;/ <span class="color-purple">calculated</span> <span class="red-highlighted-oval-3d">CO</span>&nbsp;(based on current waveform properties)</p>
+            <p>The factor <span class="red-highlighted-oval-3d">K</span> accounts for the unique compliance and tone of the patient's arteries at the time of calibration.</p>
 
             <h5>Step 2: Continuous Calculation</h5>
-            <p>Once calibrated, the PiCCO system can continuously calculate the Pulse Contour Cardiac Output (PCCO) on a beat-to-beat basis using the formula:</p>
-            <p>PCCO = K × HR × (Area under Systolic Waveform / Arterial Compliance Model)</p>
+            <p>Once calibrated, the <span class="green-highlighted-oval-3d">PiCCO</span> system can continuously calculate the Pulse Contour Cardiac Output <span class="green-highlighted-oval-3d">PCCO</span> on a beat-to-beat basis using the formula:</p>
+            <p><span class="green-highlighted-oval-3d">PCCO</span> = <span class="red-highlighted-oval-3d">K</span> × <span class="red-highlighted-oval-3d">HR</span> × (Area under Systolic Waveform / Arterial Compliance Model)</p>
             <ul>
                 <li>The <strong>Heart Rate (HR)</strong> is taken directly from the waveform.</li>
                 <li>The <strong>Area under the Systolic Waveform</strong> is measured for every beat.</li>
-                <li>The system applies the calibrated factor <strong>K</strong> to continuously convert the pressure measurement into a flow (SV) and, subsequently, a PCCO.</li>
+                <li>The system applies the calibrated factor <strong><span class="red-highlighted-oval-3d">K</span></strong> to continuously convert the pressure measurement into a flow (<span class="purple-highlighted-oval-3d">SV</span>) and, subsequently, a <span class="green-highlighted-oval-3d">PCCO</span>.</li>
             </ul>
 
-            <h3>Deriving Dynamic Parameters: SVV and PPV</h3>
-            <p>The true clinical power of the continuous PCA lies in its ability to calculate <strong>dynamic parameters</strong>, which are indices of fluid responsiveness.</p>
+            <h3><br></h3><h3>Deriving Dynamic Parameters: <span class="pink-highlighted-oval-3d">SVV</span> and <span class="pink-highlighted-oval-3d">PPV</span></h3>
+            <p>The true clinical power of the continuous <span class="gold-highlighted-oval-3d">PCA</span> lies in its ability to calculate <strong><span class="marker-pink">dynamic parameters</span></strong>, which are indices of fluid responsiveness.</p>
             <h4>The Mechanism: Cardiopulmonary Interaction</h4>
-            <p>In a patient on controlled <strong>mechanical ventilation</strong> (MV), the positive pressure breath causes cyclic changes in intrathoracic pressure (ITP), which in turn affects SV via two primary mechanisms:</p>
+            <p>In a patient on controlled <strong>mechanical ventilation</strong>, the positive pressure breath causes cyclic changes in intrathoracic pressure (ITP), which in turn affects <span class="purple-highlighted-oval-3d">SV</span> via two primary mechanisms:</p>
             <ol>
-                <li><strong>Right Heart (Preload)</strong>: Increased ITP compresses the vena cava, reducing venous return to the right atrium and, consequently, reducing right ventricular SV and pulmonary blood flow.</li>
-                <li><strong>Left Heart (Afterload)</strong>: Increased ITP reduces the pressure gradient across the left ventricular wall, effectively decreasing Left Ventricular (LV) afterload, which transiently increases LV SV.</li>
+                <li><strong><span class="marker-blue">Right Heart (Preload)</span></strong>: Increased ITP compresses the vena cava, reducing venous return to the right atrium and, consequently, reducing right ventricular <span class="purple-highlighted-oval-3d">SV</span> and pulmonary blood flow.</li>
+                <li><strong><span class="marker-red">Left Heart (Afterload)</span></strong>: Increased ITP reduces the pressure gradient across the left ventricular wall, effectively decreasing Left Ventricular (LV) afterload, which transiently increases LV <span class="purple-highlighted-oval-3d">SV</span>.</li>
             </ol>
-            <p>The overall effect of the respiratory cycle on SV is measured using Stroke Volume Variation (SVV) and Pulse Pressure Variation (PPV).</p>
+            <p>The overall effect of the respiratory cycle on <span class="purple-highlighted-oval-3d">SV</span> is measured using Stroke Volume Variation <span class="pink-highlighted-oval-3d">SVV</span> and Pulse Pressure Variation <span class="pink-highlighted-oval-3d">PPV</span>.</p>
 
             <h4>Key Formulas:</h4>
             <ul>
-                <li>Stroke Volume Variation (SVV):</li>
-                <p>SVV = (SV_max - SV_min) / SV_mean × 100</p>
-                <li>Pulse Pressure Variation (PPV):</li>
-                <p>PPV = (PP_max - PP_min) / PP_mean × 100</p>
-                <p>(PP is Pulse Pressure: Systolic Pressure - Diastolic Pressure)</p>
+                <li>Stroke Volume Variation <span class="pink-highlighted-oval-3d">SVV</span>:</li>
+                <p><span class="pink-highlighted-oval-3d">SVV</span> = (<span class="purple-highlighted-oval-3d">SV</span><span class="color-green">max</span> - <span class="purple-highlighted-oval-3d">SV</span><span class="color-magenta">min</span>) / <span class="purple-highlighted-oval-3d">SV</span><span class="color-orange">mean</span> × 100</p>
+                <li>Pulse Pressure Variation <span class="pink-highlighted-oval-3d">PPV</span>:</li>
+                <p><span class="pink-highlighted-oval-3d">PPV</span> = (<span class="silver-highlighted-oval-3d">PP</span><span class="color-green">max</span> - <span class="silver-highlighted-oval-3d">PP</span><span class="color-magenta">min</span>) / <span class="silver-highlighted-oval-3d">PP</span><span class="color-orange">mean</span> × 100</p>
+                <p>(<span class="silver-highlighted-oval-3d">PP</span> is <span class="silver-highlighted-oval-3d">Pulse Pressure</span> = <span class="marker-purple">Systolic Pressure</span> - <span class="marker-yellow">Diastolic Pressure</span>)</p>
             </ul>
 
             <h4>Clinical Interpretation</h4>
             <ul>
-                <li>A high SVV or PPV (typically &gt;10-13%) indicates that the heart is highly sensitive to the small volume shifts caused by the ventilator. This means the patient is <strong>preload-dependent</strong> and will likely respond to a fluid bolus with a significant increase in CO (i.e., they are a <strong>fluid responder</strong>).</li>
-                <li>A low SVV or PPV suggests the patient is on the flat part of the Frank-Starling curve and will likely <strong>not</strong> benefit from additional fluid.</li>
+                <li>A high<span class="pink-highlighted-oval-3d"> SVV</span> or <span class="pink-highlighted-oval-3d">PPV</span> (typically &gt;10-13%) indicates that the heart is highly sensitive to the small volume shifts caused by the ventilator. This means the patient is <strong>preload-dependent</strong> and will likely respond to a fluid bolus with a significant increase in <span class="red-highlighted-oval-3d">CO</span> (i.e., they are a <strong>fluid responder</strong>).</li>
+                <li>A low <span class="pink-highlighted-oval-3d">SVV</span> or <span class="pink-highlighted-oval-3d">PPV</span> suggests the patient is on the flat part of the <span class="marker-green">Frank-Starling curve</span> and will likely <strong><span class="marker-red">not</span></strong> benefit from additional fluid.</li>
             </ul>
 
-            <h3>The Need for Recalibration</h3>
-            <p>PCA is highly accurate for monitoring trends, but the calibration factor (K) can <strong>drift</strong> over time. This happens because the arterial tree's stiffness (impedance/compliance) changes with the patient's condition, especially with:</p>
+            <h3><br></h3><h3>The Need for <span class="marker-cyan">Recalibration</span></h3>
+            <p><span class="gold-highlighted-oval-3d">PCA</span> is highly accurate for monitoring trends, but the calibration factor <span class="red-highlighted-oval-3d">K</span> can <strong>drift</strong> over time. This happens because the arterial tree's stiffness (impedance/compliance) changes with the patient's condition, especially with:</p>
             <ul>
-                <li>Significant changes in <strong>vasopressor/inotropic therapy</strong> (changing vascular tone)</li>
-                <li>Major shifts in <strong>body temperature</strong></li>
-                <li>Substantial changes in <strong>Mean Arterial Pressure (MAP)</strong></li>
+                <li>Significant changes in <strong><span class="marker-red">vasopressor/inotropic therapy</span></strong> (changing vascular tone)</li>
+                <li>Major shifts in <strong><span class="marker-blue">body temperatur</span>e</strong></li>
+                <li>Substantial changes in <strong><span class="marker-cyan">Mean Arterial Pressure (<span class="red-highlighted-oval-3d">MAP</span>)</span></strong></li>
             </ul>
-            <p>PiCCO requires <strong>recalibration</strong> via a new TPTD measurement (typically every 8 hours or whenever a major therapeutic intervention is initiated) to ensure the K factor remains accurate.</p>
+            <p><span class="green-highlighted-oval-3d">PiCCO</span> requires <strong>recalibration</strong> via a new <span class="blue-highlighted-oval-3d">TPTD</span> measurement (<span class="marker-purple"><span class="cyber-glitch" data-text="typically every 8 hours">typically every 8 hours</span></span> or whenever a major therapeutic intervention is initiated) to ensure the <span class="red-highlighted-oval-3d">K</span> factor remains accurate.</p>
         </main>
     </div>
 
     <footer class="main-footer">
         <div class="container">
-            <p>© 2025 PiCCO Online Manual</p>
+            <p>© 2025 <span class="green-highlighted-oval-3d">PiCCO</span> Online Manual</p>
         </div>
     </footer>
     <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">

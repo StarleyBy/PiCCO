@@ -1,0 +1,179 @@
+/* PiCCO Arcade Game Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    touch-action: none; /* Disable default touch behaviors */
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    max-width: 375px;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#score-display {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#player-info {
+    color: #0f0;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#game-canvas {
+    background-color: #000;
+    border: 2px solid #fff;
+    display: block;
+    margin: 0 auto;
+    touch-action: none;
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.weapon-controls {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.weapon-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, opacity 0.3s;
+    touch-action: manipulation;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.weapon-btn:hover {
+    background-color: #45a049;
+}
+
+.weapon-btn:active {
+    background-color: #3d8b40;
+}
+
+.action-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.action-controls button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    touch-action: manipulation;
+}
+
+.action-controls button:hover {
+    background-color: #45a049;
+}
+
+.action-controls button:active {
+    background-color: #3d8b40;
+}
+
+#instructions {
+    color: #aaa;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+/* Game elements styling */
+.player {
+    fill: #0ff;
+}
+
+.enemy {
+    fill: #f00;
+}
+
+.bullet {
+    fill: #ff0;
+}
+
+.radar {
+    stroke: #0f0;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* Specific enemy styles */
+.shock {
+    fill: #ff5722;
+}
+
+.hypovolemia {
+    fill: #9c27b0;
+}
+
+.vasoconstriction {
+    fill: #607d8b;
+}
+
+.sepsis {
+    fill: #795548;
+}
+
+.cardiogenic-shock {
+    fill: #e91e63;
+}
+
+/* Power-ups and upgrades */
+.thermodilution {
+    fill: #00bcd4;
+}
+
+.pulse-contour {
+    fill: #ffeb3b;
+}
+
+.picco-upgrade {
+    fill: #4caf50;
+}
