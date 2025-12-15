@@ -614,7 +614,6 @@ class PiCCOGame {
                         initialX: this.player.x + offset, // Store initial position for drawing
                         initialY: this.player.y // Store initial position for drawing
                     });
-                    this.bullets.push(baseBullet);
                     break;
                     
                 case 'fluid':
@@ -719,10 +718,7 @@ class PiCCOGame {
                     break;
             }
             
-            // Only add the bullet to the array if it's not vasodilator (which was handled separately)
-            if (bulletType.name !== 'vasodilator') {
-                this.bullets.push(baseBullet);
-            }
+            this.bullets.push(baseBullet);
         }
         }
     }
