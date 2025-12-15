@@ -719,7 +719,11 @@ class PiCCOGame {
                     break;
             }
             
-            this.bullets.push(baseBullet);
+            // Only add the bullet to the array if it's not vasodilator (which was handled separately)
+            if (bulletType.name !== 'vasodilator') {
+                this.bullets.push(baseBullet);
+            }
+        }
         }
     }
     
