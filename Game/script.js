@@ -547,17 +547,179 @@ class PiCCOGame {
             // Offset bullets slightly for PiCCO dual shooting
             const offset = bulletCount > 1 ? (i === 0 ? -5 : 5) : 0;
             
-            this.bullets.push({
+            // Create bullet with specific properties based on weapon type
+            const baseBullet = {
                 x: this.player.x + offset,
                 y: this.player.y,
-                width: 5,
-                height: 10,
                 speed: bulletSpeed,
                 damage: bulletDamage,
                 color: bulletType.color,
                 name: bulletType.name,
                 typeData: bulletType // Store the full bullet type data for effectiveness calculations
-            });
+            };
+            
+            // Set properties based on weapon type
+            switch(bulletType.name) {
+                case 'vasopressor':
+                    // Long continuous laser beam
+                    Object.assign(baseBullet, {
+                        type: 'laser',
+                        width: 3,
+                        height: this.canvas.height, // Initially set to full height, will be calculated during drawing
+                        laserStartX: this.player.x + offset,
+                        laserStartY: this.player.y,
+                        laserEndX: this.player.x + offset,
+                        laserEndY: this.player.y - this.canvas.height,
+                        alpha: 0.8,
+                        length: this.canvas.height
+                    });
+                    break;
+                    
+                case 'inotrope':
+                    // 3 homing rockets
+                    for (let j = 0; j < 3; j++) {
+                        const homingBullet = {
+                            ...baseBullet,
+                            type: 'homing',
+                            x: this.player.x + offset + (j - 1) * 8, // Spread the rockets slightly
+                            y: this.player.y,
+                            width: 4,
+                            height: 6,
+                            speed: 3, // Medium speed
+                            damage: bulletDamage / 3, // Divide damage among rockets
+                            color: bulletType.color,
+                            name: bulletType.name,
+                            typeData: bulletType,
+                            targetX: 0, // Will be set to target enemy position
+                            targetY: 0, // Will be set to target enemy position
+                            hasTarget: false, // Initially no target
+                            trail: [] // For visual trail effect
+                        };
+                        this.bullets.push(homingBullet);
+                    }
+                    continue; // Skip adding the base bullet since we added 3 homing bullets
+                    
+                case 'vasodilator':
+                    // Medium-sized round clouds
+                    Object.assign(baseBullet, {
+                        type: 'cloud',
+                        width: 20,
+                        height: 20,
+                        speed: 1, // Slow speed
+                        damage: bulletDamage * 0.8, // Slightly less damage due to area effect
+                        color: bulletType.color,
+                        alpha: 0.6,
+                        x: this.player.x + offset, // Ensure x is set
+                        y: this.player.y, // Ensure y is set
+                        initialX: this.player.x + offset, // Store initial position for drawing
+                        initialY: this.player.y // Store initial position for drawing
+                    });
+                    this.bullets.push(baseBullet);
+                    break;
+                    
+                case 'fluid':
+                    // Water jet with expanding width
+                    Object.assign(baseBullet, {
+                        type: 'water',
+                        width: 5, // Start narrow
+                        height: 15,
+                        speed: 0.8, // Slow speed
+                        damage: bulletDamage * 0.5, // Lower damage but wider effect
+                        color: bulletType.color,
+                        alpha: 0.7,
+                        initialWidth: 5,
+                        maxWidth: 30 // Expands to this width
+                    });
+                    break;
+                    
+                case 'blood':
+                    // Like fluid but narrower and slower
+                    Object.assign(baseBullet, {
+                        type: 'blood',
+                        width: 3, // Very narrow
+                        height: 12,
+                        speed: 0.5, // Very slow
+                        damage: bulletDamage * 0.7, // Higher damage due to concentration
+                        color: bulletType.color,
+                        alpha: 0.9,
+                        initialWidth: 3,
+                        maxWidth: 15 // Expands less than fluid
+                    });
+                    break;
+                    
+                case 'fusid':
+                    // Very fast multiple bullets with glowing effect
+                    // Create multiple bullets in a spread pattern
+                    for (let j = 0; j < 5; j++) {
+                        const fusidBullet = {
+                            ...baseBullet,
+                            type: 'fusid',
+                            x: this.player.x + offset + (j - 2) * 3, // Small horizontal spread
+                            y: this.player.y,
+                            width: 2,
+                            height: 4,
+                            speed: 12, // Very fast
+                            damage: bulletDamage / 5, // Divide damage among bullets
+                            color: bulletType.color,
+                            alpha: 0.9,
+                            glow: true,
+                            hasHit: false // For explosion effect
+                        };
+                        this.bullets.push(fusidBullet);
+                    }
+                    continue; // Skip adding the base bullet since we added multiple fusid bullets
+                    
+                case 'nitro':
+                    // Slow, dense, wide gas cloud
+                    Object.assign(baseBullet, {
+                        type: 'gas',
+                        width: 40, // Wide cloud
+                        height: 25,
+                        speed: 0.5, // Very slow
+                        damage: bulletDamage * 0.6, // Moderate damage but area effect
+                        color: bulletType.color,
+                        alpha: 0.5,
+                        areaEffect: true // Can affect multiple enemies
+                    });
+                    break;
+                    
+                case 'O2':
+                    // Powerful, narrow gas jet with glowing effect
+                    Object.assign(baseBullet, {
+                        type: 'oxygen',
+                        width: 8, // Narrow but powerful
+                        height: this.canvas.height * 0.7, // Long range
+                        speed: 2, // Moderate speed
+                        damage: bulletDamage * 1.5, // High damage
+                        color: bulletType.color,
+                        alpha: 0.8,
+                        glow: true,
+                        laserStartX: this.player.x + offset,
+                        laserStartY: this.player.y,
+                        laserEndX: this.player.x + offset,
+                        laserEndY: this.player.y - this.canvas.height * 0.7,
+                        x: this.player.x + offset, // Ensure x is set
+                        y: this.player.y, // Ensure y is set
+                        length: this.canvas.height * 0.7 // Ensure length is set
+                    });
+                    this.bullets.push(baseBullet);
+                    break;
+                    
+                default:
+                    // Default bullet properties
+                    Object.assign(baseBullet, {
+                        type: 'normal',
+                        width: 5,
+                        height: 10,
+                        speed: bulletSpeed,
+                        damage: bulletDamage,
+                        color: bulletType.color,
+                        alpha: 1.0
+                    });
+                    break;
+            }
+            
+            this.bullets.push(baseBullet);
         }
     }
     
@@ -710,13 +872,124 @@ class PiCCOGame {
         // Keep player within canvas bounds
         this.player.x = Math.max(this.player.width/2, Math.min(this.canvas.width - this.player.width/2, this.player.x));
         
-        // Update bullets
+        // Update bullets with special behavior based on type
         for (let i = this.bullets.length - 1; i >= 0; i--) {
-            this.bullets[i].y -= this.bullets[i].speed;
+            const bullet = this.bullets[i];
             
-            // Remove bullets that go off screen
-            if (this.bullets[i].y < 0) {
-                this.bullets.splice(i, 1);
+            // Update position based on bullet type
+            switch(bullet.type) {
+                case 'laser':
+                    // Laser doesn't move, it's a continuous beam
+                    // Update the end point of the laser to show it reaching forward
+                    bullet.laserEndY = bullet.laserStartY - bullet.length;
+                    break;
+                    
+                case 'homing':
+                    // Find target if not already targeted
+                    if (!bullet.hasTarget) {
+                        // Find the closest enemy
+                        let closestEnemy = null;
+                        let minDistance = Infinity;
+                        
+                        for (const enemy of this.enemies) {
+                            const distance = Math.sqrt(
+                                Math.pow(enemy.x - bullet.x, 2) +
+                                Math.pow(enemy.y - bullet.y, 2)
+                            );
+                            
+                            if (distance < minDistance) {
+                                minDistance = distance;
+                                closestEnemy = enemy;
+                            }
+                        }
+                        
+                        if (closestEnemy) {
+                            bullet.targetX = closestEnemy.x + closestEnemy.width/2;
+                            bullet.targetY = closestEnemy.y + closestEnemy.height/2;
+                            bullet.hasTarget = true;
+                        }
+                    }
+                    
+                    // Move toward target with homing behavior
+                    if (bullet.hasTarget) {
+                        const dx = bullet.targetX - bullet.x;
+                        const dy = bullet.targetY - bullet.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance > 0) {
+                            bullet.x += (dx / distance) * bullet.speed;
+                            bullet.y += (dy / distance) * bullet.speed;
+                            
+                            // Add to trail for visual effect
+                            bullet.trail.push({x: bullet.x, y: bullet.y});
+                            if (bullet.trail.length > 5) {
+                                bullet.trail.shift();
+                            }
+                        }
+                    } else {
+                        // If no target, just move straight up
+                        bullet.y -= bullet.speed;
+                    }
+                    break;
+                    
+                case 'water':
+                case 'blood':
+                    // Move upward and gradually increase width
+                    bullet.y -= bullet.speed;
+                    // Increase width gradually up to max width
+                    if (bullet.width < bullet.maxWidth) {
+                        bullet.width += 0.1;
+                    }
+                    break;
+                    
+                case 'gas':
+                    // Move upward but spread horizontally
+                    bullet.y -= bullet.speed;
+                    // Slight horizontal movement to simulate gas behavior
+                    bullet.x += (Math.random() - 0.5) * 0.5;
+                    break;
+                    
+                case 'fusid':
+                    // Move very fast in straight line
+                    bullet.y -= bullet.speed;
+                    
+                    // Check if hit an enemy for explosion effect
+                    for (let j = this.enemies.length - 1; j >= 0; j--) {
+                        if (this.checkCollision(bullet, this.enemies[j]) && !bullet.hasHit) {
+                            bullet.hasHit = true;
+                            // Don't remove bullet immediately, let explosion effect show
+                        }
+                    }
+                    break;
+                    
+                case 'oxygen':
+                    // Move upward and update laser end point
+                    bullet.y -= bullet.speed;
+                    bullet.laserEndY = bullet.laserStartY - bullet.length;
+                    break;
+                    
+                default:
+                    // Regular bullet movement
+                    bullet.y -= bullet.speed;
+                    break;
+            }
+            
+            // Remove bullets that go off screen or have hit
+            if (bullet.y < 0 || (bullet.type === 'fusid' && bullet.hasHit && !bullet.explosionPhase)) {
+                // For fusid bullets, create explosion effect before removing
+                if (bullet.type === 'fusid' && bullet.hasHit && !bullet.explosionPhase) {
+                    bullet.explosionPhase = true;
+                    bullet.explosionRadius = 0;
+                    bullet.explosionMaxRadius = 15;
+                } else if (bullet.type === 'fusid' && bullet.explosionPhase) {
+                    // Expand explosion
+                    bullet.explosionRadius += 1;
+                    if (bullet.explosionRadius > bullet.explosionMaxRadius) {
+                        this.bullets.splice(i, 1);
+                    }
+                } else {
+                    this.bullets.splice(i, 1);
+                }
             }
         }
         
@@ -1217,13 +1490,228 @@ class PiCCOGame {
     }
     
     drawBullet(bullet) {
-        this.ctx.fillStyle = bullet.color;
-        this.ctx.fillRect(
-            bullet.x - bullet.width/2, 
-            bullet.y - bullet.height/2, 
-            bullet.width, 
-            bullet.height
-        );
+        // Draw different bullet types with specific visual effects
+        switch(bullet.type) {
+            case 'laser':
+                // Draw a laser beam as a line with glow effect
+                this.ctx.beginPath();
+                this.ctx.moveTo(bullet.laserStartX, bullet.laserStartY);
+                this.ctx.lineTo(bullet.laserEndX, bullet.laserEndY);
+                
+                // Create gradient for laser effect
+                const gradient = this.ctx.createLinearGradient(
+                    bullet.laserStartX, bullet.laserStartY,
+                    bullet.laserEndX, bullet.laserEndY
+                );
+                gradient.addColorStop(0, `${bullet.color}FF`);
+                gradient.addColorStop(0.5, `${bullet.color}AA`);
+                gradient.addColorStop(1, `${bullet.color}22`);
+                
+                this.ctx.strokeStyle = gradient;
+                this.ctx.lineWidth = bullet.width;
+                this.ctx.stroke();
+                
+                // Add glow effect
+                this.ctx.shadowColor = bullet.color;
+                this.ctx.shadowBlur = 10;
+                this.ctx.stroke();
+                this.ctx.shadowBlur = 0;
+                break;
+                
+            case 'homing':
+                // Draw homing rocket with trail
+                this.ctx.fillStyle = bullet.color;
+                this.ctx.beginPath();
+                this.ctx.arc(bullet.x, bullet.y, bullet.width, 0, 2 * Math.PI);
+                this.ctx.fill();
+                
+                // Draw trail
+                if (bullet.trail.length > 1) {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(bullet.trail[0].x, bullet.trail[0].y);
+                    for (let i = 1; i < bullet.trail.length; i++) {
+                        this.ctx.lineTo(bullet.trail[i].x, bullet.trail[i].y);
+                    }
+                    this.ctx.strokeStyle = `${bullet.color}88`;
+                    this.ctx.lineWidth = 2;
+                    this.ctx.stroke();
+                }
+                
+                // Draw flame effect for rocket
+                this.ctx.fillStyle = '#ff9800';
+                this.ctx.beginPath();
+                this.ctx.moveTo(bullet.x, bullet.y + bullet.height/2);
+                this.ctx.lineTo(bullet.x - bullet.width/2, bullet.y + bullet.height);
+                this.ctx.lineTo(bullet.x + bullet.width/2, bullet.y + bullet.height);
+                this.ctx.closePath();
+                this.ctx.fill();
+                break;
+                
+            case 'cloud':
+                // Draw round cloud with transparency
+                this.ctx.beginPath();
+                this.ctx.arc(bullet.x, bullet.y, bullet.width/2, 0, 2 * Math.PI);
+                
+                // Create radial gradient for cloud effect
+                const cloudGradient = this.ctx.createRadialGradient(
+                    bullet.x, bullet.y, 1,
+                    bullet.x, bullet.y, bullet.width/2
+                );
+                cloudGradient.addColorStop(0, `${bullet.color}FF`);
+                cloudGradient.addColorStop(1, `${bullet.color}4`);
+                
+                this.ctx.fillStyle = cloudGradient;
+                this.ctx.fill();
+                break;
+                
+            case 'water':
+                // Draw water jet with expanding width
+                this.ctx.fillStyle = `rgba(${this.hexToRgb(bullet.color)}, ${bullet.alpha})`;
+                
+                // Draw as a trapezoid to show expanding effect
+                this.ctx.beginPath();
+                this.ctx.moveTo(bullet.x, bullet.y);
+                this.ctx.lineTo(bullet.x - bullet.width/2, bullet.y - bullet.height);
+                this.ctx.lineTo(bullet.x + bullet.width/2, bullet.y - bullet.height);
+                this.ctx.closePath();
+                this.ctx.fill();
+                break;
+                
+            case 'blood':
+                // Similar to water but narrower and more concentrated
+                this.ctx.fillStyle = `rgba(${this.hexToRgb(bullet.color)}, ${bullet.alpha})`;
+                
+                // Draw as a narrower trapezoid
+                this.ctx.beginPath();
+                this.ctx.moveTo(bullet.x, bullet.y);
+                this.ctx.lineTo(bullet.x - bullet.width/2, bullet.y - bullet.height);
+                this.ctx.lineTo(bullet.x + bullet.width/2, bullet.y - bullet.height);
+                this.ctx.closePath();
+                this.ctx.fill();
+                break;
+                
+            case 'fusid':
+                // Draw fast glowing bullet
+                this.ctx.fillStyle = bullet.color;
+                
+                // Add glow effect
+                this.ctx.shadowColor = bullet.color;
+                this.ctx.shadowBlur = 5;
+                
+                this.ctx.beginPath();
+                this.ctx.arc(bullet.x, bullet.y, bullet.width, 0, 2 * Math.PI);
+                this.ctx.fill();
+                
+                // Draw glow without blur for main shape
+                this.ctx.shadowBlur = 0;
+                
+                // If in explosion phase, draw explosion
+                if (bullet.explosionPhase) {
+                    this.ctx.beginPath();
+                    this.ctx.arc(bullet.x, bullet.y, bullet.explosionRadius, 0, 2 * Math.PI);
+                    this.ctx.fillStyle = `rgba(255, 255, 0, 0.5)`;
+                    this.ctx.fill();
+                    
+                    this.ctx.beginPath();
+                    this.ctx.arc(bullet.x, bullet.y, bullet.explosionRadius * 0.7, 0, 2 * Math.PI);
+                    this.ctx.fillStyle = `rgba(255, 165, 0, 0.7)`;
+                    this.ctx.fill();
+                    
+                    this.ctx.beginPath();
+                    this.ctx.arc(bullet.x, bullet.y, bullet.explosionRadius * 0.4, 0, 2 * Math.PI);
+                    this.ctx.fillStyle = `rgba(255, 0, 0, 0.9)`;
+                    this.ctx.fill();
+                }
+                break;
+                
+            case 'gas':
+                // Draw wide gas cloud
+                this.ctx.beginPath();
+                
+                // Create a more organic cloud shape using bezier curves
+                this.ctx.moveTo(bullet.x, bullet.y);
+                this.ctx.bezierCurveTo(
+                    bullet.x - bullet.width/2, bullet.y - bullet.height/3,
+                    bullet.x - bullet.width/3, bullet.y - bullet.height,
+                    bullet.x, bullet.y - bullet.height
+                );
+                this.ctx.bezierCurveTo(
+                    bullet.x + bullet.width/3, bullet.y - bullet.height,
+                    bullet.x + bullet.width/2, bullet.y - bullet.height/3,
+                    bullet.x, bullet.y
+                );
+                
+                // Create gradient for gas effect
+                const gasGradient = this.ctx.createRadialGradient(
+                    bullet.x, bullet.y - bullet.height/2, 1,
+                    bullet.x, bullet.y - bullet.height/2, bullet.width/2
+                );
+                gasGradient.addColorStop(0, `${bullet.color}FF`);
+                gasGradient.addColorStop(1, `${bullet.color}22`);
+                
+                this.ctx.fillStyle = gasGradient;
+                this.ctx.fill();
+                
+                // Add some internal cloud details
+                this.ctx.beginPath();
+                this.ctx.arc(bullet.x - bullet.width/4, bullet.y - bullet.height/3, bullet.width/6, 0, 2 * Math.PI);
+                this.ctx.fillStyle = `${bullet.color}44`;
+                this.ctx.fill();
+                
+                this.ctx.beginPath();
+                this.ctx.arc(bullet.x + bullet.width/4, bullet.y - bullet.height/2, bullet.width/5, 0, 2 * Math.PI);
+                this.ctx.fillStyle = `${bullet.color}33`;
+                this.ctx.fill();
+                break;
+                
+            case 'oxygen':
+                // Draw powerful gas jet with glow effect
+                this.ctx.beginPath();
+                this.ctx.moveTo(bullet.laserStartX, bullet.laserStartY);
+                this.ctx.lineTo(bullet.laserEndX, bullet.laserEndY);
+                
+                // Create gradient for oxygen jet
+                const oxygenGradient = this.ctx.createLinearGradient(
+                    bullet.laserStartX, bullet.laserStartY,
+                    bullet.laserEndX, bullet.laserEndY
+                );
+                oxygenGradient.addColorStop(0, `${bullet.color}FF`);
+                oxygenGradient.addColorStop(0.3, `${bullet.color}CC`);
+                oxygenGradient.addColorStop(0.7, `${bullet.color}88`);
+                oxygenGradient.addColorStop(1, `${bullet.color}22`);
+                
+                this.ctx.strokeStyle = oxygenGradient;
+                this.ctx.lineWidth = bullet.width;
+                this.ctx.stroke();
+                
+                // Add glow effect
+                this.ctx.shadowColor = bullet.color;
+                this.ctx.shadowBlur = 15;
+                this.ctx.stroke();
+                this.ctx.shadowBlur = 0;
+                
+                // Add particle effects
+                for (let i = 0; i < 5; i++) {
+                    const particleX = bullet.laserStartX + (Math.random() - 0.5) * bullet.width;
+                    const particleY = bullet.laserStartY - Math.random() * bullet.height * 0.3;
+                    this.ctx.beginPath();
+                    this.ctx.arc(particleX, particleY, 1, 0, 2 * Math.PI);
+                    this.ctx.fillStyle = `${bullet.color}88`;
+                    this.ctx.fill();
+                }
+                break;
+                
+            default:
+                // Regular bullet drawing
+                this.ctx.fillStyle = bullet.color;
+                this.ctx.fillRect(
+                    bullet.x - bullet.width/2,
+                    bullet.y - bullet.height/2,
+                    bullet.width,
+                    bullet.height
+                );
+                break;
+        }
     }
     
     drawPowerUp(powerUp) {
@@ -1250,13 +1738,7 @@ class PiCCOGame {
     }
     
     drawBulletLabel(bullet) {
-        this.ctx.fillStyle = '#fff';
-        this.ctx.font = '8px Arial';
-        this.ctx.fillText(
-            bullet.name, 
-            bullet.x - 10, 
-            bullet.y - 5
-        );
+        // Remove bullet labels as requested
     }
     
     updateScore() {
