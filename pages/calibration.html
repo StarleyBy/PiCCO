@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calibration - PiCCO Online Manual</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;family=Montserrat:wght@40;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/main.css">
     <link rel="stylesheet" href="../CSS/print.css" media="print">
 </head>
 <body>
     <div class="nav-overlay" id="nav-overlay"></div>
     <header class="main-header">
-        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
-        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+        <h1 class="site-title"><a href="../index.html" class="site-title"><span class="green-highlighted-oval-3d">PiCCO</span> - <span class="color-red">O</span>nline Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
     </header>
 
     <div class="wrapper container">
@@ -50,92 +49,90 @@
         </nav>
 
         <main class="main-content">
-            <h2>PiCCO Calibration</h2>
-            <p>Calibration is an important intermittent process that links continuous hemodynamic monitoring data (pulse contour analysis, PCA) with precise, absolute volumetric and flow values obtained from <strong>transpulmonary thermodilution (TPTD)</strong>.</p>
+            <h2><span class="green-highlighted-oval-3d">PiCCO</span> <span class="color-olive">C</span>alibration</h2>
+            <p>Calibration is an important intermittent process that links continuous hemodynamic monitoring data (pulse contour analysis, <span class="gold-highlighted-oval-3d">PCA</span>) with precise, absolute volumetric and flow values obtained from <strong>transpulmonary thermodilution <span class="blue-highlighted-oval-3d">TPTD</span></strong>.</p><p><br></p><h3><span class="marker-yellow">Calibration Purpose</span></h3>
+            <p>The <span class="blue-highlighted-oval-3d">TPTD</span> measurement determines the precise <strong>cardiac output <span class="red-highlighted-oval-3d">CO</span></strong>, <strong>global end-diastolic volume <span class="yellow-highlighted-oval-3d">GEDV</span></strong>, and <strong>extravascular lung water <span class="green-highlighted-oval-3d">EVLW</span></strong>, which are then used to update and recalibrate the continuous pulse contour analysis <span class="gold-highlighted-oval-3d">PCA</span> algorithm.</p>
 
-            <h3>Calibration Purpose</h3>
-            <p>The TPTD measurement determines the precise <strong>cardiac output (CO)</strong>, <strong>global end-diastolic volume (GEDV)</strong>, and <strong>extravascular lung water (EVLW)</strong>, which are then used to update and recalibrate the continuous pulse contour analysis (PCA) algorithm.</p>
-
-            <h3>Step-by-Step TPTD Calibration Guide</h3>
+            <h3><span class="cyber-neon cyber-neon-blue">Step-by-Step</span> <span class="blue-highlighted-oval-3d">TPTD</span> Calibration Guide</h3>
             <ol>
-                <li><strong>System Readiness Check (Before Injection)</strong>
+                <li><strong><span class="color-maroon">System Readiness Check</span> (Before Injection)</strong>
                     <ul>
-                        <li>Ensure the patient is in a stable clinical state (or at least stable for the 60-second measurement window)</li>
-                        <li>Check that the syringe contains the correct volume of cold NaCl (10-20 mL). Critically important that <strong>all air bubbles are carefully removed</strong>, as air seriously compromises the accuracy of the thermal signal</li>
-                        <li>On the monitor, ensure the displayed <strong>injectate temperature (T_inj)</strong> is stable and low (ideally ≤ 8°C). The system often uses this measurement in its quality checks</li>
-                        <li>Check the arterial line: ensure the arterial pressure waveform is stable, properly damped, and free from artifacts</li>
+                        <li>Ensure the patient is in a stable clinical state (or at least <span class="marker-green">stable for the 60-second</span> measurement window)</li>
+                        <li>Check that the syringe contains the correct volume of cold NaCl (10-20 mL). Critically important that <strong><span class="color-red">all <span class="color-blue">air bubbles</span> are carefully removed</span></strong>, as air seriously compromises the accuracy of the thermal signal</li>
+                        <li>On the monitor, ensure the displayed <strong>injectate temperature (T_inj)</strong> is stable and low (<span class="color-magenta">ideally ≤ 8°C</span>). The system often uses this measurement in its quality checks</li>
+                        <li>Check the <span class="color-red">arterial line</span>: ensure the arterial pressure waveform is stable, properly damped, and free from artifacts</li>
                     </ul>
                 </li>
                 
-                <li><strong>Measurement Activation</strong>
+                <li><strong><span class="color-purple">Measurement Activation</span></strong>
                     <ul>
-                        <li>Select the appropriate function on the monitor (e.g., "Start TPTD", "Calibrate", or "CO")</li>
+                        <li>Select the appropriate function on the monitor (e.g., "<span class="silver-highlighted-oval-3d">Start TPTD</span>", "<span class="silver-highlighted-oval-3d">Calibrate</span>", or "<span class="silver-highlighted-oval-3d">CO</span>")</li>
                         <li>The monitor typically displays a prompt confirming readiness. Prepare for rapid injection based on the system's audio cue or countdown</li>
                     </ul>
                 </li>
                 
-                <li><strong>Indicator Injection (Key Action)</strong>
+                <li><strong><span class="color-teal">Indicator Injection</span> (<span class="cyber-neon cyber-neon-green">Key Action</span>)</strong>
                     <ul>
-                        <li>Inject the entire volume of cold indicator (10-20 mL) <strong>as rapidly and smoothly as possible</strong> (ideally within 5-10 seconds)</li>
-                        <li><strong>Rationale:</strong> Rapid injection ensures the thermal signal is introduced into the central circulation as a compact bolus, maximizing signal-to-noise ratio and ensuring a reproducible thermal curve. A slow injection will smear the curve, leading to underestimation of CO</li>
+                        <li>Inject the entire volume of cold indicator (10-20 mL) <strong>as <span class="marker-green">rapidly</span> and <span class="marker-green">smoothly</span> as possible</strong> (ideally within <span class="gold-highlighted-oval-3d">5-10 seconds</span>)</li>
+                        <li><strong>Rationale:</strong> Rapid injection ensures the thermal signal is introduced into the central circulation as a compact bolus, maximizing signal-to-noise ratio and ensuring a reproducible thermal curve. A slow injection will smear the curve, leading to underestimation of <span class="red-highlighted-oval-3d">CO</span></li>
                     </ul>
                 </li>
                 
-                <li><strong>Thermodilution Curve Analysis</strong>
+                <li><strong><span class="color-blue">Thermodilution Curve Analysis</span></strong>
                     <ul>
-                        <li>The monitor automatically displays the TPTD curve - a plot of temperature versus time recorded by the arterial thermistor</li>
+                        <li>The monitor automatically displays the <span class="blue-highlighted-oval-3d">TPTD</span> curve - a plot of temperature versus time recorded by the arterial thermistor</li>
                         <li>The system software instantly analyzes the curve:
                             <ul>
-                                <li><strong>Area under the curve:</strong> used to calculate CO_TPTD</li>
-                                <li><strong>Mean transit time (MTT):</strong> used to calculate GEDV and ITBV</li>
-                                <li><strong>Exponential downslope time (DST):</strong> used to calculate EVLW</li>
+                                <li><strong>Area under the curve:</strong> used to calculate measured <span class="red-highlighted-oval-3d">CO</span>_<span class="blue-highlighted-oval-3d">TPTD</span></li>
+                                <li><strong>Mean transit time <span class="purple-highlighted-oval-3d">MTt</span>:</strong> used to calculate <span class="yellow-highlighted-oval-3d">GEDV</span> and <span class="orange-highlighted-oval-3d">ITBV</span></li>
+                                <li><strong>Exponential downslope time <span class="yellow-highlighted-oval-3d">DSt</span>:</strong> used to calculate <span class="green-highlighted-oval-3d">EVLW</span></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 
-                <li><strong>Quality Control and Averaging</strong>
+                <li><strong><span class="color-green">Quality Control and Averaging</span></strong>
                     <ul>
                         <li><strong>Curve Assessment:</strong> The monitor has internal quality checks and may <strong>reject</strong> a curve if the injection was too slow, if there were pressure artifacts (e.g., patient movement) or if T_inj was unstable</li>
-                        <li><strong>Repeat Measurements:</strong> To ensure statistical reliability and clinical accuracy, <strong>at least 3 consecutive, accepted TPTD measurements</strong> must be performed</li>
-                        <li><strong>Averaging:</strong> The system automatically averages the accepted CO values (and correspondingly GEDV and EVLW values). The difference between the accepted CO values should typically be within 10% for the measurement set to be considered valid</li>
+                        <li><strong>Repeat Measurements:</strong> To ensure statistical reliability and clinical accuracy, <strong>at least <span class="marker-yellow">3</span> consecutive, accepted <span class="blue-highlighted-oval-3d">TPTD</span> measurements</strong> must be performed</li>
+                        <li><strong>Averaging:</strong> The system automatically averages the accepted <span class="red-highlighted-oval-3d">CO</span> values (and correspondingly <span class="yellow-highlighted-oval-3d">GEDV</span> and <span class="green-highlighted-oval-3d">EVLW</span> values). The difference between the accepted <span class="red-highlighted-oval-3d">CO</span> values should typically be within <span class="marker-yellow">10%</span> for the measurement set to be considered valid</li>
                     </ul>
                 </li>
                 
-                <li><strong>Completion and Continuous Monitoring</strong>
+                <li><strong><span class="color-orange">Completion and Continuous Monitoring</span></strong>
                     <ul>
                         <li><strong>Acceptance:</strong> Confirm the averaged, validated values on the monitor (e.g., "Accept Values")</li>
-                        <li><strong>PCA Recalibration:</strong> The system uses the newly confirmed, accurate CO_TPTD values to <strong>recalculate and update the calibration factor (K)</strong> for the pulse contour analysis (PCA) algorithm</li>
-                        <li><strong>Return to Continuous Mode:</strong> The system automatically returns to displaying continuous, calibrated parameters (PCCO, SVV, PPV) that are now synchronized with the patient's current hemodynamic status</li>
+                        <li><strong><span class="gold-highlighted-oval-3d">PCA</span> Recalibration:</strong> The system uses the newly confirmed, accurate measured <span class="red-highlighted-oval-3d">CO</span>_<span class="blue-highlighted-oval-3d">TPTD</span> values to <strong>recalculate and update the calibration factor <span class="red-highlighted-oval-3d">K</span></strong>&nbsp;for the pulse contour analysis <span class="gold-highlighted-oval-3d">PCA</span> algorithm</li>
+                        <li><strong>Return to Continuous Mode:</strong> The system automatically returns to displaying continuous, calibrated parameters (<span class="green-highlighted-oval-3d">PCCO</span>, <span class="pink-highlighted-oval-3d">SVV</span>, <span class="pink-highlighted-oval-3d">PPV</span>) that are now synchronized with the patient's current hemodynamic status</li>
                     </ul>
                 </li>
             </ol>
 
-            <h3>Rules for Recalibration (When to Repeat TPTD)</h3>
-            <p>To prevent "drift" of the PCA coefficient, recalibration is mandatory under the following clinical conditions:</p>
+            <h3><br></h3><h3><span class="marker-cyan">Rules for Recalibration (When to Repeat <span class="blue-highlighted-oval-3d">TPTD</span>)</span></h3>
+            <p>To prevent "drift" of the <span class="gold-highlighted-oval-3d">PCA</span> coefficient, recalibration is mandatory under the following clinical conditions:</p>
             <ol>
-                <li><strong>Scheduled intervals:</strong> Regularly every <strong>6-8 hours</strong>, or according to institutional protocol</li>
-                <li><strong>Vasopressor/inotrope changes:</strong> After any significant initiation, cessation, or major titration (e.g., dose change >20%) of <strong>vasoactive drugs</strong> (e.g., norepinephrine, vasopressin) or <strong>inotropes</strong> (e.g., dobutamine). These drugs fundamentally change arterial compliance and vascular tone, making the old calibration factor K invalid</li>
-                <li><strong>Significant volume shifts:</strong> After rapid infusion of large volume fluid (e.g., ≥500 mL crystalloid), significant blood loss, or initiation of renal replacement therapy (RRT) involving major volume removal</li>
-                <li><strong>Clinical data mismatch:</strong> If the continuous PCCO or CI displayed on the monitor does not match the patient's clinical state (e.g., patient appears deeply shocked but CI shows normal)</li>
+                <li><strong>Scheduled intervals:</strong> Regularly every <strong><span class="luminous-block luminous-green">6-8 hours</span></strong>, or according to institutional protocol</li>
+                <li><strong>Vasopressor/inotrope changes:</strong> After any significant initiation, cessation, or major titration (e.g., <span class="luminous-block luminous-green">dose change &gt;20%</span>) of <strong>vasoactive drugs</strong> (e.g., norepinephrine, vasopressin) or <strong>inotropes</strong> (e.g., dobutamine). These drugs fundamentally change arterial compliance and vascular tone, making the old calibration factor <span class="red-highlighted-oval-3d">K</span> invalid</li>
+                <li><strong>Significant volume shifts:</strong> After rapid infusion of <span class="luminous-block luminous-red">large volume fluid</span> (e.g., ≥500 mL crystalloid), significant <span class="luminous-block luminous-red">blood loss</span>, or initiation of <span class="luminous-block luminous-red">renal replacement therapy</span> (RRT) involving major volume removal</li>
+                <li><strong>Clinical data mismatch:</strong> If the continuous <span class="green-highlighted-oval-3d">PCCO</span> or <span class="red-highlighted-oval-3d">CI</span> displayed on the monitor does not match the patient's clinical state (e.g., patient appears deeply shocked but <span class="red-highlighted-oval-3d">CI</span> shows normal)</li>
             </ol>
 
-            <h3>Common Calibration Errors</h3>
-            <p>The accuracy of the PiCCO method relies heavily on a clean, reproducible TPTD curve. Errors introduced during the cold saline injection process or due to technical issues can lead to significant errors in CO, volume (GEDV), and lung water (EVLW) measurements.</p>
+            <h3><br></h3><h3><span class="marker-red">Common Calibration Errors</span></h3>
+            <p>The accuracy of the <span class="green-highlighted-oval-3d">PiCCO</span> method relies heavily on a clean, reproducible <span class="blue-highlighted-oval-3d">TPTD</span> curve. <span class="cyber-glitch" data-text="Errors introduced during the cold saline injection">Errors introduced during the cold saline injection</span> process or due to technical issues can lead to significant errors in <span class="red-highlighted-oval-3d">CO</span>, volume (<span class="yellow-highlighted-oval-3d">GEDV</span>), and lung water (<span class="green-highlighted-oval-3d">EVLW</span>) measurements.</p>
             
             <h4>Injection and Technique Errors</h4>
             <ul>
-                <li><strong>Slow or hesitant injection:</strong> Injecting the bolus slowly (over 15-20 seconds) rather than rapidly (≤10 seconds) stretches and delays the thermal signal. The area under the curve (CO) is preserved, but the mean transit time (MTT) is artificially prolonged, leading to falsely high GEDVI and ITBVI values</li>
-                <li><strong>Air in injection:</strong> Failure to completely remove air bubbles from the syringe or injection line. Air acts as a thermal insulator and prematurely dissipates the cold signal in the right heart/pulmonary artery, leading to falsely low CO</li>
-                <li><strong>Warm injectate solution:</strong> Using solution that is too warm (e.g., room temperature) or not using external cooling. Insufficient temperature difference (ΔT) between blood and injectate. The resulting curve is small and noisy, leading to unreliable CO measurement</li>
-                <li><strong>Inconsistent bolus volume:</strong> Changing the volume of injectate between the 3 required measurements (e.g., 15 mL, then 10 mL, then 15 mL). Direct calculation error, as the injectate volume (V_inj) is a fixed variable in the Stewart-Hamilton equation, leading to high variability (non-reproducibility) in CO measurements</li>
+                <li><strong><span class="cyber-neon cyber-neon-pink">Slow</span> or <span class="cyber-neon cyber-neon-blue">hesitant</span> injection:</strong> Injecting the bolus slowly (over 15-20 seconds) rather than rapidly (≤10 seconds) stretches and delays the thermal signal. The area under the curve (<span class="red-highlighted-oval-3d">CO</span>) is preserved, but the mean transit time (<span class="purple-highlighted-oval-3d">MTt</span>) is artificially prolonged, leading to <span class="cyber-glitch" data-text="falsely high">falsely high</span> <span class="yellow-highlighted-oval-3d">GEDVI</span> and <span class="orange-highlighted-oval-3d">ITBVI</span> values</li>
+                <li><strong><span class="cyber-neon cyber-neon-blue">Air</span> in injection:</strong> Failure to completely remove air bubbles from the syringe or injection line. Air acts as a thermal insulator and prematurely dissipates the cold signal in the right heart/pulmonary artery, leading to <span class="cyber-glitch" data-text="falsely low">falsely low</span> <span class="red-highlighted-oval-3d">CO</span></li>
+                <li><strong><span class="cyber-neon cyber-neon-green">Warm injectate</span> solution:</strong> Using solution that is too warm (e.g., room temperature) or not using external cooling. Insufficient temperature difference (<span class="red-highlighted-oval-3d">ΔT</span>) between blood and injectate. The resulting curve is small and noisy, leading to <span class="cyber-glitch" data-text="unreliable">unreliable</span> <span class="red-highlighted-oval-3d">CO</span> measurement</li>
+                <li><strong><span class="cyber-neon cyber-neon-pink">Inconsistent bolus volume</span>:</strong> Changing the volume of injectate between the 3 required measurements (e.g., 15 mL, then 10 mL, then 15 mL). Direct calculation error, as the injectate volume (V_inj) is a fixed variable in the Stewart-Hamilton equation, leading to high variability (non-reproducibility) in <span class="red-highlighted-oval-3d">CO</span> measurements</li>
             </ul>
         </main>
     </div>
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 PiCCO Online Manual</p>
+            <p>© 2025 <span class="green-highlighted-oval-3d">PiCCO</span> Online Manual</p>
         </div>
     </footer>
     <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
@@ -144,5 +141,5 @@
     </button>
     <script src="../JS/search.js"></script>
     <script src="../JS/main.js"></script>
-</body>
-</html>
+
+</body></html>

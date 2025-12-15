@@ -559,6 +559,8 @@ class PiCCOGame {
             };
             
             // Set properties based on weapon type
+            let processedBullet = false; // Flag to track if bullet was processed in switch
+            
             switch(bulletType.name) {
                 case 'vasopressor':
                     // Long continuous laser beam
@@ -597,6 +599,7 @@ class PiCCOGame {
                         };
                         this.bullets.push(homingBullet);
                     }
+                    processedBullet = true; // Mark as processed since we added 3 homing bullets
                     continue; // Skip adding the base bullet since we added 3 homing bullets
                     
                 case 'vasodilator':
@@ -614,7 +617,6 @@ class PiCCOGame {
                         initialX: this.player.x + offset, // Store initial position for drawing
                         initialY: this.player.y // Store initial position for drawing
                     });
-                    this.bullets.push(baseBullet);
                     break;
                     
                 case 'fluid':
@@ -667,6 +669,7 @@ class PiCCOGame {
                         };
                         this.bullets.push(fusidBullet);
                     }
+                    processedBullet = true; // Mark as processed since we added multiple fusid bullets
                     continue; // Skip adding the base bullet since we added multiple fusid bullets
                     
                 case 'nitro':
@@ -685,7 +688,7 @@ class PiCCOGame {
                     
                 case 'O2':
                     // Powerful, narrow gas jet with glowing effect
-                    Object.assign(baseBullet, {
+                    const oxygenBullet = {
                         type: 'oxygen',
                         width: 8, // Narrow but powerful
                         height: this.canvas.height * 0.7, // Long range
@@ -700,9 +703,11 @@ class PiCCOGame {
                         laserEndY: this.player.y - this.canvas.height * 0.7,
                         x: this.player.x + offset, // Ensure x is set
                         y: this.player.y, // Ensure y is set
-                        length: this.canvas.height * 0.7 // Ensure length is set
-                    });
-                    this.bullets.push(baseBullet);
+                        length: this.canvas.height * 0.7, // Ensure length is set
+                        name: bulletType.name,
+                        typeData: bulletType
+                    };
+                    this.bullets.push(oxygenBullet);
                     break;
                     
                 default:
@@ -719,7 +724,10 @@ class PiCCOGame {
                     break;
             }
             
-            this.bullets.push(baseBullet);
+            // Only add the base bullet if it wasn't processed in the switch (like in cases of multiple bullets)
+            if (!processedBullet) {
+                this.bullets.push(baseBullet);
+            }
         }
         }
     }
