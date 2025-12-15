@@ -614,6 +614,7 @@ class PiCCOGame {
                         initialX: this.player.x + offset, // Store initial position for drawing
                         initialY: this.player.y // Store initial position for drawing
                     });
+                    this.bullets.push(baseBullet);
                     break;
                     
                 case 'fluid':
