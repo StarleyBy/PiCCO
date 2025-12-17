@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preload - PiCCO Online Manual</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;family=Montserrat:wght@40;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/main.css">
     <link rel="stylesheet" href="../CSS/print.css" media="print">
 </head>
 <body>
     <div class="nav-overlay" id="nav-overlay"></div>
     <header class="main-header">
-        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
-        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+        <h1 class="site-title"><a href="../index.html" class="site-title docs-creator"><span class="green-highlighted-oval-3d">PiCCO</span> - <span class="color-red">O</span>nline Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
     </header>
 
     <div class="wrapper container">
@@ -22,107 +21,109 @@
                 <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
             </div>
             <ul>
-                <li><a href="introduction.html">Introduction</a></li>
-                <li><a href="principles.html">Principles</a></li>
-                <li><a href="history.html">History</a></li>
-                <li><a href="equipment.html">Equipment</a></li>
-                <li><a href="calibration.html">Calibration</a></li>
-                <li><a href="indications.html">Indications</a></li>
-                <li><a href="contraindications.html">Contraindications</a></li>
-                <li><a href="limitations.html">Limitations</a></li>
-                <li><a href="pediatric.html">Pediatric considerations</a></li>
-                <li><a href="preload.html">Preload</a></li>
-                <li><a href="contractility.html">Contractility</a></li>
-                <li><a href="lungwater.html">Lung water</a></li>
-                <li><a href="afterload.html">Afterload</a></li>
-                <li><a href="dynamic.html">Dynamic parameters</a></li>
-                <li><a href="derived.html">Derived parameters</a></li>
-                <li><a href="algorithms.html">Algorithms</a></li>
-                <li><a href="cases.html">Clinical cases</a></li>
-                <li><a href="errors.html">Errors</a></li>
-                <li><a href="physiology.html">Physiology</a></li>
-                <li><a href="reference.html">Reference</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="visualizations.html">Visualizations</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="pages/simulation.html">Quiz</a></li>        
+                <li><a href="introduction.html" class="docs-creator">Introduction</a></li>
+                <li><a href="principles.html" class="docs-creator">Principles</a></li>
+                <li><a href="history.html" class="docs-creator">History</a></li>
+                <li><a href="equipment.html" class="docs-creator">Equipment</a></li>
+                <li><a href="calibration.html" class="docs-creator">Calibration</a></li>
+                <li><a href="indications.html" class="docs-creator">Indications</a></li>
+                <li><a href="contraindications.html" class="docs-creator">Contraindications</a></li>
+                <li><a href="limitations.html" class="docs-creator">Limitations</a></li>
+                <li><a href="pediatric.html" class="docs-creator">Pediatric considerations</a></li>
+                <li><a href="preload.html" class="docs-creator">Preload</a></li>
+                <li><a href="contractility.html" class="docs-creator">Contractility</a></li>
+                <li><a href="lungwater.html" class="docs-creator">Lung water</a></li>
+                <li><a href="afterload.html" class="docs-creator">Afterload</a></li>
+                <li><a href="dynamic.html" class="docs-creator">Dynamic parameters</a></li>
+                <li><a href="derived.html" class="docs-creator">Derived parameters</a></li>
+                <li><a href="algorithms.html" class="docs-creator">Algorithms</a></li>
+                <li><a href="cases.html" class="docs-creator">Clinical cases</a></li>
+                <li><a href="errors.html" class="docs-creator">Errors</a></li>
+                <li><a href="physiology.html" class="docs-creator">Physiology</a></li>
+                <li><a href="reference.html" class="docs-creator">Reference</a></li>
+                <li><a href="faq.html" class="docs-creator">FAQ</a></li>
+                <li><a href="visualizations.html" class="docs-creator">Visualizations</a></li>
+                <li><a href="about.html" class="docs-creator">About</a></li>
+                <li><a href="pages/simulation.html" class="docs-creator">Quiz</a></li>        
  </ul>
         </nav>
 
         <main class="main-content">
-            <h2>Preload Assessment: Global End-Diastolic Volume Index (GEDVI)</h2>
-            <p>The Global End-Diastolic Volume Index (GEDVI) is a key PiCCO parameter for assessing cardiac preload.</p>
+            <h2><span class="color-purple">Preload</span> Assessment: Global End-Diastolic Volume Index <span class="yellow-highlighted-oval-3d">GEDVI</span></h2>
+            <p></p><div class="info-box info-box-success"><p>The Global End-Diastolic Volume Index <span class="yellow-highlighted-oval-3d">GEDVI</span> is a key <span class="green-highlighted-oval-3d">PiCCO</span> parameter for assessing cardiac <span class="color-purple">preload</span>.</p></div><p></p>
 
-            <h3>Definition and Measurement</h3>
-            <p><strong>Global End-Diastolic Volume (GEDV)</strong> is the sum of the end-diastolic volumes of all four cardiac chambers (right atrium, right ventricle, left atrium, and left ventricle). It represents the <strong>total compliant blood volume</strong> in the heart immediately before systole.</p>
-            <p>The indexed form, <strong>Global End-Diastolic Volume Index (GEDVI)</strong>, is GEDV divided by the patient's body surface area (BSA), expressed in mL/m². This indexing allows comparison between patients of different sizes.</p>
+            <details><summary><h3>Definition and Measurement</h3></summary>
+            <p><strong>Global End-Diastolic Volume <span class="yellow-highlighted-oval-3d">GEDV</span></strong>&nbsp;is the sum of the end-diastolic volumes of all four cardiac chambers (right atrium, right ventricle, left atrium, and left ventricle).&nbsp;</p><p>It represents the <strong>total compliant blood volume</strong> in the heart immediately before systole.</p>
+            <p>The indexed form, <strong>Global End-Diastolic Volume Index <span class="yellow-highlighted-oval-3d">GEDVI</span></strong>, is <span class="yellow-highlighted-oval-3d">GEDV</span> divided by the patient's body surface area (<span class="silver-highlighted-oval-3d">BSA</span>), expressed in mL/m². This indexing allows comparison between patients of different sizes.</p>
 
-            <h4>Measurement via Transpulmonary Thermodilution (TPTD)</h4>
-            <p>GEDV is a key volume derived from the analysis of the TPTD curve:</p>
+            <h4>Measurement via Transpulmonary Thermodilution <span class="blue-highlighted-oval-3d">TPTD</span></h4>
+            <p><span class="yellow-highlighted-oval-3d">GEDV</span> is a key volume derived from the analysis of the <span class="blue-highlighted-oval-3d">TPTD</span> curve:</p>
             <ol>
-                <li><strong>Mean Transit Time (MT):</strong> This is the average time for the cold indicator to travel from the injection site (CVC) to the detection site (arterial thermistor)</li>
-                <li><strong>Calculation:</strong> GEDV is derived from cardiac output (CO) and mean transit time (MT), reflecting the volume contained in the flow path:
-                    <p>Volume ∝ CO × MT</p>
+                <li><strong>Mean Transit Time (<span class="purple-highlighted-oval-3d">MTt</span>):</strong> This is the average time for the cold indicator to travel from the injection site (<span class="teal-highlighted-oval-3d">CVC</span>) to the detection site (arterial thermistor)</li>
+                <li><strong>Calculation:</strong> <span class="yellow-highlighted-oval-3d">GEDV</span> is derived from cardiac output (<span class="red-highlighted-oval-3d">CO</span>) and mean transit time (<span class="purple-highlighted-oval-3d">MTt</span>), reflecting the volume contained in the flow path:
+                    <br><p><span class="luminous-block luminous-yellow"><span class="yellow-highlighted-oval-3d">GEDV</span> = <span class="red-highlighted-oval-3d">CO</span> × <span class="purple-highlighted-oval-3d">MTt</span></span></p>
                 </li>
             </ol>
 
-            <h4>Relationship to Intrathoracic Blood Volume (ITBV)</h4>
-            <p>GEDV is closely related to <strong>Intrathoracic Blood Volume (ITBV)</strong>, which represents the total blood volume in the heart and entire pulmonary circulation. GEDV typically comprises about 75% of ITBV:
-                <p>GEDV ≈ 0.8 × ITBV</p>
-            <p>ITBV is often preferred by some clinicians as it is considered the functional preload reservoir. Both GEDVI and ITBVI are typically interpreted similarly.</p>
+            <h4>Relationship to Intrathoracic Blood Volume (<span class="orange-highlighted-oval-3d">ITBV</span>)</h4>
+            <p><span class="yellow-highlighted-oval-3d">GEDV</span> is closely related to <strong>Intrathoracic Blood Volume (<span class="orange-highlighted-oval-3d">ITBV</span>)</strong>, which represents the total blood volume in the heart and entire pulmonary circulation. <span class="yellow-highlighted-oval-3d">GEDV</span> typically comprises <span class="silver-highlighted-oval-3d">about 75%</span> of <span class="orange-highlighted-oval-3d">ITBV</span>:
+                </p><p><span class="luminous-block luminous-yellow"><span class="yellow-highlighted-oval-3d">GEDV</span> ≈ 0.8 × <span class="orange-highlighted-oval-3d">ITBV</span></span></p>
+            <p><span class="orange-highlighted-oval-3d">ITBV</span> is often preferred by some clinicians as it is considered the functional preload reservoir. Both <span class="yellow-highlighted-oval-3d">GEDVI</span> and <span class="orange-highlighted-oval-3d">ITBVI</span> are typically interpreted similarly.</p><p><br></p>
+            </details>
 
-            <h3>Clinical Significance: Superior Preload Marker</h3>
+            <details><summary><h3>Clinical Significance: <span class="color-red"></span><span class="color-red"><span class="color-red">Super</span>ior</span> <span class="color-purple">Preload</span> <span class="color-green">Marker</span></h3></summary>
             <h4>A. Volume vs. Pressure Assessment</h4>
-            <p>GEDVI is considered a <strong>superior volumetric marker</strong> of preload compared to traditional filling pressures such as Central Venous Pressure (CVP) or Pulmonary Artery Occlusion Pressure (PCWP).</p>
+            <p><span class="yellow-highlighted-oval-3d">GEDVI</span> is considered a <strong>superior volumetric marker</strong> of preload compared to traditional filling pressures such as Central Venous Pressure (<span class="teal-highlighted-oval-3d">CVP</span>) or Pulmonary Artery Occlusion Pressure (<span class="silver-highlighted-oval-3d">PCWP</span>).</p>
             <ul>
-                <li><strong>Pressure Limitations:</strong> CVP and PCWP are heavily dependent on factors unrelated to blood volume, such as:
+                <li><strong>Pressure Limitations:</strong> <span class="teal-highlighted-oval-3d">CVP</span> and <span class="silver-highlighted-oval-3d">PCWP</span> are heavily dependent on factors unrelated to blood volume, such as:
                     <ul>
-                        <li><strong>Ventricular Compliance:</strong> Stiff ventricular filling (e.g., in sepsis or severe heart failure) can generate high PCWP even with normal or low volume</li>
-                        <li><strong>Intrathoracic Pressure:</strong> Positive End-Expiratory Pressure (PEEP) or mechanical ventilation significantly elevates CVP and PCWP, causing misinterpretation</li>
+                        <li><strong>Ventricular Compliance:</strong> Stiff ventricular filling (e.g., in sepsis or severe heart failure) can generate high <span class="silver-highlighted-oval-3d">PCWP</span> even with normal or low volume</li>
+                        <li><strong>Intrathoracic Pressure:</strong> Positive End-Expiratory Pressure (PEEP) or mechanical ventilation significantly elevates <span class="teal-highlighted-oval-3d">CVP</span> and <span class="silver-highlighted-oval-3d">PCWP</span>, causing misinterpretation</li>
                     </ul>
                 </li>
-                <li><strong>GEDVI Advantage:</strong> GEDVI is a <strong>volumetric</strong> measurement, making it relatively <strong>independent of compliance and lung pressures</strong>. It provides a true estimate of the heart's "fill"</li>
+                <li><strong><span class="yellow-highlighted-oval-3d">GEDVI</span> Advantage:</strong> <span class="yellow-highlighted-oval-3d">GEDVI</span> is a <strong>volumetric</strong> measurement, making it relatively <strong>independent of compliance and lung pressures</strong>. It provides a <span class="marker-green">true estimate</span> of the heart's "fill"</li>
             </ul>
 
             <h4>B. Fluid Therapy Guidance</h4>
-            <p>GEDVI provides the baseline context for interpreting dynamic parameters (SVV/PPV):</p>
+            <p><span class="yellow-highlighted-oval-3d">GEDVI</span> provides the baseline context for interpreting dynamic parameters (<span class="pink-highlighted-oval-3d">SVV</span>/<span class="pink-highlighted-oval-3d">PPV</span>):</p>
             
-            <table>
+            <div class="table-wrapper"><table class="scenario-table">
                 <thead>
                     <tr>
-                        <th>GEDVI Range (mL/m²)</th>
+                        <th><span class="yellow-highlighted-oval-3d">GEDVI</span> Range (mL/m²)</th>
                         <th>Clinical Interpretation</th>
                         <th>Fluid Therapy Strategy</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Low (<680)</strong></td>
+                        <td><strong><span class="marker-red">Low</span> (&lt;680)</strong></td>
                         <td><strong>Hypovolemia:</strong> True volume deficit (relative or absolute)</td>
                         <td><strong>Fluid therapy indicated:</strong> Aggressively pursue volume resuscitation to reach the optimal range</td>
                     </tr>
                     <tr>
-                        <td><strong>Optimal (680 - 800)</strong></td>
+                        <td><strong><span class="marker-green">Optimal</span> (680 - 800)</strong></td>
                         <td><strong>Normovolemia:</strong> Optimal preload; heart is adequately filled</td>
-                        <td><strong>Dynamic assessment required:</strong> Check SVV/PPV before additional fluid. Focus shifts to CI (flow) and SVRI (afterload)</td>
+                        <td><strong>Dynamic assessment required:</strong> Check <span class="pink-highlighted-oval-3d">SVV</span>/<span class="pink-highlighted-oval-3d">PPV</span> before additional fluid. Focus shifts to <span class="red-highlighted-oval-3d">CI</span> (flow) and <span class="purple-highlighted-oval-3d">SVRI</span> (afterload)</td>
                     </tr>
                     <tr>
-                        <td><strong>High (>800)</strong></td>
+                        <td><strong><span class="marker-purple">High</span> (&gt;800)</strong></td>
                         <td><strong>Hyper-volemia/Fluid Overload:</strong> Significant volume reserve, potentially leading to congestion</td>
                         <td><strong>Fluid restriction/removal:</strong> Focus on diuretics or fluid removal; avoid additional volume</td>
                     </tr>
                 </tbody>
-            </table>
+            </table></div>
+        </details>
 
-            <p><strong>Normal indexed range for GEDVI:</strong> ≈ 680-800 mL/m²</p>
+            <p><strong></strong></p><div class="info-box info-box-success"><p></p><h3>Normal indexed range for <span class="yellow-highlighted-oval-3d">GEDVI</span>: ≈ 680-800 mL/m²</h3><p></p></div><p></p>
 
-            <p>In conclusion, GEDVI is the definitive volumetric measure of preload, allowing the clinician to objectively assess whether the problem is a true <strong>volume deficit</strong> or poor <strong>performance/afterload</strong>.</p>
+            <p></p><div class="info-box info-box-info"><p>In conclusion, <span class="yellow-highlighted-oval-3d">GEDVI</span> is the definitive volumetric measure of preload, allowing the clinician to objectively assess whether the problem is a true volume deficit or poor performance/afterload.</p></div><p></p>
         </main>
     </div>
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 PiCCO Online Manual</p>
+            <p>© 2025 <span class="green-highlighted-oval-3d">PiCCO</span> Online Manual</p>
         </div>
     </footer>
     <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
@@ -131,5 +132,5 @@
     </button>
     <script src="../JS/search.js"></script>
     <script src="../JS/main.js"></script>
-</body>
-</html>
+
+</body></html>
