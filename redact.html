@@ -75,25 +75,84 @@
         }
 
         .style-btn {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 8px;
+            padding: 8px;
+            margin: 4px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 13px;
-            transition: all 0.3s;
-            text-align: left;
+            font-size: 12px;
+            transition: all 0.2s;
+            text-align: center;
             font-weight: 500;
+            min-height: 36px;
         }
 
         .style-btn:hover {
-            transform: translateX(5px);
+            transform: scale(1.05);
         }
 
         .style-btn.small-text {
-            font-size: 11px;
+            font-size: 10px;
+            padding: 6px;
+        }
+
+        /* Compact palette styles */
+        .compact-palette {
+            display: grid;
+            gap: 4px;
+            margin-bottom: 10px;
+        }
+
+        .color-palette-5 {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .color-palette-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .color-palette-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .color-sample {
             padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .color-sample:hover {
+            transform: scale(1.05);
+        }
+
+        .icon-btn {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2c3e50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 1000;
         }
 
         .btn-save {
@@ -772,8 +831,10 @@
         <button class="style-btn" style="background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%); color: #333;" onclick="applyInlineStyle('silver-highlighted-oval-3d')">⚪ Silver</button>
 
         <h2>📂 2. Скрытый текст</h2>
-        <button class="style-btn" style="background: #7f8c8d; color: white;" onclick="applyDetails()">📋 Скрыть текст (details)</button>
-        <button class="style-btn" style="background: #3498db; color: white; margin-top: 5px;" onclick="applySummary()">📋 Заголовок (summary)</button>
+        <div class="compact-palette color-palette-2" style="grid-template-columns: 1fr 1fr; gap: 5px;">
+            <button class="style-btn tooltip" data-tooltip="Скрыть текст (details)" onclick="applyDetails()" style="background: #7f8c8d; color: white; padding: 8px;">📋</button>
+            <button class="style-btn tooltip" data-tooltip="Заголовок (summary)" onclick="applySummary()" style="background: #3498db; color: white; padding: 8px;">🏷️</button>
+        </div>
 
         <h2>📦 3. Инфобоксы</h2>
         <button class="style-btn" style="background: #ffeaa7; color: #2d3436;" onclick="applyInfoBox('')">📦 Default (Gold)</button>
