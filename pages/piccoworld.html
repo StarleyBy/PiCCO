@@ -9,112 +9,74 @@
     <link rel="stylesheet" href="../CSS/print.css" media="print">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0a0a; color: #fff; }
 
-        body {
-            background: #0a0a0a;
-            color: #fff;
-        }
-
-        /* Настройка контента рядом с меню */
-        .main-content {
-            padding: 20px;
-            width: 100%;
-        }
-
-        .periodic-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .main-content { padding: 20px; width: 100%; }
+        .periodic-container { max-width: 1400px; margin: 0 auto; }
 
         h1.page-title {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
+            text-align: center; font-size: 2.5em; margin-bottom: 40px;
+            text-transform: uppercase; letter-spacing: 4px;
             background: linear-gradient(45deg, #00ffff, #ff00ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
         }
 
         .periodic-table {
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            gap: 10px;
-            padding: 20px;
+            display: grid; grid-template-columns: repeat(8, 1fr);
+            gap: 10px; padding: 20px;
             background: rgba(20, 20, 20, 0.8);
-            border: 3px solid #00ffff;
-            border-radius: 10px;
+            border: 3px solid #00ffff; border-radius: 10px;
             box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
         }
 
         .element {
-            aspect-ratio: 1.1;
-            border: 2px solid;
-            border-radius: 8px;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            aspect-ratio: 1.1; border: 2px solid; border-radius: 8px;
+            padding: 10px; display: flex; flex-direction: column;
+            justify-content: space-between; cursor: pointer;
+            transition: all 0.3s ease; position: relative;
         }
 
-        .element:hover {
-            transform: scale(1.05);
-            z-index: 10;
-            box-shadow: 0 0 20px currentColor;
-        }
+        .element:hover { transform: scale(1.05); z-index: 10; box-shadow: 0 0 20px currentColor; }
 
-        /* Стили текста внутри ячейки */
-        .element-label { 
-            font-size: 0.65em; 
-            line-height: 1.2;
-            opacity: 0.9; 
-            text-transform: uppercase; 
-            font-weight: bold;
-            text-align: left;
-        }
-        .element-symbol { 
-            font-size: 1.6em; 
-            font-weight: 800; 
-            text-align: center; 
-            margin: 5px 0;
-            text-shadow: 0 0 10px currentColor; 
-        }
-        .element-value { 
-            font-size: 0.7em; 
-            opacity: 0.8; 
-            text-align: center; 
-            font-style: italic;
-        }
+        .element-label { font-size: 0.65em; line-height: 1.2; opacity: 0.9; text-transform: uppercase; font-weight: bold; }
+        .element-symbol { font-size: 1.6em; font-weight: 800; text-align: center; text-shadow: 0 0 10px currentColor; }
+        .element-value { font-size: 0.7em; opacity: 0.8; text-align: center; font-style: italic; }
 
+        /* ТУЛТИП */
         .tooltip {
-            position: fixed;
-            background: rgba(10, 10, 10, 0.98);
-            border: 2px solid;
-            border-radius: 12px;
-            padding: 20px;
-            max-width: 420px;
-            z-index: 3000;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            box-shadow: 0 0 40px currentColor;
-            backdrop-filter: blur(10px);
+            position: fixed; background: rgba(10, 10, 10, 0.98);
+            border: 2px solid; border-radius: 12px; padding: 20px;
+            max-width: 420px; z-index: 3000; pointer-events: none;
+            opacity: 0; transition: opacity 0.3s ease;
+            box-shadow: 0 0 40px currentColor; backdrop-filter: blur(10px);
             font-family: 'Lato', sans-serif;
         }
-
-        .tooltip.active { opacity: 1; }
+        .tooltip.active { opacity: 1; pointer-events: auto; }
         .tooltip-title { font-size: 1.4em; font-weight: bold; margin-bottom: 15px; border-bottom: 1px solid currentColor; padding-bottom: 5px; }
         .tooltip-section { margin-bottom: 12px; }
         .tooltip-section-title { font-size: 0.85em; font-weight: bold; margin-bottom: 3px; opacity: 0.7; text-transform: uppercase; }
         .tooltip-section-content { font-size: 0.9em; line-height: 1.4; }
 
-        /* Цвета параметров */
+        .close-tooltip { display: none; position: absolute; top: 10px; right: 15px; color: #fff; font-size: 28px; cursor: pointer; }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 1200px) { .periodic-table { grid-template-columns: repeat(4, 1fr); } }
+        
+        @media (max-width: 768px) {
+            .periodic-table { grid-template-columns: repeat(2, 1fr); }
+            .tooltip {
+                left: 50% !important; top: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                width: 90vw; max-height: 80vh; overflow-y: auto;
+                pointer-events: none;
+            }
+            .tooltip.active { pointer-events: auto; }
+            .close-tooltip { display: block; }
+            h1.page-title { font-size: 1.8em; }
+        }
+
+        /* ЦВЕТА ГРУПП */
         .bp { background: #1a0033; color: #ff00ff; border-color: #ff00ff; }
         .hr { background: #003333; color: #00ffff; border-color: #00ffff; }
         .cvp { background: #1a1a00; color: #ffff00; border-color: #ffff00; }
@@ -152,15 +114,10 @@
         .pao2 { background: #002211; color: #00bb66; border-color: #00bb66; }
         .paco2 { background: #220011; color: #bb0066; border-color: #bb0066; }
         .be { background: #112200; color: #aaff00; border-color: #aaff00; }
-
-        @media (max-width: 1300px) { .periodic-table { grid-template-columns: repeat(6, 1fr); } }
-        @media (max-width: 1000px) { .periodic-table { grid-template-columns: repeat(4, 1fr); } }
-        @media (max-width: 600px) { .periodic-table { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
     <div class="nav-overlay" id="nav-overlay"></div>
-    
     <header class="main-header">
         <h1 class="site-title"><a href="../index.html" class="site-title docs-creator"><span class="green-highlighted-oval-3d">PiCCO</span> - <span class="color-red">O</span>nline Manual</a></h1>
         <button class="menu-toggle" id="menu-toggle">☰</button>
@@ -208,7 +165,10 @@
         </main>
     </div>
 
-    <div class="tooltip" id="tooltip"></div>
+    <div class="tooltip" id="tooltip">
+        <span class="close-tooltip" id="closeTooltip">×</span>
+        <div id="tooltipContent"></div>
+    </div>
 
     <footer class="main-footer">
         <div class="container">
@@ -262,14 +222,13 @@
 
         const table = document.getElementById('periodicTable');
         const tooltip = document.getElementById('tooltip');
+        const tooltipContent = document.getElementById('tooltipContent');
+        const closeTooltipBtn = document.getElementById('closeTooltip');
 
         const rows = [
-            ['bp', 'hr', 'cvp', 'pap'],
-            ['co', 'ci', 'sv', 'svi'],
-            ['svr', 'svri', 'pvr', 'pvri'],
-            ['gedv', 'gedvi', 'itbv', 'itbvi'],
-            ['svv', 'ppv', 'dpmax', 'cfi'],
-            ['gef', 'cci', 'evlw', 'evlwi'],
+            ['bp', 'hr', 'cvp', 'pap'], ['co', 'ci', 'sv', 'svi'], 
+            ['svr', 'svri', 'pvr', 'pvri'], ['gedv', 'gedvi', 'itbv', 'itbvi'],
+            ['svv', 'ppv', 'dpmax', 'cfi'], ['gef', 'cci', 'evlw', 'evlwi'],
             ['pvpi', 'spo2', 'svo2', 'scvo2', 'do2', 'ero2'],
             ['temp', 'lactate', 'ph', 'pao2', 'paco2', 'be']
         ];
@@ -278,11 +237,8 @@
             row.forEach(paramId => {
                 const param = parameters[paramId];
                 if (!param) return;
-                
                 const element = document.createElement('div');
                 element.className = `element ${param.class}`;
-                
-                // ВАЖНО: Формируем ячейку так, чтобы все поля были видны
                 element.innerHTML = `
                     <div class="element-label">${param.label}</div>
                     <div class="element-symbol">${param.symbol}</div>
@@ -293,61 +249,61 @@
                 element.addEventListener('mousemove', (e) => updateTooltipPosition(e));
                 element.addEventListener('mouseleave', hideTooltip);
                 
+                element.addEventListener('click', (e) => {
+                    showTooltip(e, param);
+                    e.stopPropagation();
+                });
+                
                 table.appendChild(element);
             });
         });
 
         function showTooltip(e, param) {
             const color = window.getComputedStyle(e.currentTarget).color;
-            const borderColor = window.getComputedStyle(e.currentTarget).borderColor;
-            
             tooltip.style.color = color;
-            tooltip.style.borderColor = borderColor;
+            tooltip.style.borderColor = color;
             
-            tooltip.innerHTML = `
+            tooltipContent.innerHTML = `
                 <div class="tooltip-title">${param.symbol} - ${param.label}</div>
-                <div class="tooltip-section">
-                    <div class="tooltip-section-title">Description</div>
-                    <div class="tooltip-section-content">${param.description}</div>
-                </div>
-                <div class="tooltip-section">
-                    <div class="tooltip-section-title">Changes & Meaning</div>
-                    <div class="tooltip-section-content">${param.changes}</div>
-                </div>
-                <div class="tooltip-section">
-                    <div class="tooltip-section-title">Clinical Application</div>
-                    <div class="tooltip-section-content">${param.clinical}</div>
-                </div>
-                <div class="tooltip-section">
-                    <div class="tooltip-section-title">Treatment Principles</div>
-                    <div class="tooltip-section-content">${param.treatment}</div>
-                </div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Description</div><div class="tooltip-section-content">${param.description}</div></div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Changes & Meaning</div><div class="tooltip-section-content">${param.changes}</div></div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Clinical Application</div><div class="tooltip-section-content">${param.clinical}</div></div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Treatment Principles</div><div class="tooltip-section-content">${param.treatment}</div></div>
             `;
             
-            updateTooltipPosition(e);
+            if (window.innerWidth > 768) {
+                updateTooltipPosition(e);
+            }
             tooltip.classList.add('active');
         }
 
         function updateTooltipPosition(e) {
+            if (window.innerWidth <= 768) return;
             const margin = 20;
             let x = e.clientX + margin;
             let y = e.clientY + margin;
-            const tooltipRect = tooltip.getBoundingClientRect();
-            
-            if (x + tooltipRect.width > window.innerWidth - margin) {
-                x = e.clientX - tooltipRect.width - margin;
-            }
-            if (y + tooltipRect.height > window.innerHeight - margin) {
-                y = e.clientY - tooltipRect.height - margin;
-            }
-            
+            const rect = tooltip.getBoundingClientRect();
+            if (x + rect.width > window.innerWidth - margin) x = e.clientX - rect.width - margin;
+            if (y + rect.height > window.innerHeight - margin) y = e.clientY - rect.height - margin;
             tooltip.style.left = x + 'px';
             tooltip.style.top = y + 'px';
         }
 
         function hideTooltip() {
+            if (window.innerWidth > 768) tooltip.classList.remove('active');
+        }
+
+        function forceHideTooltip() {
             tooltip.classList.remove('active');
         }
+
+        closeTooltipBtn.addEventListener('click', forceHideTooltip);
+        
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && !tooltip.contains(e.target)) {
+                forceHideTooltip();
+            }
+        });
     </script>
 </body>
 </html>
