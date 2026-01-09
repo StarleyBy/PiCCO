@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../CSS/main.css">
     <link rel="stylesheet" href="../CSS/print.css" media="print">
     <style>
-        /* Оригинальные стили таблицы PiCCO WORLD */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -16,7 +15,7 @@
             color: #fff;
         }
 
-        /* Адаптация под структуру с боковым меню */
+        /* Настройка контента рядом с меню */
         .main-content {
             padding: 20px;
             width: 100%;
@@ -42,7 +41,7 @@
         .periodic-table {
             display: grid;
             grid-template-columns: repeat(8, 1fr);
-            gap: 8px;
+            gap: 10px;
             padding: 20px;
             background: rgba(20, 20, 20, 0.8);
             border: 3px solid #00ffff;
@@ -51,10 +50,10 @@
         }
 
         .element {
-            aspect-ratio: 1.2;
+            aspect-ratio: 1.1;
             border: 2px solid;
             border-radius: 8px;
-            padding: 12px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -70,9 +69,28 @@
             box-shadow: 0 0 20px currentColor;
         }
 
-        .element-label { font-size: 0.65em; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; }
-        .element-symbol { font-size: 1.8em; font-weight: bold; text-align: center; flex-grow: 1; display: flex; align-items: center; justify-content: center; text-shadow: 0 0 10px currentColor; }
-        .element-value { font-size: 0.65em; opacity: 0.8; text-align: center; }
+        /* Стили текста внутри ячейки */
+        .element-label { 
+            font-size: 0.65em; 
+            line-height: 1.2;
+            opacity: 0.9; 
+            text-transform: uppercase; 
+            font-weight: bold;
+            text-align: left;
+        }
+        .element-symbol { 
+            font-size: 1.6em; 
+            font-weight: 800; 
+            text-align: center; 
+            margin: 5px 0;
+            text-shadow: 0 0 10px currentColor; 
+        }
+        .element-value { 
+            font-size: 0.7em; 
+            opacity: 0.8; 
+            text-align: center; 
+            font-style: italic;
+        }
 
         .tooltip {
             position: fixed;
@@ -80,22 +98,23 @@
             border: 2px solid;
             border-radius: 12px;
             padding: 20px;
-            max-width: 400px;
+            max-width: 420px;
             z-index: 3000;
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.3s ease;
             box-shadow: 0 0 40px currentColor;
             backdrop-filter: blur(10px);
+            font-family: 'Lato', sans-serif;
         }
 
         .tooltip.active { opacity: 1; }
-        .tooltip-title { font-size: 1.3em; font-weight: bold; margin-bottom: 15px; text-shadow: 0 0 10px currentColor; }
+        .tooltip-title { font-size: 1.4em; font-weight: bold; margin-bottom: 15px; border-bottom: 1px solid currentColor; padding-bottom: 5px; }
         .tooltip-section { margin-bottom: 12px; }
-        .tooltip-section-title { font-size: 0.9em; font-weight: bold; margin-bottom: 5px; opacity: 0.9; text-transform: uppercase; }
-        .tooltip-section-content { font-size: 0.85em; line-height: 1.5; opacity: 0.85; }
+        .tooltip-section-title { font-size: 0.85em; font-weight: bold; margin-bottom: 3px; opacity: 0.7; text-transform: uppercase; }
+        .tooltip-section-content { font-size: 0.9em; line-height: 1.4; }
 
-        /* Цвета групп */
+        /* Цвета параметров */
         .bp { background: #1a0033; color: #ff00ff; border-color: #ff00ff; }
         .hr { background: #003333; color: #00ffff; border-color: #00ffff; }
         .cvp { background: #1a1a00; color: #ffff00; border-color: #ffff00; }
@@ -134,8 +153,9 @@
         .paco2 { background: #220011; color: #bb0066; border-color: #bb0066; }
         .be { background: #112200; color: #aaff00; border-color: #aaff00; }
 
-        @media (max-width: 1200px) { .periodic-table { grid-template-columns: repeat(4, 1fr); } }
-        @media (max-width: 768px) { .periodic-table { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 1300px) { .periodic-table { grid-template-columns: repeat(6, 1fr); } }
+        @media (max-width: 1000px) { .periodic-table { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 600px) { .periodic-table { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
@@ -257,8 +277,12 @@
         rows.forEach(row => {
             row.forEach(paramId => {
                 const param = parameters[paramId];
+                if (!param) return;
+                
                 const element = document.createElement('div');
                 element.className = `element ${param.class}`;
+                
+                // ВАЖНО: Формируем ячейку так, чтобы все поля были видны
                 element.innerHTML = `
                     <div class="element-label">${param.label}</div>
                     <div class="element-symbol">${param.symbol}</div>
