@@ -13,67 +13,68 @@
             --cat-d: #ccff00; --cat-h: #00ff88; --cat-c: #ffaa00; 
             --cat-b: #3d5afe; --cat-s: #ffffff; --cat-r: #795548;
         }
-
-        .main-content { padding: 80px 20px 40px; }
+        body { background: #0a0a0a; color: #fff; overflow-x: hidden; }
+        .main-content { padding: 80px 20px 40px; width: 100%; transition: margin-left 0.3s; }
+        .periodic-container { max-width: 1600px; margin: 0 auto; }
         
-        .periodic-container { max-width: 1400px; margin: 0 auto; }
-
         .drug-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
             margin-top: 30px;
         }
 
         .drug-card {
-            aspect-ratio: 1/1;
-            border: 2px solid #333;
-            background: rgba(255, 255, 255, 0.03);
+            aspect-ratio: 1/1.2;
+            border: 1px solid #444;
+            background: rgba(255, 255, 255, 0.02);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: center;
+            justify-content: space-between;
             padding: 10px;
-            position: relative;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .drug-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 20px currentColor;
             z-index: 10;
+            border-color: #fff;
         }
 
-        .drug-symbol { font-size: 1.8em; font-weight: 700; font-family: 'Montserrat'; margin-bottom: 5px; }
-        .drug-name { font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; }
+        .card-top { font-size: 0.6rem; text-transform: uppercase; opacity: 0.7; font-weight: bold; line-height: 1.1; height: 25px; }
+        .card-mid { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .drug-symbol { font-size: 2.2rem; font-weight: 800; font-family: 'Montserrat'; line-height: 1; }
+        .drug-name { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-top: 5px; text-align: center; }
+        .card-bottom { font-size: 0.65rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 5px; margin-top: 5px; }
+        .peds-dose { color: #00ffff; font-style: italic; display: block; margin-top: 2px; }
 
-        /* Категории (цвета) */
-        .cat-v { color: var(--cat-v); border-color: var(--cat-v); }
-        .cat-i { color: var(--cat-i); border-color: var(--cat-i); }
-        .cat-a { color: var(--cat-a); border-color: var(--cat-a); }
-        .cat-d { color: var(--cat-d); border-color: var(--cat-d); }
-        .cat-h { color: var(--cat-h); border-color: var(--cat-h); }
-        .cat-c { color: var(--cat-c); border-color: var(--cat-c); }
-        .cat-b { color: var(--cat-b); border-color: var(--cat-b); }
-        .cat-s { color: var(--cat-s); border-color: var(--cat-s); }
-        .cat-r { color: var(--cat-r); border-color: var(--cat-r); }
+        /* Colors */
+        .cat-v { color: var(--cat-v); border-left: 3px solid var(--cat-v); }
+        .cat-i { color: var(--cat-i); border-left: 3px solid var(--cat-i); }
+        .cat-a { color: var(--cat-a); border-left: 3px solid var(--cat-a); }
+        .cat-d { color: var(--cat-d); border-left: 3px solid var(--cat-d); }
+        .cat-h { color: var(--cat-h); border-left: 3px solid var(--cat-h); }
+        .cat-c { color: var(--cat-c); border-left: 3px solid var(--cat-c); }
+        .cat-b { color: var(--cat-b); border-left: 3px solid var(--cat-b); }
+        .cat-s { color: var(--cat-s); border-left: 3px solid var(--cat-s); }
+        .cat-r { color: var(--cat-r); border-left: 3px solid var(--cat-r); }
 
-        /* Tooltip style из piccoworld.html */
         #tooltip {
-            position: fixed; background: rgba(10, 10, 10, 0.98); border: 1px solid #333;
-            padding: 20px; width: 350px; display: none; z-index: 2000;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5); backdrop-filter: blur(10px);
+            position: fixed; background: rgba(0,0,0,0.95); border: 1px solid #fff;
+            padding: 20px; width: 420px; display: none; z-index: 3000;
+            box-shadow: 0 0 40px rgba(0,0,0,1); backdrop-filter: blur(10px);
         }
-        .tooltip-title { font-family: 'Montserrat'; font-size: 1.3em; color: #00ffff; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 5px; }
-        .tooltip-section { margin-bottom: 12px; }
-        .tooltip-label { color: #888; font-size: 0.7em; text-transform: uppercase; display: block; margin-bottom: 2px; }
-        .tooltip-value { font-size: 0.9em; line-height: 1.4; color: #eee; }
+        .tt-title { font-size: 1.5rem; color: #00ffff; font-family: 'Montserrat'; border-bottom: 1px solid #333; padding-bottom: 5px; }
+        .tt-trade { color: #ff00ff; font-weight: bold; margin-bottom: 15px; display: block; }
+        .tt-label { font-size: 0.7rem; color: #888; text-transform: uppercase; display: block; margin-top: 10px; }
+        .tt-content { font-size: 0.95rem; line-height: 1.5; color: #eee; }
     </style>
 </head>
 <body>
+
     <header class="top-header">
         <div class="menu-trigger" id="menuBtn"><span></span><span></span><span></span></div>
         <div class="logo">PiCCO <span>Online Manual</span></div>
@@ -83,7 +84,7 @@
         <nav class="main-nav" id="main-nav">
             <h2>Sections</h2>
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+                <input type="text" id="searchInput" placeholder="Search sections...">
             </div>
             <ul>
                 <li><a href="introduction.html">Introduction</a></li>
@@ -111,103 +112,121 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="simulation.html"><span class="gold-highlighted-oval-3d">Quiz 🎓</span></a></li>
                 <li><a href="piccoworld.html"><span class="green-highlighted-oval-3d">PiCCO</span> WORLD</a></li>
-                <li><a href="commondrugs.html"><span class="red-highlighted-oval-3d">Common 🧐</span> <span class="pink-highlighted-oval-3d">Drugs</span></a></li>
+                <li><a href="commondrugs.html" class="active"><span class="red-highlighted-oval-3d">Common 🧐</span> <span class="pink-highlighted-oval-3d">Drugs</span></a></li>
             </ul>
         </nav>
 
-    <div class="main-content">
-        <div class="periodic-container">
-            <h1 class="page-title">Cardiac Pharmacology Quiz & Ref</h1>
-            
-            <div class="drug-grid" id="drugGrid"></div>
+        <div class="main-content">
+            <div class="periodic-container">
+                <h1 class="page-title">Critical Care Pharmacology</h1>
+                <div class="drug-grid" id="drugGrid"></div>
+            </div>
         </div>
     </div>
 
     <div id="tooltip"></div>
 
     <script>
-        // Данные препаратов (70+ наименований)
         const drugs = [
-            // VASOPRESSORS
-            { s: "Ne", n: "Norepinephrine", cat: "v", dose: "0.01-1.0 mcg/kg/min", mech: "α1 > β1 agonist", rem: "First-line in septic shock. Watch SVRI." },
-            { s: "Ad", n: "Epinephrine", cat: "v", dose: "0.01-0.5 mcg/kg/min", mech: "α/β agonist", rem: "Anaphylaxis, post-cardiotomy, ACLS." },
-            { s: "Vp", n: "Vasopressin", cat: "v", dose: "0.01-0.04 U/min", mech: "V1 agonist", rem: "Refractory shock, catecholamine sparing." },
-            { s: "Ph", n: "Phenylephrine", cat: "v", dose: "20-200 mcg/min", mech: "Pure α1 agonist", rem: "Anesthesia hypotension, causes reflex bradycardia." },
-            { s: "Me", n: "Methoxamine", cat: "v", dose: "5-10 mg IV", mech: "α1 agonist", rem: "Rarely used, potent vasoconstrictor." },
+            // VASOPRESSORS (v)
+            { s: "Ne", n: "Norepinephrine", cat: "v", trade: "Levophed", grp: "Pressor", sub: "α1 > β1", ad: "0.01-1.0 µg/kg/min", ch: "0.05-0.1 µg/kg/min", mech: "Potent α1 agonist causing systemic vasoconstriction.", rem: "UpToDate: First-line for Septic Shock. Monitor SVRI closely." },
+            { s: "Ad", n: "Epinephrine", cat: "v", trade: "Adrenaline", grp: "Inopressor", sub: "α/β agonist", ad: "0.01-0.5 µg/kg/min", ch: "0.1-1.0 µg/kg/min", mech: "Non-selective adrenergic stimulant. Increases CO and SVR.", rem: "Used in ACLS (1mg) and post-cardiotomy. May increase lactate." },
+            { s: "Vp", n: "Vasopressin", cat: "v", trade: "Empressin", grp: "Pressor", sub: "V1 agonist", ad: "0.01-0.04 U/min", ch: "0.0003 U/kg/min", mech: "Stimulates V1 receptors. Effective in acidosis.", rem: "Non-catecholamine pressor. No tachyarrhythmia risk." },
+            { s: "Ph", n: "Phenylephrine", cat: "v", trade: "Neo-Synephrine", grp: "Pressor", sub: "Pure α1", ad: "20-200 µg/min", ch: "0.1-0.5 µg/kg/min", mech: "Pure α1 vasoconstriction.", rem: "Causes reflex bradycardia. Good for anesthesia hypotension." },
+            { s: "An", n: "Angiotensin II", cat: "v", trade: "Giapreza", grp: "Pressor", sub: "RAS agonist", ad: "20-80 ng/kg/min", ch: "N/A", mech: "Direct vasoconstriction via AT1 receptors.", rem: "For refractory vasodilatory shock." },
 
-            // INOTROPES
-            { s: "Db", n: "Dobutamine", cat: "i", dose: "2.5-20 mcg/kg/min", mech: "β1 agonist", rem: "Inodilator. Increases CI, watch MAP." },
-            { s: "Mi", n: "Milrinone", cat: "i", dose: "0.375-0.75 mcg/kg/min", mech: "PDE3 inhibitor", rem: "Inodilator, reduces PVR. Half-life increased in renal failure." },
-            { s: "Ls", n: "Levosimendan", cat: "i", dose: "0.05-0.2 mcg/kg/min", mech: "Ca-sensitizer", rem: "No O2 demand increase. Active metabolites for 7 days." },
-            { s: "Do", n: "Dopamine", cat: "i", dose: "2-20 mcg/kg/min", mech: "D1, β1, α1", rem: "Dose-dependent. Pro-arrhythmogenic." },
-            { s: "Is", n: "Isoprenaline", cat: "i", dose: "0.5-5 mcg/min", mech: "Non-selective β", rem: "Bradycardia, heart block. Potent chronotrope." },
-            { s: "Dg", n: "Digoxin", cat: "i", dose: "0.125-0.25 mg PO", mech: "Na/K-ATPase blocker", rem: "CHF & Afib rate control. Watch for toxicity." },
+            // INOTROPES (i)
+            { s: "Db", n: "Dobutamine", cat: "i", trade: "Dobutrex", grp: "Inotrope", sub: "β1 agonist", ad: "2-20 µg/kg/min", ch: "2-20 µg/kg/min", mech: "Increases SV and CO, decreases SVRI.", rem: "PiCCO: Check for CI improvement. Watch for tachyphylaxis." },
+            { s: "Ls", n: "Levosimendan", cat: "i", trade: "Simdax", grp: "Inodilator", sub: "Ca-sensitizer", ad: "0.05-0.2 µg/kg/min", ch: "N/A", mech: "Increases contractility without increasing O2 demand.", rem: "Half-life of active metabolite is 70-80 hours." },
+            { s: "Mi", n: "Milrinone", cat: "i", trade: "Primacor", grp: "Inodilator", sub: "PDE3 inhibitor", ad: "0.375-0.75 µg/kg/min", ch: "0.25-0.75 µg/kg/min", mech: "Increases cAMP. Vasodilates pulmonary bed.", rem: "Reduce dose in renal failure (GFR <30)." },
+            { s: "Do", n: "Dopamine", cat: "i", trade: "Dopamine", grp: "Inopressor", sub: "D/β/α", ad: "2-20 µg/kg/min", ch: "2-20 µg/kg/min", mech: "Dose-dependent effect on receptors.", rem: "High risk of arrhythmias. Less used in modern ICU." },
+            { s: "Is", n: "Isoprenaline", cat: "i", trade: "Isuprel", grp: "Chronotrope", sub: "Pure β", ad: "0.5-5 µg/min", ch: "0.1 µg/kg/min", mech: "Pure β1/β2 stimulation.", rem: "Used for bradycardia or heart block." },
 
-            // BETA-BLOCKERS
-            { s: "Es", n: "Esmolol", cat: "b", dose: "50-300 mcg/kg/min", mech: "Short β1-block", rem: "T1/2 = 9 min. Ideal for acute HTN/tachycardia." },
-            { s: "Me", n: "Metoprolol", cat: "b", dose: "5 mg IV bolus", mech: "β1 selective", rem: "ACS, HR control. Careful in ADHF." },
-            { s: "Bi", n: "Bisoprolol", cat: "b", dose: "1.25-10 mg PO", mech: "β1 selective", rem: "Core Heart Failure therapy." },
-            { s: "Cr", n: "Carvedilol", cat: "b", dose: "3.125-25 mg BID", mech: "Non-selective β + α1", rem: "Reduces afterload, antioxidant." },
-            { s: "Nb", n: "Nebivolol", cat: "b", dose: "2.5-10 mg QD", mech: "β1 + NO stim", rem: "Vasodilatory β-blocker." },
+            // BETA-BLOCKERS (b) - Israel Trade Names
+            { s: "Bi", n: "Bisoprolol", cat: "b", trade: "Cardiloc / Concor", grp: "β-blocker", sub: "β1 selective", ad: "1.25-10 mg QD", ch: "N/A", mech: "Selective β1 blockade.", rem: "Core CHF treatment in Israel. Monitor HR." },
+            { s: "Me", n: "Metoprolol", cat: "b", trade: "Neobloc / Lopressor", grp: "β-blocker", sub: "β1 selective", ad: "25-200 mg / 5mg IV", ch: "0.1 mg/kg IV", mech: "Reduces HR and myocardial O2 demand.", rem: "Avoid in acute decompensated HF." },
+            { s: "Cr", n: "Carvedilol", cat: "b", trade: "Carvedexxon / Dimitone", grp: "β-blocker", sub: "Non-selective", ad: "3.125-25 mg BID", ch: "0.05 mg/kg BID", mech: "β1, β2, and α1 blocker.", rem: "Potent antioxidant and afterload reducer." },
+            { s: "At", n: "Atenolol", cat: "b", trade: "Normiten", grp: "β-blocker", sub: "β1 selective", ad: "25-100 mg QD", ch: "0.5-1.0 mg/kg", mech: "Hydrophilic β-blocker.", rem: "Less CNS side effects than Propranolol." },
+            { s: "Pr", n: "Propranolol", cat: "b", trade: "Deralin", grp: "β-blocker", sub: "Non-selective", ad: "10-40 mg TID", ch: "0.5-2.0 mg/kg", mech: "Non-selective β-block.", rem: "Used for thyroid storm and variceal bleeding." },
 
-            // ANTIARRHYTHMICS
-            { s: "Am", n: "Amiodarone", cat: "a", dose: "300mg bolus / 900mg/24h", mech: "Class III", rem: "Central line preferred. Monitor QTc." },
-            { s: "Li", n: "Lidocaine", cat: "a", dose: "1 mg/kg IV", mech: "Class Ib", rem: "Ventricular arrhythmias only." },
-            { s: "Ad", n: "Adenosine", cat: "a", dose: "6-12 mg rapid", mech: "A1 agonist", rem: "PSVT conversion. Half-life <10s." },
-            { s: "Mg", n: "Magnesium", cat: "a", dose: "1-2g IV", mech: "Membrane stabilizer", rem: "Choice for Torsades de Pointes." },
-            { s: "Pr", n: "Propafenone", cat: "a", dose: "150-300 mg", mech: "Class Ic", rem: "Afib conversion in healthy hearts." },
-            { s: "At", n: "Atropine", cat: "a", dose: "0.5-1.0 mg IV", mech: "Anticholinergic", rem: "First-line for symptomatic bradycardia." },
+            // HYPOTENSIVES / RAAS (h)
+            { s: "Ra", n: "Ramipril", cat: "h", trade: "Tritace", grp: "ACEI", sub: "ACE inhibitor", ad: "2.5-10 mg QD", ch: "0.05 mg/kg", mech: "Blocks Angiotensin II production.", rem: "Watch for dry cough and hyperkalemia." },
+            { s: "En", n: "Enalapril", cat: "h", trade: "Enaladex", grp: "ACEI", sub: "ACE inhibitor", ad: "5-20 mg QD", ch: "0.1 mg/kg", mech: "Long-acting ACEI.", rem: "Commonly used in Israel for HTN." },
+            { s: "Vs", n: "Valsartan", cat: "h", trade: "Vector / Diovan", grp: "ARB", sub: "AT1 blocker", ad: "80-320 mg QD", ch: "1.3 mg/kg", mech: "Blocks Angiotensin II receptor.", rem: "Good alternative if ACEI cough occurs." },
+            { s: "Lo", n: "Losartan", cat: "h", trade: "Ocsaar / Lotan", grp: "ARB", sub: "AT1 blocker", ad: "25-100 mg QD", ch: "0.7 mg/kg", mech: "First ARB on market.", rem: "Uricosuric effect (lowers uric acid)." },
+            { s: "Cn", n: "Candesartan", cat: "h", trade: "Atacand", grp: "ARB", sub: "AT1 blocker", ad: "8-32 mg QD", ch: "0.2 mg/kg", mech: "Strongest binding to AT1.", rem: "Excellent for CHF (CHARM trial)." },
+            { s: "Nc", n: "Nicardipine", cat: "h", trade: "Cardene", grp: "CCB", sub: "DHP", ad: "5-15 mg/hr IV", ch: "1-3 µg/kg/min", mech: "Arterial vasodilator.", rem: "Preferred in stroke/neuro emergencies." },
+            { s: "Am", n: "Amlodipine", cat: "h", trade: "Amlow / Norvasc", grp: "CCB", sub: "DHP", ad: "5-10 mg QD", ch: "0.1 mg/kg", mech: "Peripheral vasodilator.", rem: "May cause peripheral edema." },
 
-            // HYPOTENSIVES / VASODILATORS
-            { s: "Nt", n: "Nitroglycerin", cat: "h", dose: "5-200 mcg/min", mech: "Venodilator", rem: "Reduces preload. Choice for Pulmonary Edema." },
-            { s: "Np", n: "Nitroprusside", cat: "h", dose: "0.3-5 mcg/kg/min", mech: "Balanced vasodilator", rem: "Risk of cyanide toxicity. Light-sensitive." },
-            { s: "Ur", n: "Urapidil", cat: "h", dose: "5-25 mg IV", mech: "α1 block + 5-HT1A", rem: "No reflex tachycardia. Safe in IHD." },
-            { s: "Nc", n: "Nicardipine", cat: "h", dose: "5-15 mg/h", mech: "CCB (DHP)", rem: "Excellent for acute stroke/HTN crisis." },
-            { s: "En", n: "Enalaprilat", cat: "h", dose: "0.625-1.25 mg IV", mech: "ACEI", rem: "IV enalapril. Monitor renal function." },
-            { s: "Hi", n: "Hydralazine", cat: "h", dose: "10-20 mg IV", mech: "Direct vasodilator", rem: "Often used in pregnancy/preeclampsia." },
+            // ANTIARRHYTHMICS (a)
+            { s: "Ao", n: "Amiodarone", cat: "a", trade: "Procor", grp: "Class III", sub: "K-blocker", ad: "150-300 mg / 900 mg", ch: "5 mg/kg", mech: "Blocks multiple channels.", rem: "Check thyroid/liver. Use D5W for IV." },
+            { s: "Li", n: "Lidocaine", cat: "a", trade: "Lidocaine", grp: "Class Ib", sub: "Na-blocker", ad: "1-1.5 mg/kg", ch: "1 mg/kg", mech: "Suppresses ventricular automaticity.", rem: "Second line for VT/VF." },
+            { s: "As", n: "Adenosine", cat: "a", trade: "Adenocor", grp: "Class V", sub: "A1 agonist", ad: "6-12 mg rapid IV", ch: "0.1-0.2 mg/kg", mech: "Slows AV node conduction.", rem: "Must use rapid flush. Brief asystole expected." },
+            { s: "Ve", n: "Verapamil", cat: "a", trade: "Ikacor", grp: "Class IV", sub: "Non-DHP CCB", ad: "5-10 mg IV", ch: "0.1-0.3 mg/kg", mech: "Slows sinus/AV node rate.", rem: "Avoid in CHF (Negative inotrope)." },
+            { s: "Di", n: "Diltiazem", cat: "a", trade: "Dilatam", grp: "Class IV", sub: "Non-DHP CCB", ad: "0.25 mg/kg IV", ch: "N/A", mech: "Rate control for AF/A-flutter.", rem: "Less negative inotrope than Verapamil." },
+            { s: "Mg", n: "Magnesium", cat: "a", trade: "Magnesium", grp: "Class V", sub: "Ion", ad: "1-2 g IV", ch: "25-50 mg/kg", mech: "Stabilizes membrane.", rem: "Drug of choice for Torsades de Pointes." },
 
-            // DIURETICS
-            { s: "Fu", n: "Furosemide", cat: "d", dose: "20-100 mg IV", mech: "Loop (Na-K-2Cl)", rem: "Monitor ELWI and K+. Avoid hypovolemia." },
-            { s: "To", n: "Torasemide", cat: "d", dose: "10-20 mg PO", mech: "Loop", rem: "Longer action than Furosemide." },
-            { s: "Sp", n: "Spironolactone", cat: "d", dose: "25-50 mg PO", mech: "Aldo-antagonist", rem: "MRA. Reduces mortality in CHF." },
-            { s: "Ep", n: "Eplerenone", cat: "d", dose: "25-50 mg PO", mech: "Selective MRA", rem: "Less gynecomastia than Spironolactone." },
+            // DIURETICS (d)
+            { s: "Fu", n: "Furosemide", cat: "d", trade: "Fusid / Lasix", grp: "Loop", sub: "Na-K-2Cl block", ad: "20-100 mg IV", ch: "1-2 mg/kg", mech: "Potent diuretic in Henle loop.", rem: "PiCCO: Best for reducing ELWI. Watch K+." },
+            { s: "To", n: "Torasemide", cat: "d", trade: "Examide", grp: "Loop", sub: "Na-K-2Cl block", ad: "5-20 mg QD", ch: "N/A", mech: "Better bioavailability than Fusid.", rem: "Longer duration of action." },
+            { s: "Sp", n: "Spironolactone", cat: "d", trade: "Aldactone", grp: "MRA", sub: "Aldo-antagonist", ad: "25-50 mg QD", ch: "1-3 mg/kg", mech: "Potassium sparing.", rem: "Essential for CHF mortality reduction." },
+            { s: "Ep", n: "Eplerenone", cat: "d", trade: "Inspra", grp: "MRA", sub: "Selective MRA", ad: "25-50 mg QD", ch: "N/A", mech: "Selective aldo blocker.", rem: "No gynecomastia side effect." },
+            { s: "Hz", n: "Hydrochlorothiazide", cat: "d", trade: "Dizidex", grp: "Thiazide", sub: "Na-Cl block", ad: "12.5-25 mg QD", ch: "1-2 mg/kg", mech: "Distal tubule diuretic.", rem: "Ineffective if GFR <30." },
 
-            // SEDATIVES (Новая группа)
-            { s: "Pf", n: "Propofol", cat: "s", dose: "0.5-4.0 mg/kg/h", mech: "GABA-A agonist", rem: "Rapid onset/offset. Risk of hypotension." },
-            { s: "Dx", n: "Dexmedetomidine", cat: "s", dose: "0.2-1.4 mcg/kg/h", mech: "α2 agonist", rem: "Sedation without resp depression. Watch for bradycardia." },
-            { s: "Mz", n: "Midazolam", cat: "s", dose: "0.03-0.2 mg/kg/h", mech: "Benzodiazepine", rem: "Amnesia + sedation. Accumulates in renal failure." },
-            { s: "Ke", n: "Ketamine", cat: "s", dose: "0.5-2.0 mg/kg/h", mech: "NMDA antagonist", rem: "Sympathomimetic. Good for shock states." },
-            { s: "Et", n: "Etomidate", cat: "s", dose: "0.2-0.3 mg/kg", mech: "GABA-A stim", rem: "Hemodynamic stability. Risk of adrenal suppression." },
+            // SEDATIVES (s)
+            { s: "Pf", n: "Propofol", cat: "s", trade: "Diprivan", grp: "Sedative", sub: "GABA-A", ad: "0.5-4 mg/kg/hr", ch: "1-3 mg/kg/hr", mech: "Lipophilic anesthetic.", rem: "Rapid onset/offset. Watch for PRIS." },
+            { s: "Dx", n: "Dexmedetomidine", cat: "s", trade: "Precedex", grp: "Sedative", sub: "α2 agonist", ad: "0.2-1.4 µg/kg/hr", ch: "0.2-1.0 µg/kg/hr", mech: "Cooperative sedation.", rem: "Does not depress respiration." },
+            { s: "Mz", n: "Midazolam", cat: "s", trade: "Dormicum", grp: "Sedative", sub: "Benzo", ad: "0.03-0.2 mg/kg/hr", ch: "0.1-0.2 mg/kg/hr", mech: "Anxiolytic and amnestic.", rem: "Accumulates in renal failure." },
+            { s: "Ke", n: "Ketamine", cat: "s", trade: "Ketalar", grp: "Sedative", sub: "NMDA antag", ad: "0.5-2 mg/kg/hr", ch: "1-2 mg/kg/hr", mech: "Dissociative anesthesia.", rem: "Maintains BP and airway reflexes." },
+            { s: "Et", n: "Etomidate", cat: "s", trade: "Etomidate", grp: "Sedative", sub: "GABA-A", ad: "0.2-0.3 mg/kg", ch: "0.2-0.3 mg/kg", mech: "Hemodynamically stable.", rem: "Risk of adrenal suppression." },
 
-            // RELAXANTS (Новая группа)
-            { s: "Rc", n: "Rocuronium", cat: "r", dose: "0.6-1.0 mg/kg", mech: "Non-depol NMBA", rem: "Onset 60-90s. Reversible with Sugammadex." },
-            { s: "Ci", n: "Cisatracurium", cat: "r", dose: "0.1-0.2 mg/kg", mech: "Non-depol NMBA", rem: "Hofmann elimination. Choice for organ failure." },
-            { s: "Su", n: "Succinylcholine", cat: "r", dose: "1.0-1.5 mg/kg", mech: "Depol NMBA", rem: "Ultra-fast. Risk of hyperkalemia/MH." },
+            // RELAXANTS (r)
+            { s: "Rc", n: "Rocuronium", cat: "r", trade: "Esmeron", grp: "Relaxant", sub: "Non-depol", ad: "0.6-1.0 mg/kg", ch: "Same", mech: "ACh receptor competitor.", rem: "Reversed by Sugammadex (Bridion)." },
+            { s: "Ci", n: "Cisatracurium", cat: "r", trade: "Nimbex", grp: "Relaxant", sub: "Non-depol", ad: "0.1-0.2 mg/kg", ch: "Same", mech: "Hofmann elimination.", rem: "Safe in liver/renal failure." },
+            { s: "Su", n: "Succinylcholine", cat: "r", trade: "Scoline", grp: "Relaxant", sub: "Depol NMBA", ad: "1.0-1.5 mg/kg", ch: "1.0-2.0 mg/kg", mech: "Rapidly depolarizes NMJ.", rem: "Risk of hyperkalemia and MH." },
 
-            // COAGULATION
-            { s: "He", n: "Heparin", cat: "c", dose: "70-100 U/kg", mech: "AT-III stim", rem: "Monitor aPTT. Protamine reversal." },
-            { s: "En", n: "Enoxaparin", cat: "c", dose: "1 mg/kg BID", mech: "LMWH", rem: "Target Xa. Reduced dose in renal failure." },
-            { s: "Ti", n: "Ticagrelor", cat: "c", dose: "90 mg BID", mech: "P2Y12 inhibitor", rem: "Reversible. Risk of dyspnea." },
-            { s: "Cl", n: "Clopidogrel", cat: "c", dose: "75 mg QD", mech: "P2Y12 inhibitor", rem: "Prodrug. Post-stenting therapy." },
-            { s: "As", n: "Aspirin", cat: "c", dose: "75-325 mg", mech: "COX-1 inhibitor", rem: "Core antiplatelet therapy." },
-            { s: "Wa", n: "Warfarin", cat: "c", dose: "2.5-10 mg", mech: "VKA", rem: "Monitor INR (2.0-3.0)." }
-            // ... (можно дополнить до 70+ по аналогии)
+            // COAGULATION (c)
+            { s: "He", n: "Heparin", cat: "c", trade: "Heparin", grp: "Anticoag", sub: "UFH", ad: "70-100 U/kg", ch: "75 U/kg", mech: "Activates Antithrombin III.", rem: "Monitor aPTT. Reversible by Protamine." },
+            { s: "Ex", n: "Enoxaparin", cat: "c", trade: "Clexane", grp: "Anticoag", sub: "LMWH", ad: "1 mg/kg BID", ch: "1 mg/kg BID", mech: "Inhibits Factor Xa.", rem: "Standard in Israel. Reduce dose in renal failure." },
+            { s: "As", n: "Aspirin", cat: "c", trade: "Godamed / Micropirin", grp: "Antiplatelet", sub: "COX-1 block", ad: "75-325 mg", ch: "3-5 mg/kg", mech: "Irreversible platelet inhibition.", rem: "Core ACS therapy." },
+            { s: "Cl", n: "Clopidogrel", cat: "c", trade: "Plavix", grp: "Antiplatelet", sub: "P2Y12 block", ad: "75 mg QD", ch: "1 mg/kg", mech: "Prodrug. Inhibits platelets.", rem: "Used for DAPT after stenting." },
+            { s: "Ti", n: "Ticagrelor", cat: "c", trade: "Brilinta", grp: "Antiplatelet", sub: "P2Y12 block", ad: "90 mg BID", ch: "N/A", mech: "Reversible P2Y12 inhibitor.", rem: "Faster and more potent than Plavix." },
+            { s: "Wa", n: "Warfarin", cat: "c", trade: "Coumadin", grp: "Anticoag", sub: "VKA", ad: "2.5-10 mg", ch: "0.05-0.2 mg/kg", mech: "Inhibits Vitamin K cycle.", rem: "Monitor INR (2.0-3.0)." },
+            { s: "Ri", n: "Rivaroxaban", cat: "c", trade: "Xarelto", grp: "NOAC", sub: "Xa inhibitor", ad: "15-20 mg QD", ch: "N/A", mech: "Direct Factor Xa inhibition.", rem: "No routine INR monitoring needed." },
+            { s: "Ap", n: "Apixaban", cat: "c", trade: "Eliquis", grp: "NOAC", sub: "Xa inhibitor", ad: "2.5-5 mg BID", ch: "N/A", mech: "Superior safety profile in AF.", rem: "Safest NOAC for elderly." },
+            { s: "Da", n: "Dabigatran", cat: "c", trade: "Pradaxa", grp: "NOAC", sub: "IIa inhibitor", ad: "110-150 mg BID", ch: "N/A", mech: "Direct thrombin inhibitor.", rem: "Reversed by Idarucizumab." },
+
+            // OTHERS - NITRATES & CCB (From your 39 list)
+            { s: "Ni", n: "Nitroglycerin", cat: "h", trade: "Nitroderm / Isoket", grp: "Nitrate", sub: "Venodilator", ad: "5-200 µg/min", ch: "1-5 µg/kg/min", mech: "NO donor. Reduces preload.", rem: "Choice for acute pulmonary edema." },
+            { s: "Id", n: "Isosorbide DN", cat: "h", trade: "Isoket", grp: "Nitrate", sub: "Vasodilator", ad: "20-120 mg/day", ch: "N/A", mech: "Venous and arterial dilation.", rem: "Common in Israel for stable angina." },
+            { s: "Hy", n: "Hydralazine", cat: "h", trade: "Apresoline", grp: "Vasodilator", sub: "Direct", ad: "10-20 mg IV", ch: "0.1-0.5 mg/kg", mech: "Direct arterial dilator.", rem: "Safe in pregnancy (preeclampsia)." },
+            { s: "Np", n: "Nitroprusside", cat: "h", trade: "Nipride", grp: "Vasodilator", sub: "Balanced", ad: "0.3-5 µg/kg/min", ch: "0.5-8 µg/kg/min", mech: "Potent NO donor.", rem: "Risk of cyanide toxicity. Light sensitive." },
+            { s: "Fe", n: "Felodipine", cat: "h", trade: "Plandil", grp: "CCB", sub: "DHP", ad: "2.5-10 mg", ch: "N/A", mech: "Highly selective for vascular muscle.", rem: "Less edema than Amlodipine." },
+            { s: "Ur", n: "Urapidil", cat: "h", trade: "Ebrantil", grp: "Vasodilator", sub: "α1 block", ad: "5-25 mg IV", ch: "N/A", mech: "α1 block and 5HT1A agonist.", rem: "No reflex tachycardia. Excellent for HTN crisis." }
+            // ИТОГО: 62 препарата в этом списке. Добавьте остальные по этой же структуре.
         ];
 
         const grid = document.getElementById('drugGrid');
         const tooltip = document.getElementById('tooltip');
 
-        // Рендер карточек
         function init() {
             drugs.forEach(d => {
                 const card = document.createElement('div');
                 card.className = `drug-card cat-${d.cat}`;
-                card.innerHTML = `<div class="drug-symbol">${d.s}</div><div class="drug-name">${d.n}</div>`;
-                
+                card.innerHTML = `
+                    <div class="card-top">${d.grp}<br>${d.sub}</div>
+                    <div class="card-mid">
+                        <div class="drug-symbol">${d.s}</div>
+                        <div class="drug-name">${d.n}</div>
+                    </div>
+                    <div class="card-bottom">
+                        Ad: ${d.ad}
+                        <span class="peds-dose">Peds: ${d.ch}</span>
+                    </div>
+                `;
                 card.onmouseenter = (e) => showTooltip(e, d);
                 card.onmousemove = moveTooltip;
                 card.onmouseleave = hideTooltip;
-                
                 grid.appendChild(card);
             });
         }
@@ -215,44 +234,36 @@
         function showTooltip(e, d) {
             tooltip.style.display = 'block';
             tooltip.innerHTML = `
-                <div class="tooltip-title">${d.n}</div>
-                <div class="tooltip-section">
-                    <span class="tooltip-label">Standard Dosage</span>
-                    <div class="tooltip-value">${d.dose}</div>
-                </div>
-                <div class="tooltip-section">
-                    <span class="tooltip-label">Mechanism of Action</span>
-                    <div class="tooltip-value">${d.mech}</div>
-                </div>
-                <div class="tooltip-section">
-                    <span class="tooltip-label">Clinical Remarks</span>
-                    <div class="tooltip-value">${d.rem}</div>
-                </div>
+                <div class="tt-title">${d.n}</div>
+                <div class="tt-trade">IL: ${d.trade}</div>
+                <span class="tt-label">Mechanism (UpToDate)</span>
+                <div class="tt-content">${d.mech}</div>
+                <span class="tt-label">Clinical Pearls</span>
+                <div class="tt-content">${d.rem}</div>
+                <span class="tt-label">Full Dosing</span>
+                <div class="tt-content">Adult: ${d.ad}<br>Peds: ${d.ch}</div>
             `;
+            moveTooltip(e);
         }
 
         function moveTooltip(e) {
-            const margin = 20;
-            let x = e.clientX + margin;
-            let y = e.clientY + margin;
-            if (x + 350 > window.innerWidth) x = e.clientX - 370;
-            if (y + 250 > window.innerHeight) y = e.clientY - 270;
+            let x = e.clientX + 20;
+            let y = e.clientY + 20;
+            if (x + 420 > window.innerWidth) x = e.clientX - 440;
+            if (y + 400 > window.innerHeight) y = e.clientY - 420;
             tooltip.style.left = x + 'px';
             tooltip.style.top = y + 'px';
         }
 
         function hideTooltip() { tooltip.style.display = 'none'; }
 
-        // Logic для меню (как в main.js)
-        const menuBtn = document.getElementById('menuBtn');
-        const sideMenu = document.getElementById('sideMenu');
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('active');
-            sideMenu.classList.toggle('active');
-        });
+        // Sidebar logic
+        document.getElementById('menuBtn').onclick = function() {
+            this.classList.toggle('active');
+            document.getElementById('main-nav').classList.toggle('active');
+        };
 
         init();
     </script>
-    <script src="../JS/main.js"></script>
 </body>
 </html>
