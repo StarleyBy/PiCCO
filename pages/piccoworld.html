@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -285,10 +285,63 @@
                 font-size: 1.4em;
             }
         }
+        /* Адаптация под каркас проекта */
+        .wrapper { display: flex; }
+        .main-content { flex: 1; padding: 20px; min-width: 0; }
+        .periodic-container { max-width: 100%; margin: 0 auto; }
+        .tooltip { z-index: 2000; } /* Чтобы меню не перекрывало подсказки */
+        
+        @media (max-width: 1024px) {
+            .wrapper { flex-direction: column; }
+            .periodic-table { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .periodic-table { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title docs-creator"><span class="green-highlighted-oval-3d">PiCCO</span> - <span class="color-red">O</span>nline Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="piccoworld.html" class="active">PiCCO World</a></li>
+                <li><a href="pages/simulation.html">Quiz</a></li>        
+            </ul>
+        </nav>
+        <main class="main-content">
+    <div class="periodic-container">
         <h1>PICCO WORLD</h1>
         
         <div class="periodic-table" id="periodicTable"></div>
@@ -296,6 +349,15 @@
     </div>
 
     <script>
+        </main>
+    </div> <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 <span class="green-highlighted-oval-3d">PiCCO</span> Online Manual</p>
+        </div>
+    </footer>
+
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
         const parameters = {
             bp: {
                 label: 'Arterial Pressure',
