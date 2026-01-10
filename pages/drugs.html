@@ -23,7 +23,7 @@
         }
 
         .periodic-table {
-            display: grid; grid-template-columns: repeat(8, 1fr);
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             gap: 10px; padding: 20px;
             background: rgba(20, 20, 0.8);
             border: 3px solid #00ffff; border-radius: 10px;
@@ -39,9 +39,9 @@
 
         .element:hover { transform: scale(1.05); z-index: 10; box-shadow: 0 0 20px currentColor; }
 
-        .element-label { font-size: 0.65em; line-height: 1.2; opacity: 0.9; text-transform: uppercase; font-weight: bold; }
-        .element-symbol { font-size: 1.6em; font-weight: 800; text-align: center; text-shadow: 0 10px currentColor; }
-        .element-value { font-size: 0.7em; opacity: 0.8; text-align: center; font-style: italic; }
+        .element-label { font-size: 0.55em; line-height: 1.1; opacity: 0.85; text-transform: uppercase; font-weight: bold; word-wrap: break-word; }
+        .element-symbol { font-size: 1.8em; font-weight: 900; text-align: center; text-shadow: 0 0 15px currentColor; word-wrap: break-word; }
+        .element-value { font-size: 0.6em; opacity: 0.75; text-align: center; font-style: italic; word-wrap: break-word; }
 
         /* ТУЛТИП */
         .tooltip {
@@ -66,10 +66,10 @@
         @media (max-width: 768px) {
             .periodic-table { grid-template-columns: repeat(2, 1fr); }
             .tooltip {
-                left: 50% !important; top: 50% !important;
+                position: fixed; left: 50% !important; top: 50% !important;
                 transform: translate(-50%, -50%) !important;
                 width: 90vw; max-height: 80vh; overflow-y: auto;
-                pointer-events: none;
+                pointer-events: none; border-width: 3px;
             }
             .tooltip.active { pointer-events: auto; }
             .close-tooltip { display: block; }
