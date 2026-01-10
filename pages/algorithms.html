@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afterload - PiCCO Online Manual</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <title>Algorithms - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@40;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/main.css">
     <link rel="stylesheet" href="../CSS/print.css" media="print">
 </head>
 <body>
     <div class="nav-overlay" id="nav-overlay"></div>
     <header class="main-header">
-        <h1 class="site-title"><a href="../index.html" class="site-title"><span class="green-highlighted-oval-3d">PiCCO</span> - Online Manual</a></h1>
-        <button class="menu-toggle" id="menu-toggle">☰</button>
+        <h1 class="site-title"><a href="../index.html" class="site-title">PiCCO - Online Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
     </header>
 
     <div class="wrapper container">
@@ -21,7 +22,7 @@
                 <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
             </div>
             <ul>
-               <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
                 <li><a href="principles.html">Principles</a></li>
                 <li><a href="history.html">History</a></li>
                 <li><a href="equipment.html">Equipment</a></li>
@@ -44,13 +45,14 @@
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="visualizations.html">Visualizations</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="simulation.html"><span class="gold-highlighted-oval-3d">Quiz 🎓</span></a></li>
-                <li><a href="piccoworld.html"><span class="green-highlighted-oval-3d">PiCCO</span> WORLD</a></li>
-                <li><a href="commondrugs.html"><span class="red-highlighted-oval-3d">Common 🧐</span> <span class="pink-highlighted-oval-3d">Drugs</span></a></li>
+                <li><a href="simulation.html">Quiz</a></li>
             </ul>
         </nav>
 
-<main class="main-content">
+        <main class="main-content">
+            <h2>PiCCO Algorithms: Key Decision-Making Schemes</h2>
+            <p>PiCCO algorithms provide a structured approach to identifying the specific physiological defect limiting oxygen delivery (DO2) and guide targeted therapy (fluids, inotropes or vasopressors), while minimizing the risk of pulmonary edema (EVLWI).</p>
+
             <div class="info-box info-box-info">
                 <h3>Hemodynamic Optimization Algorithm</h3>
                 <p>The goal of this algorithm is to maintain <strong>oxygen delivery (DO2)</strong> above metabolic needs, sequentially optimizing preload, afterload and contractility, with strict control of pulmonary edema risk (EVLWI).</p>
@@ -483,318 +485,19 @@
                 </table>
             </div>
         </main>
-<h2>Clinical Decision Algorithms Using 
-
-PiCCO</h2>
-
-<p>
-PiCCO-based algorithms are <strong>physiology-
-
-driven decision frameworks</strong>, not rigid 
-
-protocols.
-Their purpose is to identify <em>which 
-
-component of oxygen transport is failing</em> 
-
-and to apply
-<strong>targeted therapy with minimal 
-
-iatrogenic harm</strong>.
-</p>
-
-<hr>
-
-<h3>Foundational Principles (Must Be Understood 
-
-Before Any Algorithm)</h3>
-<ul>
-    <li>Cardiac index alone <strong>never 
-
-defines adequacy of perfusion</strong>.</li>
-    <li>Preload status ≠ fluid 
-
-responsiveness.</li>
-    <li>Dynamic indices are valid <strong>only 
-
-under strict conditions</strong>.</li>
-    <li>Extravascular lung water is a 
-
-<strong>therapeutic constraint</strong>, not 
-
-just a diagnostic marker.</li>
-    <li>Every intervention must be followed by 
-
-<strong>re-measurement</strong>.</li>
-</ul>
-
-<hr>
-
-<h3>Algorithm 1 — Global Hemodynamic 
-
-Optimization</h3>
-
-<h4>Step 1. Clinical Context & Safety 
-
-Check</h4>
-<ul>
-    <li>Confirm indication for advanced 
-
-hemodynamic monitoring.</li>
-    <li>Assess signs of tissue hypoperfusion 
-
-(lactate, capillary refill, urine output).</li>
-    <li>Evaluate EVLWI and PVPI before 
-
-considering fluids.</li>
-</ul>
-
-<h4>Step 2. Is Oxygen Delivery Potentially 
-
-Inadequate?</h4>
-<p>
-Low DO₂ is suspected when <strong>CI is 
-
-insufficient for metabolic demand</strong>
-or when extraction is increased (high O₂ER).
-</p>
-
-<ul>
-    <li>CI must be interpreted relative to 
-
-VO₂.</li>
-    <li>Normal CI does not exclude shock.</li>
-</ul>
-
-<h4>Step 3. Preload & Fluid Responsiveness 
-
-Assessment</h4>
-
-<table>
-<thead>
-<tr>
-    <th>Question</th>
-    <th>Assessment</th>
-    <th>Interpretation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-    <td>Is preload insufficient?</td>
-    <td>GEDVI trend, clinical context</td>
-    <td>Low GEDVI suggests volume depletion, 
-
-not indication per se</td>
-</tr>
-<tr>
-    <td>Will fluids increase SV?</td>
-    <td>SVV / PPV / PLR</td>
-    <td>Valid only if sinus rhythm, controlled 
-
-ventilation, adequate VT</td>
-</tr>
-<tr>
-    <td>Are lungs fluid tolerant?</td>
-    <td>EVLWI / PVPI</td>
-    <td>High values contraindicate further 
-
-fluids</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-<strong>Fluid is indicated only 
-
-when:</strong><br>
-✔ Fluid responsiveness likely<br>
-✔ Pulmonary tolerance acceptable<br>
-✔ Expected benefit outweighs risk
-</p>
-
-<h4>Step 4. Afterload & Arterial Tone</h4>
-
-<p>
-Hypotension is not synonymous with 
-
-vasodilation.
-SVRI must be interpreted in the context of CI 
-
-and MAP.
-</p>
-
-<table>
-<thead>
-<tr>
-    <th>Pattern</th>
-    <th>Interpretation</th>
-    <th>Therapy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-    <td>Low MAP + low SVRI</td>
-    <td>Pathological vasodilation</td>
-    <td>Vasopressors</td>
-</tr>
-<tr>
-    <td>Low CI + high SVRI</td>
-    <td>Afterload mismatch</td>
-    <td>Reduce resistance if perfusion 
-
-allows</td>
-</tr>
-</tbody>
-</table>
-
-<h4>Step 5. Contractility Evaluation</h4>
-
-<p>
-With adequate preload and appropriate 
-
-afterload,
-persistent low CI reflects myocardial 
-
-dysfunction.
-</p>
-
-<ul>
-    <li>CFI and GEF assess <strong>global 
-
-systolic performance</strong>.</li>
-    <li>Low values indicate need for inotropic 
-
-support.</li>
-    <li>Always reassess EVLWI after inotrope 
-
-initiation.</li>
-</ul>
-
-<h4>Step 6. Iterative Reassessment</h4>
-<p>
-PiCCO-guided optimization is a 
-
-<strong>continuous loop</strong>.
-Each intervention mandates re-evaluation of:
-CI, GEDVI, EVLWI, SVRI, lactate and clinical 
-
-status.
-</p>
-
-<hr>
-
-<h3>Algorithm 2 — Shock Phenotyping Using 
-
-PiCCO</h3>
-
-<table>
-<thead>
-<tr>
-    <th>Shock Type</th>
-    <th>CI</th>
-    <th>GEDVI</th>
-    <th>SVRI</th>
-    <th>EVLWI</th>
-    <th>Primary Target</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-    <td>Hypovolemic</td>
-    <td>Low</td>
-    <td>Low</td>
-    <td>High</td>
-    <td>Low</td>
-    <td>Volume restoration</td>
-</tr>
-<tr>
-    <td>Cardiogenic</td>
-    <td>Low</td>
-    <td>Normal/High</td>
-    <td>High</td>
-    <td>High</td>
-    <td>Inotropy + decongestion</td>
-</tr>
-<tr>
-    <td>Distributive</td>
-    <td>Normal/High</td>
-    <td>Variable</td>
-    <td>Low</td>
-    <td>Often high</td>
-    <td>Vascular tone</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
-
-<h3>Algorithm 3 — Fluid Intolerance & De-
-
-resuscitation</h3>
-
-<p>
-High EVLWI with declining oxygenation or rising 
-
-driving pressures
-indicates the need to <strong>remove 
-
-fluid</strong>, even if CI is low.
-</p>
-
-<ul>
-    <li>Diuretics or RRT should be guided by 
-
-EVLWI trends.</li>
-    <li>CFI-guided inotropes may permit safe 
-
-fluid removal.</li>
-</ul>
-
-<hr>
-
-<h3>Algorithm 4 — Septic Myocardial 
-
-Dysfunction</h3>
-
-<ul>
-    <li>Often masked by normal/high CI.</li>
-    <li>Low CFI despite adequate preload 
-
-suggests myocardial depression.</li>
-    <li>Early inotropes may reduce vasopressor 
-
-dose and EVLWI.</li>
-</ul>
-
-<hr>
-
-<p><strong>
-PiCCO does not replace clinical judgment.
-It makes physiology visible.
-</strong></p>
-
-</main>
-</div>
-
-<footer class="main-footer">
-    <div class="container">
-        <p>&copy; 2025 PiCCO Online Manual</p>
->>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
     </div>
-</footer>
 
-<button class="theme-switcher" id="theme-
-
-switcher" aria-label="Toggle theme">
-    <span class="icon-sun">☀️</span>
-    <span class="icon-moon" style="display: 
-
-none;">🌙</span>
-</button>
-
-<script src="../JS/search.js"></script>
-<script src="../JS/main.js"></script>
-
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 PiCCO Online Manual</p>
+        </div>
+    </footer>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
 </body>
 </html>
 
