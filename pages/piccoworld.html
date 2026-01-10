@@ -3,400 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <title>PICCO WORLD</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/main.css">
-    <link rel="stylesheet" href="../CSS/print.css" media="print">
-    <link rel="stylesheet" href="../CSS/cards.css">
-</head>
-<body>
-    <div class="container">
-        <h1>PICCO WORLD</h1>
-        
-        <div class="card-table" id="periodicTable"></div>
-        <div class="tooltip" id="tooltip"></div>
-    </div>
-
-    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
-        <span class="icon-sun">☀️</span>
-        <span class="icon-moon" style="display: none;">🌙</span>
-    </button>
-    <script src="../JS/search.js"></script>
-    <script src="../JS/main.js"></script>
-    <script>
-        const parameters = {
-            bp: {
-                label: 'Arterial Pressure',
-                symbol: 'BP',
-                value: '120/80 mmHg',
-                class: 'bp',
-                description: 'Blood pressure in the systemic arteries, measured as systolic/diastolic pressure.',
-                changes: 'High BP: hypertension, vasoconstriction, increased afterload. Low BP: hypotension, vasodilation, shock, decreased perfusion.',
-                clinical: 'Primary indicator of tissue perfusion pressure. MAP (Mean Arterial Pressure) = (SBP + 2×DBP)/3 should be >65 mmHg for adequate organ perfusion.',
-                treatment: 'High: vasodilators, antihypertensives. Low: fluids, vasopressors (norepinephrine, vasopressin), inotropes if cardiac dysfunction.'
-            },
-            hr: {
-                label: 'Heart Rate',
-                symbol: 'HR',
-                value: '60-100 bpm',
-                class: 'hr',
-                description: 'Number of heartbeats per minute.',
-                changes: 'Tachycardia (>100): stress, hypovolemia, fever, pain, arrhythmia. Bradycardia (<60): athletic, medications, heart block, hypothermia.',
-                clinical: 'Key determinant of cardiac output (CO = HR × SV). Monitor trends rather than absolute values.',
-                treatment: 'Tachycardia: treat underlying cause, beta-blockers, amiodarone. Bradycardia: atropine, pacing, stop negative chronotropic drugs.'
-            },
-            cvp: {
-                label: 'Central Venous Pressure',
-                symbol: 'CVP',
-                value: '2-8 mmHg',
-                class: 'cvp',
-                description: 'Pressure in the superior vena cava/right atrium, reflects right ventricular preload.',
-                changes: 'High: fluid overload, RV failure, pulmonary hypertension, tamponade. Low: hypovolemia, vasodilation.',
-                clinical: 'Rough estimate of volume status. Best used as dynamic parameter with fluid challenges. Not reliable as isolated value.',
-                treatment: 'High: diuretics, treat RV failure. Low: fluid resuscitation, assess fluid responsiveness with SVV/PPV.'
-            },
-            pap: {
-                label: 'Pulmonary Artery Pressure',
-                symbol: 'PAP',
-                value: '15-25/8-15 mmHg',
-                class: 'pap',
-                description: 'Blood pressure in the pulmonary artery, measured as systolic/diastolic.',
-                changes: 'High: pulmonary hypertension, left heart failure, ARDS, PE, hypoxia. Low: hypovolemia.',
-                clinical: 'Indicates RV afterload. PAWP (wedge pressure) reflects LV preload. Essential in heart failure and ARDS management.',
-                treatment: 'High: treat underlying cause, pulmonary vasodilators (nitric oxide, prostacyclin), optimize ventilation.'
-            },
-            co: {
-                label: 'Cardiac Output',
-                symbol: 'CO',
-                value: '4-8 L/min',
-                class: 'co',
-                description: 'Volume of blood pumped by the heart per minute. CO = HR × SV.',
-                changes: 'High: sepsis, hyperthyroidism, anemia, pregnancy. Low: heart failure, hypovolemia, cardiogenic shock, severe bradycardia.',
-                clinical: 'Gold standard for assessing cardiovascular function. Should be indexed to body surface area (CI) for accurate assessment.',
-                treatment: 'Low: optimize preload (fluids), improve contractility (dobutamine, milrinone), reduce afterload, treat arrhythmias.'
-            },
-            ci: {
-                label: 'Cardiac Index',
-                symbol: 'CI',
-                value: '2.5-4 L/min/m²',
-                class: 'ci',
-                description: 'Cardiac output indexed to body surface area. CI = CO/BSA.',
-                changes: 'High: hyperdynamic states (sepsis, thyrotoxicosis). Low: cardiogenic shock, severe heart failure.',
-                clinical: 'Better than CO for comparing between patients. Target >2.2 L/min/m² in shock states.',
-                treatment: 'Same as CO. Optimize based on individual patient hemodynamics and oxygen delivery.'
-            },
-            sv: {
-                label: 'Stroke Volume',
-                symbol: 'SV',
-                value: '60-100 mL',
-                class: 'sv',
-                description: 'Volume of blood ejected per heartbeat. SV = CO/HR.',
-                changes: 'Low: decreased preload, impaired contractility, increased afterload. High: increased preload, enhanced contractility.',
-                clinical: 'Reflects ventricular performance. Assess with dynamic indicators (SVV) for fluid responsiveness.',
-                treatment: 'Optimize preload (fluid management), contractility (inotropes), and afterload (vasodilators/pressors).'
-            },
-            svi: {
-                label: 'Stroke Volume Index',
-                symbol: 'SVI',
-                value: '33-47 mL/m²',
-                class: 'svi',
-                description: 'Stroke volume indexed to body surface area. SVI = SV/BSA.',
-                changes: 'Similar to SV but normalized for body size.',
-                clinical: 'More accurate than SV for inter-patient comparison. Goal-directed therapy target in perioperative settings.',
-                treatment: 'Same principles as SV optimization.'
-            },
-            svr: {
-                label: 'Systemic Vascular Resistance',
-                symbol: 'SVR',
-                value: '800-1200 dyn·s/cm⁵',
-                class: 'svr',
-                description: 'Resistance to blood flow in systemic circulation. SVR = 80×(MAP-CVP)/CO.',
-                changes: 'High: vasoconstriction, hypovolemia, cardiogenic shock. Low: sepsis, anaphylaxis, neurogenic shock, vasodilators.',
-                clinical: 'Reflects afterload and vascular tone. Guide vasopressor/vasodilator therapy.',
-                treatment: 'High: vasodilators (nitroglycerin, nitroprusside), treat hypovolemia. Low: vasopressors (norepinephrine, vasopressin).'
-            },
-            svri: {
-                label: 'SVR Index',
-                symbol: 'SVRI',
-                value: '1970-2390 dyn·s·m²/cm⁵',
-                class: 'svri',
-                description: 'Systemic vascular resistance indexed to body surface area.',
-                changes: 'Same patterns as SVR, normalized for body size.',
-                clinical: 'Preferred over SVR for standardized assessment. Critical in septic shock management.',
-                treatment: 'Same as SVR.'
-            },
-            pvr: {
-                label: 'Pulmonary Vascular Resistance',
-                symbol: 'PVR',
-                value: '20-120 dyn·s/cm⁵',
-                class: 'pvr',
-                description: 'Resistance in pulmonary circulation. PVR = 80×(MPAP-PAWP)/CO.',
-                changes: 'High: pulmonary hypertension, ARDS, PE, hypoxia, acidosis. Low: vasodilation.',
-                clinical: 'Indicates RV afterload. Essential in RV failure, ARDS, and post-cardiac surgery.',
-                treatment: 'High: optimize oxygenation/ventilation, pulmonary vasodilators, treat underlying cause.'
-            },
-            pvri: {
-                label: 'PVR Index',
-                symbol: 'PVRI',
-                value: '225-315 dyn·s·m²/cm⁵',
-                class: 'pvri',
-                description: 'Pulmonary vascular resistance indexed to body surface area.',
-                changes: 'Same as PVR, normalized for body size.',
-                clinical: 'Standard measurement in pulmonary hypertension assessment.',
-                treatment: 'Same as PVR.'
-            },
-            gedv: {
-                label: 'Global End-Diastolic Volume',
-                symbol: 'GEDV',
-                value: '640-800 mL',
-                class: 'gedv',
-                description: 'Combined end-diastolic volume of all four cardiac chambers. Measured by transpulmonary thermodilution.',
-                changes: 'Low: hypovolemia, decreased preload. High: fluid overload, decreased contractility.',
-                clinical: 'Superior preload indicator compared to CVP. More accurate predictor of fluid responsiveness.',
-                treatment: 'Low: fluid challenge if other indicators suggest responsiveness. High: diuretics, optimize contractility.'
-            },
-            gedvi: {
-                label: 'GEDV Index',
-                symbol: 'GEDVI',
-                value: '680-800 mL/m²',
-                class: 'gedvi',
-                description: 'GEDV indexed to body surface area.',
-                changes: 'Same as GEDV, normalized for body size.',
-                clinical: 'Target 680-800 mL/m² in most ICU patients. Primary goal in PICCO-guided fluid management.',
-                treatment: 'Optimize to target range based on clinical context and other hemodynamic parameters.'
-            },
-            itbv: {
-                label: 'Intrathoracic Blood Volume',
-                symbol: 'ITBV',
-                value: '850-1000 mL',
-                class: 'itbv',
-                description: 'Total blood volume in the thorax (GEDV + pulmonary blood volume).',
-                changes: 'Low: intravascular volume depletion. High: volume overload.',
-                clinical: 'Another preload indicator. ITBV = 1.25 × GEDV. Less commonly used than GEDVI.',
-                treatment: 'Similar to GEDV management.'
-            },
-            itbvi: {
-                label: 'ITBV Index',
-                symbol: 'ITBVI',
-                value: '850-1000 mL/m²',
-                class: 'itbvi',
-                description: 'ITBV indexed to body surface area.',
-                changes: 'Same as ITBV, normalized for body size.',
-                clinical: 'Alternative to GEDVI for preload assessment.',
-                treatment: 'Similar to GEDVI management.'
-            },
-            svv: {
-                label: 'Stroke Volume Variation',
-                symbol: 'SVV',
-                value: '<10%',
-                class: 'svv',
-                description: 'Respiratory-induced variation in stroke volume. Dynamic preload indicator.',
-                changes: 'High (>13%): fluid responsive, hypovolemia likely. Low (<10%): adequate preload or not fluid responsive.',
-                clinical: 'Best predictor of fluid responsiveness in mechanically ventilated patients. Requires controlled ventilation, no arrhythmias.',
-                treatment: 'High SVV + low preload: fluid challenge likely beneficial. Low SVV: fluids unlikely to help, may need inotropes.'
-            },
-            ppv: {
-                label: 'Pulse Pressure Variation',
-                symbol: 'PPV',
-                value: '<13%',
-                class: 'ppv',
-                description: 'Respiratory variation in arterial pulse pressure. PPV = (PPmax - PPmin)/[(PPmax + PPmin)/2].',
-                changes: 'High (>13%): predicts fluid responsiveness. Low (<13%): less likely to respond to fluids.',
-                clinical: 'Similar to SVV. Requires controlled mechanical ventilation. Very sensitive and specific for fluid responsiveness.',
-                treatment: 'Use to guide fluid therapy. High PPV suggests benefit from volume expansion.'
-            },
-            dpmax: {
-                label: 'Maximum dP/dt',
-                symbol: 'dPmax',
-                value: '1200-2000 mmHg/s',
-                class: 'dpmax',
-                description: 'Maximum rate of left ventricular pressure rise during isovolumetric contraction. Index of contractility.',
-                changes: 'Low: decreased contractility, heart failure. High: enhanced contractility, inotropic support.',
-                clinical: 'Direct measure of myocardial contractility, relatively independent of preload and afterload.',
-                treatment: 'Low: inotropes (dobutamine, milrinone), treat underlying myocardial dysfunction.'
-            },
-            cfi: {
-                label: 'Cardiac Function Index',
-                symbol: 'CFI',
-                value: '4.5-6.5 /min',
-                class: 'cfi',
-                description: 'Index of cardiac contractility. CFI = CO/GEDV.',
-                changes: 'Low (<4.5): impaired contractility, heart failure. High (>6.5): hyperdynamic state.',
-                clinical: 'Assesses cardiac pump function independent of preload. Helps distinguish cardiac vs non-cardiac causes of low CO.',
-                treatment: 'Low: inotropic support, optimize preload/afterload. Consider mechanical support if refractory.'
-            },
-            gef: {
-                label: 'Global Ejection Fraction',
-                symbol: 'GEF',
-                value: '25-35%',
-                class: 'gef',
-                description: 'Ratio of stroke volume to end-diastolic volume of all four chambers. GEF = 4×SV/GEDV.',
-                changes: 'Low (<25%): systolic dysfunction. High (>35%): hyperdynamic or decreased preload.',
-                clinical: 'Global measure of cardiac systolic function. Lower than LVEF due to inclusion of RV.',
-                treatment: 'Low: inotropes, optimize loading conditions, consider mechanical support.'
-            },
-            cci: {
-                label: 'Cardiac Contractility Index',
-                symbol: 'CCI',
-                value: '0.5-1 /min',
-                class: 'cci',
-                description: 'Continuous assessment of contractility. CCI = dPmax/arterial pressure.',
-                changes: 'Low: myocardial dysfunction. High: enhanced contractility.',
-                clinical: 'Real-time contractility monitoring. Less preload-dependent than other indices.',
-                treatment: 'Low values indicate need for inotropic support.'
-            },
-            evlw: {
-                label: 'Extravascular Lung Water',
-                symbol: 'EVLW',
-                value: '3-7 mL/kg',
-                class: 'evlw',
-                description: 'Amount of fluid in the lungs outside blood vessels. Measured by transpulmonary thermodilution.',
-                changes: 'High: pulmonary edema (cardiogenic or ARDS), fluid overload. Low: dehydration.',
-                clinical: 'Quantifies pulmonary edema. Superior to chest X-ray. Guides fluid management in ARDS.',
-                treatment: 'High: diuretics, fluid restriction, optimize PEEP, treat underlying cause (heart failure, sepsis).'
-            },
-            evlwi: {
-                label: 'EVLW Index',
-                symbol: 'EVLWI',
-                value: '3-7 mL/kg',
-                class: 'evlwi',
-                description: 'EVLW indexed to predicted body weight.',
-                changes: 'Same as EVLW. >10 mL/kg indicates severe pulmonary edema.',
-                clinical: 'Key parameter in ARDS and heart failure. Target <10 mL/kg. Predicts mortality in ARDS.',
-                treatment: 'Restrictive fluid strategy if elevated, optimize cardiac function, lung protective ventilation.'
-            },
-            pvpi: {
-                label: 'Pulmonary Vascular Permeability',
-                symbol: 'PVPI',
-                value: '1-3',
-                class: 'pvpi',
-                description: 'Ratio of EVLW to pulmonary blood volume. PVPI = EVLW/(0.25×GEDV).',
-                changes: 'High (>3): increased permeability (ARDS, sepsis). Normal (<3): hydrostatic edema (heart failure).',
-                clinical: 'Differentiates cardiogenic (low PVPI) from non-cardiogenic (high PVPI) pulmonary edema.',
-                treatment: 'High PVPI: treat ARDS/sepsis, lung protective ventilation. Low PVPI: optimize cardiac function.'
-            },
-            spo2: {
-                label: 'Oxygen Saturation',
-                symbol: 'SpO₂',
-                value: '95-100%',
-                class: 'spo2',
-                description: 'Peripheral oxygen saturation measured by pulse oximetry.',
-                changes: 'Low (<90%): hypoxemia, respiratory failure, shunt. High (>98%): hyperoxia.',
-                clinical: 'Continuous non-invasive oxygenation monitoring. Target 92-96% in most patients, 88-92% in COPD.',
-                treatment: 'Low: increase FiO₂, optimize ventilation, treat underlying cause. Avoid hyperoxia in post-cardiac arrest.'
-            },
-            svo2: {
-                label: 'Mixed Venous O₂ Saturation',
-                symbol: 'SvO₂',
-                value: '60-80%',
-                class: 'svo2',
-                description: 'Oxygen saturation in pulmonary artery (mixed venous blood). Reflects global O₂ supply/demand balance.',
-                changes: 'Low (<60%): inadequate O₂ delivery, increased consumption, shock. High (>80%): sepsis, cyanide poisoning, left-to-right shunt.',
-                clinical: 'Gold standard for tissue oxygenation. Low SvO₂ indicates inadequate oxygen delivery to tissues.',
-                treatment: 'Low: increase CO, improve oxygenation, reduce O₂ consumption (sedation, fever control).'
-            },
-            scvo2: {
-                label: 'Central Venous O₂ Saturation',
-                symbol: 'ScvO₂',
-                value: '65-75%',
-                class: 'scvo2',
-                description: 'Oxygen saturation in superior vena cava. Surrogate for SvO₂.',
-                changes: 'Similar to SvO₂. Usually 5-7% higher than SvO₂.',
-                clinical: 'More accessible than SvO₂. Early goal in sepsis resuscitation (target >70%). Trends more important than absolute values.',
-                treatment: 'Same as SvO₂. Target >70% in septic shock resuscitation.'
-            },
-            do2: {
-                label: 'Oxygen Delivery',
-                symbol: 'DO₂',
-                value: '520-720 mL/min/m²',
-                class: 'do2',
-                description: 'Amount of oxygen delivered to tissues per minute. DO₂ = CI × CaO₂ × 10.',
-                changes: 'Low: anemia, low CO, hypoxemia, shock. High: hyperdynamic states.',
-                clinical: 'Key determinant of tissue oxygenation. Must match oxygen consumption (VO₂). Target >600 mL/min/m² in high-risk surgery.',
-                treatment: 'Increase CO (fluids, inotropes), improve oxygenation, transfuse if anemic.'
-            },
-            vo2: {
-                label: 'Oxygen Consumption',
-                symbol: 'VO₂',
-                value: '110-160 mL/min/m²',
-                class: 'vo2',
-                description: 'Amount of oxygen consumed by tissues per minute.',
-                changes: 'High: sepsis, fever, seizures, hyperthyroidism. Low: hypothermia, sedation, shock (supply-dependent).',
-                clinical: 'When DO₂ falls below critical level, VO₂ becomes supply-dependent (shock). Maintain DO₂/VO₂ ratio >5.',
-                treatment: 'If supply-dependent: increase DO₂. Reduce consumption: fever control, sedation, treat agitation.'
-            },
-            ero2: {
-                label: 'Oxygen Extraction Ratio',
-                symbol: 'ERO₂',
-                value: '22-30%',
-                class: 'ero2',
-                description: 'Proportion of delivered oxygen extracted by tissues. ERO₂ = (SaO₂ - SvO₂)/SaO₂.',
-                changes: 'High (>30%): inadequate DO₂, compensatory extraction, early shock. Low (<22%): impaired extraction (sepsis, cyanide).',
-                clinical: 'Reflects balance between O₂ delivery and consumption. Normal ERO₂ with low SvO₂ suggests inadequate DO₂.',
-                treatment: 'High: increase DO₂. Very high (>40%): imminent decompensation, aggressive resuscitation needed.'
-            },
-            temp: {
-                label: 'Body Temperature',
-                symbol: 'Temp',
-                value: '36.5-37.5°C',
-                class: 'temp',
-                description: 'Core body temperature.',
-                changes: 'High: fever, infection, hyperthermia. Low: hypothermia, shock, environmental.',
-                clinical: 'Affects metabolic rate, oxygen consumption, cardiac function. Every 1°C increase raises VO₂ by ~10%.',
-                treatment: 'Fever: antipyretics, cooling if >39°C. Hypothermia: active warming, warm fluids.'
-            },
-            lactate: {
-                label: 'Lactate',
-                symbol: 'Lac',
-                value: '0.5-2.2 mmol/L',
-                class: 'lactate',
-                description: 'Product of anaerobic metabolism. Marker of tissue hypoperfusion and hypoxia.',
-                changes: 'High: shock, sepsis, liver failure, seizures, metformin. Low: rare, not clinically significant.',
-                clinical: 'Elevated lactate (>2 mmol/L) indicates tissue hypoxia. Serial measurements guide resuscitation. Lactate clearance >10% in 6h improves outcomes.',
-                treatment: 'Optimize tissue perfusion (fluids, vasopressors, inotropes), treat underlying cause. Target lactate <2 mmol/L.'
-            },
-            ph: {
-                label: 'Arterial pH',
-                symbol: 'pH',
-                value: '7.35-7.45',
-                class: 'ph',
-                description: 'Measure of blood acidity/alkalinity.',
-                changes: 'Low (<7.35): acidosis (metabolic or respiratory). High (>7.45): alkalosis (metabolic or respiratory).',
-                clinical: 'Severe acidosis (<7.2) impairs cardiac function, reduces catecholamine response. Check with ABG for complete acid-base status.',
-                treatment: 'Acidosis: treat cause, ventilation (respiratory), bicarbonate cautiously (metabolic). Alkalosis: treat underlying cause.'
-            },
-            pao2: {
-                label: 'Arterial Oxygen Pressure',
-                symbol: 'PaO₂',
-                value: '80-100 mmHg',
-                class: 'pao2',
-                description: 'Partial pressure of oxygen in arterial blood.',
-                changes: 'Low (<60 mmHg): hypoxemia, respiratory failure. High (>100 mmHg): hyperoxia.',
-                clinical: 'Gold standard for oxygenation. PaO₂/FiO₂ ratio <300 defines ARDS. Assess A-a gradient for etiology.',
-                treatment: 'Low: increase FiO₂, PEEP, optimize ventilation, treat underlying cause (pneumonia, ARDS, PE).'
-            },
-            paco2: {
-                label: 'Arterial CO₂ Pressure',
-                symbol: 'PaCO₂',
-                value: '35-45 mmHg',
-                class: 'paco2',
-                description: 'Partial pressure of carbon dioxide in arterial blood. Reflects ventilation.',
-                changes: 'High (>45): hypoventilation, COPD, respiratory fatigue. Low (<35): hyperventilation, pain, anxiety, compensated metabolic acidosis.',
-                clinical: 'Primary respiratory parameter. Permissive hypercapnia accepted in ARDS (PaCO₂ up to 60-80 mmHg) for lung protection.',
-                treatment: 'High: increase ventilation, treat obstruction. Low: reduce minute ventilation if not compensatory.'
-            },
-            be: {
-                label: 'Base Excess',
-                symbol: 'BE',
-                value: '-2 to +2 mEq/L',
-                class: 'be',
-                description: 'Amount of acid/base needed to normalize blood pH. Reflects metabolic component.',
-                changes: 'Negative (<-2): metabolic acidosis (lactic acidosis, DKA, renal failure). Positive (>+2): metabolic alkalosis.',
-                clinical: 'Quantifies metabolic acid-base disturbance. Useful in mixed disorders. Severe negative BE indicates significant metabolic acidosis.',
-                treatment: 'Negative BE: treat underlying cause (shock resuscitation, insulin for DKA). Positive BE: treat cause (volume depletion, K⁺ loss).'
-            }
-=======
     <title>PICCO WORLD - PiCCO Online Manual</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/main.css">
@@ -612,21 +218,10 @@
             pao2: { label: 'Arterial Oxygen Pressure', symbol: 'PaO₂', value: '80-100 mmHg', class: 'pao2', description: 'Partial pressure of oxygen in arterial blood.', changes: 'Low (<60 mmHg): hypoxemia, respiratory failure. High (>100 mmHg): hyperoxia.', clinical: 'Gold standard for oxygenation. PaO₂/FiO₂ ratio <300 defines ARDS. Assess A-a gradient for etiology.', treatment: 'Low: increase FiO₂, PEEP, optimize ventilation, treat underlying cause (pneumonia, ARDS, PE).' },
             paco2: { label: 'Arterial CO₂ Pressure', symbol: 'PaCO₂', value: '35-45 mmHg', class: 'paco2', description: 'Partial pressure of carbon dioxide in arterial blood. Reflects ventilation.', changes: 'High (>45): hypoventilation, COPD, respiratory fatigue. Low (<35): hyperventilation, pain, anxiety, compensated metabolic acidosis.', clinical: 'Primary respiratory parameter. Permissive hypercapnia accepted in ARDS (PaCO₂ up to 60-80 mmHg) for lung protection.', treatment: 'High: increase ventilation, treat obstruction. Low: reduce minute ventilation if not compensatory.' },
             be: { label: 'Base Excess', symbol: 'BE', value: '-2 to +2 mEq/L', class: 'be', description: 'Amount of acid/base needed to normalize blood pH. Reflects metabolic component.', changes: 'Negative (<-2): metabolic acidosis (lactic acidosis, DKA, renal failure). Positive (>+2): metabolic alkalosis.', clinical: 'Quantifies metabolic acid-base disturbance. Useful in mixed disorders. Severe negative BE indicates significant metabolic acidosis.', treatment: 'Negative BE: treat underlying cause (shock resuscitation, insulin for DKA). Positive BE: treat cause (volume depletion, K⁺ loss).' }
->>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
         };
 
         const table = document.getElementById('periodicTable');
         const tooltip = document.getElementById('tooltip');
-<<<<<<< HEAD
-
-        const rows = [
-            ['bp', 'hr', 'cvp', 'pap'],
-            ['co', 'ci', 'sv', 'svi'],
-            ['svr', 'svri', 'pvr', 'pvri'],
-            ['gedv', 'gedvi', 'itbv', 'itbvi'],
-            ['svv', 'ppv', 'dpmax', 'cfi'],
-            ['gef', 'cci', 'evlw', 'evlwi'],
-=======
         const tooltipContent = document.getElementById('tooltipContent');
         const closeTooltipBtn = document.getElementById('closeTooltip');
 
@@ -634,7 +229,6 @@
             ['bp', 'hr', 'cvp', 'pap'], ['co', 'ci', 'sv', 'svi'], 
             ['svr', 'svri', 'pvr', 'pvri'], ['gedv', 'gedvi', 'itbv', 'itbvi'],
             ['svv', 'ppv', 'dpmax', 'cfi'], ['gef', 'cci', 'evlw', 'evlwi'],
->>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
             ['pvpi', 'spo2', 'svo2', 'scvo2', 'do2', 'ero2'],
             ['temp', 'lactate', 'ph', 'pao2', 'paco2', 'be']
         ];
@@ -642,14 +236,6 @@
         rows.forEach(row => {
             row.forEach(paramId => {
                 const param = parameters[paramId];
-<<<<<<< HEAD
-                const element = document.createElement('div');
-                element.className = `card ${param.class}`;
-                element.innerHTML = `
-                    <div class="card-category">${param.label}</div>
-                    <div class="card-name">${param.symbol}</div>
-                    <div class="card-value">${param.value}</div>
-=======
                 if (!param) return;
                 const element = document.createElement('div');
                 element.className = `element ${param.class}`;
@@ -657,55 +243,23 @@
                     <div class="element-label">${param.label}</div>
                     <div class="element-symbol">${param.symbol}</div>
                     <div class="element-value">${param.value}</div>
->>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
                 `;
                 
                 element.addEventListener('mouseenter', (e) => showTooltip(e, param));
                 element.addEventListener('mousemove', (e) => updateTooltipPosition(e));
                 element.addEventListener('mouseleave', hideTooltip);
                 
-<<<<<<< HEAD
-=======
                 element.addEventListener('click', (e) => {
                     showTooltip(e, param);
                     e.stopPropagation();
                 });
                 
->>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
                 table.appendChild(element);
             });
         });
 
         function showTooltip(e, param) {
             const color = window.getComputedStyle(e.currentTarget).color;
-<<<<<<< HEAD
-            const borderColor = window.getComputedStyle(e.currentTarget).borderColor;
-            
-            tooltip.style.color = color;
-            tooltip.style.borderColor = borderColor;
-            
-            tooltip.innerHTML = `
-                <div class="tooltip-title">${param.symbol} - ${param.label}</div>
-                <div class="tooltip-section">
-                    <div class="tooltip-section-title">Description</div>
-                    <div class="tooltip-section-content">${param.description}</div>
-                </div>
-                <div class="tooltip-section">
-                    <div class="tooltip-section-title">Changes & Meaning</div>
-                    <div class="tooltip-section-content">${param.changes}</div>
-                </div>
-                <div class="tooltip-section">
-                    <div class="tooltip-section-title">Clinical Application</div>
-                    <div class="tooltip-section-content">${param.clinical}</div>
-                </div>
-                <div class="tooltip-section">
-                    <div class="tooltip-section-title">Treatment Principles</div>
-                    <div class="tooltip-section-content">${param.treatment}</div>
-                </div>
-            `;
-            
-            updateTooltipPosition(e);
-=======
             tooltip.style.color = color;
             tooltip.style.borderColor = color;
             
@@ -720,27 +274,10 @@
             if (window.innerWidth > 768) {
                 updateTooltipPosition(e);
             }
->>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
             tooltip.classList.add('active');
         }
 
         function updateTooltipPosition(e) {
-<<<<<<< HEAD
-            const margin = 20;
-            let x = e.clientX + margin;
-            let y = e.clientY + margin;
-            
-            const tooltipRect = tooltip.getBoundingClientRect();
-            
-            if (x + tooltipRect.width > window.innerWidth - margin) {
-                x = e.clientX - tooltipRect.width - margin;
-            }
-            
-            if (y + tooltipRect.height > window.innerHeight - margin) {
-                y = e.clientY - tooltipRect.height - margin;
-            }
-            
-=======
             if (window.innerWidth <= 768) return;
             const margin = 20;
             let x = e.clientX + margin;
@@ -748,27 +285,11 @@
             const rect = tooltip.getBoundingClientRect();
             if (x + rect.width > window.innerWidth - margin) x = e.clientX - rect.width - margin;
             if (y + rect.height > window.innerHeight - margin) y = e.clientY - rect.height - margin;
->>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
             tooltip.style.left = x + 'px';
             tooltip.style.top = y + 'px';
         }
 
         function hideTooltip() {
-<<<<<<< HEAD
-            tooltip.classList.remove('active');
-        }
-    </script>
-            <!-- Row 1: Basic Hemodynamic Parameters -->
-            <div class="element bp">
-                <div class="element-label">Arterial Pressure</div>
-                <div class="element-symbol">BP</div>
-                <div class="element-value">120/80 mmHg</div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-=======
             if (window.innerWidth > 768) tooltip.classList.remove('active');
         }
 
@@ -786,4 +307,3 @@
     </script>
 </body>
 </html>
->>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
