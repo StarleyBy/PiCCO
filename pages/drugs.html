@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRUGS WORLD - Cardiovascular Pharmacology Reference</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;70&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/print.css" media="print">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0a0a; color: #fff; }
+
+        .main-content { padding: 20px; width: 100%; }
+        .periodic-container { max-width: 1400px; margin: 0 auto; }
+
+        h1.page-title {
+            text-align: center; font-size: 2.5em; margin-bottom: 40px;
+            text-transform: uppercase; letter-spacing: 4px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .periodic-table {
+            display: grid; grid-template-columns: repeat(8, 1fr);
+            gap: 10px; padding: 20px;
+            background: rgba(20, 20, 0.8);
+            border: 3px solid #00ffff; border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .element {
+            aspect-ratio: 1.1; border: 2px solid; border-radius: 8px;
+            padding: 10px; display: flex; flex-direction: column;
+            justify-content: space-between; cursor: pointer;
+            transition: all 0.3s ease; position: relative;
+        }
+
+        .element:hover { transform: scale(1.05); z-index: 10; box-shadow: 0 0 20px currentColor; }
+
+        .element-label { font-size: 0.65em; line-height: 1.2; opacity: 0.9; text-transform: uppercase; font-weight: bold; }
+        .element-symbol { font-size: 1.6em; font-weight: 800; text-align: center; text-shadow: 0 10px currentColor; }
+        .element-value { font-size: 0.7em; opacity: 0.8; text-align: center; font-style: italic; }
+
+        /* ТУЛТИП */
+        .tooltip {
+            position: fixed; background: rgba(10, 10, 10, 0.98);
+            border: 2px solid; border-radius: 12px; padding: 20px;
+            max-width: 420px; z-index: 3000; pointer-events: none;
+            opacity: 0; transition: opacity 0.3s ease;
+            box-shadow: 0 0 40px currentColor; backdrop-filter: blur(10px);
+            font-family: 'Lato', sans-serif;
+        }
+        .tooltip.active { opacity: 1; pointer-events: auto; }
+        .tooltip-title { font-size: 1.4em; font-weight: bold; margin-bottom: 15px; border-bottom: 1px solid currentColor; padding-bottom: 5px; }
+        .tooltip-section { margin-bottom: 12px; }
+        .tooltip-section-title { font-size: 0.85em; font-weight: bold; margin-bottom: 3px; opacity: 0.7; text-transform: uppercase; }
+        .tooltip-section-content { font-size: 0.9em; line-height: 1.4; }
+
+        .close-tooltip { display: none; position: absolute; top: 10px; right: 15px; color: #fff; font-size: 28px; cursor: pointer; }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 1200px) { .periodic-table { grid-template-columns: repeat(4, 1fr); } }
+        
+        @media (max-width: 768px) {
+            .periodic-table { grid-template-columns: repeat(2, 1fr); }
+            .tooltip {
+                left: 50% !important; top: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                width: 90vw; max-height: 80vh; overflow-y: auto;
+                pointer-events: none;
+            }
+            .tooltip.active { pointer-events: auto; }
+            .close-tooltip { display: block; }
+            h1.page-title { font-size: 1.8em; }
+        }
+
+        /* ЦВЕТА ГРУПП ПРЕПАРАТОВ */
+        .crystalloids { background: #003366; color: #66ccff; border-color: #66ccff; }
+        .hypertonic_saline { background: #330066; color: #cc66ff; border-color: #cc66ff; }
+        .albumin { background: #663300; color: #ffd580; border-color: #ffd580; }
+        .packed_rbc { background: #660000; color: #ff4d4d; border-color: #ff4d4d; }
+        .ffp { background: #663300; color: #ffcc66; border-color: #ffcc66; }
+        .platelets { background: #006600; color: #66ff66; border-color: #66ff66; }
+        .norepinephrine { background: #660033; color: #ff66b3; border-color: #ff66b3; }
+        .epinephrine { background: #330000; color: #ff0000; border-color: #ff0000; }
+        .vasopressin { background: #000066; color: #4da6ff; border-color: #4da6ff; }
+        .terlipressin { background: #000033; color: #3366cc; border-color: #3366cc; }
+        .dopamine { background: #663333; color: #ffb3b3; border-color: #ffb3b3; }
+        .dobutamine { background: #336600; color: #b3ff66; border-color: #b3ff66; }
+        .milrinone { background: #660066; color: #e600e6; border-color: #e600e6; }
+        .levosimendan { background: #006666; color: #00ffff; border-color: #00ffff; }
+        .isoproterenol { background: #666600; color: #ffff66; border-color: #ffff66; }
+        .nitroglycerin { background: #333300; color: #cccc00; border-color: #cccc00; }
+        .snitroprusside { background: #003333; color: #00cccc; border-color: #00cccc; }
+        .hydralazine { background: #66001a; color: #ff3366; border-color: #ff3366; }
+        .clevidipine { background: #330066; color: #b366ff; border-color: #b366ff; }
+        .nicardipine { background: #001a66; color: #6699ff; border-color: #6699ff; }
+        .inono { background: #1a3300; color: #80cc66; border-color: #80cc66; }
+        .methylene_blue { background: #001a33; color: #0099cc; border-color: #0099cc; }
+        .ace_inhibitors { background: #330033; color: #cc66cc; border-color: #cc66cc; }
+        .arbs { background: #1a331a; color: #a3c9a8; border-color: #a3c9a8; }
+        .calcium_blockers { background: #331a00; color: #e6b366; border-color: #e6b366; }
+        .nitrates { background: #00331a; color: #00cc66; border-color: #00cc66; }
+        .amiodarone { background: #661a33; color: #e066ff; border-color: #e066ff; }
+        .lidocaine { background: #1a6600; color: #66ff99; border-color: #66ff99; }
+        .procainamide { background: #66004d; color: #ff66cc; border-color: #ff66cc; }
+        .sotalol { background: #001a66; color: #66a3ff; border-color: #66a3ff; }
+        .adenosine { background: #333333; color: #cccccc; border-color: #cccccc; }
+        .magnesium_sulfate { background: #1a1a00; color: #d4af37; border-color: #d4af37; }
+        .potassium_chloride { background: #664d00; color: #ffd12a; border-color: #ffd12a; }
+        .digoxin { background: #4d0066; color: #d6b3ff; border-color: #d6b3ff; }
+        .esmolol { background: #004d4d; color: #00e6e6; border-color: #00e6e6; }
+        .ivabradine { background: #4d6600; color: #ccff66; border-color: #ccff66; }
+        .furosemide { background: #663366; color: #ffb3ff; border-color: #ffb3ff; }
+        .torasemide { background: #336633; color: #99ff99; border-color: #99ff99; }
+        .bumetanide { background: #666633; color: #ffffb3; border-color: #ffffb3; }
+        .hctz { background: #00334d; color: #66ccff; border-color: #66ccff; }
+        .spironolactone { background: #4d3300; color: #f0c05a; border-color: #f0c05a; }
+        .mannitol { background: #334d66; color: #cceeff; border-color: #cceeff; }
+        .midazolam { background: #1a0033; color: #9966cc; border-color: #9966cc; }
+        .propofol { background: #331a4d; color: #bf99d4; border-color: #bf99d4; }
+        .dexmedetomidine { background: #001a1a; color: #00cccc; border-color: #00cccc; }
+        .fentanyl { background: #4d0026; color: #ff66aa; border-color: #ff66aa; }
+        .ketamine { background: #1a1a00; color: #cccc66; border-color: #cccc66; }
+        .rocuronium { background: #004d29; color: #66ffaa; border-color: #66ffaa; }
+        .cisatracurium { background: #4d2900; color: #ffaa66; border-color: #ffaa66; }
+        .uf_heparin { background: #29004d; color: #aa66ff; border-color: #aa66ff; }
+        .enoxaparin { background: #4d4d00; color: #ffff66; border-color: #ffff66; }
+        .fondaparinux { background: #00294d; color: #66aaff; border-color: #66aaff; }
+        .warfarin { background: #4d0000; color: #ff6666; border-color: #ff6666; }
+        .doac { background: #294d00; color: #aaff66; border-color: #aaff66; }
+        .pcc { background: #4d294d; color: #ffaaee; border-color: #ffaaee; }
+        .protamine { background: #294d29; color: #aaffaa; border-color: #aaffaa; }
+        .alteplase { background: #002929; color: #66eeee; border-color: #66eeee; }
+        .tranexamic_acid { background: #4d4d4d; color: #eeeeee; border-color: #eeeeee; }
+        .hydrocortisone { background: #1a4d00; color: #99e666; border-color: #99e666; }
+        .thiamine { background: #4d1a00; color: #ffcc99; border-color: #ffcc99; }
+        .insulin { background: #33004d; color: #cc66e6; border-color: #cc66e6; }
+        .sodium_bicarbonate { background: #004d33; color: #66ffc3; border-color: #66ffc3; }
+        .calcium { background: #4d4d1a; color: #ffffcc; border-color: #ffffcc; }
+    </style>
+</head>
+<body>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <header class="main-header">
+        <h1 class="site-title"><a href="../index.html" class="site-title docs-creator"><span class="green-highlighted-oval-3d">PiCCO</span> - <span class="color-red">O</span>nline Manual</a></h1>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+    </header>
+
+    <div class="wrapper container">
+        <nav class="main-nav" id="main-nav">
+            <h2>Sections</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+            </div>
+            <ul>
+                <li><a href="principles.html">Principles</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="calibration.html">Calibration</a></li>
+                <li><a href="indications.html">Indications</a></li>
+                <li><a href="contraindications.html">Contraindications</a></li>
+                <li><a href="limitations.html">Limitations</a></li>
+                <li><a href="pediatric.html">Pediatric considerations</a></li>
+                <li><a href="preload.html">Preload</a></li>
+                <li><a href="contractility.html">Contractility</a></li>
+                <li><a href="lungwater.html">Lung water</a></li>
+                <li><a href="afterload.html">Afterload</a></li>
+                <li><a href="dynamic.html">Dynamic parameters</a></li>
+                <li><a href="derived.html">Derived parameters</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="cases.html">Clinical cases</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="physiology.html">Physiology</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="simulation.html"><span class="gold-highlighted-oval-3d">Quiz 🎓</span></a></li>
+                <li><a href="piccoworld.html"><span class="green-highlighted-oval-3d">PiCCO</span> WORLD</a></li>
+                <li><a href="drugs.html"><span class="blue-highlighted-oval-3d">DRUGS</span> WORLD</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="periodic-container">
+                <h1 class="page-title">DRUGS WORLD</h1>
+                <div class="periodic-table" id="periodicTable"></div>
+            </div>
+        </main>
+    </div>
+
+    <div class="tooltip" id="tooltip">
+        <span class="close-tooltip" id="closeTooltip">×</span>
+        <div id="tooltipContent"></div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 <span class="green-highlighted-oval-3d">PiCCO</span> Online Manual</p>
+        </div>
+    </footer>
+
+    <script src="../JS/search.js"></script>
+    <script src="../JS/main.js"></script>
+
+    <script>
+        const drugs = {
+            crystalloids: { 
+                label: 'Fluids and Electrolytes / Isotonic Solutions / Solution for Infusion', 
+                symbol: 'Cryst', 
+                value: '20-30 ml/kg bolus IV', 
+                class: 'crystalloids', 
+                description: 'Replenishes extracellular fluid volume and maintains electrolyte balance.',
+                mechanism: 'Replenishes extracellular fluid volume and maintains electrolyte balance.',
+                effects: 'Increases intravascular volume, maintains tissue perfusion.',
+                features: 'Most common resuscitation fluid, least expensive.',
+                contraindications: 'Severe hyponatremia, fluid overload, cerebral edema.',
+                duration: 'Distributed in 20 minutes, half-life of 20-40 minutes.',
+                facts: 'Lactated Ringer\'s is closer to physiologic pH than normal saline.',
+                advantages: 'Safe, inexpensive, readily available.',
+                dangers: 'Can cause hyperchloremic metabolic acidosis with large volumes.'
+            },
+            hypertonic_saline: { 
+                label: 'Fluids and Electrolytes / Hyperosmolar Agents / Hypertonic Saline', 
+                symbol: 'HS', 
+                value: '3%: 3-5 ml/kg IV / 7.5%: 4 ml/kg IV', 
+                class: 'hypertonic_saline', 
+                description: 'Creates osmotic gradient drawing fluid from intracellular to extracellular space.',
+                mechanism: 'Creates osmotic gradient drawing fluid from intracellular to extracellular space.',
+                effects: 'Rapid volume expansion, reduction in intracranial pressure.',
+                features: 'Small volume rapid effect, useful in head trauma.',
+                contraindications: 'Congestive heart failure, severe renal impairment, hypovolemic shock.',
+                duration: '30-60 minutes for volume effect, 2-4 hours for ICP effect.',
+                facts: 'Can be administered through smaller gauge catheters due to small volume.',
+                advantages: 'Rapid volume expansion with minimal fluid load.',
+                dangers: 'Can cause hypernatremia, osmotic demyelination syndrome if infused rapidly.'
+            },
+            albumin: { 
+                label: 'Colloids / Plasma Protein Substitutes / Albumin', 
+                symbol: 'Alb', 
+                value: '5%: 25-50 g IV / 20%: 25-125 ml IV', 
+                class: 'albumin', 
+                description: 'Provides oncotic pressure to maintain intravascular volume.',
+                mechanism: 'Provides oncotic pressure to maintain intravascular volume.',
+                effects: 'Prolonged volume expansion, improved microcirculation.',
+                features: 'Natural plasma protein, carries various substances.',
+                contraindications: 'Anuria, severe anemia, heart failure, hypersensitivity.',
+                duration: '5%: 2-4 hours; 20%: 4-12 hours.',
+                facts: '20% albumin has concentrating effect and can cause diuresis.',
+                advantages: 'Physiological colloid, long duration of effect.',
+                dangers: 'Expensive, risk of allergic reactions, potential fluid overload.'
+            },
+            packed_rbc: { 
+                label: 'Blood Products / Cellular Components / Concentrated RBC', 
+                symbol: 'PRBC', 
+                value: '1 unit increases Hgb by ~1 g/dL IV', 
+                class: 'packed_rbc', 
+                description: 'Increases oxygen carrying capacity by increasing red cell mass.',
+                mechanism: 'Increases oxygen carrying capacity by increasing red cell mass.',
+                effects: 'Improved oxygen delivery, increased viscosity.',
+                features: 'Most common blood product transfused.',
+                contraindications: 'Acute hemorrhage requiring whole blood, polycythemia.',
+                duration: '120-day lifespan of transfused RBCs.',
+                facts: 'Cross-matched to prevent hemolytic reactions.',
+                advantages: 'Improves oxygen delivery in anemia.',
+                dangers: 'Transfusion reactions, infections, iron overload with repeated transfusions.'
+            },
+            ffp: { 
+                label: 'Blood Products / Plasma Components / FFP', 
+                symbol: 'FFP', 
+                value: '10-15 ml/kg IV', 
+                class: 'ffp', 
+                description: 'Provides all coagulation factors and proteins.',
+                mechanism: 'Provides all coagulation factors and proteins.',
+                effects: 'Corrects coagulopathy, provides volume.',
+                features: 'Must be thawed before administration.',
+                contraindications: 'Massive transfusion protocol, volume overload.',
+                duration: 'Variable, depends on factor half-lives.',
+                facts: 'Contains both pro and anticoagulant factors.',
+                advantages: 'Treats multiple factor deficiencies.',
+                dangers: 'Volume overload, transfusion reactions, viral transmission.'
+            },
+            platelets: { 
+                label: 'Blood Products / Cellular Components / Platelet Conc.', 
+                symbol: 'Plt', 
+                value: '1 unit/10 kg IV', 
+                class: 'platelets', 
+                description: 'Provides functional platelets for hemostasis.',
+                mechanism: 'Provides functional platelets for hemostasis.',
+                effects: 'Improved primary hemostasis.',
+                features: 'Short shelf life (5 days), room temperature storage.',
+                contraindications: 'Microangiopathic hemolytic anemia (except TTP).',
+                duration: '3-7 days.',
+                facts: 'ABO compatibility preferred but not essential.',
+                advantages: 'Corrects thrombocytopenia.',
+                dangers: 'Alloimmunization, transfusion reactions, bacterial contamination.'
+            },
+            norepinephrine: { 
+                label: 'Vasopressors / Alpha/Beta Agonists / Noradrenaline', 
+                symbol: 'NE', 
+                value: 'Adults: 0.05-0.5 mcg/kg/min IV', 
+                class: 'norepinephrine', 
+                description: 'Potent alpha-1 agonist causing vasoconstriction, modest beta-1 effect.',
+                mechanism: 'Potent alpha-1 agonist causing vasoconstriction, modest beta-1 effect.',
+                effects: 'Increases MAP, systemic vascular resistance, minimal HR effect.',
+                features: 'First-line vasopressor in septic shock.',
+                contraindications: 'Hypovolemic shock, uncontrolled arrhythmias.',
+                duration: 'Onset 1-2 min, duration 10-30 min.',
+                facts: 'Naturally occurring neurotransmitter.',
+                advantages: 'Effective in sepsis, minimal tachycardia.',
+                dangers: 'Tissue necrosis if extravasation occurs, excessive vasoconstriction.'
+            },
+            epinephrine: { 
+                label: 'Vasopressors/Inotropes / Alpha/Beta Agonists / Epinephrine', 
+                symbol: 'Epi', 
+                value: 'Adults: 0.05-0.5 mcg/kg/min IV', 
+                class: 'epinephrine', 
+                description: 'Non-selective adrenergic agonist affecting alpha, beta-1, and beta-2 receptors.',
+                mechanism: 'Non-selective adrenergic agonist affecting alpha, beta-1, and beta-2 receptors.',
+                effects: 'Vasoconstriction, positive inotropy, bronchodilation.',
+                features: 'Drug of choice in anaphylaxis and cardiac arrest.',
+                contraindications: 'Hypovolemic shock, narrow-angle glaucoma.',
+                duration: 'Onset immediate, duration 5-10 min.',
+                facts: 'Body\'s natural "fight or flight" hormone.',
+                advantages: 'Potent cardiovascular effects, bronchodilation.',
+                dangers: 'Significant tachycardia, tissue ischemia, arrhythmias.'
+            },
+            vasopressin: { 
+                label: 'Vasopressors / Vasopressin Analogues / Vasopressin', 
+                symbol: 'VP', 
+                value: 'Adults: 0.01-0.04 units/min IV', 
+                class: 'vasopressin', 
+                description: 'V1 receptor agonist causing vasoconstriction independent of catecholamines.',
+                mechanism: 'V1 receptor agonist causing vasoconstriction independent of catecholamines.',
+                effects: 'Increases SVR, minimal cardiac stimulation, antidiuretic effect.',
+                features: 'Vasopressor of choice in cirrhosis-related shock.',
+                contraindications: 'CAD, peripheral vascular disease, pregnancy.',
+                duration: 'Onset 5-10 min, duration 10-30 min.',
+                facts: 'Natural posterior pituitary hormone.',
+                advantages: 'Does not cause tachycardia, effective in catecholamine-resistant shock.',
+                dangers: 'Coronary vasoconstriction, mesenteric ischemia, digital ischemia.'
+            },
+            terlipressin: { 
+                label: 'Vasopressors / Vasopressin Analogues / Terlipressin', 
+                symbol: 'TP', 
+                value: '1-2 mg IV q4-6h IV', 
+                class: 'terlipressin', 
+                description: 'Long-acting synthetic vasopressin analogue, selective V1 agonist.',
+                mechanism: 'Long-acting synthetic vasopressin analogue, selective V1 agonist.',
+                effects: 'Splanchnic vasoconstriction, increased MAP, reduced portal pressure.',
+                features: 'Used primarily for hepatorenal syndrome and variceal bleeding.',
+                contraindications: 'CAD, severe peripheral vascular disease, pregnancy.',
+                duration: 'Duration 4-6 hours after conversion.',
+                facts: 'Prodrug requiring hepatic metabolism to active form.',
+                advantages: 'Long duration of action, effective in portal hypertension.',
+                dangers: 'Severe vasoconstriction effects, angina, digital ischemia.'
+            },
+            dopamine: { 
+                label: 'Vasopressors/Inotropes / Dopaminergic/Catecholaminergic / Dopamine', 
+                symbol: 'DA', 
+                value: 'Low: 2-5 mcg/kg/min IV', 
+                class: 'dopamine', 
+                description: 'Dose-dependent effects via dopaminergic and adrenergic receptors.',
+                mechanism: 'Dose-dependent effects via dopaminergic and adrenergic receptors.',
+                effects: 'Renal perfusion (low dose), inotropy (medium), vasoconstriction (high).',
+                features: 'Historically first-line agent but largely replaced by norepinephrine.',
+                contraindications: 'Pheochromocytoma, uncontrolled arrhythmias.',
+                duration: 'Half-life 2 min, duration 10-20 min.',
+                facts: 'Precursor to norepinephrine in biosynthesis pathway.',
+                advantages: 'Dose-dependent effects, renal perfusion at low doses.',
+                dangers: 'Arrhythmias, tissue necrosis, tachyphylaxis.'
+            },
+            dobutamine: { 
+                label: 'Inotropes / Beta Agonists / Dobutamine', 
+                symbol: 'Dob', 
+                value: 'Adults: 2-20 mcg/kg/min IV', 
+                class: 'dobutamine', 
+                description: 'Selective beta-1 agonist with mild beta-2 effects.',
+                mechanism: 'Selective beta-1 agonist with mild beta-2 effects.',
+                effects: 'Positive inotropy, chronotropy, mild vasodilation.',
+                features: 'Primary inotropic agent in cardiogenic shock.',
+                contraindications: 'Hypertrophic obstructive cardiomyopathy, tachyarrhythmias.',
+                duration: 'Onset 1-2 min, duration 10-20 min.',
+                facts: 'Synthetic derivative of dopamine.',
+                advantages: 'Improves cardiac output without significant vasoconstriction.',
+                dangers: 'Arrhythmias, tachycardia, potential worsening of valvular regurgitation.'
+            },
+            milrinone: { 
+                label: 'Inotropes/Vasodilators / Phosphodiesterase Inhibitors / Milrinone', 
+                symbol: 'Mil', 
+                value: 'Loading: 25-75 mcg/kg / Maintenance: 0.25-1.0 mcg/kg/min', 
+                class: 'milrinone', 
+                description: 'Phosphodiesterase-3 inhibitor increasing cAMP levels.',
+                mechanism: 'Phosphodiesterase-3 inhibitor increasing cAMP levels.',
+                effects: 'Positive inotropy, lusitropy, vasodilation of arteries and veins.',
+                features: 'No cross-tolerance with beta-adrenergic agents.',
+                contraindications: 'Acute MI, severe aortic/mitral stenosis, hypertrophic cardiomyopathy.',
+                duration: 'Onset 5-20 min, duration 30-60 min (infusion continuous).',
+                facts: 'Also inhibits inflammatory mediators.',
+                advantages: 'Dual inotropic and vasodilatory effects, no tolerance.',
+                dangers: 'Arrhythmias, hypotension, potential for bleeding due to antiplatelet effects.'
+            },
+            levosimendan: { 
+                label: 'Inotropes / Calcium Sensitizers / Levosimendan', 
+                symbol: 'Lev', 
+                value: 'Loading: 12 mcg/kg / Maintenance: 0.1 mcg/kg/min', 
+                class: 'levosimendan', 
+                description: 'Calcium sensitizer of cardiac troponin C, opens KATP channels.',
+                mechanism: 'Calcium sensitizer of cardiac troponin C, opens KATP channels.',
+                effects: 'Positive inotropy without increased oxygen consumption, vasodilation.',
+                features: 'Unique mechanism of action among inotropes.',
+                contraindications: 'Severe aortic/mitral stenosis, unstable hemodynamics.',
+                duration: 'Long elimination half-life (24h+) due to active metabolite.',
+                facts: 'Effects persist for days after discontinuation.',
+                advantages: 'Inotropy without increased oxygen demand, cardioprotective effects.',
+                dangers: 'Hypotension, arrhythmias, especially in setting of diuretic use.'
+            },
+            isoproterenol: { 
+                label: 'Chronotropes/Inotropes / Beta Agonists / Isoproterenol', 
+                symbol: 'Iso', 
+                value: 'Adults: 2-10 mcg/min IV', 
+                class: 'isoproterenol', 
+                description: 'Pure beta-1 and beta-2 agonist with no alpha activity.',
+                mechanism: 'Pure beta-1 and beta-2 agonist with no alpha activity.',
+                effects: 'Increased HR, contractility, bronchodilation, vasodilation.',
+                features: 'Formerly used for bradycardia and heart block.',
+                contraindications: 'Tachyarrhythmias, idiopathic hypertrophic subaortic stenosis.',
+                duration: 'Onset immediate, duration 10-30 min.',
+                facts: 'First synthetic beta-adrenergic agonist.',
+                advantages: 'Effective chronotropic and inotropic agent.',
+                dangers: 'Significant tachycardia, hypotension, arrhythmias.'
+            },
+            nitroglycerin: { 
+                label: 'Vasodilators / Nitrates / Nitroglycerin', 
+                symbol: 'NTG', 
+                value: 'Adults: 0.5-20 mcg/kg/min IV', 
+                class: 'nitroglycerin', 
+                description: 'Converted to NO in vascular smooth muscle causing vasodilation.',
+                mechanism: 'Converted to NO in vascular smooth muscle causing vasodilation.',
+                effects: 'Venodilation > arteriolar dilation, coronary vasodilation.',
+                features: 'First-line for acute coronary syndromes and CHF.',
+                contraindications: 'Recent phosphodiesterase inhibitors, severe anemia, increased ICP.',
+                duration: 'Onset 1-2 min IV, 1-3 min SL; Duration 30-60 min.',
+                facts: 'Originally developed as explosive, serendipitous discovery of vasodilating properties.',
+                advantages: 'Effective antianginal, readily titratable.',
+                dangers: 'Significant hypotension, tachyphylaxis, methemoglobinemia (rare).'
+            },
+            snitroprusside: { 
+                label: 'Vasodilators / Cyanide Compounds / Sodium Nitroprusside', 
+                symbol: 'SNP', 
+                value: 'Adults: 0.25-8 mcg/kg/min IV', 
+                class: 'snitroprusside', 
+                description: 'Releases NO causing direct smooth muscle relaxation.',
+                mechanism: 'Releases NO causing direct smooth muscle relaxation.',
+                effects: 'Equal arterial and venous dilation, rapid onset/offset.',
+                features: 'Agent of choice for hypertensive emergencies.',
+                contraindications: 'Concomitant phosphodiesterase inhibitors, severe hepatic dysfunction.',
+                duration: 'Onset seconds, duration 1-10 min after discontinuation.',
+                facts: 'Contains cyanide groups, risk of cyanide toxicity with prolonged infusion.',
+                advantages: 'Extremely rapid titration, potent vasodilation.',
+                dangers: 'Cyanide toxicity, thiocyanate accumulation, rebound hypertension.'
+            },
+            hydralazine: { 
+                label: 'Vasodilators / Arterial Vasodilators / Hydralazine', 
+                symbol: 'Hyd', 
+                value: 'Adults: 5-20 mg IV q20-30min IV', 
+                class: 'hydralazine', 
+                description: 'Direct arterial smooth muscle relaxation (mechanism unclear).',
+                mechanism: 'Direct arterial smooth muscle relaxation (mechanism unclear).',
+                effects: 'Arterial vasodilation, reflex tachycardia, increased cardiac output.',
+                features: 'Preferred in pregnancy-related hypertension.',
+                contraindications: 'Coronary artery disease, cerebrovascular disease.',
+                duration: 'Onset 5-20 min IV, duration 2-8 hours.',
+                facts: 'Can cause drug-induced lupus with chronic use.',
+                advantages: 'Safe in pregnancy, effective arterial vasodilation.',
+                dangers: 'Reflex tachycardia, lupus-like syndrome, angina exacerbation.'
+            },
+            clevidipine: { 
+                label: 'Vasodilators / Calcium Channel Blockers / Clevidipine', 
+                symbol: 'Clv', 
+                value: 'Adults: 1-16 mg/hr IV', 
+                class: 'clevidipine', 
+                description: 'Ultra-short acting dihydropyridine calcium channel blocker.',
+                mechanism: 'Ultra-short acting dihydropyridine calcium channel blocker.',
+                effects: 'Selective arterial vasodilation, minimal effect on heart rate.',
+                features: 'First lipid emulsion calcium channel blocker, metabolized by esterases.',
+                contraindications: 'Severe aortic stenosis, unstable angina, acute MI.',
+                duration: 'Onset 2-5 min, offset 5-15 min after discontinuation.',
+                facts: 'Metabolized by endogenous esterases, no accumulation.',
+                advantages: 'Ultra-short acting, rapid titration, no accumulation.',
+                dangers: 'Reflex tachycardia, flushing, potential for severe hypotension.'
+            },
+            nicardipine: { 
+                label: 'Vasodilators / Calcium Channel Blockers / Nicardipine', 
+                symbol: 'Nic', 
+                value: 'Adults: 5-15 mg/hr IV', 
+                class: 'nicardipine', 
+                description: 'Dihydropyridine calcium channel blocker preventing calcium influx.',
+                mechanism: 'Dihydropyridine calcium channel blocker preventing calcium influx.',
+                effects: 'Arterial vasodilation, cerebral vasodilation, minimal effect on heart rate.',
+                features: 'Preferred agent for perioperative hypertension and stroke prevention.',
+                contraindications: 'Severe aortic stenosis, second/third degree heart block.',
+                duration: 'Onset 5-15 min, duration 1-4 hours.',
+                facts: 'Has favorable cerebral blood flow profile.',
+                advantages: 'Effective in perioperative setting, good neurological profile.',
+                dangers: 'Reflex tachycardia, flushing, potential for worsening heart failure.'
+            },
+            inono: { 
+                label: 'Pulmonary Vasodilators / Gas Therapeutics / iNO', 
+                symbol: 'iNO', 
+                value: '5-20 ppm inhaled', 
+                class: 'inono', 
+                description: 'Selective pulmonary vasodilator increasing cGMP in pulmonary smooth muscle.',
+                mechanism: 'Selective pulmonary vasodilator increasing cGMP in pulmonary smooth muscle.',
+                effects: 'Selective pulmonary vasodilation, minimal systemic effects.',
+                features: 'Used for persistent pulmonary hypertension of newborns and ARDS.',
+                contraindications: 'Left-sided obstructive lesions, methemoglobinemia.',
+                duration: 'Immediate onset/offset, requires continuous inhalation.',
+                facts: 'First gas neurotransmitter to be clinically utilized.',
+                advantages: 'Selective pulmonary vasodilation, rapid titration.',
+                dangers: 'Rebound pulmonary hypertension on abrupt discontinuation, methemoglobinemia.'
+            },
+            methylene_blue: { 
+                label: 'Antidotes/Vasodilators / Guanylate Cyclase Inhibitor / Methylene Blue', 
+                symbol: 'MB', 
+                value: '1-2 mg/kg IV over 5-10 min IV', 
+                class: 'methylene_blue', 
+                description: 'Inhibits guanylate cyclase preventing NO-mediated vasodilation.',
+                mechanism: 'Inhibits guanylate cyclase preventing NO-mediated vasodilation.',
+                effects: 'Reverses vasodilation caused by NO donors and PDE5 inhibitors.',
+                features: 'Treatment for methemoglobinemia and refractory vasodilatory shock.',
+                contraindications: 'G6PD deficiency, concomitant serotonin reuptake inhibitors.',
+                duration: 'Onset 5-30 min, duration 4-6 hours.',
+                facts: 'Paradoxically can cause methemoglobinemia at high doses.',
+                advantages: 'Reverses NO-mediated vasodilation, treats methemoglobinemia.',
+                dangers: 'Serotonin syndrome, methemoglobinemia at high doses.'
+            },
+            ace_inhibitors: { 
+                label: 'Antihypertensives / RAAS Inhibitors / ACE-I', 
+                symbol: 'ACE-I', 
+                value: 'Variable by agent PO', 
+                class: 'ace_inhibitors', 
+                description: 'Inhibit angiotensin-converting enzyme preventing ATII formation.',
+                mechanism: 'Inhibit angiotensin-converting enzyme preventing ATII formation.',
+                effects: 'Arterial and venous dilation, reduced aldosterone secretion.',
+                features: 'First-line therapy for HTN, heart failure, diabetic nephropathy.',
+                contraindications: 'Pregnancy, hyperkalemia, bilateral renal artery stenosis.',
+                duration: '24+ hours for most agents.',
+                facts: 'First developed based on snake venom studies.',
+                advantages: 'Organ protective effects, mortality benefit in heart failure.',
+                dangers: 'Angioedema, hyperkalemia, cough, first-dose syncope.'
+            },
+            arbs: { 
+                label: 'Antihypertensives / RAAS Inhibitors / ARBs', 
+                symbol: 'ARB', 
+                value: 'Variable by agent PO', 
+                class: 'arbs', 
+                description: 'Block angiotensin II type 1 receptors preventing ATII effects.',
+                mechanism: 'Block angiotensin II type 1 receptors preventing ATII effects.',
+                effects: 'Arterial and venous dilation, reduced aldosterone secretion.',
+                features: 'Similar benefits to ACE-I without cough side effect.',
+                contraindications: 'Pregnancy, hyperkalemia, bilateral renal artery stenosis.',
+                duration: '24+ hours for most agents.',
+                facts: 'Developed to avoid ACE-I side effect of cough.',
+                advantages: 'Organ protective effects, no cough side effect.',
+                dangers: 'Angioedema (less than ACE-I), hyperkalemia, first-dose syncope.'
+            },
+            calcium_blockers: { 
+                label: 'Antihypertensives/Vasodilators / Calcium Channel Antagonists / CCBs', 
+                symbol: 'CCB', 
+                value: 'Variable by agent PO', 
+                class: 'calcium_blockers', 
+                description: 'Block L-type calcium channels in vascular smooth muscle and cardiac cells.',
+                mechanism: 'Block L-type calcium channels in vascular smooth muscle and cardiac cells.',
+                effects: 'Varies by subtype - dihydropyridines (vasodilation), verapamil/diltiazem (negative inotropy).',
+                features: 'Effective for elderly patients and isolated systolic HTN.',
+                contraindications: 'Heart failure (with negative inotropes), AV block.',
+                duration: '12-24 hours depending on formulation.',
+                facts: 'Differ in cardiac vs vascular selectivity.',
+                advantages: 'Effective antihypertensive, good in elderly.',
+                dangers: 'Reflex tachycardia (dihydropyridines), heart block (verapamil/diltiazem).'
+            },
+            nitrates: { 
+                label: 'Antianginals/Vasodilators / Organic Nitrates / Nitrates', 
+                symbol: 'Nit', 
+                value: 'Variable by route PO', 
+                class: 'nitrates', 
+                description: 'Converted to NO causing smooth muscle relaxation.',
+                mechanism: 'Converted to NO causing smooth muscle relaxation.',
+                effects: 'Venodilation > arteriolar dilation, coronary vasodilation.',
+                features: 'Mainstay therapy for angina and acute heart failure.',
+                contraindications: 'Recent phosphodiesterase inhibitors, severe anemia.',
+                duration: 'Variable by formulation (minutes to days).',
+                facts: 'First molecularly targeted therapy (NO/cGMP pathway).',
+                advantages: 'Effective antianginal, readily available.',
+                dangers: 'Tolerance, hypotension, methemoglobinemia (rare).'
+            },
+            amiodarone: { 
+                label: 'Antiarrhythmics / Class III Antiarrhythmic / Amiodarone', 
+                symbol: 'AMD', 
+                value: 'Loading: 150 mg over 10 min IV', 
+                class: 'amiodarone', 
+                description: 'Multiple mechanisms - potassium channel blockade, sodium channel blockade, alpha/beta blockade.',
+                mechanism: 'Multiple mechanisms - potassium channel blockade, sodium channel blockade, alpha/beta blockade.',
+                effects: 'Prolongs action potential duration and refractory period.',
+                features: 'Most effective broad-spectrum antiarrhythmic.',
+                contraindications: 'SA node dysfunction, AV block, severe sinus bradycardia.',
+                duration: 'Onset 20-60 min, long elimination half-life (weeks).',
+                facts: 'Structurally similar to thyroid hormones.',
+                advantages: 'Broad spectrum efficacy, effective in structural heart disease.',
+                dangers: 'Bradycardia, hypotension, pulmonary fibrosis, thyroid dysfunction.'
+            },
+            lidocaine: { 
+                label: 'Antiarrhythmics / Class Ib Antiarrhythmic / Lidocaine', 
+                symbol: 'Lido', 
+                value: 'Loading: 1-1.5 mg/kg IV', 
+                class: 'lidocaine', 
+                description: 'Sodium channel blocker preferentially binding to open/inactivated channels.',
+                mechanism: 'Sodium channel blocker preferentially binding to open/inactivated channels.',
+                effects: 'Shortens action potential duration, decreases automaticity.',
+                features: 'Primary agent for ventricular arrhythmias.',
+                contraindications: 'Advanced heart block, severe SA nodal dysfunction.',
+                duration: 'Onset 1-3 min, duration 10-20 min.',
+                facts: 'First amide local anesthetic, discovered serendipitously.',
+                advantages: 'Effective for ventricular arrhythmias, short duration.',
+                dangers: 'CNS toxicity (seizures), cardiovascular depression at high levels.'
+            },
+            procainamide: { 
+                label: 'Antiarrhythmics / Class Ia Antiarrhythmic / Procainamide', 
+                symbol: 'PCA', 
+                value: 'Loading: 10-15 mg/kg over 20-30 min IV', 
+                class: 'procainamide', 
+                description: 'Sodium channel blocker with moderate potassium channel effects.',
+                mechanism: 'Sodium channel blocker with moderate potassium channel effects.',
+                effects: 'Prolongs action potential duration and refractory period.',
+                features: 'Can cause drug-induced lupus syndrome.',
+                contraindications: 'Long QT syndrome, advanced heart block.',
+                duration: 'Onset 10-30 min, duration 1-4 hours.',
+                facts: 'Derived from procaine with antiarrhythmic properties.',
+                advantages: 'Effective for various arrhythmias.',
+                dangers: 'Lupus-like syndrome, quinidine-like effects, heart block.'
+            },
+            sotalol: { 
+                label: 'Antiarrhythmics / Class III Antiarrhythmic / Sotalol', 
+                symbol: 'Sot', 
+                value: '80-160 mg BID PO', 
+                class: 'sotalol', 
+                description: 'Potassium channel blocker with non-selective beta-blocking activity.',
+                mechanism: 'Potassium channel blocker with non-selective beta-blocking activity.',
+                effects: 'Prolongs repolarization, blocks beta-receptors.',
+                features: 'Requires hospital initiation due to proarrhythmic risk.',
+                contraindications: 'Asthma, heart block, long QT syndrome.',
+                duration: '12-16 hours (longest among antiarrhythmics).',
+                facts: 'Both Class II and Class III antiarrhythmic properties.',
+                advantages: 'Dual mechanism, effective for supraventricular and ventricular arrhythmias.',
+                dangers: 'QT prolongation, torsades de pointes, beta-blockade effects.'
+            },
+            adenosine: { 
+                label: 'Antiarrhythmics / Endogenous Nucleoside / Adenosine', 
+                symbol: 'Ado', 
+                value: 'Initial: 6 mg rapid IV push IV', 
+                class: 'adenosine', 
+                description: 'Activates adenosine A1 receptors slowing AV nodal conduction.',
+                mechanism: 'Activates adenosine A1 receptors slowing AV nodal conduction.',
+                effects: 'Brief AV block interrupting reentrant pathways.',
+                features: 'Ultra-short acting agent for terminating PSVT.',
+                contraindications: 'Asthma, second/third degree heart block, recent MI.',
+                duration: 'Onset seconds, duration <30 seconds.',
+                facts: 'Endogenous nucleoside with cytoprotective properties.',
+                advantages: 'Ultra-short duration, highly effective for PSVT.',
+                dangers: 'Bronchospasm, transient asystole, flushing, dyspnea.'
+            },
+            magnesium_sulfate: { 
+                label: 'Electrolytes/Antiarrhythmics / Mineral Supplement / MgSO4', 
+                symbol: 'MgSO4', 
+                value: '1-2 g over 5-10 min IV', 
+                class: 'magnesium_sulfate', 
+                description: 'Competes with calcium at cellular membranes, affects numerous enzymes.',
+                mechanism: 'Competes with calcium at cellular membranes, affects numerous enzymes.',
+                effects: 'Smooth muscle relaxation, membrane stabilization.',
+                features: 'Treatment of choice for torsades de pointes and eclampsia.',
+                contraindications: 'Heart block, myasthenia gravis, severe renal failure.',
+                duration: 'Onset 1-3 min IV, duration 30-60 min.',
+                facts: 'Essential cofactor for >300 enzymatic reactions.',
+                advantages: 'Effective for specific arrhythmias, multiple clinical uses.',
+                dangers: 'Respiratory depression, cardiac arrest at high levels, hypotension.'
+            },
+            potassium_chloride: { 
+                label: 'Electrolytes / Mineral Supplement / KCl', 
+                symbol: 'KCl', 
+                value: 'Max 10-20 mEq/hr IV', 
+                class: 'potassium_chloride', 
+                description: 'Essential electrolyte for cellular function, affects cardiac electrophysiology.',
+                mechanism: 'Essential electrolyte for cellular function, affects cardiac electrophysiology.',
+                effects: 'Normalizes cellular membrane potential, affects cardiac rhythm.',
+                features: 'Careful monitoring required during correction of hypokalemia.',
+                contraindications: 'Hyperkalemia, severe renal failure without dialysis.',
+                duration: 'Onset 1-2 hours, complete correction over days.',
+                facts: 'Major intracellular cation (98% inside cells).',
+                advantages: 'Essential for cellular function, prevents dangerous arrhythmias.',
+                dangers: 'Cardiac arrhythmias, cardiac arrest with rapid infusion, tissue necrosis if extravasation.'
+            },
+            digoxin: { 
+                label: 'Inotropes / Cardiac Glycosides / Digoxin', 
+                symbol: 'Dig', 
+                value: 'Digitalizing: 8-12 mcg/kg/day IV', 
+                class: 'digoxin', 
+                description: 'Inhibits Na+/K+ ATPase increasing intracellular sodium and calcium.',
+                mechanism: 'Inhibits Na+/K+ ATPase increasing intracellular sodium and calcium.',
+                effects: 'Positive inotropy, negative chronotropy, parasympathomimetic effects.',
+                features: 'Narrow therapeutic index requiring monitoring.',
+                contraindications: 'Wolff-Parkinson-White with AF, hypokalemia, hypercalcemia.',
+                duration: 'Onset 30-120 min IV, peak 3-6 hours; Elimination half-life 36-48 hours.',
+                facts: 'Derived from foxglove plant (Digitalis purpurea).',
+                advantages: 'Improves symptoms in heart failure, controls rate in AF.',
+                dangers: 'Toxicity with narrow therapeutic window, arrhythmias, GI/Neuro symptoms.'
+            },
+            esmolol: { 
+                label: 'Beta Blockers / Ultra-short Acting Beta Blockers / Esmolol', 
+                symbol: 'Esm', 
+                value: 'Loading: 500 mcg/kg over 1 min IV', 
+                class: 'esmolol', 
+                description: 'Ultra-short acting cardioselective beta-1 blocker.',
+                mechanism: 'Ultra-short acting cardioselective beta-1 blocker.',
+                effects: 'Decreased heart rate, contractility, renin release.',
+                features: 'Ultra-short acting (8-12 min) due to esterase metabolism.',
+                contraindications: 'Asthma, heart block, decompensated heart failure.',
+                duration: 'Onset 5 min, duration 10-30 min after discontinuation.',
+                facts: 'Unique ester linkage making it ultra-short acting.',
+                advantages: 'Rapid titration, minimal accumulation, cardioselective.',
+                dangers: 'Bradycardia, hypotension, heart block, masking hypoglycemia.'
+            },
+            ivabradine: { 
+                label: 'Chronotropes / I(f) Current Inhibitors / Ivabradine', 
+                symbol: 'Iva', 
+                value: 'Starting: 5 mg BID PO', 
+                class: 'ivabradine', 
+                description: 'Selective inhibitor of I(f) current in SA node.',
+                mechanism: 'Selective inhibitor of I(f) current in SA node.',
+                effects: 'Pure heart rate reduction without inotropic effects.',
+                features: 'First agent with pure chronotropic effect.',
+                contraindications: 'Resting HR <60 bpm, AV block, severe hypotension.',
+                duration: 'Onset 1 hour, steady-state in 3-4 days.',
+                facts: 'Discovered from traditional Chinese medicine research.',
+                advantages: 'Pure heart rate reduction, no negative inotropic effects.',
+                dangers: 'Bradycardia, visual disturbances (phosphenes), AV block.'
+            },
+            furosemide: { 
+                label: 'Diuretics / Loop Diuretics / Furosemide', 
+                symbol: 'Lasix', 
+                value: 'Adults: 20-80 mg IV/PO q12-24h IV', 
+                class: 'furosemide', 
+                description: 'Inhibits NKCC2 cotransporter in thick ascending limb of loop of Henle.',
+                mechanism: 'Inhibits NKCC2 cotransporter in thick ascending limb of loop of Henle.',
+                effects: 'Potent diuresis, natriuresis, kaliuresis, venodilation.',
+                features: 'Most commonly used loop diuretic.',
+                contraindications: 'Anuria, severe electrolyte depletion, hypersensitivity.',
+                duration: 'Onset 5-10 min IV, 30-60 min PO; Duration 2-4 hours.',
+                facts: 'One of the most frequently prescribed medications worldwide.',
+                advantages: 'Potent diuretic effect, rapid onset, IV availability.',
+                dangers: 'Dehydration, electrolyte abnormalities (hypokalemia, hyponatremia, hypomagnesemia).'
+            },
+            torasemide: { 
+                label: 'Diuretics / Loop Diuretics / Torasemide', 
+                symbol: 'Tor', 
+                value: 'Adults: 5-20 mg daily IV', 
+                class: 'torasemide', 
+                description: 'Inhibits NKCC2 cotransporter in thick ascending limb of loop of Henle.',
+                mechanism: 'Inhibits NKCC2 cotransporter in thick ascending limb of loop of Henle.',
+                effects: 'Diuresis, natriuresis, kaliuresis.',
+                features: 'Longer duration of action than furosemide.',
+                contraindications: 'Anuria, severe electrolyte depletion, hypersensitivity.',
+                duration: 'Onset 1 hour, duration 6-12 hours.',
+                facts: 'Has longer half-life and duration of action than furosemide.',
+                advantages: 'Longer duration, once daily dosing possible.',
+                dangers: 'Electrolyte abnormalities, dehydration, ototoxicity.'
+            },
+            bumetanide: { 
+                label: 'Diuretics / Loop Diuretics / Bumetanide', 
+                symbol: 'Bumex', 
+                value: 'Adults: 0.5-2 mg IV/PO daily IV', 
+                class: 'bumetanide', 
+                description: 'Inhibits NKCC2 cotransporter in thick ascending limb of loop of Henle.',
+                mechanism: 'Inhibits NKCC2 cotransporter in thick ascending limb of loop of Henle.',
+                effects: 'Potent diuresis, natriuresis, kaliuresis.',
+                features: '40 times more potent than furosemide.',
+                contraindications: 'Anuria, severe electrolyte depletion, hypersensitivity.',
+                duration: 'Onset 5-10 min IV, 30-60 min PO; Duration 4-6 hours.',
+                facts: 'Most potent loop diuretic available.',
+                advantages: 'Highly potent, useful in diuretic resistance.',
+                dangers: 'Electrolyte abnormalities, dehydration, ototoxicity.'
+            },
+            hctz: { 
+                label: 'Diuretics / Thiazide Diuretics / HCTZ', 
+                symbol: 'HCTZ', 
+                value: 'Adults: 12.5-50 mg daily PO', 
+                class: 'hctz', 
+                description: 'Inhibits NCC cotransporter in distal convoluted tubule.',
+                mechanism: 'Inhibits NCC cotransporter in distal convoluted tubule.',
+                effects: 'Mild diuresis, natriuresis, calcium retention.',
+                features: 'Commonly used thiazide, often in combination products.',
+                contraindications: 'Anuria, severe renal/hepatic impairment, sulfonamide allergy.',
+                duration: 'Onset 2 hours, peak 4 hours, duration 6-12 hours.',
+                facts: 'One of the first antihypertensive medications proven to reduce mortality.',
+                advantages: 'Mild diuretic effect, antihypertensive properties, oral availability.',
+                dangers: 'Electrolyte abnormalities (hypokalemia, hyponatremia), hypercalcemia.'
+            },
+            spironolactone: { 
+                label: 'Diuretics / Aldosterone Receptor Antagonists / Spironolactone', 
+                symbol: 'Spiro', 
+                value: 'Adults: 12.5-50 mg daily PO', 
+                class: 'spironolactone', 
+                description: 'Competitive antagonist of aldosterone receptors in collecting duct.',
+                mechanism: 'Competitive antagonist of aldosterone receptors in collecting duct.',
+                effects: 'Kaliuresis, natriuresis, diuresis, antiandrogenic effects.',
+                features: 'Potassium-sparing diuretic, used in heart failure.',
+                contraindications: 'Hyperkalemia, severe renal impairment, Addison\'s disease.',
+                duration: 'Onset 2-3 days, peak 3-7 days, duration 1-2 days.',
+                facts: 'Also acts as an androgen receptor antagonist.',
+                advantages: 'Potassium sparing, mortality benefit in heart failure.',
+                dangers: 'Hyperkalemia, gynecomastia, menstrual irregularities.'
+            },
+            mannitol: { 
+                label: 'Diuretics/Osmotics / Osmotic Agents / Mannitol', 
+                symbol: 'Man', 
+                value: 'Adults: 0.25-1 g/kg IV over 30-60 min IV', 
+                class: 'mannitol', 
+                description: 'Creates osmotic gradient in proximal tubule preventing water reabsorption.',
+                mechanism: 'Creates osmotic gradient in proximal tubule preventing water reabsorption.',
+                effects: 'Osmotic diuresis, reduction in ICP and intraocular pressure.',
+                features: 'Used for acute reduction of intracranial pressure.',
+                contraindications: 'Heart failure, pulmonary edema, anuria, intracranial bleeding.',
+                duration: 'Onset 15-30 min, duration 3-8 hours.',
+                facts: 'Sugar alcohol naturally found in plants.',
+                advantages: 'Rapid ICP reduction, effective osmotic agent.',
+                dangers: 'Volume overload, rebound ICP elevation, electrolyte abnormalities.'
+            },
+            midazolam: { 
+                label: 'Sedatives/Hypnotics / Benzodiazepines / Midazolam', 
+                symbol: 'Midaz', 
+                value: 'Adults: 0.02-0.1 mg/kg IV/IM IV', 
+                class: 'midazolam', 
+                description: 'Enhances GABA-A receptor function causing CNS depression.',
+                mechanism: 'Enhances GABA-A receptor function causing CNS depression.',
+                effects: 'Anxiolysis, sedation, amnesia, muscle relaxation.',
+                features: 'Shortest-acting benzodiazepine, water soluble at low pH.',
+                contraindications: 'Myasthenia gravis, severe respiratory insufficiency.',
+                duration: 'Onset 2-5 min IV, duration 1-6 hours.',
+                facts: 'Only benzodiazepine that is water-soluble at low pH.',
+                advantages: 'Rapid onset, amnesic properties, reversible with flumazenil.',
+                dangers: 'Respiratory depression, paradoxical reactions, tolerance.'
+            },
+            propofol: { 
+                label: 'Sedatives/Hypnotics / General Anesthetic Agent / Propofol', 
+                symbol: 'Prop', 
+                value: 'Induction: 1-2 mg/kg IV IV', 
+                class: 'propofol', 
+                description: 'Enhances GABA-A receptor function, possibly inhibits excitatory receptors.',
+                mechanism: 'Enhances GABA-A receptor function, possibly inhibits excitatory receptors.',
+                effects: 'Hypnosis, amnesia, anxiolysis, antiemetic properties.',
+                features: 'Rapid onset/offset, lipid-based formulation.',
+                contraindications: 'Soybean/egg allergy, propofol infusion syndrome risk (>48h at high doses).',
+                duration: 'Onset <1 min, duration 5-10 min.',
+                facts: 'Causes "natural-looking" sleep unlike other sedatives.',
+                advantages: 'Rapid titration, quick recovery, antiemetic properties.',
+                dangers: 'Propofol infusion syndrome, respiratory/cardiovascular depression, pain on injection.'
+            },
+            dexmedetomidine: { 
+                label: 'Sedatives / Alpha-2 Agonists / Dexmedetomidine', 
+                symbol: 'Dex', 
+                value: 'Loading: 1 mcg/kg over 10 min IV', 
+                class: 'dexmedetomidine', 
+                description: 'Selective alpha-2 agonist reducing locus ceruleus activity.',
+                mechanism: 'Selective alpha-2 agonist reducing locus ceruleus activity.',
+                effects: 'Sedation without significant respiratory depression, anxiolysis.',
+                features: 'Unique "cooperative" sedation allowing patient interaction.',
+                contraindications: 'Significant heart block, severe hypotension, hypovolemia.',
+                duration: 'Onset 5-15 min, duration 1-2 hours after discontinuation.',
+                facts: 'Maintains arousability unlike other sedatives.',
+                advantages: 'Minimal respiratory depression, easily arousable patients.',
+                dangers: 'Bradycardia, hypotension, rebound hypertension on abrupt discontinuation.'
+            },
+            fentanyl: { 
+                label: 'Analgesics / Opioid Agonists / Fentanyl', 
+                symbol: 'Fent', 
+                value: 'Adults: 1-2 mcg/kg IV q30-60min IV', 
+                class: 'fentanyl', 
+                description: 'Mu-opioid receptor agonist in CNS and periphery.',
+                mechanism: 'Mu-opioid receptor agonist in CNS and periphery.',
+                effects: 'Analgesia, euphoria, respiratory depression, constipation.',
+                features: 'Most commonly used opioid in ICU setting.',
+                contraindications: 'Head injury, respiratory depression, ileus.',
+                duration: 'Onset 1-2 min IV, duration 30-60 min.',
+                facts: '100 times more potent than morphine.',
+                advantages: 'Potent analgesia, minimal histamine release, titratable.',
+                dangers: 'Respiratory depression, dependence, constipation, chest wall rigidity.'
+            },
+            ketamine: { 
+                label: 'Anesthetics/Dissociatives / NMDA Antagonists / Ketamine', 
+                symbol: 'Ket', 
+                value: 'Adults: 1-2 mg/kg IV (induction) IV', 
+                class: 'ketamine', 
+                description: 'Non-competitive NMDA receptor antagonist.',
+                mechanism: 'Non-competitive NMDA receptor antagonist.',
+                effects: 'Dissociative anesthesia, sympathomimetic effects, analgesia.',
+                features: 'Maintains airway reflexes and spontaneous ventilation.',
+                contraindications: 'Hypertension, intracranial hypertension, severe cardiovascular disease.',
+                duration: 'Onset 30-60 sec IV, 3-4 min IM; Duration 5-15 min IV, 10-20 min IM.',
+                facts: 'Produces "dissociative" anesthesia with eyes open and nystagmus.',
+                advantages: 'Cardiovascular stability, maintains airway, analgesic properties.',
+                dangers: 'Emergence phenomena, hallucinations, increased secretions, increased ICP.'
+            },
+            rocuronium: { 
+                label: 'Neuromuscular Blockers / Non-depolarizing Agents / Rocuronium', 
+                symbol: 'Roc', 
+                value: 'Adults: 0.6-1.2 mg/kg IV IV', 
+                class: 'rocuronium', 
+                description: 'Competitive antagonist of nicotinic acetylcholine receptors at neuromuscular junction.',
+                mechanism: 'Competitive antagonist of nicotinic acetylcholine receptors at neuromuscular junction.',
+                effects: 'Flaccid paralysis, respiratory muscle paralysis.',
+                features: 'Rapid onset intermediate duration agent, good for intubation.',
+                contraindications: 'Hypersensitivity, malignant hyperthermia history.',
+                duration: 'Onset 60-90 sec, duration 30-60 min.',
+                facts: 'Steroid-based neuromuscular blocker.',
+                advantages: 'Rapid onset suitable for intubation, predictable duration.',
+                dangers: 'Complete paralysis, requires artificial ventilation, hypersensitivity reactions.'
+            },
+            cisatracurium: { 
+                label: 'Neuromuscular Blockers / Non-depolarizing Agents / Cisatracurium', 
+                symbol: 'Cis', 
+                value: 'Adults: 0.1-0.2 mg/kg IV IV', 
+                class: 'cisatracurium', 
+                description: 'Competitive antagonist of nicotinic acetylcholine receptors at neuromuscular junction.',
+                mechanism: 'Competitive antagonist of nicotinic acetylcholine receptors at neuromuscular junction.',
+                effects: 'Flaccid paralysis, respiratory muscle paralysis.',
+                features: 'Unique Hofmann elimination provides consistent duration regardless of organ function.',
+                contraindications: 'Hypersensitivity, malignant hyperthermia history.',
+                duration: 'Onset 2-3 min, duration 30-45 min.',
+                facts: 'One of few drugs eliminated by organ-independent Hofmann elimination.',
+                advantages: 'Consistent pharmacokinetics regardless of liver/kidney function.',
+                dangers: 'Complete paralysis, requires artificial ventilation, hypersensitivity reactions.'
+            },
+            uf_heparin: { 
+                label: 'Anticoagulants / Parenteral Anticoagulants / Heparin', 
+                symbol: 'UFH', 
+                value: 'Adults: 500-10000 U IV bolus IV', 
+                class: 'uf_heparin', 
+                description: 'Potentiates antithrombin III neutralizing thrombin and factor Xa.',
+                mechanism: 'Potentiates antithrombin III neutralizing thrombin and factor Xa.',
+                effects: 'Prevention of clot formation and extension.',
+                features: 'Rapid onset, readily reversible with protamine.',
+                contraindications: 'Active bleeding, severe thrombocytopenia, hypersensitivity.',
+                duration: 'Onset immediate, duration 2-6 hours.',
+                facts: 'Naturally occurring glycosaminoglycan, first discovered in liver cells.',
+                advantages: 'Rapid onset, readily reversible, adjustable dosing.',
+                dangers: 'Bleeding, heparin-induced thrombocytopenia, osteoporosis with chronic use.'
+            },
+            enoxaparin: { 
+                label: 'Anticoagulants / Low Molecular Weight Heparins / Lovenox', 
+                symbol: 'Lovenox', 
+                value: 'Adults: 1 mg/kg SC q12h SC', 
+                class: 'enoxaparin', 
+                description: 'Primarily potentiates antithrombin III neutralizing factor Xa.',
+                mechanism: 'Primarily potentiates antithrombin III neutralizing factor Xa.',
+                effects: 'Prevention of clot formation with less effect on hemostasis.',
+                features: 'Predictable pharmacokinetics, no routine monitoring required.',
+                contraindications: 'Active major bleeding, severe thrombocytopenia.',
+                duration: 'Onset 2-4 hours, duration 8-12 hours.',
+                facts: 'Derived from unfractionated heparin by chemical depolymerization.',
+                advantages: 'Predictable dosing, subcutaneous administration, less bleeding risk.',
+                dangers: 'Bleeding, rare HIT, difficult to reverse.'
+            },
+            fondaparinux: { 
+                label: 'Anticoagulants / Factor Xa Inhibitors / Arixtra', 
+                symbol: 'Arixtra', 
+                value: 'Adults: 2.5-10 mg SC daily SC', 
+                class: 'fondaparinux', 
+                description: 'Synthetic pentasaccharide selectively binding antithrombin to catalyze factor Xa inactivation.',
+                mechanism: 'Synthetic pentasaccharide selectively binding antithrombin to catalyze factor Xa inactivation.',
+                effects: 'Prevention of clot formation without direct thrombin inhibition.',
+                features: 'First synthetic antithrombotic, no HIT risk.',
+                contraindications: 'Active major bleeding, severe renal impairment, low body weight.',
+                duration: 'Onset 2-4 hours, duration 17-21 hours.',
+                facts: 'Completely synthetic, derived from heparin\'s antithrombin-binding sequence.',
+                advantages: 'No HIT risk, predictable pharmacokinetics, once daily dosing.',
+                dangers: 'Bleeding, difficult to reverse, limited in renal failure.'
+            },
+            warfarin: { 
+                label: 'Anticoagulants / Vitamin K Antagonists / Coumadin', 
+                symbol: 'Coumadin', 
+                value: 'Adults: 2-10 mg PO daily PO', 
+                class: 'warfarin', 
+                description: 'Inhibits vitamin K epoxide reductase preventing vitamin K recycling.',
+                mechanism: 'Inhibits vitamin K epoxide reductase preventing vitamin K recycling.',
+                effects: 'Reduced synthesis of vitamin K-dependent clotting factors.',
+                features: 'Slow onset, long duration, numerous drug interactions.',
+                contraindications: 'Pregnancy, active bleeding, surgery within 7 days.',
+                duration: 'Onset 2-7 days, duration 2-5 days after discontinuation.',
+                facts: 'Originally developed as rodenticide, racemic mixture of two enantiomers.',
+                advantages: 'Oral administration, long experience, relatively inexpensive.',
+                dangers: 'Bleeding, numerous drug/nutrient interactions, teratogenic.'
+            },
+            doac: { 
+                label: 'Anticoagulants / Novel Oral Anticoagulants / DOACs', 
+                symbol: 'DOAC', 
+                value: 'Variable by agent PO', 
+                class: 'doac', 
+                description: 'Direct inhibition of factor Xa (rivaroxaban, apixaban) or thrombin (dabigatran).',
+                mechanism: 'Direct inhibition of factor Xa (rivaroxaban, apixaban) or thrombin (dabigatran).',
+                effects: 'Prevention of clot formation with predictable pharmacokinetics.',
+                features: 'Fixed dosing, no routine monitoring required.',
+                contraindications: 'Active major bleeding, severe renal impairment, mechanical valves.',
+                duration: 'Variable by agent (12-24 hours).',
+                facts: 'Designed to overcome warfarin limitations.',
+                advantages: 'Fixed dosing, fewer interactions, predictable effects.',
+                dangers: 'Bleeding, limited reversal agents, cost.'
+            },
+            pcc: { 
+                label: 'Hemostatic Agents / Coagulation Factors / PCC', 
+                symbol: 'PCC', 
+                value: 'Variable based on factor deficiency IV', 
+                class: 'pcc', 
+                description: 'Provides vitamin K-dependent coagulation factors (II, VII, IX, X).',
+                mechanism: 'Provides vitamin K-dependent coagulation factors (II, VII, IX, X).',
+                effects: 'Rapid correction of coagulopathy.',
+                features: 'Used for urgent reversal of warfarin and factor deficiency.',
+                contraindications: 'DIC, disseminated intravascular coagulation.',
+                duration: 'Immediate effect, duration depends on factor half-lives.',
+                facts: 'Contains both pro and anticoagulant factors.',
+                advantages: 'Rapid reversal of warfarin, concentrated factor replacement.',
+                dangers: 'Thrombotic complications, allergic reactions.'
+            },
+            protamine: { 
+                label: 'Antidotes / Polycationic Proteins / Protamine', 
+                symbol: 'Prot', 
+                value: '1 mg per 100 U heparin IV', 
+                class: 'protamine', 
+                description: 'Positively charged protein binding negatively charged heparin.',
+                mechanism: 'Positively charged protein binding negatively charged heparin.',
+                effects: 'Neutralization of heparin anticoagulant activity.',
+                features: 'Specific antidote for heparin.',
+                contraindications: 'Known hypersensitivity to fish products.',
+                duration: 'Onset 5-10 min, complete reversal in 15-30 min.',
+                facts: 'Derived from salmon sperm, first used in 1940s.',
+                advantages: 'Specific and effective heparin reversal.',
+                dangers: 'Hypotension, anaphylaxis, paradoxical anticoagulation if overdosed.'
+            },
+            alteplase: { 
+                label: 'Thrombolytics / Plasminogen Activators / tPA', 
+                symbol: 'tPA', 
+                value: 'Adults: 0.9 mg/kg (max 90 mg) IV over 60 min IV', 
+                class: 'alteplase', 
+                description: 'Converts plasminogen to plasmin dissolving fibrin clots.',
+                mechanism: 'Converts plasminogen to plasmin dissolving fibrin clots.',
+                effects: 'Clot dissolution, restoration of blood flow.',
+                features: 'Time-sensitive therapy for stroke and MI.',
+                contraindications: 'Recent bleeding, surgery, trauma, hemorrhagic stroke.',
+                duration: 'Onset 30-60 min, duration 4-8 hours.',
+                facts: 'Recombinant tissue plasminogen activator, first gene therapy product.',
+                advantages: 'Effective clot dissolution, time-sensitive benefits.',
+                dangers: 'Major bleeding, especially intracranial hemorrhage.'
+            },
+            tranexamic_acid: { 
+                label: 'Antifibrinolytics / Plasmin Inhibitors / TXA', 
+                symbol: 'TXA', 
+                value: 'Adults: 1 g IV over 10 min IV', 
+                class: 'tranexamic_acid', 
+                description: 'Competitive inhibitor of plasminogen binding to fibrin.',
+                mechanism: 'Competitive inhibitor of plasminogen binding to fibrin.',
+                effects: 'Prevention of clot breakdown, reduced bleeding.',
+                features: 'Used prophylactically in surgery and trauma.',
+                contraindications: 'Active intravascular clotting, disseminated intravascular coagulation.',
+                duration: 'Onset 10-30 min, duration 2-4 hours.',
+                facts: 'Synthetic analog of amino acid lysine.',
+                advantages: 'Reduces bleeding without prothrombotic effects.',
+                dangers: 'Thrombotic events if used inappropriately, seizures at high doses.'
+            },
+            hydrocortisone: { 
+                label: 'Corticosteroids / Glucocorticoids/Mineralocorticoids / Hydrocortisone', 
+                symbol: 'HC', 
+                value: 'Stress dose: 50-100 mg IV q6-8h IV', 
+                class: 'hydrocortisone', 
+                description: 'Binds glucocorticoid receptors affecting gene transcription and inflammation.',
+                mechanism: 'Binds glucocorticoid receptors affecting gene transcription and inflammation.',
+                effects: 'Anti-inflammatory, immunosuppressive, metabolic effects.',
+                features: 'Natural corticosteroid with both glucocorticoid and mineralocorticoid activity.',
+                contraindications: 'Systemic fungal infections, live vaccines, uncontrolled diabetes.',
+                duration: 'Onset hours to days, duration days.',
+                facts: 'Body\'s natural stress hormone, essential for life.',
+                advantages: 'Essential in adrenal insufficiency, anti-inflammatory effects.',
+                dangers: 'Immunosuppression, hyperglycemia, fluid retention, mood changes.'
+            },
+            thiamine: { 
+                label: 'Vitamins / B-complex Vitamins / B1', 
+                symbol: 'B1', 
+                value: 'Adults: 100-200 mg IV daily IV', 
+                class: 'thiamine', 
+                description: 'Cofactor for pyruvate dehydrogenase and other enzymes.',
+                mechanism: 'Cofactor for pyruvate dehydrogenase and other enzymes.',
+                effects: 'Correction of deficiency states, energy metabolism support.',
+                features: 'Essential in alcoholics and malnourished patients.',
+                contraindications: 'Hypersensitivity reactions.',
+                duration: 'Onset hours to days, stores depleted in 2-3 weeks.',
+                facts: 'First vitamin to be chemically defined.',
+                advantages: 'Essential cofactor, prevents Wernicke\'s encephalopathy.',
+                dangers: 'Rare allergic reactions.'
+            },
+            insulin: { 
+                label: 'Hormones / Pancreatic Hormones / Insulin', 
+                symbol: 'Ins', 
+                value: 'Variable by indication IV', 
+                class: 'insulin', 
+                description: 'Binds insulin receptors promoting glucose uptake and utilization.',
+                mechanism: 'Binds insulin receptors promoting glucose uptake and utilization.',
+                effects: 'Lowering blood glucose, promoting cellular glucose uptake.',
+                features: 'Used for tight glucose control in ICU and DKA.',
+                contraindications: 'Hypoglycemia, sulfonylurea overdose.',
+                duration: 'Onset 5-15 min, peak 30-60 min, duration 2-4 hours.',
+                facts: 'First hormone to be synthesized artificially.',
+                advantages: 'Tight glucose control, effective in DKA.',
+                dangers: 'Hypoglycemia, hypokalemia, requires frequent monitoring.'
+            },
+            sodium_bicarbonate: { 
+                label: 'Electrolytes/Alkalinizing Agents / Buffering Agents / SB', 
+                symbol: 'SB', 
+                value: 'Adults: 1 mEq/kg IV IV', 
+                class: 'sodium_bicarbonate', 
+                description: 'Provides bicarbonate ions buffering hydrogen ions.',
+                mechanism: 'Provides bicarbonate ions buffering hydrogen ions.',
+                effects: 'Correction of metabolic acidosis, alkalinization.',
+                features: 'Controversial in cardiac arrest and lactic acidosis.',
+                contraindications: 'Metabolic alkalosis, hypocalcemia.',
+                duration: 'Onset minutes, duration hours to days.',
+                facts: 'Natural component of the body\'s buffering system.',
+                advantages: 'Rapid correction of severe acidosis.',
+                dangers: 'Paradoxical CSF acidosis, hypokalemia, hypernatremia.'
+            },
+            calcium: { 
+                label: 'Electrolytes / Mineral Supplements / Ca++', 
+                symbol: 'Ca++', 
+                value: 'Adults: 1-2 g calcium gluconate IV', 
+                class: 'calcium', 
+                description: 'Provides calcium ions essential for cellular function and cardiac contractility.',
+                mechanism: 'Provides calcium ions essential for cellular function and cardiac contractility.',
+                effects: 'Stabilizes cardiac membranes, enhances contractility, promotes coagulation.',
+                features: 'Calcium chloride more concentrated and irritating than calcium gluconate.',
+                contraindications: 'Digitalis toxicity, hypercalcemia.',
+                duration: 'Onset minutes, duration 30-60 min.',
+                facts: 'Calcium chloride is more concentrated (27% elemental calcium vs 9% in gluconate).',
+                advantages: 'Essential for cardiac function, membrane stabilization.',
+                dangers: 'Tissue necrosis if extravasation, arrhythmias, cardiac arrest if too rapid.'
+            }
+        };
+
+        const table = document.getElementById('periodicTable');
+        const tooltip = document.getElementById('tooltip');
+        const tooltipContent = document.getElementById('tooltipContent');
+        const closeTooltipBtn = document.getElementById('closeTooltip');
+
+        const rows = [
+            ['crystalloids', 'hypertonic_saline', 'albumin', 'packed_rbc'], 
+            ['ffp', 'platelets', 'norepinephrine', 'epinephrine'],
+            ['vasopressin', 'terlipressin', 'dopamine', 'dobutamine'],
+            ['milrinone', 'levosimendan', 'isoproterenol', 'nitroglycerin'],
+            ['snitroprusside', 'hydralazine', 'clevidipine', 'nicardipine'],
+            ['inono', 'methylene_blue', 'ace_inhibitors', 'arbs'],
+            ['calcium_blockers', 'nitrates', 'amiodarone', 'lidocaine'],
+            ['procainamide', 'sotalol', 'adenosine', 'magnesium_sulfate'],
+            ['potassium_chloride', 'digoxin', 'esmolol', 'ivabradine'],
+            ['furosemide', 'torasemide', 'bumetanide', 'hctz'],
+            ['spironolactone', 'mannitol', 'midazolam', 'propofol'],
+            ['dexmedetomidine', 'fentanyl', 'ketamine', 'rocuronium'],
+            ['cisatracurium', 'uf_heparin', 'enoxaparin', 'fondaparinux'],
+            ['warfarin', 'doac', 'pcc', 'protamine'],
+            ['alteplase', 'tranexamic_acid', 'hydrocortisone', 'thiamine'],
+            ['insulin', 'sodium_bicarbonate', 'calcium']
+        ];
+
+        rows.forEach(row => {
+            row.forEach(drugId => {
+                const drug = drugs[drugId];
+                if (!drug) return;
+                const element = document.createElement('div');
+                element.className = `element ${drug.class}`;
+                element.innerHTML = `
+                    <div class="element-label">${drug.label}</div>
+                    <div class="element-symbol">${drug.symbol}</div>
+                    <div class="element-value">${drug.value}</div>
+                `;
+                
+                element.addEventListener('mouseenter', (e) => showTooltip(e, drug));
+                element.addEventListener('mousemove', (e) => updateTooltipPosition(e));
+                element.addEventListener('mouseleave', hideTooltip);
+                
+                element.addEventListener('click', (e) => {
+                    showTooltip(e, drug);
+                    e.stopPropagation();
+                });
+                
+                table.appendChild(element);
+            });
+        });
+
+        function showTooltip(e, drug) {
+            const color = window.getComputedStyle(e.currentTarget).color;
+            tooltip.style.color = color;
+            tooltip.style.borderColor = color;
+            
+            tooltipContent.innerHTML = `
+                <div class="tooltip-title">${drug.symbol} - ${drug.label}</div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Description</div><div class="tooltip-section-content">${drug.description}</div></div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Mechanism of Action</div><div class="tooltip-section-content">${drug.mechanism}</div></div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Effects</div><div class="tooltip-section-content">${drug.effects}</div></div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Features</div><div class="tooltip-section-content">${drug.features}</div></div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Contraindications</div><div class="tooltip-section-content">${drug.contraindications}</div></div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Duration</div><div class="tooltip-section-content">${drug.duration}</div></div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Interesting Facts</div><div class="tooltip-section-content">${drug.facts}</div></div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Advantages</div><div class="tooltip-section-content">${drug.advantages}</div></div>
+                <div class="tooltip-section"><div class="tooltip-section-title">Dangers</div><div class="tooltip-section-content">${drug.dangers}</div></div>
+            `;
+            
+            if (window.innerWidth > 768) {
+                updateTooltipPosition(e);
+            }
+            tooltip.classList.add('active');
+        }
+
+        function updateTooltipPosition(e) {
+            if (window.innerWidth <= 768) return;
+            const margin = 20;
+            let x = e.clientX + margin;
+            let y = e.clientY + margin;
+            const rect = tooltip.getBoundingClientRect();
+            if (x + rect.width > window.innerWidth - margin) x = e.clientX - rect.width - margin;
+            if (y + rect.height > window.innerHeight - margin) y = e.clientY - rect.height - margin;
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = y + 'px';
+        }
+
+        function hideTooltip() {
+            if (window.innerWidth > 768) tooltip.classList.remove('active');
+        }
+
+        function forceHideTooltip() {
+            tooltip.classList.remove('active');
+        }
+
+        closeTooltipBtn.addEventListener('click', forceHideTooltip);
+        
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && !tooltip.contains(e.target)) {
+                forceHideTooltip();
+            }
+        });
+    </script>
+</body>
+</html>
