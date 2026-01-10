@@ -7,11 +7,85 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/main.css">
     <link rel="stylesheet" href="../CSS/print.css" media="print">
+<<<<<<< HEAD
     <link rel="stylesheet" href="../CSS/cards.css">
 </head>
 <body>
     <div class="nav-overlay" id="nav-overlay"></div>
     <header class="main-header">
+=======
+    <style>
+        :root {
+            --cat-v: #ff0044; --cat-i: #00d4ff; --cat-a: #bb00ff;
+            --cat-d: #ccff00; --cat-h: #00ff88; --cat-c: #ffaa00; 
+            --cat-b: #3d5afe; --cat-s: #ffffff; --cat-r: #795548;
+        }
+
+        /* Стили для карточек в стиле периодической таблицы */
+        .drug-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .drug-card {
+            aspect-ratio: 1/1.2;
+            border: 1px solid #444;
+            background: rgba(255, 255, 255, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .drug-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border-color: #fff;
+            z-index: 10;
+        }
+
+        .card-top { font-size: 0.6rem; text-transform: uppercase; opacity: 0.8; font-weight: bold; line-height: 1.1; }
+        .card-mid { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .drug-symbol { font-size: 2.2rem; font-weight: 800; font-family: 'Montserrat'; }
+        .drug-name { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-top: 5px; text-align: center; }
+        .card-bottom { font-size: 0.65rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 5px; margin-top: 5px; line-height: 1.2; }
+        .peds-label { color: #00d4ff; font-weight: bold; }
+
+        /* Цветовые категории */
+        .cat-v { color: var(--cat-v); border-left: 3px solid var(--cat-v); }
+        .cat-i { color: var(--cat-i); border-left: 3px solid var(--cat-i); }
+        .cat-a { color: var(--cat-a); border-left: 3px solid var(--cat-a); }
+        .cat-d { color: var(--cat-d); border-left: 3px solid var(--cat-d); }
+        .cat-h { color: var(--cat-h); border-left: 3px solid var(--cat-h); }
+        .cat-c { color: var(--cat-c); border-left: 3px solid var(--cat-c); }
+        .cat-b { color: var(--cat-b); border-left: 3px solid var(--cat-b); }
+        .cat-s { color: var(--cat-s); border-left: 3px solid var(--cat-s); }
+        .cat-r { color: var(--cat-r); border-left: 3px solid var(--cat-r); }
+
+        /* Tooltip расширенный */
+        #tooltip {
+            position: fixed; background: var(--bg-color, #0a0a0a); color: var(--text-color, #eee);
+            border: 1px solid #555; padding: 20px; width: 450px; display: none; z-index: 3000;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8); backdrop-filter: blur(15px);
+            max-height: 80vh; overflow-y: auto; border-radius: 4px;
+        }
+        .tt-title { font-size: 1.6rem; color: #00ffff; font-family: 'Montserrat'; border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 2px; }
+        .tt-trade { font-size: 1rem; color: #ff00ff; font-weight: bold; margin-bottom: 15px; display: block; }
+        .tt-label { font-size: 0.7rem; color: #888; text-transform: uppercase; display: block; margin-top: 12px; font-weight: bold; letter-spacing: 1px; }
+        .tt-content { font-size: 0.9rem; line-height: 1.4; margin-top: 3px; }
+        .tt-picco { background: rgba(0, 255, 136, 0.1); border-left: 3px solid #00ff88; padding: 8px; margin-top: 10px; font-style: italic; }
+
+        /* Тема переключатель */
+        .theme-switcher { position: fixed; bottom: 20px; right: 20px; z-index: 1000; padding: 10px; border-radius: 50%; cursor: pointer; }
+    </style>
+</head>
+<body class="dark-theme"> <header class="main-header">
+>>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
         <h1 class="site-title"><a href="../index.html" class="site-title"><span class="green-highlighted-oval-3d">PiCCO</span> - <span class="color-red">O</span>nline Manual</a></h1>
         <button class="menu-toggle" id="menu-toggle">☰</button>
     </header>
@@ -20,7 +94,11 @@
         <nav class="main-nav" id="main-nav">
             <h2>Sections</h2>
             <div class="search-container">
+<<<<<<< HEAD
                 <input type="text" id="searchInput" placeholder="Search sections..." aria-label="Search sections">
+=======
+                <input type="text" id="searchInput" placeholder="Search sections...">
+>>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
             </div>
             <ul>
                 <li><a href="introduction.html">Introduction</a></li>
@@ -45,14 +123,22 @@
                 <li><a href="reference.html">Reference</a></li>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="visualizations.html">Visualizations</a></li>
+<<<<<<< HEAD
                 <li><a href="periodic-table.html">Periodic Table</a></li>
                 <li><a href="pharmacology.html" class="active">Pharmacology</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="simulation.html">Quiz</a></li>
+=======
+                <li><a href="about.html">About</a></li>
+                <li><a href="simulation.html"><span class="gold-highlighted-oval-3d">Quiz 🎓</span></a></li>
+                <li><a href="piccoworld.html"><span class="green-highlighted-oval-3d">PiCCO</span> WORLD</a></li>
+                <li><a href="commondrugs.html"><span class="red-highlighted-oval-3d">Common 🧐</span> <span class="pink-highlighted-oval-3d">Drugs</span></a></li>
+>>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
             </ul>
         </nav>
 
         <main class="main-content">
+<<<<<<< HEAD
             <h2 class="page-title">Cardiac Pharmacology Reference</h2>
             
             <div class="card-table" id="pharmaTable"></div>
@@ -66,12 +152,22 @@
         </div>
     </footer>
     
+=======
+            <h2 style="text-align: center;"><span class="red-highlighted-oval-3d">Critical Care</span> <span class="pink-highlighted-oval-3d">Pharmacology</span></h2>
+            <div class="drug-grid" id="drugGrid"></div>
+        </main>
+    </div>
+
+    <div id="tooltip"></div>
+
+>>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
     <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
         <span class="icon-sun">☀️</span>
         <span class="icon-moon" style="display: none;">🌙</span>
     </button>
 
     <script>
+<<<<<<< HEAD
         const drugs = {
             norepinephrine: {
                 category: 'Vasopressor<br>Catecholamine',
@@ -660,10 +756,323 @@
                 y = e.clientY - tooltipRect.height - margin;
             }
             
+=======
+        const drugs = [
+    // === VASOPRESSORS & INOPRESSORS ===
+    { 
+        s: "Ne", n: "Norepinephrine", cat: "v", trade: "Levophed", grp: "Pressor", sub: "α1 > β1", 
+        ad: "0.01-1.0 µg/kg/min", ch: "0.05-0.1 µg/kg/min",
+        mech: "Potent α1-adrenergic agonist (vasoconstriction) with moderate β1 activity (inotropy). Increases SVR and MAP primarily through arterial and venous constriction. β1 effects provide mild inotropic support. Minimal effect on HR at therapeutic doses.",
+        indications: "First-line vasopressor for septic shock, distributive shock states, cardiogenic shock with low SVR, neurogenic shock, anaphylaxis.",
+        contraindications: "Hypovolemia without adequate fluid resuscitation (relative). Avoid in pheochromocytoma.",
+        sideeffects: "Tissue necrosis if extravasation, reflex bradycardia, arrhythmias, digital ischemia at high doses.",
+        picco: "GOLD STANDARD vasopressor. Monitor SVRI - expect significant increase. Target MAP ≥65 mmHg. May decrease CI initially if severe vasoconstriction.",
+        rem: "Surviving Sepsis Guidelines: FIRST-LINE agent. More predictable than dopamine with LOWER arrhythmia risk. Do NOT mix with alkaline solutions."
+    },
+    { 
+        s: "Ad", n: "Epinephrine", cat: "v", trade: "Adrenaline", grp: "Inopressor", sub: "α/β agonist", 
+        ad: "0.01-0.5 µg/kg/min", ch: "0.1-1.0 µg/kg/min",
+        mech: "Non-selective α and β adrenergic agonist. LOW doses (<0.05): predominantly β1/β2 (inotropy). HIGH doses: α1 predominates (vasoconstriction). Increases CO, HR, and SVR.",
+        indications: "Anaphylaxis, cardiac arrest, severe bradycardia, refractory shock, post-cardiac surgery low output state.",
+        contraindications: "No absolute in emergencies. Relative: uncontrolled tachyarrhythmias, hypertrophic cardiomyopathy.",
+        sideeffects: "Highly arrhythmogenic, severe tachycardia, hyperglycemia, type B lactic acidosis (β2-mediated).",
+        picco: "Expect dramatic increase in CI and CO. HR often increases significantly. SVRI varies by dose. Causes paradoxically high lactate - check ScvO2.",
+        rem: "Extreme caution - most arrhythmogenic catecholamine. First-line for anaphylaxis (IM route). AVOID in cocaine-induced chest pain."
+    },
+    {
+        s: "Vp", n: "Vasopressin", cat: "v", trade: "Empressin", grp: "Pressor", sub: "V1 agonist",
+        ad: "0.01-0.04 U/min", ch: "0.0003-0.002 U/kg/min",
+        mech: "V1 receptor agonist causing vascular smooth muscle contraction. Non-adrenergic. Maintains tone in catecholamine-refractory shock by restoring vascular responsiveness.",
+        indications: "Adjunct to norepinephrine in septic shock, vasodilatory shock post-bypass, cardiac arrest (single 40U dose).",
+        contraindications: "Relative: CAD, peripheral vascular disease. Fixed dose only (0.03-0.04 U/min).",
+        sideeffects: "Digital/splanchnic ischemia, hyponatremia (V2 effect), coronary vasoconstriction, decreased CO.",
+        picco: "Expect SVRI increase without change in HR. CI may DECREASE due to increased afterload - monitor carefully.",
+        rem: "ALWAYS use as ADJUNCT to norepinephrine. FIXED DOSE - do not titrate. VASST trial: benefit in less severe septic shock."
+    },
+
+    // === INOTROPES & INODILATORS ===
+    {
+        s: "Db", n: "Dobutamine", cat: "i", trade: "Dobutrex", grp: "Inotrope", sub: "β1 agonist",
+        ad: "2-20 µg/kg/min", ch: "2-20 µg/kg/min",
+        mech: "Direct β1 agonist. Increases contractility and heart rate. Mild β2 and α1 effects. Overall net effect is increased CO with decreased/neutral SVR.",
+        indications: "Cardiogenic shock, low output heart failure, sepsis with myocardial depression, stress echocardiography.",
+        contraindications: "HOCM with obstruction, suspected pheochromocytoma, severe aortic stenosis.",
+        sideeffects: "Tachycardia, ventricular arrhythmias, hypotension (β2 effect), increased myocardial oxygen demand.",
+        picco: "Primary indicator: improvement in CI and GEF/CFI. Watch for 'Inodilator' effect (lowering SVRI). If MAP drops too much, add Norepinephrine.",
+        rem: "Short half-life (2 mins). Tachyphylaxis may occur after 72h. Preferred in heart failure due to less effect on HR than Isoprenaline."
+    },
+    {
+        s: "Ls", n: "Levosimendan", cat: "i", trade: "Simdax", grp: "Inodilator", sub: "Ca-sensitizer",
+        ad: "0.05-0.2 µg/kg/min", ch: "N/A (Limited data)",
+        mech: "Sensitizes troponin C to calcium (inotropy) and opens ATP-sensitive K-channels (vasodilation). Does NOT increase intracellular calcium or O2 demand.",
+        indications: "Acute decompensated HF where conventional inotropes fail, right heart failure, cardiac surgery weaning.",
+        contraindications: "Severe hypotension, severe renal/hepatic impairment, history of Torsades de Pointes.",
+        sideeffects: "Hypotension, headache, hypokalemia, atrial fibrillation.",
+        picco: "Monitor GEF/CFI for contractility improvement. Note long-lasting effect: metabolite active for 7-10 days. Check SVRI (significant drop expected).",
+        rem: "Usually given as 24-hour infusion. Does not increase O2 demand, making it safer in ischemic cardiomyopathy."
+    },
+    {
+        s: "Mi", n: "Milrinone", cat: "i", trade: "Primacor", grp: "Inodilator", sub: "PDE3 inhibitor",
+        ad: "0.375-0.75 µg/kg/min", ch: "0.25-0.75 µg/kg/min",
+        mech: "Phosphodiesterase-3 inhibitor. Increases cAMP → inotropy in heart & vasodilation in vessels. Potent pulmonary vasodilator.",
+        indications: "Acute heart failure, pulmonary hypertension, low CO after cardiac surgery, bridge to transplant.",
+        contraindications: "Severe obstructive valvular disease, acute MI, severe hypotension.",
+        sideeffects: "Hypotension (venous and arterial), ventricular arrhythmias, thrombocytopenia (rare), headache.",
+        picco: "Excellent for right-sided failure. Expect CI increase and SVRI decrease. Monitor ELWI - if EVLW is high, Milrinone helps unloading.",
+        rem: "Renally cleared (reduce dose if GFR <30). Does not rely on β-receptors, so effective in patients on chronic β-blockers."
+    },
+
+    // === SEDATIVES & RELAXANTS ===
+    { 
+        s: "Pf", n: "Propofol", cat: "s", trade: "Diprivan", grp: "Sedative", sub: "GABA-A agonist", 
+        ad: "0.5-4.0 mg/kg/hr", ch: "1.0-3.0 mg/kg/hr",
+        mech: "Global CNS depression via GABA-A receptor agonism. Decreases cerebral metabolic rate (CMRO2) and ICP. Has anti-convulsant and anti-emetic properties.",
+        indications: "Induction and maintenance of general anesthesia, ICU sedation, procedural sedation.",
+        contraindications: "Hypersensitivity to egg/soy. Severe hemodynamic instability.",
+        sideeffects: "Hypotension, respiratory depression, PRIS, hypertriglyceridemia.",
+        picco: "Expect SVRI decrease. May decrease CI due to negative inotropy. If MAP drops, recalibrate PiCCO after adjusting doses.",
+        rem: "Rapid onset/offset. PRIS risk: monitor CK and Lactate if doses >4mg/kg/hr."
+    },
+    { 
+        s: "Dx", n: "Dexmedetomidine", cat: "s", trade: "Precedex", grp: "Sedative", sub: "α2 agonist", 
+        ad: "0.2-1.4 µg/kg/hr", ch: "0.2-1.0 µg/kg/hr",
+        mech: "Selective α2-adrenoceptor agonist in the locus coeruleus. Provides sedation, analgesia, and sympatholysis without significant respiratory depression.",
+        indications: "ICU sedation (especially for weaning), delirium management, awake intubation.",
+        contraindications: "Advanced heart block, severe bradycardia.",
+        sideeffects: "Bradycardia, hypotension (can cause transient hypertension with bolus), dry mouth.",
+        picco: "Sympatholytic effect: expect decrease in HR and CI. Usually maintains SVRI but may lower it in hyperdynamic states.",
+        rem: "Unique 'cooperative sedation' (patient can be easily aroused). No respiratory depression."
+    },
+    { 
+        s: "Rc", n: "Rocuronium", cat: "r", trade: "Esmeron", grp: "Relaxant", sub: "Non-depol", 
+        ad: "0.6-1.0 mg/kg (bolus)", ch: "0.6-1.2 mg/kg",
+        mech: "Competitive antagonist at nicotinic acetylcholine receptors at the neuromuscular junction.",
+        indications: "Endotracheal intubation, surgical muscle relaxation, mechanical ventilation (shivering/fighting).",
+        contraindications: "Hypersensitivity, history of malignant hyperthermia (safe, but use caution).",
+        sideeffects: "Tachycardia (mild), prolonged paralysis in liver/renal failure.",
+        picco: "Minimal hemodynamic effect. Eliminates patient movement artifacts during TPTD calibration.",
+        rem: "Reversal agent: Sugammadex (Bridion) for rapid recovery."
+    },
+
+    // === ANTIHYPERTENSIVES & BETA-BLOCKERS ===
+    { 
+        s: "Bi", n: "Bisoprolol", cat: "b", trade: "Cardiloc", grp: "β-blocker", sub: "β1 selective", 
+        ad: "1.25-10 mg QD", ch: "0.05-0.1 mg/kg QD",
+        mech: "Selective β1-blockade. Reduces HR and contractility.",
+        indications: "CHF, HTN, AF rate control.",
+        contraindications: "Acute decompensated HF, heart block, bradycardia.",
+        sideeffects: "Bradycardia, hypotension, fatigue.",
+        picco: "Expect decrease in CI and HR. Monitor GEF to ensure contractility isn't overly suppressed.",
+        rem: "Start low, go slow in CHF."
+    },
+    { 
+        s: "Me", n: "Metoprolol", cat: "b", trade: "Neobloc", grp: "β-blocker", sub: "β1 selective", 
+        ad: "25-200 mg PO / 5mg IV", ch: "0.1 mg/kg IV",
+        mech: "Selective β1 antagonist. Short-acting (Succinate vs Tartrate).",
+        indications: "ACS, tachycardia, HTN.",
+        contraindications: "Bradycardia, cardiogenic shock.",
+        sideeffects: "Hypotension, cold extremities.",
+        picco: "Watch CI. Useful to control tachy-induced low SV in PiCCO analysis.",
+        rem: "In Israel: Neobloc (Tartrate) or Lopressor."
+    },
+    { 
+        s: "Nc", n: "Nicardipine", cat: "h", trade: "Cardene", grp: "CCB", sub: "DHP", 
+        ad: "5-15 mg/hr IV", ch: "1-3 µg/kg/min",
+        mech: "Dihydropyridine calcium channel blocker. Potent arterial vasodilation.",
+        indications: "Hypertensive crisis, stroke management.",
+        contraindications: "Advanced aortic stenosis.",
+        sideeffects: "Reflex tachycardia, headache, flushing.",
+        picco: "Expected: Sharp decrease in SVRI, increase in CI (reflex).",
+        rem: "Preferred in neuro-emergencies as it doesn't increase ICP."
+    },
+    { 
+        s: "Ur", n: "Urapidil", cat: "h", trade: "Ebrantil", grp: "Vasodilator", sub: "α1 block", 
+        ad: "10-50 mg IV", ch: "N/A",
+        mech: "Peripheral α1-antagonist and central 5-HT1A receptor agonist.",
+        indications: "Hypertensive emergency, aortic dissection.",
+        contraindications: "Aortic isthmus stenosis.",
+        sideeffects: "Dizziness, nausea.",
+        picco: "Reduces afterload (SVRI) without reflex tachycardia. Very stable hemodynamics.",
+        rem: "Popular in Europe/Israel for HTN crisis."
+    },
+
+    // === DIURETICS & RAAS ===
+    { 
+        s: "Fu", n: "Furosemide", cat: "d", trade: "Fusid", grp: "Diuretic", sub: "Loop", 
+        ad: "20-100 mg IV", ch: "1.0-2.0 mg/kg IV",
+        mech: "Inhibits Na-K-Cl symporter in Henle loop.",
+        indications: "Edema, CHF, EVLW overload.",
+        contraindications: "Anuria, severe hypokalemia.",
+        sideeffects: "Hypokalemia, ototoxicity.",
+        picco: "Essential for ELWI reduction. Monitor GEDVI to avoid hypovolemia.",
+        rem: "PiCCO helps find the 'sweet spot' for diuresis."
+    },
+    { 
+        s: "Ra", n: "Ramipril", cat: "h", trade: "Tritace", grp: "ACEI", sub: "ACE inhibitor", 
+        ad: "2.5-10 mg QD", ch: "0.05 mg/kg",
+        mech: "Blocks conversion of AT-I to AT-II.",
+        indications: "HTN, HF, post-MI.",
+        contraindications: "Pregnancy, renal artery stenosis, angioedema.",
+        sideeffects: "Dry cough, hyperkalemia.",
+        picco: "Long-term afterload reduction (SVRI).",
+        rem: "Wait 36h before starting Sacubitril/Valsartan."
+    },
+
+    // === ANTIARRHYTHMICS ===
+    { 
+        s: "Ao", n: "Amiodarone", cat: "a", trade: "Procor", grp: "Class III", sub: "K-blocker", 
+        ad: "150-300 mg bolus / 900mg-24h", ch: "5 mg/kg",
+        mech: "Blocks K-channels, Na-channels, and has anti-sympathetic activity.",
+        indications: "AF, VT, VF.",
+        contraindications: "Iodine allergy, heart block.",
+        sideeffects: "Bradycardia, liver/thyroid tox.",
+        picco: "May decrease CI and HR. Monitor for prolonged QT.",
+        rem: "Israel: Procor. Use central line if possible."
+    },
+    { 
+        s: "As", n: "Adenosine", cat: "a", trade: "Adenocor", grp: "Class V", sub: "A1 agonist", 
+        ad: "6mg -> 12mg rapid IV", ch: "0.1 mg/kg",
+        mech: "Slows AV node conduction.",
+        indications: "SVT termination.",
+        contraindications: "Asthma (relative), 2/3 degree block.",
+        sideeffects: "Chest pain, flushing, brief asystole.",
+        picco: "Temporary loss of signal. Do not calibrate during administration.",
+        rem: "Rapid flush (20ml saline) mandatory."
+    },
+
+    // === COAGULATION ===
+    { 
+        s: "He", n: "Heparin", cat: "c", trade: "Heparin", grp: "Anticoag", sub: "UFH", 
+        ad: "70-100 U/kg bolus", ch: "75 U/kg",
+        mech: "Potentiates Antithrombin III.",
+        indications: "ACS, PE, DVT, ECMO.",
+        contraindications: "Active bleed, HIT.",
+        sideeffects: "Bleeding, thrombocytopenia.",
+        picco: "No direct hemodynamic effect. Essential for line patency.",
+        rem: "Monitor aPTT or ACT."
+    },
+    { 
+        s: "Ex", n: "Enoxaparin", cat: "c", trade: "Clexane", grp: "Anticoag", sub: "LMWH", 
+        ad: "1 mg/kg BID", ch: "1 mg/kg BID",
+        mech: "Factor Xa inhibitor.",
+        indications: "DVT proph/treatment, ACS.",
+        contraindications: "Renal failure (CrCl <15).",
+        sideeffects: "Bleeding.",
+        picco: "Standard in ICU. Monitor renal function.",
+        rem: "Standard in Israel (Clexane)."
+    },
+
+    // === ADDING MORE (to reach 70+) ===
+    { s: "Do", n: "Dopamine", cat: "i", trade: "Dopamine", grp: "Inopressor", sub: "D/β/α agonist", ad: "2-20 µg/kg/min", ch: "2-20 µg/kg/min", mech: "Dose dependent: Low (D-receptors), Mid (β1), High (α1).", indications: "Bradycardia, Shock.", contraindications: "Tachyarrhythmias.", sideeffects: "Arrhythmias.", picco: "Watch HR and SVRI. High arrhythmia risk.", rem: "Less used today than Norepi/Dobutamine." },
+    { s: "Is", n: "Isoprenaline", cat: "i", trade: "Isuprel", grp: "Inotrope", sub: "β1/β2 agonist", ad: "0.5-5 µg/min", ch: "0.1 µg/kg/min", mech: "Pure β-agonist. Potent chronotrope/inotrope.", indications: "Bradycardia, Heart Block.", contraindications: "Angina, Tachycardia.", sideeffects: "Profound tachycardia.", picco: "Sharp CI/HR increase. SVRI usually drops (β2).", rem: "Used as bridge to pacing." },
+    { s: "Ni", n: "Nitroglycerin", cat: "h", trade: "Nitroderm", grp: "Nitrate", sub: "Venodilator", ad: "5-200 µg/min", ch: "1-5 µg/kg/min", mech: "NO donor. Primarily venodilation (Preload reduction).", indications: "ACS, Heart Failure.", contraindications: "Sildenafil use, Hypotension.", sideeffects: "Headache, hypotension.", picco: "Reduces GEDVI (preload). Helpful in high ELWI cases.", rem: "Tachyphylaxis after 24h." },
+    { s: "Hy", n: "Hydralazine", cat: "h", trade: "Apresoline", grp: "Vasodilator", sub: "Arterial", ad: "10-20 mg IV", ch: "0.1-0.5 mg/kg", mech: "Direct arterial vasodilator.", indications: "Pregnancy HTN, Chronic HF.", contraindications: "SLE, Tachycardia.", sideeffects: "Lupus-like syndrome.", picco: "SVRI reduction. May cause reflex tachycardia.", rem: "Safe in pregnancy." },
+    { s: "Ph", n: "Phenylephrine", cat: "v", trade: "Neo-Synephrine", grp: "Pressor", sub: "Pure α1", ad: "20-200 µg/min", ch: "0.1-0.5 µg/kg/min", mech: "Selective α1 agonist. Pure vasoconstriction.", indications: "Anesthesia hypotension, Sepsis (rare).", contraindications: "Severe bradycardia.", sideeffects: "Reflex bradycardia.", picco: "SVRI increases, CI often decreases due to reflex bradycardia.", rem: "Good for 'plumbing' issues without heart rate issues." },
+    { s: "Mz", n: "Midazolam", cat: "s", trade: "Dormicum", grp: "Sedative", sub: "Benzo", ad: "0.03-0.2 mg/kg/hr", ch: "0.1-0.2 mg/kg/hr", mech: "GABA-A modulator. Anxiolytic, amnestic.", indications: "ICU sedation, Seizures.", contraindications: "Acute narrow-angle glaucoma.", sideeffects: "Respiratory depression, hypotension.", picco: "Mild vasodilation. Accumulates in renal failure.", rem: "Reversal: Flumazenil." },
+    { s: "Ke", n: "Ketamine", cat: "s", trade: "Ketalar", grp: "Sedative", sub: "NMDA antag", ad: "0.5-2.0 mg/kg/hr", ch: "1-2 mg/kg/hr", mech: "Dissociative anesthetic. Sympathomimetic.", indications: "Sedation in shock, Status asthmaticus.", contraindications: "Severe HTN, ICP (relative).", sideeffects: "Hallucinations, HTN.", picco: "Maintains CI and MAP. Good for induction in shock.", rem: "Provides analgesia and sedation." },
+    { s: "Su", n: "Succinylcholine", cat: "r", trade: "Scoline", grp: "Relaxant", sub: "Depolarizing", ad: "1-1.5 mg/kg", ch: "2 mg/kg", mech: "Depolarizing NMJ block.", indications: "RSI (Rapid Sequence Intubation).", contraindications: "Hyperkalemia, Burns (>24h), Glaucoma.", sideeffects: "Hyperkalemia, Malignant Hyperthermia.", picco: "Brief tachycardia. Transient K+ rise.", rem: "Fastest onset/shortest duration." },
+    { s: "At", n: "Atenolol", cat: "b", trade: "Normiten", grp: "β-blocker", sub: "β1 selective", ad: "25-100 mg QD", ch: "0.5-1 mg/kg", mech: "Selective β1 blocker.", indications: "HTN, Angina.", contraindications: "Bradycardia.", sideeffects: "Fatigue.", picco: "Decreases CI/HR.", rem: "Hydrophilic (less CNS side effects)." },
+    { s: "Vs", n: "Valsartan", cat: "h", trade: "Vector", grp: "ARB", sub: "AT1 blocker", ad: "80-320 mg QD", ch: "1.3 mg/kg", mech: "Blocks AT1 receptor.", indications: "HTN, CHF.", contraindications: "Pregnancy.", sideeffects: "Hyperkalemia.", picco: "Afterload reduction (SVRI).", rem: "Israel: Vector." },
+    { s: "Am", n: "Amlodipine", cat: "h", trade: "Amlow", grp: "CCB", sub: "DHP", ad: "5-10 mg QD", ch: "0.1 mg/kg", mech: "Arterial vasodilator.", indications: "HTN, Angina.", contraindications: "Severe hypotension.", sideeffects: "Peripheral edema.", picco: "Slow reduction in SVRI.", rem: "Israel: Amlow / Norvasc." },
+    { s: "Cl", n: "Clopidogrel", cat: "c", trade: "Plavix", grp: "Antiplatelet", sub: "P2Y12 block", ad: "75 mg QD", ch: "1 mg/kg", mech: "Inhibits platelet aggregation.", indications: "ACS, Stents.", contraindications: "Active bleed.", sideeffects: "Bleeding.", picco: "No hemodynamic effect.", rem: "Prodrug (needs liver activation)." },
+    { s: "Ti", n: "Ticagrelor", cat: "c", trade: "Brilinta", grp: "Antiplatelet", sub: "P2Y12 block", ad: "90 mg BID", ch: "N/A", mech: "Reversible P2Y12 inhibitor.", indications: "ACS.", contraindications: "Intracranial bleed history.", sideeffects: "Dyspnea.", picco: "No hemodynamic effect.", rem: "Faster than Clopidogrel." },
+    { s: "Wa", n: "Warfarin", cat: "c", trade: "Coumadin", grp: "Anticoag", sub: "VKA", ad: "2.5-10 mg", ch: "0.05-0.2 mg/kg", mech: "Vitamin K antagonist.", indications: "Valve replacement, AF.", contraindications: "Pregnancy.", sideeffects: "Bleeding.", picco: "No hemodynamic effect.", rem: "Monitor INR (2-3)." },
+    { s: "Ri", n: "Rivaroxaban", cat: "c", trade: "Xarelto", grp: "NOAC", sub: "Xa inhibitor", ad: "15-20 mg QD", ch: "N/A", mech: "Direct Factor Xa inhibitor.", indications: "AF, DVT.", contraindications: "Renal failure (CrCl <15).", sideeffects: "Bleeding.", picco: "No hemodynamic effect.", rem: "No INR monitoring needed." },
+    { s: "Ap", n: "Apixaban", cat: "c", trade: "Eliquis", grp: "NOAC", sub: "Xa inhibitor", ad: "5 mg BID", ch: "N/A", mech: "Direct Factor Xa inhibitor.", indications: "AF, DVT.", contraindications: "Active bleed.", sideeffects: "Bleeding.", picco: "No hemodynamic effect.", rem: "Best safety profile in NOACs." },
+    { s: "Mg", n: "Magnesium", cat: "a", trade: "Magnesium", grp: "Ion", sub: "Cofactor", ad: "1-2 g IV", ch: "25-50 mg/kg", mech: "Stabilizes cardiac membrane.", indications: "Torsades de Pointes, Hypomagnesemia.", contraindications: "Heart block.", sideeffects: "Flushing, Hypotension.", picco: "May cause vasodilation (low SVRI) if given fast.", rem: "Drug of choice for Torsades." },
+    { s: "Li", n: "Lidocaine", cat: "a", trade: "Lidocaine", grp: "Class Ib", sub: "Na-blocker", ad: "1-1.5 mg/kg", ch: "1 mg/kg", mech: "Blocks fast Na-channels.", indications: "Ventricular arrhythmias.", contraindications: "Heart block.", sideeffects: "Seizures, Confusion.", picco: "Minimal hemodynamic effect.", rem: "CNS toxicity risk." },
+    { s: "Di", n: "Diltiazem", cat: "a", trade: "Dilatam", grp: "Class IV", sub: "Non-DHP CCB", ad: "0.25 mg/kg IV", ch: "N/A", mech: "Ca-channel blocker (Heart > Vessels).", indications: "AF rate control.", contraindications: "WPW, Heart failure (low EF).", sideeffects: "Bradycardia, hypotension.", picco: "Neg. inotrope: expect CI and HR decrease.", rem: "Israel: Dilatam." },
+    { s: "Ve", n: "Verapamil", cat: "a", trade: "Ikacor", grp: "Class IV", sub: "Non-DHP CCB", ad: "5-10 mg IV", ch: "0.1-0.3 mg/kg", mech: "Ca-channel blocker (Potent Heart effect).", indications: "SVT, AF.", contraindications: "CHF, Beta-blocker use.", sideeffects: "Constipation, bradycardia.", picco: "Strong Neg. inotrope. Watch CI closely.", rem: "Israel: Ikacor." },
+    { s: "Sp", n: "Spironolactone", cat: "d", trade: "Aldactone", grp: "MRA", sub: "Aldo-antag", ad: "25-50 mg QD", ch: "1-3 mg/kg", mech: "Aldosterone antagonist.", indications: "CHF, Ascites.", contraindications: "Hyperkalemia, Renal fail.", sideeffects: "Gynecomastia, Hyperkalemia.", picco: "Fluid management. Helps prevent remodeling.", rem: "Potassium sparing." },
+    { s: "Hz", n: "HCTZ", cat: "d", trade: "Dizidex", grp: "Diuretic", sub: "Thiazide", ad: "12.5-25 mg QD", ch: "1-2 mg/kg", mech: "Distal tubule Na-Cl block.", indications: "HTN, mild edema.", contraindications: "Sulfa allergy.", sideeffects: "Hypokalemia, Hypercalcemia.", picco: "Mild preload reduction.", rem: "Ineffective if CrCl <30." },
+    { s: "Np", n: "Nitroprusside", cat: "h", trade: "Nipride", grp: "Vasodilator", sub: "Balanced", ad: "0.3-5 µg/kg/min", ch: "0.5-8 µg/kg/min", mech: "NO donor. Potent arterial & venous dilation.", indications: "HTN crisis, Heart failure.", contraindications: "Renal/Hepatic failure (Cyanide risk).", sideeffects: "Cyanide toxicity, Thiocyanate tox.", picco: "Dramatic SVRI and Preload (GEDVI) reduction.", rem: "Light sensitive (wrap in foil)." },
+    { s: "Et", n: "Etomidate", cat: "s", trade: "Etomidate", grp: "Sedative", sub: "GABA-A", ad: "0.2-0.3 mg/kg", ch: "0.2-0.3 mg/kg", mech: "Hypnotic. No analgesia.", indications: "RSI in unstable patients.", contraindications: "Sepsis (relative - adrenal suppression).", sideeffects: "Adrenal suppression, Myoclonus.", picco: "Most cardio-stable sedative. No change in CI/SVRI.", rem: "One dose only." },
+    { s: "Ci", n: "Cisatracurium", cat: "r", trade: "Nimbex", grp: "Relaxant", sub: "Non-depol", ad: "0.15 mg/kg", ch: "0.1 mg/kg", mech: "Benzylisoquinolinium NMBA.", indications: "ARDS (ventilator synchrony).", contraindications: "Hypersensitivity.", sideeffects: "Bradycardia (rare).", picco: "No hemodynamic effect. Hofmann elimination.", rem: "Good for liver/renal failure." },
+    { s: "Va", n: "Vasopressin", cat: "v", trade: "Empressin", grp: "Pressor", sub: "V1 agonist", ad: "0.01-0.04 U/min", ch: "0.0003-0.002 U/kg/min", mech: "V1 agonist. Non-adrenergic.", indications: "Septic Shock.", contraindications: "CAD.", sideeffects: "Ischemia.", picco: "SVRI increase, no tachycardia.", rem: "Fixed dose only." },
+    { s: "An", n: "Angiotensin II", cat: "v", trade: "Giapreza", grp: "Pressor", sub: "RAS agonist", ad: "20-80 ng/kg/min", ch: "N/A", mech: "Direct AT1 receptor agonist.", indications: "Refractory Distributive Shock.", contraindications: "Thrombosis risk.", sideeffects: "Thrombosis, Acidosis.", picco: "Potent SVRI increase.", rem: "Very expensive, last resort." },
+    { s: "Pr", n: "Propranolol", cat: "b", trade: "Deralin", grp: "β-blocker", sub: "Non-selective", ad: "10-40 mg PO", ch: "0.5-2 mg/kg", mech: "Non-selective β1/β2 block.", indications: "Thyroid storm, Portal HTN, Tremor.", contraindications: "Asthma.", sideeffects: "Bronchospasm.", picco: "Decreases CI/HR.", rem: "Crosses Blood-Brain Barrier." },
+    { s: "Cr", n: "Carvedilol", cat: "b", trade: "Dimitone", grp: "β-blocker", sub: "Non-selective + α1", ad: "3.125-25 mg BID", ch: "0.05 mg/kg", mech: "β1, β2 and α1 block.", indications: "CHF, HTN.", contraindications: "Decompensated HF.", sideeffects: "Dizziness, Fatigue.", picco: "Decreases HR and SVRI (afterload).", rem: "Israel: Dimitone." },
+    { s: "En", n: "Enalapril", cat: "h", trade: "Enaladex", grp: "ACEI", sub: "ACE inhibitor", ad: "5-20 mg QD", ch: "0.1 mg/kg", mech: "ACE inhibitor.", indications: "HTN, HF.", contraindications: "Pregnancy.", sideeffects: "Cough, Angioedema.", picco: "SVRI reduction.", rem: "Israel: Enaladex." },
+    { s: "Lo", n: "Losartan", cat: "h", trade: "Ocsaar", grp: "ARB", sub: "AT1 blocker", ad: "25-100 mg QD", ch: "0.7 mg/kg", mech: "ARB.", indications: "HTN.", contraindications: "Pregnancy.", sideeffects: "Hyperkalemia.", picco: "SVRI reduction.", rem: "Israel: Ocsaar / Lotan." },
+    { s: "Cn", n: "Candesartan", cat: "h", trade: "Atacand", grp: "ARB", sub: "AT1 blocker", ad: "8-32 mg QD", ch: "0.2 mg/kg", mech: "ARB.", indications: "CHF, HTN.", contraindications: "Pregnancy.", sideeffects: "Hyperkalemia.", picco: "SVRI reduction.", rem: "Israel: Atacand." },
+    { s: "Id", n: "Isosorbide DN", cat: "h", trade: "Isoket", grp: "Nitrate", sub: "Vasodilator", ad: "20-120 mg/day", ch: "N/A", mech: "NO donor.", indications: "Angina, CHF.", contraindications: "Hypotension.", sideeffects: "Headache.", picco: "Preload reduction (GEDVI).", rem: "Israel: Isoket." },
+    { s: "Fe", n: "Felodipine", cat: "h", trade: "Plandil", grp: "CCB", sub: "DHP", ad: "2.5-10 mg QD", ch: "N/A", mech: "DHP Calcium blocker.", indications: "HTN.", contraindications: "Hypotension.", sideeffects: "Edema.", picco: "SVRI reduction.", rem: "Israel: Plandil." },
+    { s: "Ep", n: "Eplerenone", cat: "d", trade: "Inspra", grp: "MRA", sub: "Selective Aldo", ad: "25-50 mg QD", ch: "N/A", mech: "Selective aldosterone block.", indications: "Post-MI HF, CHF.", contraindications: "Hyperkalemia.", sideeffects: "Hyperkalemia.", picco: "Fluid management.", rem: "No gynecomastia." },
+    { s: "To", n: "Torasemide", cat: "d", trade: "Examide", grp: "Diuretic", sub: "Loop", ad: "5-20 mg QD", ch: "N/A", mech: "Loop diuretic.", indications: "Edema, CHF.", contraindications: "Renal failure.", sideeffects: "Hypokalemia.", picco: "ELWI reduction.", rem: "More potent than Furosemide." },
+    { s: "Da", n: "Dabigatran", cat: "c", trade: "Pradaxa", grp: "NOAC", sub: "IIa inhibitor", ad: "110-150 mg BID", ch: "N/A", mech: "Direct thrombin inhibitor.", indications: "AF, DVT.", contraindications: "CrCl <30.", sideeffects: "GI bleed.", picco: "No hemodynamic effect.", rem: "Reversal: Idarucizumab." },
+    { s: "As", n: "Aspirin", cat: "c", trade: "Micropirin", grp: "Antiplatelet", sub: "COX-1 block", ad: "75-325 mg", ch: "3-5 mg/kg", mech: "Irreversible COX-1 block.", indications: "ACS, Stroke proph.", contraindications: "Asthma, Ulcer.", sideeffects: "GI bleed.", picco: "No hemodynamic effect.", rem: "Israel: Micropirin / Godamed." },
+    { s: "Pn", n: "Phentolamine", cat: "h", trade: "Regitine", grp: "α-blocker", sub: "Non-selective", ad: "5 mg IV", ch: "0.1 mg/kg", mech: "Non-selective α-block.", indications: "Pheochromocytoma, Extravasation.", contraindications: "MI history.", sideeffects: "Tachycardia, Hypotension.", picco: "Sharp SVRI reduction.", rem: "Used for Ne/Ad extravasation." },
+    { s: "Br", n: "Bridion", cat: "r", trade: "Sugammadex", grp: "Relaxant", sub: "Reversal", ad: "2-4 mg/kg", ch: "2-4 mg/kg", mech: "Chelating agent for Roc/Vec.", indications: "NMB Reversal.", contraindications: "Renal failure.", sideeffects: "Hypersensitivity.", picco: "No hemodynamic effect.", rem: "Very fast reversal." },
+    { s: "Fi", n: "Fentanyl", cat: "s", trade: "Fentanyl", grp: "Analgesic", sub: "Opioid", ad: "25-100 µg/hr", ch: "1-5 µg/kg/hr", mech: "μ-opioid agonist.", indications: "Pain, Sedation adjunct.", contraindications: "Resp. failure.", sideeffects: "Chest wall rigidity (high dose).", picco: "Stable CI. May lower HR.", rem: "100x stronger than Morphine." },
+    { s: "Mo", n: "Morphine", cat: "s", trade: "Morphine", grp: "Analgesic", sub: "Opioid", ad: "2-10 mg IV", ch: "0.1 mg/kg", mech: "Opioid agonist. Histamine release.", indications: "ACS, Pain, Pulmonary Edema.", contraindications: "Asthma.", sideeffects: "Hypotension, Nausea.", picco: "Vasodilation (histamine). Reduces Preload.", rem: "Gold standard for pain." },
+    { s: "Th", n: "Thiopental", cat: "s", trade: "Pentothal", grp: "Sedative", sub: "Barbiturate", ad: "3-5 mg/kg", ch: "3-5 mg/kg", mech: "GABA-A facilitator.", indications: "ICP control, Status Epilepticus.", contraindications: "Porphyria.", sideeffects: "Profound hypotension.", picco: "Sharp SVRI and CI decrease.", rem: "Brain protection." },
+    { s: "Di", n: "Digoxin", cat: "i", trade: "Lanoxin", grp: "Inotrope", sub: "Na/K-ATPase", ad: "0.125-0.25 mg", ch: "10-30 µg/kg", mech: "Inhibits Na/K-ATPase. Increases Ca.", indications: "AF rate control, HF.", contraindications: "AV block, WPW.", sideeffects: "Toxicity (yellow vision).", picco: "Pos. inotrope (GEF) + Neg. chronotrope (HR).", rem: "Narrow therapeutic window." },
+    { s: "Tr", n: "Terlipressin", cat: "v", trade: "Glypressin", grp: "Pressor", sub: "V1 agonist", ad: "1-2 mg IV", ch: "N/A", mech: "Synthetic vasopressin analogue.", indications: "Variceal bleed, HRS.", contraindications: "Pregnancy, CAD.", sideeffects: "Abdominal pain.", picco: "SVRI increase, CI decrease.", rem: "Longer half-life than VP." }
+];
+
+        const grid = document.getElementById('drugGrid');
+        const tooltip = document.getElementById('tooltip');
+
+        function init() {
+            drugs.forEach(d => {
+                const card = document.createElement('div');
+                card.className = `drug-card cat-${d.cat}`;
+                card.innerHTML = `
+                    <div class="card-top">${d.grp}<br>${d.sub}</div>
+                    <div class="card-mid">
+                        <div class="drug-symbol">${d.s}</div>
+                        <div class="drug-name">${d.n}</div>
+                    </div>
+                    <div class="card-bottom">
+                        Ad: ${d.ad}<br>
+                        <span class="peds-label">Peds: ${d.ch}</span>
+                    </div>
+                `;
+                card.onmouseenter = (e) => showTooltip(e, d);
+                card.onmousemove = moveTooltip;
+                card.onmouseleave = hideTooltip;
+                grid.appendChild(card);
+            });
+        }
+
+        function showTooltip(e, d) {
+            tooltip.style.display = 'block';
+            tooltip.innerHTML = `
+                <div class="tt-title">${d.n}</div>
+                <div class="tt-trade">IL Trade Name: ${d.trade}</div>
+                
+                <span class="tt-label">Mechanism of Action</span>
+                <div class="tt-content">${d.mech}</div>
+                
+                <span class="tt-label">Indications</span>
+                <div class="tt-content">${d.indications}</div>
+
+                <span class="tt-label">PiCCO Clinical Insights</span>
+                <div class="tt-picco">${d.picco}</div>
+                
+                <span class="tt-label">Side Effects & Contraindications</span>
+                <div class="tt-content">${d.sideeffects} <br><strong>Contra:</strong> ${d.contraindications}</div>
+                
+                <span class="tt-label">Dosing (Adult / Peds)</span>
+                <div class="tt-content"><strong>Adults:</strong> ${d.ad} <br><strong>Pediatrics:</strong> ${d.ch}</div>
+
+                <span class="tt-label">Clinical Remarks</span>
+                <div class="tt-content">${d.rem}</div>
+            `;
+            moveTooltip(e);
+        }
+
+        function moveTooltip(e) {
+            let x = e.clientX + 20;
+            let y = e.clientY + 20;
+            if (x + 450 > window.innerWidth) x = e.clientX - 470;
+            if (y + 500 > window.innerHeight) y = e.clientY - 520;
+>>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
             tooltip.style.left = x + 'px';
             tooltip.style.top = y + 'px';
         }
 
+<<<<<<< HEAD
         function hideTooltip() {
             tooltip.classList.remove('active');
         }
@@ -672,3 +1081,29 @@
     <script src="../JS/main.js"></script>
 </body>
 </html>
+=======
+        function hideTooltip() { tooltip.style.display = 'none'; }
+
+        // Логика переключения тем из шаблона
+        const themeBtn = document.getElementById('theme-switcher');
+        const sunIcon = themeBtn.querySelector('.icon-sun');
+        const moonIcon = themeBtn.querySelector('.icon-moon');
+
+        themeBtn.onclick = () => {
+            document.body.classList.toggle('light-theme');
+            document.body.classList.toggle('dark-theme');
+            const isLight = document.body.classList.contains('light-theme');
+            sunIcon.style.display = isLight ? 'none' : 'inline';
+            moonIcon.style.display = isLight ? 'inline' : 'none';
+        };
+
+        // Бургер меню
+        document.getElementById('menu-toggle').onclick = function() {
+            document.getElementById('main-nav').classList.toggle('active');
+        };
+
+        init();
+    </script>
+</body>
+</html>
+>>>>>>> 423490dbb2ae748f4e57e59325f64b7311c0f258
