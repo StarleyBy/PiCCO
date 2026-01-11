@@ -23,7 +23,7 @@
         }
 
         .periodic-table {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
             gap: 10px; padding: 20px;
             background: rgba(20, 20, 0.8);
             border: 3px solid #00ffff; border-radius: 10px;
@@ -64,7 +64,11 @@
         @media (max-width: 1200px) { .periodic-table { grid-template-columns: repeat(4, 1fr); } }
         
         @media (max-width: 768px) {
-            .periodic-table { grid-template-columns: repeat(2, 1fr); }
+            .periodic-table { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .element { padding: 8px; }
+            .element-label { font-size: 0.5em; line-height: 1.0; }
+            .element-symbol { font-size: 1.5em; }
+            .element-value { font-size: 0.55em; }
             .tooltip {
                 position: fixed; left: 50% !important; top: 50% !important;
                 transform: translate(-50%, -50%) !important;
