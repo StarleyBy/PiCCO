@@ -883,15 +883,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${drug.dangers ? `<div class="tooltip-section"><div class="tooltip-section-title">Dangers</div><div class="tooltip-section-content">${drug.dangers}</div></div>` : ''}
             `;
             
-            if (window.innerWidth > 768) {
-                updateTooltipPosition(e);
-            }
+            // Center the tooltip on screen
+            tooltip.style.left = '50%';
+            tooltip.style.top = '50%';
+            tooltip.style.transform = 'translate(-50%, -50%)';
             tooltip.classList.add('active');
         };
 
-        element.addEventListener('mouseenter', showTooltip);
-        element.addEventListener('mousemove', updateTooltipPosition);
-        element.addEventListener('mouseleave', hideTooltip);
+        // Tooltip is now only triggered by click
         element.addEventListener('click', (e) => {
             showTooltip(e);
             e.stopPropagation();
@@ -900,33 +899,9 @@ document.addEventListener('DOMContentLoaded', () => {
         table.appendChild(element);
     });
 
-    function updateTooltipPosition(e) {
-        if (window.innerWidth <= 768) return;
-        const margin = 20;
-        let x = e.clientX + margin;
-        let y = e.clientY + margin;
-        const rect = tooltip.getBoundingClientRect();
-        if (x + rect.width > window.innerWidth - margin) x = e.clientX - rect.width - margin;
-        if (y + rect.height > window.innerHeight - margin) y = e.clientY - rect.height - margin;
-        tooltip.style.left = x + 'px';
-        tooltip.style.top = y + 'px';
-    }
-
-    function hideTooltip() {
-        if (window.innerWidth > 768) {
-            tooltip.classList.remove('active');
-        }
-    }
-
     function forceHideTooltip() {
         tooltip.classList.remove('active');
     }
 
     closeTooltipBtn.addEventListener('click', forceHideTooltip);
-
-    document.addEventListener('click', (e) => {
-        if (!tooltip.contains(e.target) && !e.target.closest('.element')) {
-            forceHideTooltip();
-        }
-    });
 });

@@ -71,14 +71,18 @@ h1.page-title {
     word-break: break-word; /* Wrap long values */
 }
 
-/* Tooltip Styles from piccoworld.html */
+/* Tooltip Styles from piccoworld.html, modified for scroll and close button */
 .tooltip {
     position: fixed;
     background: rgba(10, 10, 10, 0.98);
     border: 2px solid;
     border-radius: 12px;
     padding: 20px;
-    max-width: 420px;
+    padding-top: 40px; /* Add padding to top to not overlap with close button */
+    max-width: 500px; /* A bit wider for better readability */
+    width: 90vw; /* Responsive width */
+    max-height: 85vh; /* Vertical size limit */
+    overflow-y: auto; /* Enable vertical scroll on overflow */
     z-index: 3000;
     pointer-events: none;
     opacity: 0;
@@ -86,6 +90,7 @@ h1.page-title {
     box-shadow: 0 0 40px currentColor;
     backdrop-filter: blur(10px);
     font-family: 'Lato', sans-serif;
+    /* Centering is now handled in JS, so no transform here */
 }
 
 .tooltip.active {
@@ -119,13 +124,14 @@ h1.page-title {
 }
 
 .close-tooltip {
-    display: none;
+    display: block; /* Always show the close button */
     position: absolute;
     top: 10px;
     right: 15px;
     color: #fff;
     font-size: 28px;
     cursor: pointer;
+    z-index: 3001; /* Ensure it's above content */
 }
 
 /* Responsive adjustments */
@@ -135,19 +141,9 @@ h1.page-title {
         gap: 8px;
     }
     .tooltip {
-        left: 50% !important;
-        top: 50% !important;
-        transform: translate(-50%, -50%) !important;
+        /* Styles are now combined in the main rule for consistency */
         width: 90vw;
         max-height: 80vh;
-        overflow-y: auto;
-        pointer-events: none;
-    }
-    .tooltip.active {
-        pointer-events: auto;
-    }
-    .close-tooltip {
-        display: block;
     }
     h1.page-title {
         font-size: 1.8em;
