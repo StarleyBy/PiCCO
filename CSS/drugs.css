@@ -1,0 +1,214 @@
+/* General Periodic Table Styles from piccoworld.html */
+.periodic-container {
+    max-width: 1600px; /* Increased max-width for more columns */
+    margin: 0 auto;
+}
+
+h1.page-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Responsive columns */
+    gap: 10px;
+    padding: 20px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 3px solid #00ffff;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+.element {
+    aspect-ratio: 1.1;
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden; /* Prevent text overflow */
+}
+
+.element:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 0 20px currentColor;
+}
+
+.element-label {
+    font-size: 0.65em;
+    line-height: 1.2;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    word-break: break-word; /* Wrap long labels */
+}
+
+.element-symbol {
+    font-size: 1.6em;
+    font-weight: 800;
+    text-align: center;
+    text-shadow: 0 0 10px currentColor;
+}
+
+.element-value {
+    font-size: 0.7em;
+    opacity: 0.8;
+    text-align: center;
+    font-style: italic;
+    word-break: break-word; /* Wrap long values */
+}
+
+/* Tooltip Styles from piccoworld.html */
+.tooltip {
+    position: fixed;
+    background: rgba(10, 10, 10, 0.98);
+    border: 2px solid;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 420px;
+    z-index: 3000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 0 40px currentColor;
+    backdrop-filter: blur(10px);
+    font-family: 'Lato', sans-serif;
+}
+
+.tooltip.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.tooltip-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 5px;
+}
+
+.tooltip-section {
+    margin-bottom: 12px;
+}
+
+.tooltip-section-title {
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-bottom: 3px;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+.tooltip-section-content {
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.close-tooltip {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .periodic-table {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 8px;
+    }
+    .tooltip {
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 90vw;
+        max-height: 80vh;
+        overflow-y: auto;
+        pointer-events: none;
+    }
+    .tooltip.active {
+        pointer-events: auto;
+    }
+    .close-tooltip {
+        display: block;
+    }
+    h1.page-title {
+        font-size: 1.8em;
+    }
+}
+
+
+/* Drug-specific colors from drugs.md */
+.norepinephrine     { background:#660033; color:#ff66b3; border-color:#ff66b3; }
+.epinephrine        { background:#330000; color:#ff0000; border-color:#ff0000; }
+.vasopressin        { background:#000066; color:#4da6ff; border-color:#4da6ff; }
+.phenylephrine      { background:#220044; color:#bb88ff; border-color:#bb88ff; }
+.angiotensin_ii     { background:#442200; color:#ffbb88; border-color:#ffbb88; }
+.dobutamine         { background:#336600; color:#b3ff66; border-color:#b3ff66; }
+.levosimendan       { background:#006666; color:#00ffff; border-color:#00ffff; }
+.milrinone          { background:#660066; color:#e600e6; border-color:#e600e6; }
+.dopamine           { background:#663333; color:#ffb3b3; border-color:#ffb3b3; }
+.isoproterenol      { background:#666600; color:#ffff66; border-color:#ffff66; }
+.enalapril          { background:#440044; color:#dd77dd; border-color:#dd77dd; }
+.ramipril           { background:#550055; color:#ee88ee; border-color:#ee88ee; }
+.losartan           { background:#2b442b; color:#b4dab9; border-color:#b4dab9; }
+.valsartan          { background:#3c553c; color:#c5ebca; border-color:#c5ebca; }
+.candesartan        { background:#4d664d; color:#d6fcdb; border-color:#d6fcdb; }
+.nicardipine        { background:#001a66; color:#6699ff; border-color:#6699ff; }
+.snitroprusside     { background:#003333; color:#00cccc; border-color:#00cccc; }
+.nitroglycerin      { background:#333300; color:#cccc00; border-color:#cccc00; }
+.urapidil           { background:#00442b; color:#11dd77; border-color:#11dd77; }
+.amiodarone         { background:#661a33; color:#e066ff; border-color:#e066ff; }
+.lidocaine          { background:#1a6600; color:#66ff99; border-color:#66ff99; }
+.adenosine          { background:#333333; color:#cccccc; border-color:#cccccc; }
+.verapamil          { background:#442b11; color:#f7c477; border-color:#f7c477; }
+.diltiazem          { background:#553c22; color:#ffd588; border-color:#ffd588; }
+.magnesium_sulfate  { background:#1a1a00; color:#d4af37; border-color:#d4af37; }
+.furosemide         { background:#663366; color:#ffb3ff; border-color:#ffb3ff; }
+.spironolactone     { background:#4d3300; color:#f0c05a; border-color:#f0c05a; }
+.propofol           { background:#331a4d; color:#bf99d4; border-color:#bf99d4; }
+.dexmedetomidine    { background:#001a1a; color:#00cccc; border-color:#00cccc; }
+.rocuronium         { background:#004d29; color:#66ffaa; border-color:#66ffaa; }
+.uf_heparin         { background:#29004d; color:#aa66ff; border-color:#aa66ff; }
+.enoxaparin         { background:#4d4d00; color:#ffff66; border-color:#ffff66; }
+.apixaban           { background:#3a5e11; color:#bbff77; border-color:#bbff77; }
+.hydralazine        { background:#66001a; color:#ff3366; border-color:#ff3366; }
+.hydrocortisone     { background:#1a4d00; color:#99e666; border-color:#99e666; }
+.albumin            { background:#663300; color:#ffd580; border-color:#ffd580; }
+.calcium            { background:#4d4d1a; color:#ffffcc; border-color:#ffffcc; }
+.sodium_bicarbonate { background:#004d33; color:#66ffc3; border-color:#66ffc3; }
+.methylene_blue     { background:#001a33; color:#0099cc; border-color:#0099cc; }
+.inono              { background:#1a3300; color:#80cc66; border-color:#80cc66; }
+.esmolol            { background:#004d4d; color:#00e6e6; border-color:#00e6e6; }
+.ivabradine         { background:#4d6600; color:#ccff66; border-color:#ccff66; }
+.digoxin            { background:#4d0066; color:#d6b3ff; border-color:#d6b3ff; }
+.clevidipine        { background:#330066; color:#b366ff; border-color:#b366ff; }
+.terlipressin       { background:#000033; color:#3366cc; border-color:#3366cc; }
+.tranexamic_acid    { background:#4d4d4d; color:#eeeeee; border-color:#eeeeee; }
+.pcc                { background:#4d294d; color:#ffaaee; border-color:#ffaaee; }
+.alteplase          { background:#002929; color:#66eeee; border-color:#66eeee; }
+.thiamine           { background:#4d1a00; color:#ffcc99; border-color:#ffcc99; }
+.insulin            { background:#33004d; color:#cc66e6; border-color:#cc66e6; }
+.potassium_magnesium{ background:#2b2b11; color:#e5c048; border-color:#e5c048; }
+.sacubitril_valsartan { background:#0b221a; color:#92b897; border-color:#92b897; }
+.empagliflozin      { background:#447744; color:#aaffee; border-color:#aaffee; }
+.finerenone         { background:#5e4411; color:#ffd16b; border-color:#ffd16b; }
+.atropine           { background:#115e5e; color:#11f7f7; border-color:#11f7f7; }
+.metoprolol         { background:#226f6f; color:#22ffff; border-color:#22ffff; }

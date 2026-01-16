@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drugs - PiCCO Online Manual</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <title>Common Drugs - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/main.css">
     <link rel="stylesheet" href="../CSS/print.css" media="print">
+    <link rel="stylesheet" href="../CSS/drugs.css">
 </head>
-<body>
+<body class="dark-theme"> <!-- Default to dark theme for the neon effect -->
     <div class="nav-overlay" id="nav-overlay"></div>
     <header class="main-header">
         <h1 class="site-title"><a href="../index.html" class="site-title"><span class="green-highlighted-oval-3d">PiCCO</span> - Online Manual</a></h1>
@@ -46,15 +48,24 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="simulation.html"><span class="gold-highlighted-oval-3d">Quiz 🎓</span></a></li>
                 <li><a href="piccoworld.html"><span class="green-highlighted-oval-3d">PiCCO</span> WORLD</a></li>
-                <li><a href="commondrugs.html"><span class="red-highlighted-oval-3d">Common 🧐</span> <span class="pink-highlighted-oval-3d">Drugs</span></a></li>
-                <li><a href="drugs.html" class="active">Drugs</a></li>
+                <li><a href="drugs.html"><span class="red-highlighted-oval-3d">Common 🧐</span> <span class="pink-highlighted-oval-3d">Drugs</span></a></li>
             </ul>
         </nav>
 
         <main class="main-content">
-            <h2>Drugs</h2>
-            <p>This page will contain information about drugs.</p>
+            <div class="periodic-container">
+                <h1 class="page-title">COMMON ICU DRUGS</h1>
+                <div class="periodic-table" id="periodicTable">
+                    <!-- Drug elements will be dynamically inserted here by JS -->
+                </div>
+            </div>
         </main>
+    </div>
+
+    <!-- Tooltip element -->
+    <div class="tooltip" id="tooltip">
+        <span class="close-tooltip" id="closeTooltip">×</span>
+        <div id="tooltipContent"></div>
     </div>
     
     <button class="theme-switcher" id="theme-switcher" aria-label="Toggle theme">
@@ -63,5 +74,7 @@
     </button>
     <script src="../JS/search.js"></script>
     <script src="../JS/main.js"></script>
+    <script src="../JS/drugs-builder.js"></script>
 
-</body></html>
+</body>
+</html>
