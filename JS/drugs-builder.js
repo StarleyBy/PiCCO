@@ -21,14 +21,14 @@ const drugs = {
     value: "0.01–0.5 µg/kg/min, IV",
     class: "epinephrine",
     description: "Non-selective α/β agonist → increases CI, SVRI, HR. β2 → lactate rise via aerobic glycolysis.",
-    mechanism: "Non-selective agonist at α1/α2 (vasoconstriction) and β1/β2 (inotropy, chronotropy, and bronchodilation) receptors. Increases cardiac index (CI) via β1-mediated contractility and heart rate, while boosting SVRI through α effects. β2 stimulation promotes aerobic glycolysis in skeletal muscle, leading to lactate production without true hypoxia.",
+    mechanism: "Non-selective agonist at α1/α2 (vasoconstriction, more than 0.3 mcg/kg/min) and β1/β2 (inotropy, chronotropy, and bronchodilation, less than 0.3 mcg/kg/min) receptors. Increases cardiac index (CI) via β1-mediated contractility and heart rate, while boosting SVRI through α effects. β2 stimulation promotes aerobic glycolysis in skeletal muscle, leading to lactate production without true hypoxia.",
     effects: "Second-line in septic shock when norepinephrine fails, cardiogenic shock with low output, post-cardiac surgery vasoplegia, anaphylaxis, and ACLS protocols for cardiac arrest (1 mg IV q3–5 min).",
     features: "Raises CI + SVRI simultaneously. Lactate rise ≠ tissue hypoxia — interpret carefully.",
     contraindications: "Uncontrolled tachyarrhythmias, severe ischemic heart disease (risk of demand ischemia), pheochromocytoma, and uncorrected hypovolemia.",
     duration: "Onset: immediate, duration: 1-5 minutes (continuous infusion required for sustained effect)",
     facts: "Often causes ‘false lactate’. Good rescue drug when norepinephrine insufficient.",
     advantages: "Epinephrine is a double-edged sword in the ICU—powerful rescue agent, but its arrhythmogenic potential demands vigilance. Always central line only; dilute in D5W or NS, but watch for oxidation (turns pink—discard). In kids, it's gold for neonatal shock but titrate meticulously to avoid tachycardia. From my experience, it shines in mixed shock states, but avoid as first-line in sepsis due to higher mortality signals in some trials. Interesting pearl: its lactate effect can mislead—pair with PiCCO for true perfusion insights. If adding to norepinephrine, start low to prevent overshoot.",
-    dangers: "Tachyarrhythmias (VT/VF), myocardial ischemia, hyperlactatemia (often 'false' from β2 effects), hyperglycemia, hypokalemia, and pulmonary edema if over-infused."
+    dangers: "Tachyarrhythmias (VT/VF), myocardial ischemia, hyperlactatemia (often 'false' from β2 effects), hyperglycemia, hypokalemia, and pulmonary edema if over-infused. If extravasation or inadvertent digital injection occurs, infiltrate the site with 10 to 15 mL of a saline solution containing 5 to 10 mg phentolamine."
   },
   vasopressin: {
     label: "Vasopressin / Empressin",
