@@ -1,12 +1,11 @@
 // Data object from drugs.md
 const drugs = {
   norepinephrine: {
-    label: "Norepinephrine / Noradrenalin, Levophed",
+    label: "Norepinephrine / Noradrenalin, Levophed / catecholamine, sympathomimetic, strong α1, moderate β1 + weak β2-adrenergic agonist",
     symbol: "Ne",
     value: "0.01–1.0 µg/kg/min",
-    class: "catecholamine, sympathomimetic, strong α1, moderate β1 + weak β2-adrenergic agonist",
-    metabolic: "Phenylalanine → Tyrosine → L-DOPA → Dopamine → Norepinephrine. Norepinephrine itself can further be converted into epinephrine by the enzyme phenylethanolamine N-methyltransferase with S-adenosyl-L-methionine as cofactor.",
-    description: "Potent α1-adrenergic agonist → marked systemic vasoconstriction, moderate β1 stimulation → mild increase in contractility. Minimal β2. Raises MAP primarily by increasing SVRI.",
+    class: "norepinephrine",
+    description: "Potent α1-adrenergic agonist → marked systemic vasoconstriction, moderate β1 stimulation → mild increase in contractility. Minimal β2. Raises MAP primarily by increasing SVRI. Metabolic: Phenylalanine → Tyrosine → L-DOPA → Dopamine → Norepinephrine. Norepinephrine itself can further be converted into epinephrine by the enzyme phenylethanolamine N-methyltransferase with S-adenosyl-L-methionine as cofactor.",
     mechanism: "Potent α1-adrenergic agonist causing marked systemic vasoconstriction via Gq-protein coupled receptors, with moderate β1 stimulation leading to mild increases in myocardial contractility and heart rate. Minimal β2 activity avoids significant vasodilation or bronchodilation. Primarily elevates mean arterial pressure (MAP) by increasing systemic vascular resistance index (SVRI), with secondary effects on cardiac index (CI) depending on preload status.",
     effects: "First-line vasopressor in septic shock, vasodilatory shock, peri-anesthetic hypotension, neurogenic shock from spinal cord injury, and as a bridge in cardiogenic shock when combined with inotropes.",
     features: "Primary SVRI driver. If CI drops → add inotrope. If ELWI rises → avoid excessive MAP targets.",
