@@ -1,9 +1,9 @@
 // Data object from drugs.md
 const drugs = {
   norepinephrine: {
-    label: "Norepinephrine / Noradrenalin, Levophed / catecholamine, sympathomimetic, strong α1, moderate β1 + weak β2-adrenergic agonist",
+    label: "Norepinephrine / Noradrenalin, Levophed / catecholamine, strong α1-adr. agonist",
     symbol: "Ne",
-    value: "0.01–1.0 µg/kg/min",
+    value: "0.01–1.0 µg/kg/min, IV",
     class: "norepinephrine",
     description: "Potent α1-adrenergic agonist → marked systemic vasoconstriction, moderate β1 stimulation → mild increase in contractility. Minimal β2. Raises MAP primarily by increasing SVRI. Metabolic: Phenylalanine → Tyrosine → L-DOPA → Dopamine → Norepinephrine. Norepinephrine itself can further be converted into epinephrine by the enzyme phenylethanolamine N-methyltransferase with S-adenosyl-L-methionine as cofactor.",
     mechanism: "Potent α1-adrenergic agonist causing marked systemic vasoconstriction via Gq-protein coupled receptors, with moderate β1 stimulation leading to mild increases in myocardial contractility and heart rate. Minimal β2 activity avoids significant vasodilation or bronchodilation. Primarily elevates mean arterial pressure (MAP) by increasing systemic vascular resistance index (SVRI), with secondary effects on cardiac index (CI) depending on preload status.",
@@ -16,9 +16,9 @@ const drugs = {
     dangers: "Peripheral ischemia leading to digital necrosis (especially in prolonged high-dose use), mesenteric ischemia, rare tachyarrhythmias, extravasation causing local tissue necrosis (treat with phentolamine infiltration), hypertension, and potential reflex bradycardia. Norepinephrine administration may be contraindicated for patients with hypotension secondary to cardiogenic mechanisms."
   },
   epinephrine: {
-    label: "Epinephrine / Adrenaline",
+    label: "Epinephrine / Adrenaline / catecholamine, non-selective α/β-adr. agonist",
     symbol: "Ad",
-    value: "0.01–0.5 µg/kg/min",
+    value: "0.01–0.5 µg/kg/min, IV",
     class: "epinephrine",
     description: "Non-selective α/β agonist → increases CI, SVRI, HR. β2 → lactate rise via aerobic glycolysis.",
     mechanism: "Non-selective agonist at α1/α2 (vasoconstriction) and β1/β2 (inotropy, chronotropy, and bronchodilation) receptors. Increases cardiac index (CI) via β1-mediated contractility and heart rate, while boosting SVRI through α effects. β2 stimulation promotes aerobic glycolysis in skeletal muscle, leading to lactate production without true hypoxia.",
