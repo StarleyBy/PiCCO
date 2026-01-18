@@ -48,8 +48,8 @@ h1.page-title {
 }
 
 .element-label {
-    font-size: 0.65em;
-    line-height: 1.2;
+    font-size: 0.35em;
+    line-height: 1.0;
     opacity: 0.9;
     text-transform: uppercase;
     font-weight: bold;
@@ -57,14 +57,14 @@ h1.page-title {
 }
 
 .element-symbol {
-    font-size: 1.6em;
+    font-size: 1.9em;
     font-weight: 800;
     text-align: center;
     text-shadow: 0 0 10px currentColor;
 }
 
 .element-value {
-    font-size: 0.7em;
+    font-size: 0.5em;
     opacity: 0.8;
     text-align: center;
     font-style: italic;
