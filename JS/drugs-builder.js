@@ -1,10 +1,11 @@
 // Data object from drugs.md
 const drugs = {
   norepinephrine: {
-    label: "Norepinephrine / Levophed",
+    label: "Norepinephrine / Noradrenalin, Levophed",
     symbol: "Ne",
     value: "0.01–1.0 µg/kg/min",
-    class: "norepinephrine",
+    class: "catecholamine, sympathomimetic, strong α1, moderate β1 + weak β2-adrenergic agonist",
+    metabolic: "Phenylalanine → Tyrosine → L-DOPA → Dopamine → Norepinephrine. Norepinephrine itself can further be converted into epinephrine by the enzyme phenylethanolamine N-methyltransferase with S-adenosyl-L-methionine as cofactor.",
     description: "Potent α1-adrenergic agonist → marked systemic vasoconstriction, moderate β1 stimulation → mild increase in contractility. Minimal β2. Raises MAP primarily by increasing SVRI.",
     mechanism: "Potent α1-adrenergic agonist causing marked systemic vasoconstriction via Gq-protein coupled receptors, with moderate β1 stimulation leading to mild increases in myocardial contractility and heart rate. Minimal β2 activity avoids significant vasodilation or bronchodilation. Primarily elevates mean arterial pressure (MAP) by increasing systemic vascular resistance index (SVRI), with secondary effects on cardiac index (CI) depending on preload status.",
     effects: "First-line vasopressor in septic shock, vasodilatory shock, peri-anesthetic hypotension, neurogenic shock from spinal cord injury, and as a bridge in cardiogenic shock when combined with inotropes.",
@@ -12,8 +13,8 @@ const drugs = {
     contraindications: "Uncorrected hypovolemia (always optimize preload first), severe peripheral or mesenteric ischemia, uncorrected tachyarrhythmias, and use with caution in patients with occlusive vascular disease.",
     duration: "Onset: 1-2 minutes, duration: 1-2 minutes after discontinuation (requires continuous infusion)",
     facts: "Surviving Sepsis Campaign: FIRST-LINE pressor. Less arrhythmogenic than dopamine, as shown in SOAP-II trial, with a mortality benefit in septic shock.",
-    advantages: "Always infuse via central venous access to prevent extravasation disasters; dilute in 5% dextrose (D5W) only, as it's incompatible with saline. Protect from light with foil-wrapped tubing. In pediatrics, watch for disproportionate hypertension in neonates due to immature receptors. High doses (>0.5 µg/kg/min) may impair microcirculation—consider adding vasopressin early. Target MAP ≥65 mmHg, but personalize for chronic hypertensives (aim 70–80). Fun fact: it's also called 'leave 'em dead' if you don't monitor closely!",
-    dangers: "Peripheral ischemia leading to digital necrosis (especially in prolonged high-dose use), mesenteric ischemia, rare tachyarrhythmias, extravasation causing local tissue necrosis (treat with phentolamine infiltration), hypertension, and potential reflex bradycardia."
+    advantages: "Always infuse via central venous access to prevent extravasation disasters; dilute in 5% dextrose (D5W) only, as it's incompatible with saline. Protect from light with foil-wrapped tubing. If possible, norepinephrine should be infused through intravenous lines not used for blood products. In pediatrics, watch for disproportionate hypertension in neonates due to immature receptors. High doses (>0.5 µg/kg/min) may impair microcirculation—consider adding vasopressin early. Target MAP ≥65 mmHg, but personalize for chronic hypertensives (aim 70–80). Fun fact: it's also called 'leave 'em dead' if you don't monitor closely!",
+    dangers: "Peripheral ischemia leading to digital necrosis (especially in prolonged high-dose use), mesenteric ischemia, rare tachyarrhythmias, extravasation causing local tissue necrosis (treat with phentolamine infiltration), hypertension, and potential reflex bradycardia. Norepinephrine administration may be contraindicated for patients with hypotension secondary to cardiogenic mechanisms."
   },
   epinephrine: {
     label: "Epinephrine / Adrenaline",
