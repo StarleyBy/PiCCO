@@ -2,7 +2,7 @@
 const drugs = {
   norepinephrine: {
     label: "Norepinephrine / Noradrenalin, Levophed / catecholamine, strong α1-adr. agonist",
-    symbol: "Ne",
+    symbol: "NE",
     value: "0.01–1.0 µg/kg/min, IV",
     class: "norepinephrine",
     description: "Potent α1-adrenergic agonist → marked systemic vasoconstriction, moderate β1 stimulation → mild increase in contractility. Minimal β2. Raises MAP primarily by increasing SVRI. Metabolic: Phenylalanine → Tyrosine → L-DOPA → Dopamine → Norepinephrine. Norepinephrine itself can further be converted into epinephrine by the enzyme phenylethanolamine N-methyltransferase with S-adenosyl-L-methionine as cofactor.",
@@ -17,7 +17,7 @@ const drugs = {
   },
   epinephrine: {
     label: "Epinephrine / Adrenaline / catecholamine, non-selective α/β-adr. agonist",
-    symbol: "Ad",
+    symbol: "Adr",
     value: "0.01–0.5 µg/kg/min, IV",
     class: "epinephrine",
     description: "Non-selective α/β agonist → increases CI, SVRI, HR. β2 → lactate rise via aerobic glycolysis.",
@@ -421,19 +421,32 @@ const drugs = {
     dangers: "Hypotension, PRIS (rhabdo, acidosis)."
   },
   dexmedetomidine: {
-    label: "Dexmedetomidine / Precedex",
-    symbol: "Dx",
-    value: "0.2–1.4 µg/kg/hr",
-    class: "dexmedetomidine",
-    description: "α2 agonist → cooperative sedation.",
-    mechanism: "Central α2 agonism for cooperative sedation without respiratory depression.",
-    effects: "ICU sedation, delirium prevention, procedural.",
-    features: "Bradycardia lowers CI.",
-    contraindications: "Bradycardia, heart block.",
-    duration: "Onset: 5-10 minutes, duration: 60 minutes.",
-    facts: "Does not suppress respiration.",
-    advantages: "Delirium buster—central line; no load in shock.",
-    dangers: "Bradycardia, hypotension."
+    
+label: "Dexmedetomidine / Precedex / α2-adreno-agonist",
+
+symbol: "DexMed",
+    
+value: "loading dose 0.5 to 1.0 mcg/kg, continuous 0.2–1.5 µg/kg/hr, IV, IM, IN",
+    
+class: "dexmedetomidine",
+    
+description: "α2 agonist → cooperative sedation, provides anxiolysis, sedation, and analgesia, sympatholytic properties",
+    
+mechanism: "Central α2 agonism for cooperative sedation without respiratory depression.",
+    
+effects: "ICU sedation, delirium prevention, procedural, mimics natural sleep and can be used safely without as much fear of the respiratory drive being affected; can be used alone or in combination with other sedative and analgesic medications to reduce the doses and associated side effects",
+    
+features: "The most common side effects are bradycardia and a biphasic effect of hypertension initially followed by hypotension.",
+    
+contraindications: "Bradycardia, heart block.",
+    
+duration: "Onset: 5-10 minutes, duration: 60 minutes.The manufacturer does not recommend durations longer than 24 hours; however, longer durations have been demonstrated as safe and effective.",
+    
+facts: "Does not suppress respiration. Dexmedetomidine is metabolized by the liver",
+    
+advantages: "Delirium buster—central line; no load in shock.",
+    
+dangers: "Bradycardia, hypotension."
   },
   rocuronium: {
     label: "Rocuronium / Esmeron",
