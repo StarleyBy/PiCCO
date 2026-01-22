@@ -320,6 +320,7 @@ const drugs = {
     symbol: "As",
     value: "6–12 mg rapid IV",
     class: "adenosine",
+    image: "adenosine-mechanism.png",
     description: "Transient AV node block.",
     mechanism: "Transient AV nodal block via hyperpolarization; half-life <10 sec.",
     effects: "Paroxysmal SVT termination, diagnostic for wide-complex tachycardia.",
