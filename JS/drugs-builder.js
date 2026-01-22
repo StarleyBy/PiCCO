@@ -879,29 +879,36 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         const showTooltip = (e) => {
-            const color = window.getComputedStyle(e.currentTarget).color;
-            tooltip.style.color = color;
-            tooltip.style.borderColor = color;
+    const color = window.getComputedStyle(e.currentTarget).color;
+    tooltip.style.color = color;
+    tooltip.style.borderColor = color;
 
-            tooltipContent.innerHTML = `
-                <div class="tooltip-title">${drug.symbol} - ${drug.label}</div>
-                ${drug.description ? `<div class="tooltip-section"><div class="tooltip-section-title">Description</div><div class="tooltip-section-content">${drug.description}</div></div>` : ''}
-                ${drug.mechanism ? `<div class="tooltip-section"><div class="tooltip-section-title">Mechanism</div><div class="tooltip-section-content">${drug.mechanism}</div></div>` : ''}
-                ${drug.effects ? `<div class="tooltip-section"><div class="tooltip-section-title">Clinical Use</div><div class="tooltip-section-content">${drug.effects}</div></div>` : ''}
-                ${drug.features ? `<div class="tooltip-section"><div class="tooltip-section-title">PiCCO Insights</div><div class="tooltip-section-content">${drug.features}</div></div>` : ''}
-                ${drug.contraindications ? `<div class="tooltip-section"><div class="tooltip-section-title">Contraindications</div><div class="tooltip-section-content">${drug.contraindications}</div></div>` : ''}
-                ${drug.duration ? `<div class="tooltip-section"><div class="tooltip-section-title">Onset & Duration</div><div class="tooltip-section-content">${drug.duration}</div></div>` : ''}
-                ${drug.facts ? `<div class="tooltip-section"><div class="tooltip-section-title">Key Facts</div><div class="tooltip-section-content">${drug.facts}</div></div>` : ''}
-                ${drug.advantages ? `<div class="tooltip-section"><div class="tooltip-section-title">Pearls & Tips</div><div class="tooltip-section-content">${drug.advantages}</div></div>` : ''}
-                ${drug.dangers ? `<div class="tooltip-section"><div class="tooltip-section-title">Dangers</div><div class="tooltip-section-content">${drug.dangers}</div></div>` : ''}
-            `;
-            
-            // Center the tooltip on screen
-            tooltip.style.left = '50%';
-            tooltip.style.top = '50%';
-            tooltip.style.transform = 'translate(-50%, -50%)';
-            tooltip.classList.add('active');
-        };
+    // Формируем HTML для изображения (если есть)
+    const imageHTML = drug.image 
+        ? `<div class="tooltip-image">
+             <img src="../images/${drug.image}" alt="${drug.symbol}" />
+           </div>` 
+        : '';
+
+    tooltipContent.innerHTML = `
+        <div class="tooltip-title">${drug.symbol} - ${drug.label}</div>
+        ${imageHTML}
+        ${drug.description ? `<div class="tooltip-section"><div class="tooltip-section-title">Description</div><div class="tooltip-section-content">${drug.description}</div></div>` : ''}
+        ${drug.mechanism ? `<div class="tooltip-section"><div class="tooltip-section-title">Mechanism</div><div class="tooltip-section-content">${drug.mechanism}</div></div>` : ''}
+        ${drug.effects ? `<div class="tooltip-section"><div class="tooltip-section-title">Clinical Use</div><div class="tooltip-section-content">${drug.effects}</div></div>` : ''}
+        ${drug.features ? `<div class="tooltip-section"><div class="tooltip-section-title">PiCCO Insights</div><div class="tooltip-section-content">${drug.features}</div></div>` : ''}
+        ${drug.contraindications ? `<div class="tooltip-section"><div class="tooltip-section-title">Contraindications</div><div class="tooltip-section-content">${drug.contraindications}</div></div>` : ''}
+        ${drug.duration ? `<div class="tooltip-section"><div class="tooltip-section-title">Onset & Duration</div><div class="tooltip-section-content">${drug.duration}</div></div>` : ''}
+        ${drug.facts ? `<div class="tooltip-section"><div class="tooltip-section-title">Key Facts</div><div class="tooltip-section-content">${drug.facts}</div></div>` : ''}
+        ${drug.advantages ? `<div class="tooltip-section"><div class="tooltip-section-title">Pearls & Tips</div><div class="tooltip-section-content">${drug.advantages}</div></div>` : ''}
+        ${drug.dangers ? `<div class="tooltip-section"><div class="tooltip-section-title">Dangers</div><div class="tooltip-section-content">${drug.dangers}</div></div>` : ''}
+    `;
+    
+    tooltip.style.left = '50%';
+    tooltip.style.top = '50%';
+    tooltip.style.transform = 'translate(-50%, -50%)';
+    tooltip.classList.add('active');
+};
 
         // Tooltip is now only triggered by click
         element.addEventListener('click', (e) => {
