@@ -208,3 +208,29 @@ h1.page-title {
 .finerenone         { background:#5e4411; color:#ffd16b; border-color:#ffd16b; }
 .atropine           { background:#115e5e; color:#11f7f7; border-color:#11f7f7; }
 .metoprolol         { background:#226f6f; color:#22ffff; border-color:#22ffff; }
+
+/* Стили для изображений в подсказках */
+.tooltip-image {
+    margin: 15px 0;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+}
+
+.tooltip-image img {
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .tooltip-image img {
+        max-height: 200px;
+    }
+}
