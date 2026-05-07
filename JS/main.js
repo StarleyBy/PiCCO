@@ -673,19 +673,32 @@ const languageSupport = {
         
         // For demonstration, we'll just log that translation would be triggered
         console.log(`Translation to ${targetLang} would be triggered`);
-    },
-    
     // Fallback to browser's own translation mechanism
     fallbackToBrowserTranslation: function(targetLang) {
         // Set the document's language attribute to trigger browser translation
         document.documentElement.lang = targetLang;
-        
+
         // Some browsers may recognize this as a signal to translate the page
         // Add a class to indicate translation state
         document.body.classList.add('browser-translation-mode');
     }
-};
+    };
 
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(error => {
+                console.log('ServiceWorker registration failed: ', error);
+            });
+    });
+    }
+
+    // Add CSS for language toggle button
+    const css = `
 // The language support initialization is now handled in the separate block after the original DOMContentLoaded
 
 // Add CSS for language toggle button

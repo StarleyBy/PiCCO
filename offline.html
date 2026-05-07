@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - PiCCO Online Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/main.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #fdfdfd;
+        }
+        .offline-container {
+            padding: 30px;
+            max-width: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        h1 { margin-top: 0; color: #2c3e50; }
+        p { color: #34495e; margin-bottom: 25px; }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #d4af37, #c0a133);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .icon-offline {
+            font-size: 64px;
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <span class="icon-offline">📡❌</span>
+        <h1>You are offline</h1>
+        <p>It seems you don't have an internet connection. Most of the manual sections you've already visited are available offline!</p>
+        <a href="index.html" class="btn">Go to Home Page</a>
+        <br><br>
+        <p>Or try the arcade game while you wait:</p>
+        <a href="Game/index.html" class="btn" style="background: #2c3e50;">Play PiCCO Arcade</a>
+    </div>
+</body>
+</html>
