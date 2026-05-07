@@ -1,34 +1,34 @@
 // Data object from drugs.md
 const drugs = {
   norepinephrine: {
-    label: "Norepinephrine / Levophed",
-    symbol: "Ne",
-    value: "0.01–1.0 µg/kg/min",
+    label: "Norepinephrine / Noradrenalin, Levophed / catecholamine, strong α1-adr. agonist",
+    symbol: "NE",
+    value: "0.01–1.0 µg/kg/min, IV",
     class: "norepinephrine",
-    description: "Potent α1-adrenergic agonist → marked systemic vasoconstriction, moderate β1 stimulation → mild increase in contractility. Minimal β2. Raises MAP primarily by increasing SVRI.",
+    description: "Potent α1-adrenergic agonist → marked systemic vasoconstriction, moderate β1 stimulation → mild increase in contractility. Minimal β2. Raises MAP primarily by increasing SVRI. Metabolic: Phenylalanine → Tyrosine → L-DOPA → Dopamine → Norepinephrine. Norepinephrine itself can further be converted into epinephrine by the enzyme phenylethanolamine N-methyltransferase with S-adenosyl-L-methionine as cofactor.",
     mechanism: "Potent α1-adrenergic agonist causing marked systemic vasoconstriction via Gq-protein coupled receptors, with moderate β1 stimulation leading to mild increases in myocardial contractility and heart rate. Minimal β2 activity avoids significant vasodilation or bronchodilation. Primarily elevates mean arterial pressure (MAP) by increasing systemic vascular resistance index (SVRI), with secondary effects on cardiac index (CI) depending on preload status.",
     effects: "First-line vasopressor in septic shock, vasodilatory shock, peri-anesthetic hypotension, neurogenic shock from spinal cord injury, and as a bridge in cardiogenic shock when combined with inotropes.",
     features: "Primary SVRI driver. If CI drops → add inotrope. If ELWI rises → avoid excessive MAP targets.",
     contraindications: "Uncorrected hypovolemia (always optimize preload first), severe peripheral or mesenteric ischemia, uncorrected tachyarrhythmias, and use with caution in patients with occlusive vascular disease.",
     duration: "Onset: 1-2 minutes, duration: 1-2 minutes after discontinuation (requires continuous infusion)",
     facts: "Surviving Sepsis Campaign: FIRST-LINE pressor. Less arrhythmogenic than dopamine, as shown in SOAP-II trial, with a mortality benefit in septic shock.",
-    advantages: "Always infuse via central venous access to prevent extravasation disasters; dilute in 5% dextrose (D5W) only, as it's incompatible with saline. Protect from light with foil-wrapped tubing. In pediatrics, watch for disproportionate hypertension in neonates due to immature receptors. High doses (>0.5 µg/kg/min) may impair microcirculation—consider adding vasopressin early. Target MAP ≥65 mmHg, but personalize for chronic hypertensives (aim 70–80). Fun fact: it's also called 'leave 'em dead' if you don't monitor closely!",
-    dangers: "Peripheral ischemia leading to digital necrosis (especially in prolonged high-dose use), mesenteric ischemia, rare tachyarrhythmias, extravasation causing local tissue necrosis (treat with phentolamine infiltration), hypertension, and potential reflex bradycardia."
+    advantages: "Always infuse via central venous access to prevent extravasation disasters; dilute in 5% dextrose (D5W) only, as it's incompatible with saline. Protect from light with foil-wrapped tubing. If possible, norepinephrine should be infused through intravenous lines not used for blood products. In pediatrics, watch for disproportionate hypertension in neonates due to immature receptors. High doses (>0.5 µg/kg/min) may impair microcirculation—consider adding vasopressin early. Target MAP ≥65 mmHg, but personalize for chronic hypertensives (aim 70–80). Fun fact: it's also called 'leave 'em dead' if you don't monitor closely!",
+    dangers: "Peripheral ischemia leading to digital necrosis (especially in prolonged high-dose use), mesenteric ischemia, rare tachyarrhythmias, extravasation causing local tissue necrosis (treat with phentolamine infiltration), hypertension, and potential reflex bradycardia. Norepinephrine administration may be contraindicated for patients with hypotension secondary to cardiogenic mechanisms."
   },
   epinephrine: {
-    label: "Epinephrine / Adrenaline",
-    symbol: "Ad",
-    value: "0.01–0.5 µg/kg/min",
+    label: "Epinephrine / Adrenaline / catecholamine, non-selective α/β-adr. agonist",
+    symbol: "Adr",
+    value: "0.01–0.5 µg/kg/min, IV",
     class: "epinephrine",
     description: "Non-selective α/β agonist → increases CI, SVRI, HR. β2 → lactate rise via aerobic glycolysis.",
-    mechanism: "Non-selective agonist at α1/α2 (vasoconstriction) and β1/β2 (inotropy, chronotropy, and bronchodilation) receptors. Increases cardiac index (CI) via β1-mediated contractility and heart rate, while boosting SVRI through α effects. β2 stimulation promotes aerobic glycolysis in skeletal muscle, leading to lactate production without true hypoxia.",
+    mechanism: "Non-selective agonist at α1/α2 (vasoconstriction, more than 0.3 mcg/kg/min) and β1/β2 (inotropy, chronotropy, and bronchodilation, less than 0.3 mcg/kg/min) receptors. Increases cardiac index (CI) via β1-mediated contractility and heart rate, while boosting SVRI through α effects. β2 stimulation promotes aerobic glycolysis in skeletal muscle, leading to lactate production without true hypoxia.",
     effects: "Second-line in septic shock when norepinephrine fails, cardiogenic shock with low output, post-cardiac surgery vasoplegia, anaphylaxis, and ACLS protocols for cardiac arrest (1 mg IV q3–5 min).",
     features: "Raises CI + SVRI simultaneously. Lactate rise ≠ tissue hypoxia — interpret carefully.",
     contraindications: "Uncontrolled tachyarrhythmias, severe ischemic heart disease (risk of demand ischemia), pheochromocytoma, and uncorrected hypovolemia.",
     duration: "Onset: immediate, duration: 1-5 minutes (continuous infusion required for sustained effect)",
     facts: "Often causes ‘false lactate’. Good rescue drug when norepinephrine insufficient.",
     advantages: "Epinephrine is a double-edged sword in the ICU—powerful rescue agent, but its arrhythmogenic potential demands vigilance. Always central line only; dilute in D5W or NS, but watch for oxidation (turns pink—discard). In kids, it's gold for neonatal shock but titrate meticulously to avoid tachycardia. From my experience, it shines in mixed shock states, but avoid as first-line in sepsis due to higher mortality signals in some trials. Interesting pearl: its lactate effect can mislead—pair with PiCCO for true perfusion insights. If adding to norepinephrine, start low to prevent overshoot.",
-    dangers: "Tachyarrhythmias (VT/VF), myocardial ischemia, hyperlactatemia (often 'false' from β2 effects), hyperglycemia, hypokalemia, and pulmonary edema if over-infused."
+    dangers: "Tachyarrhythmias (VT/VF), myocardial ischemia, hyperlactatemia (often 'false' from β2 effects), hyperglycemia, hypokalemia, and pulmonary edema if over-infused. If extravasation or inadvertent digital injection occurs, infiltrate the site with 10 to 15 mL of a saline solution containing 5 to 10 mg phentolamine."
   },
   vasopressin: {
     label: "Vasopressin / Empressin",
@@ -317,16 +317,17 @@ const drugs = {
   },
   adenosine: {
     label: "Adenosine / Adenocor",
-    symbol: "As",
+    symbol: "Ado",
     value: "6–12 mg rapid IV",
     class: "adenosine",
-    description: "Transient AV node block.",
+    image: "adenosine-mechanism.png",
+    description: "Transient AV node block, vasodilatation",
     mechanism: "Transient AV nodal block via hyperpolarization; half-life <10 sec.",
-    effects: "Paroxysmal SVT termination, diagnostic for wide-complex tachycardia.",
+    effects: "Paroxysmal SVT termination, diagnostic for wide-complex tachycardia. Although adenosine is a powerful vasodilator, especially in coronary circulation, it is not used as a vasodilator to treat coronary artery disease (short-acting, can produce coronary vascular steal. Adenosine's unique vasodilator properties, however, are utilized in cardiac imaging during stress tests to determine coronary fractional flow reserve (a measure of severity of coronary stenosis), and to assess pulmonary vasodilator responses in patients with pulmonary hypertension.",
     features: "No direct effect.",
-    contraindications: "Asthma (bronchospasm), WPW with AF (proarrhythmic).",
+    contraindications: "Asthma (bronchospasm), WPW with AF (proarrhythmic), in patients with preexisting second or third degree AV block",
     duration: "Onset: 20-30 seconds, duration: 10-20 seconds.",
-    facts: "Always flush FAST.",
+    facts: "Always flush FAST.Purine nucleoside. Dipyridamole is a vasodilator drug that blocks adenosine uptake by cells, reducing the metabolism of adenosine. Therefore, one significant mechanism for dipyridamole-induced vasodilation is its potentiation of extracellular adenosine.",
     advantages: "Push fast, flush faster—central line ideal. Pediatrics: SVT gold. Pearl: caffeine blocks it—ask history.",
     dangers: "Chest pain, flushing, dyspnea, asystole (brief)."
   },
@@ -421,19 +422,32 @@ const drugs = {
     dangers: "Hypotension, PRIS (rhabdo, acidosis)."
   },
   dexmedetomidine: {
-    label: "Dexmedetomidine / Precedex",
-    symbol: "Dx",
-    value: "0.2–1.4 µg/kg/hr",
-    class: "dexmedetomidine",
-    description: "α2 agonist → cooperative sedation.",
-    mechanism: "Central α2 agonism for cooperative sedation without respiratory depression.",
-    effects: "ICU sedation, delirium prevention, procedural.",
-    features: "Bradycardia lowers CI.",
-    contraindications: "Bradycardia, heart block.",
-    duration: "Onset: 5-10 minutes, duration: 60 minutes.",
-    facts: "Does not suppress respiration.",
-    advantages: "Delirium buster—central line; no load in shock.",
-    dangers: "Bradycardia, hypotension."
+    
+label: "Dexmedetomidine / Precedex / α2-adreno-agonist",
+
+symbol: "DexMed",
+    
+value: "loading dose 0.5 to 1.0 mcg/kg, continuous 0.2–1.5 µg/kg/hr, IV, IM, IN",
+    
+class: "dexmedetomidine",
+    
+description: "α2 agonist → cooperative sedation, provides anxiolysis, sedation, and analgesia, sympatholytic properties",
+    
+mechanism: "Central α2 agonism for cooperative sedation without respiratory depression.",
+    
+effects: "ICU sedation, delirium prevention, procedural, mimics natural sleep and can be used safely without as much fear of the respiratory drive being affected; can be used alone or in combination with other sedative and analgesic medications to reduce the doses and associated side effects",
+    
+features: "The most common side effects are bradycardia and a biphasic effect of hypertension initially followed by hypotension.",
+    
+contraindications: "Bradycardia, heart block.",
+    
+duration: "Onset: 5-10 minutes, duration: 60 minutes.The manufacturer does not recommend durations longer than 24 hours; however, longer durations have been demonstrated as safe and effective.",
+    
+facts: "Does not suppress respiration. Dexmedetomidine is metabolized by the liver",
+    
+advantages: "Delirium buster—central line; no load in shock.",
+    
+dangers: "Bradycardia, hypotension."
   },
   rocuronium: {
     label: "Rocuronium / Esmeron",
@@ -706,17 +720,18 @@ const drugs = {
     dangers: "Thrombosis."
   },
   alteplase: {
-    label: "Alteplase / Activase",
-    symbol: "tPA",
+    label: "Alteplase / Activase / recombinant human tissue-type plasminogen activator (rTPA)",
+    symbol: "rTPA",
     value: "100 mg IV",
     class: "alteplase",
+    image: "alteplase.jpeg",
     description: "Fibrin clot lysis",
     mechanism: "Converts plasminogen to plasmin for clot lysis.",
-    effects: "Massive PE, cardiac arrest PE",
+    effects: "Acute myocardial infarction, Acute pulmonary thromboembolism, Acute thromboembolic stroke",
     features: "Explosive CI recovery",
-    contraindications: "Bleed risk, recent surgery.",
-    duration: "Onset: 30-60 min, duration: 4-8 hours.",
-    facts: "When RV is dying",
+    contraindications: "Bleed risk, recent surgery, CNS trauma, severe uncontrolled hypertension.",
+    duration: "☞MI: ✹accelerated infusion (1-1/2 hr) - ≤67 kg: 15 mg IV bolus over 1-2 min, THEN 0.75 mg/kg IV infusion over 30 minutes (not to exceed 50 mg), and THEN 0.5 mg/kg IV over next 60 minutes (not to exceed 35 mg over 1 hr); >67 kg (100 mg total dose infused over 1.5 hr): 15 mg IVP bolus over 1-2 minutes, THEN 50 mg IV infusion over next 30 minutes, and THEN remaining 35 mg over next 60 minutes  Onset: 30-60 min, duration: 4-8 hours; ✹3-hr infusion - <65 kg: 0.075 mg/kg IVP bolus over 1-2 minutes, THEN 0.675 mg/kg infused over the rest of the first hr, THEN 0.25 mg/kg IV for the next 2 hr; ≥65 kg: (100 mg total dose infused over 3 hr): 6-10 mg IVP bolus over 1-2 minutes, THEN 50-54 mg infused over the rest of the first hr (ie, 60 mg in 1st hr including 6-10 mg bolus), THEN 20 mg/hr for the next 2 hr. ☞PE: 100 mg IV infused over 2 hr. ☞STROKE: 0.9 mg/kg IV; not to exceed 90 mg total dose; administer 10% of the total dose as an initial IV bolus over 1 minute and the remainder infused over 60 minutes. ☞CVC Occlusion: 2 mg in 2 mL instilled into occluded catheter, assess catheter function after 30 min of dwell time by attempting to aspirate blood; if unable to aspirate after 120 min dwell time, a 2nd dose may be administered and the process repeated, if catheter function restored, aspirate 4-5 mL blood to remove Activase and residual clot.",
+    facts: "When RV is dying. Coronary thrombolysis may result in reperfusion arrhythmias. Initial half-life: 5 minutes",
     advantages: "Effective clot dissolution, time-sensitive benefits.",
     dangers: "Major bleeding, especially intracranial hemorrhage."
   },
@@ -866,29 +881,36 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         const showTooltip = (e) => {
-            const color = window.getComputedStyle(e.currentTarget).color;
-            tooltip.style.color = color;
-            tooltip.style.borderColor = color;
+    const color = window.getComputedStyle(e.currentTarget).color;
+    tooltip.style.color = color;
+    tooltip.style.borderColor = color;
 
-            tooltipContent.innerHTML = `
-                <div class="tooltip-title">${drug.symbol} - ${drug.label}</div>
-                ${drug.description ? `<div class="tooltip-section"><div class="tooltip-section-title">Description</div><div class="tooltip-section-content">${drug.description}</div></div>` : ''}
-                ${drug.mechanism ? `<div class="tooltip-section"><div class="tooltip-section-title">Mechanism</div><div class="tooltip-section-content">${drug.mechanism}</div></div>` : ''}
-                ${drug.effects ? `<div class="tooltip-section"><div class="tooltip-section-title">Clinical Use</div><div class="tooltip-section-content">${drug.effects}</div></div>` : ''}
-                ${drug.features ? `<div class="tooltip-section"><div class="tooltip-section-title">PiCCO Insights</div><div class="tooltip-section-content">${drug.features}</div></div>` : ''}
-                ${drug.contraindications ? `<div class="tooltip-section"><div class="tooltip-section-title">Contraindications</div><div class="tooltip-section-content">${drug.contraindications}</div></div>` : ''}
-                ${drug.duration ? `<div class="tooltip-section"><div class="tooltip-section-title">Onset & Duration</div><div class="tooltip-section-content">${drug.duration}</div></div>` : ''}
-                ${drug.facts ? `<div class="tooltip-section"><div class="tooltip-section-title">Key Facts</div><div class="tooltip-section-content">${drug.facts}</div></div>` : ''}
-                ${drug.advantages ? `<div class="tooltip-section"><div class="tooltip-section-title">Pearls & Tips</div><div class="tooltip-section-content">${drug.advantages}</div></div>` : ''}
-                ${drug.dangers ? `<div class="tooltip-section"><div class="tooltip-section-title">Dangers</div><div class="tooltip-section-content">${drug.dangers}</div></div>` : ''}
-            `;
-            
-            // Center the tooltip on screen
-            tooltip.style.left = '50%';
-            tooltip.style.top = '50%';
-            tooltip.style.transform = 'translate(-50%, -50%)';
-            tooltip.classList.add('active');
-        };
+    // Формируем HTML для изображения (если есть)
+    const imageHTML = drug.image 
+        ? `<div class="tooltip-image">
+             <img src="../images/${drug.image}" alt="${drug.symbol}" />
+           </div>` 
+        : '';
+
+    tooltipContent.innerHTML = `
+        <div class="tooltip-title">${drug.symbol} - ${drug.label}</div>
+        ${imageHTML}
+        ${drug.description ? `<div class="tooltip-section"><div class="tooltip-section-title">Description</div><div class="tooltip-section-content">${drug.description}</div></div>` : ''}
+        ${drug.mechanism ? `<div class="tooltip-section"><div class="tooltip-section-title">Mechanism</div><div class="tooltip-section-content">${drug.mechanism}</div></div>` : ''}
+        ${drug.effects ? `<div class="tooltip-section"><div class="tooltip-section-title">Clinical Use</div><div class="tooltip-section-content">${drug.effects}</div></div>` : ''}
+        ${drug.features ? `<div class="tooltip-section"><div class="tooltip-section-title">PiCCO Insights</div><div class="tooltip-section-content">${drug.features}</div></div>` : ''}
+        ${drug.contraindications ? `<div class="tooltip-section"><div class="tooltip-section-title">Contraindications</div><div class="tooltip-section-content">${drug.contraindications}</div></div>` : ''}
+        ${drug.duration ? `<div class="tooltip-section"><div class="tooltip-section-title">Onset & Duration</div><div class="tooltip-section-content">${drug.duration}</div></div>` : ''}
+        ${drug.facts ? `<div class="tooltip-section"><div class="tooltip-section-title">Key Facts</div><div class="tooltip-section-content">${drug.facts}</div></div>` : ''}
+        ${drug.advantages ? `<div class="tooltip-section"><div class="tooltip-section-title">Pearls & Tips</div><div class="tooltip-section-content">${drug.advantages}</div></div>` : ''}
+        ${drug.dangers ? `<div class="tooltip-section"><div class="tooltip-section-title">Dangers</div><div class="tooltip-section-content">${drug.dangers}</div></div>` : ''}
+    `;
+    
+    tooltip.style.left = '50%';
+    tooltip.style.top = '50%';
+    tooltip.style.transform = 'translate(-50%, -50%)';
+    tooltip.classList.add('active');
+};
 
         // Tooltip is now only triggered by click
         element.addEventListener('click', (e) => {
