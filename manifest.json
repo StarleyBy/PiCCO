@@ -1,11 +1,12 @@
 {
   "name": "PiCCO Online Manual",
   "short_name": "PiCCO",
-  "description": "Interactive online manual for the PiCCO medical device.",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#fdfdfd",
-  "theme_color": "#2c3e50",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "any",
   "icons": [
     {
       "src": "icon-192.png",
