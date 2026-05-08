@@ -95,11 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
         element.addEventListener('touchstart', dragStart, { passive: false });
 
         function dragStart(e) {
-            // Check if clicking a button inside
-            if (e.target.tagName === 'BUTTON' && element.id === 'font-size-control' && e.type === 'mousedown') {
-                // Allow button click on desktop if not moving
-            }
-
             const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
             const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
 
@@ -131,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let newTop = element.offsetTop - pos2;
             let newLeft = element.offsetLeft - pos1;
 
-            // Viewport constraints
             const rect = element.getBoundingClientRect();
             const pad = 10;
             if (newTop < pad) newTop = pad;
@@ -154,13 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem(element.id + '-top', element.style.top);
             localStorage.setItem(element.id + '-left', element.style.left);
             
-            // Clean up drag flag after a short delay to allow clicks
             setTimeout(() => {
                 element.removeAttribute('data-dragged');
             }, 100);
         }
         
-        // Restore position
         const savedTop = localStorage.getItem(element.id + '-top');
         const savedLeft = localStorage.getItem(element.id + '-left');
         if (savedTop && savedLeft) {
@@ -177,6 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. Navigation / Sidebar logic
     const menuToggle = document.getElementById('menu-toggle');
     const mainNav = document.getElementById('main-nav');
+    const navOverlay = document.getElementById('nav-overlay');
+    
     if (menuToggle && mainNav && navOverlay) {
         menuToggle.addEventListener('click', () => {
             mainNav.classList.toggle('is-open');
