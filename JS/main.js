@@ -1,53 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Inject floating controls if they don't exist
-    if (!document.getElementById('theme-switcher')) {
-        const themeBtn = document.createElement('button');
-        themeBtn.id = 'theme-switcher';
-        themeBtn.className = 'theme-switcher';
-        themeBtn.setAttribute('aria-label', 'Toggle theme');
-        themeBtn.innerHTML = '<span class="icon-sun">☀️</span><span class="icon-moon">🌙</span>';
-        document.body.appendChild(themeBtn);
-    }
-
-    if (!document.getElementById('font-size-control')) {
-        const fontControl = document.createElement('div');
-        fontControl.id = 'font-size-control';
-        fontControl.className = 'font-size-control';
-        fontControl.innerHTML = `
-            <button id="font-decrease" aria-label="Decrease font size">
-                <span class="inner-text">A-</span>
-            </button>
-            <button id="font-increase" aria-label="Increase font size">
-                <span class="inner-text">A+</span>
-            </button>
-        `;
-        document.body.appendChild(fontControl);
-    }
-
-    // Mobile navigation
-    const menuToggle = document.getElementById('menu-toggle');
-    const mainNav = document.getElementById('main-nav');
-    const navOverlay = document.getElementById('nav-overlay');
-
-    if (menuToggle && mainNav && navOverlay) {
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('is-open');
-            navOverlay.classList.toggle('is-open');
-        });
-
-        navOverlay.addEventListener('click', () => {
-            mainNav.classList.remove('is-open');
-            navOverlay.classList.remove('is-open');
-        });
-    }
-
-    const themeSwitcher = document.getElementById('theme-switcher');
+    // 1. Core initialization logic
     const body = document.body;
 
+    // 2. Inject floating controls if missing
+    function injectControls() {
+        if (!document.getElementById('theme-switcher')) {
+            const themeBtn = document.createElement('button');
+            themeBtn.id = 'theme-switcher';
+            themeBtn.className = 'theme-switcher';
+            themeBtn.setAttribute('aria-label', 'Toggle theme');
+            themeBtn.innerHTML = '<span class="icon-sun">☀️</span><span class="icon-moon">🌙</span>';
+            document.body.appendChild(themeBtn);
+        }
+
+        if (!document.getElementById('font-size-control')) {
+            const fontControl = document.createElement('div');
+            fontControl.id = 'font-size-control';
+            fontControl.className = 'font-size-control';
+            fontControl.innerHTML = `
+                <button id="font-decrease" title="Уменьшить шрифт">
+                    <span class="inner-text">A-</span>
+                </button>
+                <button id="font-increase" title="Увеличить шрифт">
+                    <span class="inner-text">A+</span>
+                </button>
+            `;
+            document.body.appendChild(fontControl);
+        }
+    }
+    injectControls();
+
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const fontControl = document.getElementById('font-size-control');
+
+    // 3. Theme logic
     const applyTheme = (theme) => {
         const iconSun = document.querySelector('#theme-switcher .icon-sun');
         const iconMoon = document.querySelector('#theme-switcher .icon-moon');
-
         if (theme === 'dark') {
             body.setAttribute('data-theme', 'dark');
             if (iconSun) iconSun.style.display = 'none';
@@ -60,22 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const toggleTheme = () => {
-        const currentTheme = body.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-            localStorage.setItem('theme', 'light');
-            applyTheme('light');
-        } else {
-            localStorage.setItem('theme', 'dark');
-            applyTheme('dark');
-        }
+        const currentTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', currentTheme);
+        applyTheme(currentTheme);
     };
 
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    applyTheme(savedTheme);
+    applyTheme(localStorage.getItem('theme') || 'light');
 
     if (themeSwitcher) {
-        themeSwitcher.addEventListener('click', (e) => {
-            // Only toggle if not dragged
+        themeSwitcher.addEventListener('click', () => {
             if (themeSwitcher.getAttribute('data-dragged') === 'true') {
                 themeSwitcher.removeAttribute('data-dragged');
                 return;
@@ -84,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Font size adjustment
+    // 4. Font size logic
     let currentFontSize = parseInt(localStorage.getItem('fontSize')) || 16;
     const updateFontSize = (size) => {
         body.style.fontSize = size + 'px';
@@ -92,59 +74,54 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     updateFontSize(currentFontSize);
 
-    const fontIncrease = document.getElementById('font-increase');
-    const fontDecrease = document.getElementById('font-decrease');
+    document.getElementById('font-increase')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentFontSize += 1;
+        updateFontSize(currentFontSize);
+    });
 
-    if (fontIncrease) {
-        fontIncrease.addEventListener('click', (e) => {
-            e.stopPropagation();
-            currentFontSize += 1;
-            updateFontSize(currentFontSize);
-        });
-    }
+    document.getElementById('font-decrease')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentFontSize -= 1;
+        if (currentFontSize < 10) currentFontSize = 10;
+        updateFontSize(currentFontSize);
+    });
 
-    if (fontDecrease) {
-        fontDecrease.addEventListener('click', (e) => {
-            e.stopPropagation();
-            currentFontSize -= 1;
-            if (currentFontSize < 10) currentFontSize = 10;
-            updateFontSize(currentFontSize);
-        });
-    }
-
-    // Draggable functionality
+    // 5. Draggable logic with constraints
     const makeDraggable = (element) => {
         let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-        let isDragging = false;
         
-        element.onmousedown = dragStart;
-        element.ontouchstart = dragStart;
+        element.addEventListener('mousedown', dragStart);
+        element.addEventListener('touchstart', dragStart, { passive: false });
 
         function dragStart(e) {
-            e = e || window.event;
-            isDragging = false;
-            
+            // Check if clicking a button inside
+            if (e.target.tagName === 'BUTTON' && element.id === 'font-size-control' && e.type === 'mousedown') {
+                // Allow button click on desktop if not moving
+            }
+
             const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
             const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
 
             pos3 = clientX;
             pos4 = clientY;
-            document.onmouseup = dragEnd;
-            document.ontouchend = dragEnd;
-            document.onmousemove = dragMove;
-            document.ontouchmove = dragMove;
+            
+            document.addEventListener('mouseup', dragEnd);
+            document.addEventListener('touchend', dragEnd);
+            document.addEventListener('mousemove', dragMove);
+            document.addEventListener('touchmove', dragMove, { passive: false });
         }
 
         function dragMove(e) {
-            e = e || window.event;
-            const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
-            const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+            if (e.type === 'touchmove') e.preventDefault();
+            
+            const clientX = e.type === 'touchstart' || e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+            const clientY = e.type === 'touchstart' || e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
 
             pos1 = pos3 - clientX;
             pos2 = pos4 - clientY;
             
-            if (Math.abs(pos1) > 2 || Math.abs(pos2) > 2) {
-                isDragging = true;
+            if (Math.abs(pos1) > 5 || Math.abs(pos2) > 5) {
                 element.setAttribute('data-dragged', 'true');
             }
 
@@ -154,15 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
             let newTop = element.offsetTop - pos2;
             let newLeft = element.offsetLeft - pos1;
 
-            // Constrain to viewport
+            // Viewport constraints
             const rect = element.getBoundingClientRect();
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
-
-            if (newTop < 0) newTop = 0;
-            if (newLeft < 0) newLeft = 0;
-            if (newTop + rect.height > viewportHeight) newTop = viewportHeight - rect.height;
-            if (newLeft + rect.width > viewportWidth) newLeft = viewportWidth - rect.width;
+            const pad = 10;
+            if (newTop < pad) newTop = pad;
+            if (newLeft < pad) newLeft = pad;
+            if (newTop + rect.height > window.innerHeight - pad) newTop = window.innerHeight - rect.height - pad;
+            if (newLeft + rect.width > window.innerWidth - pad) newLeft = window.innerWidth - rect.width - pad;
 
             element.style.top = newTop + "px";
             element.style.left = newLeft + "px";
@@ -171,17 +146,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function dragEnd() {
-            document.onmouseup = null;
-            document.ontouchend = null;
-            document.onmousemove = null;
-            document.ontouchmove = null;
+            document.removeEventListener('mouseup', dragEnd);
+            document.removeEventListener('touchend', dragEnd);
+            document.removeEventListener('mousemove', dragMove);
+            document.removeEventListener('touchmove', dragMove);
             
-            // Save position
             localStorage.setItem(element.id + '-top', element.style.top);
             localStorage.setItem(element.id + '-left', element.style.left);
+            
+            // Clean up drag flag after a short delay to allow clicks
+            setTimeout(() => {
+                element.removeAttribute('data-dragged');
+            }, 100);
         }
         
-        // Load saved position
+        // Restore position
         const savedTop = localStorage.getItem(element.id + '-top');
         const savedLeft = localStorage.getItem(element.id + '-left');
         if (savedTop && savedLeft) {
@@ -193,125 +172,67 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (themeSwitcher) makeDraggable(themeSwitcher);
-    const fontControl = document.getElementById('font-size-control');
     if (fontControl) makeDraggable(fontControl);
 
-    // Interactive Diagram Tooltips (generalized)
+    // 6. Navigation / Sidebar logic
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    if (menuToggle && mainNav && navOverlay) {
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('is-open');
+            navOverlay.classList.toggle('is-open');
+        });
+        navOverlay.addEventListener('click', () => {
+            mainNav.classList.remove('is-open');
+            navOverlay.classList.remove('is-open');
+        });
+    }
+
+    if (mainNav && !document.getElementById('sidebar-toggle')) {
+        const sidebarToggle = document.createElement('button');
+        sidebarToggle.className = 'sidebar-toggle';
+        sidebarToggle.id = 'sidebar-toggle';
+        sidebarToggle.innerHTML = '«';
+        document.body.appendChild(sidebarToggle);
+        sidebarToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('collapsed');
+            sidebarToggle.classList.toggle('visible');
+            sidebarToggle.textContent = mainNav.classList.contains('collapsed') ? '»' : '«';
+        });
+    }
+
+    // 7. Interactive Elements logic
+    document.querySelectorAll('details').forEach(detail => {
+        detail.removeAttribute('open');
+    });
+
     document.querySelectorAll('map[name$="-map"]').forEach(mapElement => {
         const mapName = mapElement.getAttribute('name');
         const tooltipId = `diagram-tooltip-${mapName.replace('-map', '')}`;
         const tooltip = document.getElementById(tooltipId);
         const areas = mapElement.querySelectorAll('area');
-
         if (tooltip && areas.length > 0) {
             areas.forEach(area => {
-                area.addEventListener('mouseover', (e) => {
-                    const tooltipText = area.getAttribute('data-tooltip-text');
-                    if (tooltipText) {
-                        tooltip.innerHTML = tooltipText;
-                        tooltip.classList.add('is-active');
-                    }
+                area.addEventListener('mouseover', () => {
+                    const txt = area.getAttribute('data-tooltip-text');
+                    if (txt) { tooltip.innerHTML = txt; tooltip.classList.add('is-active'); }
                 });
-
                 area.addEventListener('mousemove', (e) => {
                     const img = document.querySelector(`img[usemap="#${mapName}"]`);
                     if (img) {
                         const wrapperRect = img.parentElement.getBoundingClientRect();
                         tooltip.style.left = (e.clientX - wrapperRect.left + 15) + 'px';
                         tooltip.style.top = (e.clientY - wrapperRect.top + 15) + 'px';
-                    } else {
-                         tooltip.style.left = e.pageX + 15 + 'px';
-                         tooltip.style.top = e.pageY + 15 + 'px';
                     }
                 });
-
-                area.addEventListener('mouseout', () => {
-                    tooltip.classList.remove('is-active');
-                });
+                area.addEventListener('mouseout', () => tooltip.classList.remove('is-active'));
             });
         }
-    });
-
-    // CI Calculator
-    const calculateCiBtn = document.getElementById('calculate-ci');
-    if (calculateCiBtn) {
-        calculateCiBtn.addEventListener('click', () => {
-            const heightInput = document.getElementById('height');
-            const weightInput = document.getElementById('weight');
-            const coInput = document.getElementById('co');
-            const resultDiv = document.getElementById('ci-result');
-
-            const height = parseFloat(heightInput.value);
-            const weight = parseFloat(weightInput.value);
-            const co = parseFloat(coInput.value);
-
-            if (height > 0 && weight > 0 && co > 0) {
-                const bsa = Math.sqrt((height * weight) / 3600);
-                const ci = co / bsa;
-                resultDiv.innerHTML = `Body Surface Area (BSA): ${bsa.toFixed(2)} m²<br>Cardiac Index (CI): ${ci.toFixed(2)} L/min/m²`;
-            } else {
-                resultDiv.innerHTML = "Please enter valid values for height, weight, and cardiac output.";
-            }
-        });
-    }
-
-    // Interactive Checklist
-    const setupChecklist = document.getElementById('setup-checklist');
-    if (setupChecklist) {
-        const checkboxes = setupChecklist.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach(checkbox => {
-            const savedState = localStorage.getItem(checkbox.id);
-            if (savedState === 'true') {
-                checkbox.checked = true;
-                checkbox.parentElement.classList.add('completed');
-            }
-        });
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', (e) => {
-                if (e.target.checked) {
-                    e.target.parentElement.classList.add('completed');
-                    localStorage.setItem(e.target.id, 'true');
-                } else {
-                    e.target.parentElement.classList.remove('completed');
-                    localStorage.setItem(e.target.id, 'false');
-                }
-            });
-        });
-    }
-
-    // Collapsible sidebar
-    const mainNavForSidebar = document.getElementById('main-nav');
-    if (mainNavForSidebar && !document.getElementById('sidebar-toggle')) {
-        const sidebarToggle = document.createElement('button');
-        sidebarToggle.className = 'sidebar-toggle';
-        sidebarToggle.id = 'sidebar-toggle';
-        sidebarToggle.innerHTML = '«';
-        sidebarToggle.title = 'Toggle sidebar';
-        document.body.appendChild(sidebarToggle);
-
-        sidebarToggle.addEventListener('click', () => {
-            mainNavForSidebar.classList.toggle('collapsed');
-            sidebarToggle.classList.toggle('visible');
-            sidebarToggle.textContent = mainNavForSidebar.classList.contains('collapsed') ? '»' : '«';
-        });
-        
-        const collapsedMenuIndicator = document.querySelector('.collapsed-menu-indicator');
-        if (collapsedMenuIndicator) {
-            collapsedMenuIndicator.addEventListener('click', () => {
-                mainNavForSidebar.classList.remove('collapsed');
-                sidebarToggle.classList.remove('visible');
-                sidebarToggle.textContent = '«';
-            });
-        }
-    }
-
-    document.querySelectorAll('details').forEach(detail => {
-        detail.removeAttribute('open');
     });
 });
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js');
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
     });
 }
