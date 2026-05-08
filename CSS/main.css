@@ -523,17 +523,18 @@ details > details {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  padding: 12px 18px;
+  padding: 8px 12px;
   background: var(--button-bg);
   color: var(--light-text-color);
   border: none;
   border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
+  cursor: move;
+  font-size: 0.9rem;
   font-weight: 600;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  transition: all 0.3s ease;
+  z-index: 1000;
+  transition: transform 0.3s ease, background 0.3s ease;
+  touch-action: none;
 }
 
 .theme-switcher:hover {
@@ -541,11 +542,45 @@ details > details {
   transform: translateY(-2px);
 }
 
-/* Theme icons */
-.icon-sun,
-.icon-moon {
-  font-size: 1.2rem; /* Adjust size as needed */
-  vertical-align: middle;
+/* Font size control diamond */
+.font-size-control {
+  position: fixed;
+  bottom: 80px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: var(--button-bg);
+  transform: rotate(45deg);
+  display: flex;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  cursor: move;
+  overflow: hidden;
+  border-radius: 4px;
+  touch-action: none;
+}
+
+.font-size-control button {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--light-text-color);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  transition: background 0.3s ease;
+}
+
+.font-size-control button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.font-size-control .inner-text {
+  transform: rotate(-45deg);
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 /* Initially hide moon icon in light mode */
