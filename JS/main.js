@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Inject floating controls if they don't exist
+    if (!document.getElementById('theme-switcher')) {
+        const themeBtn = document.createElement('button');
+        themeBtn.id = 'theme-switcher';
+        themeBtn.className = 'theme-switcher';
+        themeBtn.setAttribute('aria-label', 'Toggle theme');
+        themeBtn.innerHTML = '<span class="icon-sun">☀️</span><span class="icon-moon">🌙</span>';
+        document.body.appendChild(themeBtn);
+    }
+
+    if (!document.getElementById('font-size-control')) {
+        const fontControl = document.createElement('div');
+        fontControl.id = 'font-size-control';
+        fontControl.className = 'font-size-control';
+        fontControl.innerHTML = `
+            <button id="font-decrease" aria-label="Decrease font size">
+                <span class="inner-text">A-</span>
+            </button>
+            <button id="font-increase" aria-label="Increase font size">
+                <span class="inner-text">A+</span>
+            </button>
+        `;
+        document.body.appendChild(fontControl);
+    }
+
     // Mobile navigation
     const menuToggle = document.getElementById('menu-toggle');
     const mainNav = document.getElementById('main-nav');
@@ -19,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeSwitcher = document.getElementById('theme-switcher');
     const body = document.body;
 
-    // Function to apply theme
     const applyTheme = (theme) => {
         const iconSun = document.querySelector('#theme-switcher .icon-sun');
         const iconMoon = document.querySelector('#theme-switcher .icon-moon');
@@ -35,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Function to toggle theme
     const toggleTheme = () => {
         const currentTheme = body.getAttribute('data-theme');
         if (currentTheme === 'dark') {
@@ -47,13 +70,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Check saved theme on page load
     const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
 
-    // Attach handler to button
     if (themeSwitcher) {
-        themeSwitcher.addEventListener('click', toggleTheme);
+        themeSwitcher.addEventListener('click', (e) => {
+            // Only toggle if not dragged
+            if (themeSwitcher.getAttribute('data-dragged') === 'true') {
+                themeSwitcher.removeAttribute('data-dragged');
+                return;
+            }
+            toggleTheme();
+        });
     }
 
     // Font size adjustment
@@ -87,46 +115,62 @@ document.addEventListener('DOMContentLoaded', () => {
     // Draggable functionality
     const makeDraggable = (element) => {
         let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        let isDragging = false;
         
-        element.onmousedown = dragMouseDown;
-        element.ontouchstart = dragMouseDown;
+        element.onmousedown = dragStart;
+        element.ontouchstart = dragStart;
 
-        function dragMouseDown(e) {
+        function dragStart(e) {
             e = e || window.event;
-            // Only drag if not clicking a child button that should handle its own click
-            if (e.target.tagName === 'BUTTON' && !e.target.classList.contains('draggable-handle')) {
-                // If it's a click on the button itself, don't drag if we just want to click
-                // But we want the whole container to be draggable.
-            }
+            isDragging = false;
             
             const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
             const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
 
             pos3 = clientX;
             pos4 = clientY;
-            document.onmouseup = closeDragElement;
-            document.ontouchend = closeDragElement;
-            document.onmousemove = elementDrag;
-            document.ontouchmove = elementDrag;
+            document.onmouseup = dragEnd;
+            document.ontouchend = dragEnd;
+            document.onmousemove = dragMove;
+            document.ontouchmove = dragMove;
         }
 
-        function elementDrag(e) {
+        function dragMove(e) {
             e = e || window.event;
             const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
             const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
 
             pos1 = pos3 - clientX;
             pos2 = pos4 - clientY;
+            
+            if (Math.abs(pos1) > 2 || Math.abs(pos2) > 2) {
+                isDragging = true;
+                element.setAttribute('data-dragged', 'true');
+            }
+
             pos3 = clientX;
             pos4 = clientY;
             
-            element.style.top = (element.offsetTop - pos2) + "px";
-            element.style.left = (element.offsetLeft - pos1) + "px";
+            let newTop = element.offsetTop - pos2;
+            let newLeft = element.offsetLeft - pos1;
+
+            // Constrain to viewport
+            const rect = element.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            if (newTop < 0) newTop = 0;
+            if (newLeft < 0) newLeft = 0;
+            if (newTop + rect.height > viewportHeight) newTop = viewportHeight - rect.height;
+            if (newLeft + rect.width > viewportWidth) newLeft = viewportWidth - rect.width;
+
+            element.style.top = newTop + "px";
+            element.style.left = newLeft + "px";
             element.style.bottom = 'auto';
             element.style.right = 'auto';
         }
 
-        function closeDragElement() {
+        function dragEnd() {
             document.onmouseup = null;
             document.ontouchend = null;
             document.onmousemove = null;
@@ -172,7 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 area.addEventListener('mousemove', (e) => {
                     const img = document.querySelector(`img[usemap="#${mapName}"]`);
                     if (img) {
-                        const imgRect = img.getBoundingClientRect();
                         const wrapperRect = img.parentElement.getBoundingClientRect();
                         tooltip.style.left = (e.clientX - wrapperRect.left + 15) + 'px';
                         tooltip.style.top = (e.clientY - wrapperRect.top + 15) + 'px';
@@ -236,25 +279,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Add collapsible sidebar functionality
-    const sidebarToggle = document.createElement('button');
-    sidebarToggle.className = 'sidebar-toggle';
-    sidebarToggle.id = 'sidebar-toggle';
-    sidebarToggle.innerHTML = '«';
-    sidebarToggle.title = 'Toggle sidebar';
-    document.body.appendChild(sidebarToggle);
-
+    // Collapsible sidebar
     const mainNavForSidebar = document.getElementById('main-nav');
-    
-    if (mainNavForSidebar && sidebarToggle) {
+    if (mainNavForSidebar && !document.getElementById('sidebar-toggle')) {
+        const sidebarToggle = document.createElement('button');
+        sidebarToggle.className = 'sidebar-toggle';
+        sidebarToggle.id = 'sidebar-toggle';
+        sidebarToggle.innerHTML = '«';
+        sidebarToggle.title = 'Toggle sidebar';
+        document.body.appendChild(sidebarToggle);
+
         sidebarToggle.addEventListener('click', () => {
             mainNavForSidebar.classList.toggle('collapsed');
             sidebarToggle.classList.toggle('visible');
-            if (mainNavForSidebar.classList.contains('collapsed')) {
-                sidebarToggle.textContent = '»';
-            } else {
-                sidebarToggle.textContent = '«';
-            }
+            sidebarToggle.textContent = mainNavForSidebar.classList.contains('collapsed') ? '»' : '«';
         });
         
         const collapsedMenuIndicator = document.querySelector('.collapsed-menu-indicator');
@@ -272,15 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Register Service Worker for PWA
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            })
-            .catch(error => {
-                console.log('ServiceWorker registration failed: ', error);
-            });
+        navigator.serviceWorker.register('/sw.js');
     });
 }
